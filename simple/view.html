@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script   src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>1. Bundesliga</h1>
+        <h2>Season 16/17</h2>
+        <p> Spieltag
+            <select id="matchday" onchange="updateMatchday()">
+            </select> 
+        </p>
+        <div id="loading" hidden>Loading...</div>
+        <div id="details" hidden></div>
+
+        <script>
+            function init() {
+                for (let i=1;i<=34;++i) {
+                    $("#matchday").append("<option value=\""+i+"\">"+i+".</option>")
+                }
+            }
+
+            function show(data) {
+                let ul = $("<ul></ul>");
+                for (let i=0; i<data.length;++i) {
+                    const matchLabel = getMatchLabel(data[i]);
+                    ul.append($("<li>"+ matchLabel +"</li>"));
+                }
+                $("#details").empty();
+                $("#details").append(ul);
+                $("#loading").hide();
+                $("#details").show();
+            }
+
+            function getMatchLabel(match) {
+                const gameLabel = match.Team1.TeamName + " - " + match.Team2.TeamName;
+                const finalScore = match.MatchResults.find(x=>x.ResultName==="Endergebnis");
+                const gameScore = finalScore.PointsTeam1 + ":" + finalScore.PointsTeam2; 
+                const matchLabel = gameLabel + " " + gameScore;
+                return matchLabel
+            }
+            
+            function updateMatchday() {
+                $("#details").hide();
+                $("#loading").show();
+                const matchDay =  $("#matchday").val();
+                $.getJSON("https://www.openligadb.de/api/getmatchdata/bl1/2016/"+matchDay, () => console.log("success"))
+                .done((data)=>show(data))
+                .fail((error)=>console.error(error.text))
+                .always(()=>console.log("done"))
+            }
+
+            // main
+            init();
+            updateMatchday();
+
+        </script>
+    </body>
+</html>
