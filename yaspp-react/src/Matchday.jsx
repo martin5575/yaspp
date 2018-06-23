@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
 import DataService from "./DataService";
+import Match from "./Match";
 
-class Matchday extends Component {
+class MatchDay extends Component {
   state = { matchData: [] };
 
   componentWillMount() {
@@ -14,29 +15,8 @@ class Matchday extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.state.matchData.map(x => (
-          <div>
-            <div>
-              {x.Team1.TeamName} - {x.Team2.TeamName}
-            </div>
-            <div>
-              {
-                x.MatchResults.find(x => x.ResultName === "Endergebnis")
-                  .PointsTeam1
-              }
-              {" - "}
-              {
-                x.MatchResults.find(x => x.ResultName === "Endergebnis")
-                  .PointsTeam2
-              }
-            </div>
-          </div>
-        ))}
-      </div>
-    );
+    return <div>{this.state.matchData.map(x => <Match match={x} />)}</div>;
   }
 }
 
-export default Matchday;
+export default MatchDay;

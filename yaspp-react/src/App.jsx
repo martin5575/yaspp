@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import "./App.css";
-import Matchday from "./Matchday";
+import MatchDay from "./MatchDay";
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to YASPP [Yet Another SPorts Page]!</h2>
         </div>
-        <Matchday />
+        <MatchDay />
       </div>
     );
   }
