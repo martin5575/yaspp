@@ -5,17 +5,15 @@ import MatchResult from "././MatchResult";
 class Match extends Component {
   render() {
     return (
-      <div>
-        <div>
+      <div className="row">
+        <div className="col-sm-8 label">
           {this.props.match.Team1.TeamName} - {this.props.match.Team2.TeamName}
         </div>
-        <div>
-          <MatchResult
-            matchResult={this.props.match.MatchResults.find(
-              x => x.ResultName === "Endergebnis"
-            )}
-          />
-        </div>
+        <MatchResult
+          matchResult={this.props.match.MatchResults.find(
+            x => x.ResultName === "Endergebnis"
+          )}
+        />
       </div>
     );
   }

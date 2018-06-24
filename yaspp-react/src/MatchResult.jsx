@@ -4,7 +4,7 @@ import { Component } from "react";
 class MatchResult extends Component {
   render() {
     return (
-      <div>
+      <div className="col-sm-4">
         {this.props.matchResult.PointsTeam1} {" - "}
         {this.props.matchResult.PointsTeam2}
       </div>

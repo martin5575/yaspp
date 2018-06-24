@@ -9,15 +9,13 @@ class MatchDaySelector extends Component {
 
   render() {
     return (
-      <div>
-        <select onChange={this.change.bind(this)}>
-          {this.props.matchDays.map(x => (
-            <option value={x} key={x}>
-              {x}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select className="dropdown" onChange={this.change.bind(this)}>
+        {this.props.matchDays.map(x => (
+          <option value={x} key={x}>
+            {x}
+          </option>
+        ))}
+      </select>
     );
   }
 }
