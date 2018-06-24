@@ -36,15 +36,17 @@ class MatchDay extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <MatchDaySelector
-            callback={this.update.bind(this)}
-            matchDays={this.state.matchDays}
-            matchDay={this.state.selectedMatchDay}
-          />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-10">
+            <b>Matchday &nbsp;</b>
+            <MatchDaySelector
+              callback={this.update.bind(this)}
+              matchDays={this.state.matchDays}
+              matchDay={this.state.selectedMatchDay}
+            />
+          </div>
         </div>
-        <div>Matchday {this.state.selectedMatchDay}</div>
         <div>
           {this.state.matches.map(x => <Match match={x} key={x.MatchID} />)}
         </div>
