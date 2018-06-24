@@ -5,38 +5,48 @@ import Match from "./Match";
 import MatchDaySelector from "./MatchDaySelector";
 
 class MatchDay extends Component {
-  state = {
-    matchDay: 1,
-    matchData: []
-  };
+  constructor(props) {
+    super(props);
+
+    let matchDays = [];
+    for (let i = 1; i <= 34; ++i) {
+      matchDays.push(i);
+    }
+
+    this.state = {
+      selectedMatchDay: 1,
+      matchDays: matchDays,
+      matches: []
+    };
+  }
 
   componentWillMount() {
     this.update(1);
   }
 
   update(matchDay) {
-    //const matchDay = this.state.matchDay;
-    console.log(matchDay);
     const service = new DataService();
     service.getMatchDay("bl1", 2017, matchDay).then(res => {
-      const matchData = res.data;
-      this.setState({ matchData });
+      const matches = res.data;
+      let state = Object.assign({}, this.state);
+      state.matches = matches;
+      this.setState(state);
     });
   }
 
   render() {
-    console.log("render Matchday");
     return (
       <div>
         <div>
           <MatchDaySelector
             callback={this.update.bind(this)}
-            matchDay={this.state.matchDay}
+            matchDays={this.state.matchDays}
+            matchDay={this.state.selectedMatchDay}
           />
         </div>
-        <div>Matchday {this.state.matchDay}</div>
+        <div>Matchday {this.state.selectedMatchDay}</div>
         <div>
-          {this.state.matchData.map(x => <Match match={x} key={x.MatchID} />)}
+          {this.state.matches.map(x => <Match match={x} key={x.MatchID} />)}
         </div>
       </div>
     );
