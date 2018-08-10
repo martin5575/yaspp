@@ -27,7 +27,7 @@ class Matchs extends React.Component {
                   moment(m.lastUpdate).format('DD.MM.YY HH:mm:ss')
                 }
               >
-                <td className="col-xs-3">
+                <td className="col-xs-1">
                   {moment(m.matchDateTime).format('DD.MM HH:mm')}
                 </td>
                 <td className="col-xs-1">
@@ -37,9 +37,7 @@ class Matchs extends React.Component {
                     height={this.logoSize}
                     width={this.logoSize}
                   />
-                </td>
-                <td className="col-xs-1">:</td>
-                <td className="col-xs-1">
+                  &nbsp; : &nbsp;
                   <img
                     src={teams[m.teamAwayId].iconUrl}
                     alt={teams[m.teamAwayId].shortName}

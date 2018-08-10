@@ -120,9 +120,9 @@ class App extends Component {
     const relevantMatchDays = getMatchDays(state)
     const relevantMatchs = getMatchs(state)
     return (
-      <div className="container col-xs-8 col-xs-2-push">
+      <div className="container col-xs-8 col-xs-2-pull">
         <div className="row">
-          <div className="col-xs-5">
+          <div className="col-xs-8 col-xs-2-push">
             <select
               value={state.selectedLeague}
               className="form-control dropdown"
@@ -136,9 +136,7 @@ class App extends Component {
               ))}
             </select>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-xs-5">
+          <div className="col-xs-12">
             <select
               value={state.selectedYear}
               className="form-control dropdown"
