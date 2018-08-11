@@ -1,9 +1,58 @@
 import * as React from 'react'
 import { Component } from 'react'
+import {
+  dispatchSelectLeague,
+  dispatchFetchYears,
+  dispatchFetchMatchDays,
+  dispatchSelectMatchDay,
+  dispatchFetchMatchs,
+} from '../actions/ActionBuilderWithStore'
+import {
+  areSelectedMatchDaysPresent,
+  areSelectedMatchsPresent,
+} from '../utils/storeHelpers'
 
 class Navbar extends Component {
   constructor(props) {
     super(props)
+  }
+
+  update() {
+    this.forceUpdate()
+  }
+
+  componentWillMount() {
+    this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
+  }
+
+  async selectionChange(event) {
+    console.log(event.target.id)
+    const store = this.props.store
+    let state = store.getState()
+    dispatchSelectLeague(store, event.target.id)
+    dispatchFetchYears(store, event.target.id)
+
+    if (!areSelectedMatchDaysPresent(store)) {
+      state = store.getState()
+      dispatchFetchMatchDays(store, state.selectedLeague, state.selectedYear)
+    }
+    state = store.getState()
+    const selectedMatchDay = state.selectedMatchDay ? state.selectedMatchDay : 1
+    dispatchSelectMatchDay(store, selectedMatchDay)
+
+    if (!areSelectedMatchsPresent(store)) {
+      const state = store.getState()
+      dispatchFetchMatchs(
+        store,
+        state.selectedLeague,
+        state.selectedYear,
+        state.selectedMatchDay
+      )
+    }
   }
 
   render() {
@@ -13,7 +62,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
-          Navbar
+          {state.selectedLeague}
         </a>
         <button
           className="navbar-toggler"
@@ -29,46 +78,23 @@ class Navbar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+            {state.leagues.map((l) => (
+              <li
+                className={`nav-item ${
+                  l.id === state.selectedLeague ? 'active' : ''
+                }`}
+                key={l.id}
               >
-                Dropdown
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Action
+                <a
+                  className="nav-link"
+                  href="#"
+                  id={l.id}
+                  onClick={this.selectionChange.bind(this)}
+                >
+                  {l.name}
                 </a>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-                <div className="dropdown-divider" />
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </div>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="#">
-                Disabled
-              </a>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>

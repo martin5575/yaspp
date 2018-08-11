@@ -26,7 +26,6 @@ import { getMatchs, getYears, getMatchDays } from '../utils/filter'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
   }
 
   prevMatchDay = 'prevMatchDay'
@@ -37,6 +36,14 @@ class App extends Component {
     this.forceUpdate()
   }
 
+  componentWillMount() {
+    this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
+  }
+
   async componentDidMount() {
     const store = this.props.store
     dispatchFetchAll(store)
@@ -45,10 +52,6 @@ class App extends Component {
   async selectionChange(event) {
     const store = this.props.store
     let state = store.getState()
-    if (event.target.id === 'league') {
-      dispatchSelectLeague(store, event.target.value)
-      dispatchFetchYears(store, event.target.value)
-    }
     if (event.target.id === 'year') {
       dispatchSelectYear(store, state.selectedLeague, event.target.value)
     }
@@ -123,15 +126,6 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-7">
-            <DropDown
-              value={state.selectedLeague}
-              className="form-control dropdown"
-              onChange={this.selectionChange.bind(this)}
-              id="league"
-              data={state.leagues}
-            />
-          </div>
           <div className="col-xs-5">
             <DropDown
               value={state.selectedYear}
