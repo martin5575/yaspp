@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import Matchs from './Matchs'
-import DropDown from './components/DropDown'
+import DropDown from '../components/DropDown'
 
 import {
   dispatchFetchAll,
@@ -15,13 +15,13 @@ import {
   dispatchSelectMatchDay,
   dispatchSelectLeague,
   dispatchSelectYear,
-} from './ActionBuilderWithStore'
+} from '../actions/ActionBuilderWithStore'
 
 import {
   areSelectedMatchsPresent,
   areSelectedMatchDaysPresent,
-} from './storeHelpers'
-import { getMatchs, getYears, getMatchDays } from './filter'
+} from '../utils/storeHelpers'
+import { getMatchs, getYears, getMatchDays } from '../utils/filter'
 
 class App extends Component {
   constructor(props) {

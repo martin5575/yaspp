@@ -1,5 +1,5 @@
-import * as actions from './actions'
-import { existsMatchDay } from './filter'
+import * as actions from '../actions/actions'
+import { existsMatchDay } from '../utils/filter'
 
 /******************* State ******************/
 

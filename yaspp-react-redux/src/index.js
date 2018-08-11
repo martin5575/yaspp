@@ -5,7 +5,7 @@ import Root from './Root'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxThunk from 'redux-thunk'
 
-import { reducer } from './reducer'
+import { reducer } from './reducers'
 
 /******************* Create Store ******************/
 const thunk = ReduxThunk

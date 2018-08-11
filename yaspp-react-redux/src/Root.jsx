@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Component } from 'react'
-import App from './App'
-import Header from './Header'
-import Footer from './Footer'
+import App from './parts/App'
+import Header from './parts/Header'
+import Footer from './parts/Footer'
 
 class Root extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Root extends Component {
     const store = this.props.store
     return (
       <div>
-        <Header />
+        <Header store={store} />
         <App store={store} />
         <Footer />
       </div>

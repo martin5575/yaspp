@@ -26,7 +26,7 @@ import {
   mapMatchDay,
   mapTeam,
   mapTeamFromMatchs,
-} from './data'
+} from '../services/data'
 
 const dictionarize = function(array) {
   let result = {}

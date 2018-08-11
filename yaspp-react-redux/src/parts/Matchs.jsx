@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import './index.css'
 import './Matchs.css'
 
 class Matchs extends React.Component {

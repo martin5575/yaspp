@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import Navbar from '../components/Navbar'
 
 class Header extends Component {
   constructor(props) {
@@ -9,13 +10,8 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12 text-center">
-              <div style={{ fontSize: 'x-large' }}>Yet Another Sports Page</div>
-            </div>
-          </div>
-        </div>
+        <p className="text-center">Yet Another Sports Page</p>
+        <Navbar store={this.props.store} />
         <hr />
       </header>
     )
