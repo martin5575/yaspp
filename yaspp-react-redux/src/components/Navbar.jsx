@@ -61,7 +61,8 @@ class Navbar extends Component {
   async yearChange(event) {
     const store = this.props.store
     let state = store.getState()
-    dispatchSelectYear(store, state.selectedLeague, event.target.id)
+    const year = parseInt(event.target.id)
+    dispatchSelectYear(store, state.selectedLeague, year)
     if (!areSelectedMatchDaysPresent(store)) {
       state = store.getState()
       dispatchFetchMatchDays(store, state.selectedLeague, state.selectedYear)
@@ -94,7 +95,7 @@ class Navbar extends Component {
         <ListNavigator
           selection={state.selectedYear}
           data={relevantYears}
-          onChange={this.yearChange.bind(this)}
+          onSelect={this.yearChange.bind(this)}
         />
         <button
           className="navbar-toggler"
