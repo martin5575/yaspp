@@ -2,6 +2,12 @@ import * as actions from './actions'
 
 import * as service from '../services'
 import * as mapper from '../services/mapOpenLigaDB'
+import { existsMatchDay } from '../utils/filter'
+import {
+  getSelectedMatchDay,
+  getSelectedLeague,
+  getSelectedYear,
+} from '../reducers/selectors/uiSelector'
 
 const dictionarize = function(array) {
   let result = {}
@@ -13,7 +19,9 @@ const dictionarize = function(array) {
 }
 /******************* ActionBuilder ******************/
 
-function selectMatchDay(selectedMatchDay) {
+function selectMatchDay(state, selectedMatchDay) {
+  if (!existsMatchDay(state, selectedMatchDay))
+    selectedMatchDay = getSelectedMatchDay(state)
   return {
     type: actions.SelectMatchDay,
     selectedMatchDay,
@@ -180,10 +188,11 @@ function receiveYears(selectedLeague, json) {
 }
 
 function fetchYears(selectedLeague) {
+  if (selectedLeague === undefined)
+    throw new Error('selectedLeague is undefined')
   return function(dispatch) {
     dispatch(requestYears(selectedLeague))
     const years = service.getYears(selectedLeague)
-    console.log(years)
     dispatch(receiveYears(selectedLeague, years))
   }
 }
@@ -193,16 +202,16 @@ function fetchAll(store) {
     const leagues = service.getLeagues()
     dispatch(receiveLeagues(leagues))
     let state = store.getState()
-    const selectedLeague = state.selectedLeague
+    const selectedLeague = getSelectedLeague(state)
     dispatch(requestYears(selectedLeague))
     const years = service.getYears(selectedLeague)
     dispatch(receiveYears(selectedLeague, years))
     state = store.getState()
-    const selectedYear = state.selectedYear
+    const selectedYear = getSelectedYear(state)
     dispatch(fetchTeams(selectedLeague, selectedYear))
     dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
       let state = store.getState()
-      const selectedMatchDay = state.selectedMatchDay
+      const selectedMatchDay = getSelectedMatchDay(state)
       dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
     })
   }

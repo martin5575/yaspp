@@ -3,17 +3,16 @@ import { Component } from 'react'
 import {
   dispatchSelectLeague,
   dispatchFetchYears,
-  dispatchFetchMatchDays,
-  dispatchSelectMatchDay,
-  dispatchFetchMatchs,
   dispatchSelectYear,
+  updateMatchDaysIfNecessary,
 } from '../actions/ActionBuilderWithStore'
-import {
-  areSelectedMatchDaysPresent,
-  areSelectedMatchsPresent,
-} from '../utils/storeHelpers'
 import ListNavigator from './ListNavigator'
-import { getYears } from '../utils/filter'
+import { getSelectedYears } from '../utils/filter'
+import { getAllLeagues } from '../reducers/selectors/modelSelector'
+import {
+  getSelectedLeague,
+  getSelectedYear,
+} from '../reducers/selectors/uiSelector'
 
 class Navbar extends Component {
   update() {
@@ -31,67 +30,37 @@ class Navbar extends Component {
   async leagueChange(event) {
     console.log(event.target.id)
     const store = this.props.store
-    let state = store.getState()
     dispatchSelectLeague(store, event.target.id)
     dispatchFetchYears(store, event.target.id)
 
-    if (!areSelectedMatchDaysPresent(store)) {
-      state = store.getState()
-      dispatchFetchMatchDays(store, state.selectedLeague, state.selectedYear)
-    }
-    state = store.getState()
-    const selectedMatchDay = state.selectedMatchDay ? state.selectedMatchDay : 1
-    dispatchSelectMatchDay(store, selectedMatchDay)
-
-    if (!areSelectedMatchsPresent(store)) {
-      const state = store.getState()
-      dispatchFetchMatchs(
-        store,
-        state.selectedLeague,
-        state.selectedYear,
-        state.selectedMatchDay
-      )
-    }
+    updateMatchDaysIfNecessary(store)
   }
 
   async yearChange(id) {
     const store = this.props.store
     let state = store.getState()
     const year = parseInt(id, 10)
-    dispatchSelectYear(store, state.selectedLeague, year)
-    if (!areSelectedMatchDaysPresent(store)) {
-      state = store.getState()
-      dispatchFetchMatchDays(store, state.selectedLeague, state.selectedYear)
-    }
-    state = store.getState()
-    const selectedMatchDay = state.selectedMatchDay ? state.selectedMatchDay : 1
-    dispatchSelectMatchDay(store, selectedMatchDay)
-
-    if (!areSelectedMatchsPresent(store)) {
-      const state = store.getState()
-      dispatchFetchMatchs(
-        store,
-        state.selectedLeague,
-        state.selectedYear,
-        state.selectedMatchDay
-      )
-    }
+    const selectedLeague = getSelectedLeague(state)
+    dispatchSelectYear(store, selectedLeague, year)
+    updateMatchDaysIfNecessary(store)
   }
 
   render() {
     const store = this.props.store
     const state = store.getState()
-    const relevantYears = getYears(state)
-
+    const relevantYears = getSelectedYears(state)
+    const leagues = getAllLeagues(state)
+    const selectedLeague = getSelectedLeague(state)
+    const selectedYear = getSelectedYear(state)
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
-          {state.selectedLeague}
+          {selectedLeague}
         </a>
         <ListNavigator
           buttonStyles={'btn-sm btn-light'}
           bgStyles={'btn-light'}
-          selected={state.selectedYear}
+          selected={selectedYear}
           data={relevantYears}
           onSelect={this.yearChange.bind(this)}
         />
@@ -108,10 +77,10 @@ class Navbar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            {state.leagues.map((l) => (
+            {leagues.map((l) => (
               <li
                 className={`nav-item ${
-                  l.id === state.selectedLeague ? 'active' : ''
+                  l.id === selectedLeague ? 'active' : ''
                 }`}
                 key={l.id}
               >

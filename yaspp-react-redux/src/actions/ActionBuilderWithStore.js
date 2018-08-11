@@ -9,6 +9,15 @@ import {
   selectLeague,
   selectYear,
 } from './ActionBuilder'
+import {
+  areSelectedMatchDaysPresent,
+  areSelectedMatchsPresent,
+} from '../utils/storeHelpers'
+import {
+  getSelectedLeague,
+  getSelectedYear,
+  getSelectedMatchDay,
+} from '../reducers/selectors/uiSelector'
 
 /******************* ActionBuilder with store ******************/
 const dispatchFetchTeams = function(store, league, year) {
@@ -36,7 +45,7 @@ const dispatchFetchYears = function(store, league) {
 }
 
 const dispatchSelectMatchDay = function(store, matchDay) {
-  return store.dispatch(selectMatchDay(matchDay))
+  return store.dispatch(selectMatchDay(store.getState(), matchDay))
 }
 
 const dispatchSelectLeague = function(store, league) {
@@ -45,6 +54,32 @@ const dispatchSelectLeague = function(store, league) {
 
 const dispatchSelectYear = function(store, league, year) {
   return store.dispatch(selectYear(league, year))
+}
+
+const updateMatchDaysIfNecessary = (store) => {
+  let state = store.getState()
+  if (!areSelectedMatchDaysPresent(store)) {
+    state = store.getState()
+    dispatchFetchMatchDays(
+      store,
+      getSelectedLeague(state),
+      getSelectedYear(state)
+    )
+  }
+  state = store.getState()
+  let selectedMatchDay = getSelectedMatchDay(state)
+  selectedMatchDay = selectedMatchDay ? selectedMatchDay : 1
+  dispatchSelectMatchDay(store, selectedMatchDay)
+
+  if (!areSelectedMatchsPresent(store)) {
+    const state = store.getState()
+    dispatchFetchMatchs(
+      store,
+      getSelectedLeague(state),
+      getSelectedYear(state),
+      getSelectedMatchDay(state)
+    )
+  }
 }
 
 export {
@@ -57,4 +92,5 @@ export {
   dispatchSelectMatchDay,
   dispatchSelectLeague,
   dispatchSelectYear,
+  updateMatchDaysIfNecessary,
 }

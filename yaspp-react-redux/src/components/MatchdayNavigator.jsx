@@ -8,7 +8,12 @@ import {
 } from '../actions/ActionBuilderWithStore'
 
 import { areSelectedMatchsPresent } from '../utils/storeHelpers'
-import { getMatchDays } from '../utils/filter'
+import { getSelectedMatchDays } from '../utils/filter'
+import {
+  getSelectedLeague,
+  getSelectedYear,
+  getSelectedMatchDay,
+} from '../reducers/selectors/uiSelector'
 
 class MatchdayNavigator extends Component {
   onSelect(id) {
@@ -23,21 +28,23 @@ class MatchdayNavigator extends Component {
       const state = store.getState()
       dispatchFetchMatchs(
         store,
-        state.selectedLeague,
-        state.selectedYear,
-        state.selectedMatchDay
+        getSelectedLeague(state),
+        getSelectedYear(state),
+        getSelectedMatchDay(state)
       )
     }
   }
 
   render() {
-    const state = this.props.store.getState()
-    const relevantMatchDays = getMatchDays(state)
+    const store = this.props.store
+    const state = store.getState()
+    const relevantMatchDays = getSelectedMatchDays(state)
+    const selectedMatchDay = getSelectedMatchDay(state)
     return (
       <div className="mx-auto">
         <ListNavigator
           data={relevantMatchDays}
-          selected={state.selectedMatchDay}
+          selected={selectedMatchDay}
           onSelect={this.onSelect.bind(this)}
         />
       </div>

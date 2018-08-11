@@ -5,7 +5,16 @@ import Matchs from './Matchs'
 import MatchdayNavigator from '../components/MatchdayNavigator'
 
 import { dispatchFetchAll } from '../actions/ActionBuilderWithStore'
-import { getMatchs } from '../utils/filter'
+import { getSelectedMatchs } from '../utils/filter'
+import {
+  getIsInitializing,
+  getIsLoadingLeagues,
+  getIsLoadingYears,
+  getIsLoadingAllMatchDays,
+  getIsLoadingTeams,
+  getIsLoadingMatchDay,
+} from '../reducers/selectors/uiSelector'
+import { getAllTeams } from '../reducers/selectors/modelSelector'
 
 class App extends Component {
   update() {
@@ -28,33 +37,34 @@ class App extends Component {
   render() {
     const store = this.props.store
     const state = store.getState()
-    if (state.isInitializing) {
+    if (getIsInitializing(state)) {
       return <h2>Intializing...</h2>
     }
-    if (state.isLoadingLeagues) {
+    if (getIsLoadingLeagues(state)) {
       return <h2>Loading Leagues...</h2>
     }
-    if (state.isLoadingYears) {
+    if (getIsLoadingYears(state)) {
       return <h2>Loading Years...</h2>
     }
-    if (state.isLoadingAllMatchDays) {
+    if (getIsLoadingAllMatchDays(state)) {
       return <h2>Loading Matchdays...</h2>
     }
-    if (state.isLoadingTeams) {
+    if (getIsLoadingTeams(state)) {
       return <h2>Loading Teams...</h2>
     }
-    if (state.isLoadingMatchDay) {
+    if (getIsLoadingMatchDay(state)) {
       return <h2>Loading Matchs...</h2>
     }
     console.log('render normal')
-    const relevantMatchs = getMatchs(state)
+    const relevantMatchs = getSelectedMatchs(state)
+    const teams = getAllTeams(state)
     return (
       <div className="container">
         <div className="row">
           <MatchdayNavigator store={store} />
         </div>
         <div className="row">
-          <Matchs matchs={relevantMatchs} teams={state.teams} />
+          <Matchs matchs={relevantMatchs} teams={teams} />
         </div>
       </div>
     )
