@@ -10,6 +10,7 @@ import {
   areSelectedMatchDaysPresent,
 } from '../utils/storeHelpers'
 import { getMatchs, getYears, getMatchDays } from '../utils/filter'
+import MatchdayNavigator from '../components/MatchdayNavigator'
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <SelectNavigator store={store} />
+          <MatchdayNavigator store={store} />
         </div>
         <div className="row">
           <Matchs matchs={relevantMatchs} teams={state.teams} />
