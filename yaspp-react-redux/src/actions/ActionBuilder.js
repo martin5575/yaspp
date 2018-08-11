@@ -1,32 +1,7 @@
-import {
-  RequestLeagues,
-  RequestYears,
-  RequestTeams,
-  RequestMatchDays,
-  RequestMatchs,
-  ReceiveLeagues,
-  ReceiveYears,
-  ReceiveTeams,
-  ReceiveMatchDays,
-  ReceiveMatchs,
-  NextMatchDay,
-  PrevMatchDay,
-  SelectMatchDay,
-  SelectLeague,
-  SelectYear,
-} from './actions'
+import * as actions from './actions'
 
-import {
-  getTeams,
-  getLeagues,
-  getYears,
-  getMatchs,
-  getMatchDays,
-  mapMatch,
-  mapMatchDay,
-  mapTeam,
-  mapTeamFromMatchs,
-} from '../services/data'
+import * as service from '../services'
+import * as mapper from '../services/mapOpenLigaDB'
 
 const dictionarize = function(array) {
   let result = {}
@@ -39,30 +14,30 @@ const dictionarize = function(array) {
 /******************* ActionBuilder ******************/
 
 function nextMatchDay() {
-  return { type: NextMatchDay }
+  return { type: actions.NextMatchDay }
 }
 
 function prevMatchDay() {
-  return { type: PrevMatchDay }
+  return { type: actions.PrevMatchDay }
 }
 
 function selectMatchDay(selectedMatchDay) {
   return {
-    type: SelectMatchDay,
+    type: actions.SelectMatchDay,
     selectedMatchDay,
   }
 }
 
 function selectLeague(selectedLeague) {
   return {
-    type: SelectLeague,
+    type: actions.SelectLeague,
     selectedLeague,
   }
 }
 
 function selectYear(selectedLeague, selectedYear) {
   return {
-    type: SelectYear,
+    type: actions.SelectYear,
     selectedLeague,
     selectedYear,
   }
@@ -70,7 +45,7 @@ function selectYear(selectedLeague, selectedYear) {
 
 function requestMatchDays(selectedLeague, selectedYear) {
   return {
-    type: RequestMatchDays,
+    type: actions.RequestMatchDays,
     isLoadingMatchDays: true,
     selectedLeague,
     selectedYear,
@@ -79,26 +54,30 @@ function requestMatchDays(selectedLeague, selectedYear) {
 
 function receiveMatchDays(selectedLeague, selectedYear, json) {
   return {
-    type: ReceiveMatchDays,
+    type: actions.ReceiveMatchDays,
     isLoadingMatchDays: false,
     selectedLeague,
     selectedYear,
-    matchDays: json.map((x) => mapMatchDay(x, selectedLeague, selectedYear)),
+    matchDays: json.map((x) =>
+      mapper.mapMatchDay(x, selectedLeague, selectedYear)
+    ),
   }
 }
 
 function fetchMatchDays(selectedLeague, selectedYear) {
   return function(dispatch) {
     dispatch(requestMatchDays(selectedLeague, selectedYear))
-    return getMatchDays(selectedLeague, selectedYear).then((json) =>
-      dispatch(receiveMatchDays(selectedLeague, selectedYear, json))
-    )
+    return service
+      .getMatchDays(selectedLeague, selectedYear)
+      .then((json) =>
+        dispatch(receiveMatchDays(selectedLeague, selectedYear, json))
+      )
   }
 }
 
 function requestMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   return {
-    type: RequestMatchs,
+    type: actions.RequestMatchs,
     isLoadingMatchs: true,
     selectedLeague,
     selectedYear,
@@ -107,32 +86,33 @@ function requestMatchs(selectedLeague, selectedYear, selectedMatchDay) {
 }
 
 function receiveMatchs(selectedLeague, selectedYear, selectedMatchDay, json) {
-  const teams = mapTeamFromMatchs(json)
+  const teams = mapper.mapTeamFromMatchs(json)
   return {
-    type: ReceiveMatchs,
+    type: actions.ReceiveMatchs,
     isLoadingMatchs: false,
     selectedLeague,
     selectedYear,
     selectedMatchDay,
-    matchs: json.map((x) => mapMatch(x, selectedLeague, selectedYear)),
+    matchs: json.map((x) => mapper.mapMatch(x, selectedLeague, selectedYear)),
     teams,
   }
 }
 function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   return function(dispatch) {
     dispatch(requestMatchs(selectedLeague, selectedYear, selectedMatchDay))
-    return getMatchs(selectedLeague, selectedYear, selectedMatchDay).then(
-      (json) =>
+    return service
+      .getMatchs(selectedLeague, selectedYear, selectedMatchDay)
+      .then((json) =>
         dispatch(
           receiveMatchs(selectedLeague, selectedYear, selectedMatchDay, json)
         )
-    )
+      )
   }
 }
 
 function requestTeams(selectedLeague, selectedYear) {
   return {
-    type: RequestTeams,
+    type: actions.RequestTeams,
     isLoadingTeams: true,
     selectedLeague,
     selectedYear,
@@ -140,14 +120,14 @@ function requestTeams(selectedLeague, selectedYear) {
 }
 
 function receiveTeams(selectedLeague, selectedYear, json) {
-  const teamData = json.map((x) => mapTeam(x))
+  const teamData = json.map((x) => mapper.mapTeam(x))
   const teams = dictionarize(teamData)
   /*.reduce({},
     (x, y) => { x[y.id] = y console.log(x) return x }) */
 
   console.log(teams)
   return {
-    type: ReceiveTeams,
+    type: actions.ReceiveTeams,
     isLoadingTeams: false,
     selectedLeague,
     selectedYear,
@@ -158,7 +138,7 @@ function receiveTeams(selectedLeague, selectedYear, json) {
 function fetchTeams(selectedLeague, selectedYear) {
   return function(dispatch) {
     dispatch(requestTeams(selectedLeague, selectedYear))
-    const promise = getTeams(selectedLeague, selectedYear)
+    const promise = service.getTeams(selectedLeague, selectedYear)
     return (
       promise
         //.then(
@@ -172,12 +152,12 @@ function fetchTeams(selectedLeague, selectedYear) {
   }
 }
 function requestLeagues() {
-  return { type: RequestLeagues, isLoadingLeagues: true }
+  return { type: actions.RequestLeagues, isLoadingLeagues: true }
 }
 function receiveLeagues(json) {
   //console.log(json)
   return {
-    type: ReceiveLeagues,
+    type: actions.ReceiveLeagues,
     isLoadingLeagues: false,
     leagues: json.map((x) => x),
   }
@@ -185,13 +165,13 @@ function receiveLeagues(json) {
 function fetchLeagues() {
   return function(dispatch) {
     dispatch(requestLeagues())
-    const leagues = getLeagues()
+    const leagues = service.getLeagues()
     dispatch(receiveLeagues(leagues))
   }
 }
 function requestYears(selectedLeague) {
   return {
-    type: RequestYears,
+    type: actions.RequestYears,
     isLoadingYears: true,
     selectedLeague,
   }
@@ -201,7 +181,7 @@ function receiveYears(selectedLeague, json) {
   let yearsByLeague = {}
   yearsByLeague[selectedLeague] = years
   return {
-    type: ReceiveYears,
+    type: actions.ReceiveYears,
     selectedLeague: selectedLeague,
     isLoadingYears: false,
     yearsByLeague,
@@ -211,7 +191,7 @@ function receiveYears(selectedLeague, json) {
 function fetchYears(selectedLeague) {
   return function(dispatch) {
     dispatch(requestYears(selectedLeague))
-    const years = getYears(selectedLeague)
+    const years = service.getYears(selectedLeague)
     console.log(years)
     dispatch(receiveYears(selectedLeague, years))
   }
@@ -219,12 +199,12 @@ function fetchYears(selectedLeague) {
 function fetchAll(store) {
   return function(dispatch) {
     dispatch(requestLeagues())
-    const leagues = getLeagues()
+    const leagues = service.getLeagues()
     dispatch(receiveLeagues(leagues))
     let state = store.getState()
     const selectedLeague = state.selectedLeague
     dispatch(requestYears(selectedLeague))
-    const years = getYears(selectedLeague)
+    const years = service.getYears(selectedLeague)
     dispatch(receiveYears(selectedLeague, years))
     state = store.getState()
     const selectedYear = state.selectedYear

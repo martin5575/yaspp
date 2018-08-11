@@ -1,72 +1,3 @@
-/******************* Helper ******************/
-
-const memoize = function(f) {
-  let cache = {}
-  return function() {
-    const arg_str = JSON.stringify(arguments)
-    console.log(cache)
-    cache[arg_str] = cache[arg_str] || f.apply(f, arguments)
-    return cache[arg_str]
-  }
-}
-
-/******************* Data ******************/
-
-const leagues = [
-  {
-    id: 'bl1',
-    name: '1.Bundesliga',
-    key: 3005,
-    years: [2018, 2017, 2003],
-  },
-  {
-    id: 'bl2',
-    name: '2.Bundesliga',
-    years: [2018, 2017, 2016, 2015],
-  },
-  { id: 'bl3', name: '3.Bundesliga', years: [2018, 2017, 2016, 2015] },
-  { id: 'fifa18', name: 'WM18', years: [2018] },
-]
-
-function getLeagues() {
-  return leagues.map((x) => {
-    return { id: x.id, name: x.name }
-  })
-}
-
-function getYears(leagueId) {
-  const league = leagues.find((x) => x.id === leagueId)
-  if (!league) return []
-  return league.years.map((y) => {
-    return { id: y, name: y, leagueId }
-  })
-}
-
-const openligaBaseUrl = 'https://www.openligadb.de'
-function getTeams(league, year) {
-  const url = openligaBaseUrl + '/api/getavailableteams/' + league + '/' + year
-  //const url = './img/2018'
-  return fetch(url).then((x) => x.json())
-}
-function getMatchDays(league, year) {
-  const url = openligaBaseUrl + '/api/getavailablegroups/' + league + '/' + year
-  //const url = './img/2017'
-  return fetch(url).then((x) => x.json())
-}
-
-function getMatchs(league, year, matchday) {
-  const url =
-    openligaBaseUrl +
-    '/api/getmatchdata/' +
-    league +
-    '/' +
-    year +
-    '/' +
-    matchday
-  //const url = './img/8'
-  return fetch(url).then((x) => x.json())
-}
-
 /****************** Map open liga db data ******************/
 function mapMatch(olMatch, league, year) {
   const id = olMatch.MatchID
@@ -145,14 +76,4 @@ function mapMatchDay(olGroup, league, year) {
   return { id, name, key, league, year }
 }
 
-export {
-  getTeams,
-  getLeagues,
-  getYears,
-  getMatchs,
-  getMatchDays,
-  mapMatch,
-  mapMatchDay,
-  mapTeam,
-  mapTeamFromMatchs,
-}
+export { mapMatch, mapMatchDay, mapTeam, mapTeamFromMatchs }
