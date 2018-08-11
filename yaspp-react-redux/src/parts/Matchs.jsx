@@ -13,8 +13,8 @@ class Matchs extends React.Component {
     if (!matchs || matchs.length == 0 || !teams) return <div>empty</div>
 
     return (
-      <div>
-        <span className="label label-default align-left">
+      <div className="mx-auto">
+        <span className="badge badge-light align-left">
           {moment(matchs[0].matchDateTime).format('dddd DD.MM.YY')}
         </span>
         <table className="table">
