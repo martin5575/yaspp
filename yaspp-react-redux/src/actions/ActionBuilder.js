@@ -147,7 +147,6 @@ function requestLeagues() {
   return { type: actions.RequestLeagues, isLoadingLeagues: true }
 }
 function receiveLeagues(json) {
-  //console.log(json)
   return {
     type: actions.ReceiveLeagues,
     isLoadingLeagues: false,

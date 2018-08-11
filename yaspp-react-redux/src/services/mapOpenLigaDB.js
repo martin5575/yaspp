@@ -50,18 +50,15 @@ function mapTeam(olTeam) {
 }
 
 function mapTeamFromMatch(olMatch) {
-  //console.log(olMatch)
   const team1 = mapTeam(olMatch.Team1)
   const team2 = mapTeam(olMatch.Team2)
   return [team1, team2]
 }
 
 function mapTeamFromMatchs(olMatchs) {
-  //console.log(olMatchs.length)
   let teams = {}
   for (let i = 0; i < olMatchs.length; i++) {
     const twoTeams = mapTeamFromMatch(olMatchs[i])
-    //console.log(twoTeams)
     const t1 = twoTeams[0]
     teams[t1.id] = t1
     const t2 = twoTeams[1]
