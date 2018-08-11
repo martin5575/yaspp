@@ -11,10 +11,13 @@ class Matchs extends React.Component {
   render() {
     const matchs = this.props.matchs
     const teams = this.props.teams
-    if (!matchs || !teams) return <div>empty</div>
+    if (!matchs || matchs.length == 0 || !teams) return <div>empty</div>
 
     return (
       <div>
+        <span className="label label-default align-left">
+          {moment(matchs[0].matchDateTime).format('dddd DD.MM.YY')}
+        </span>
         <table className="table">
           <tbody>
             {matchs.map((m) => (
@@ -28,7 +31,7 @@ class Matchs extends React.Component {
                 }
               >
                 <td className="col-xs-1">
-                  {moment(m.matchDateTime).format('DD.MM HH:mm')}
+                  {moment(m.matchDateTime).format('HH:mm')}
                 </td>
                 <td className="col-xs-1">
                   <img
@@ -37,7 +40,9 @@ class Matchs extends React.Component {
                     height={this.logoSize}
                     width={this.logoSize}
                   />
-                  &nbsp; : &nbsp;
+                </td>
+                <td className="col-xs-1">:</td>
+                <td className="col-xs-1">
                   <img
                     src={teams[m.teamAwayId].iconUrl}
                     alt={teams[m.teamAwayId].shortName}

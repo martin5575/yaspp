@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import Matchs from './Matchs'
+import DropDown from './components/DropDown'
 
 import {
   dispatchFetchAll,
@@ -120,77 +121,58 @@ class App extends Component {
     const relevantMatchDays = getMatchDays(state)
     const relevantMatchs = getMatchs(state)
     return (
-      <div className="container col-xs-8 col-xs-2-pull">
+      <div className="container">
         <div className="row">
-          <div className="col-xs-8 col-xs-2-push">
-            <select
+          <div className="col-xs-7">
+            <DropDown
               value={state.selectedLeague}
               className="form-control dropdown"
               onChange={this.selectionChange.bind(this)}
               id="league"
-            >
-              {state.leagues.map((l) => (
-                <option value={l.id} key={l.id}>
-                  {l.name}
-                </option>
-              ))}
-            </select>
+              data={state.leagues}
+            />
           </div>
-          <div className="col-xs-12">
-            <select
+          <div className="col-xs-5">
+            <DropDown
               value={state.selectedYear}
               className="form-control dropdown"
               onChange={this.selectionChange.bind(this)}
               id="year"
-            >
-              {relevantYears.map((y) => (
-                <option value={y.id} key={y.id}>
-                  {y.name}
-                </option>
-              ))}
-            </select>
+              data={relevantYears}
+            />
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-1">
+          <div className="col-xs-2">
             <button
               className="btn form-control"
               id={this.prevMatchDay}
               onClick={this.matchDayChange.bind(this)}
             >
-              &lt;
+              {'<'}
             </button>
           </div>
           <div className="col-xs-8">
-            <select
+            <DropDown
               value={state.selectedMatchDay}
-              className="form-control dropdown"
               onChange={this.matchDayChange.bind(this)}
               id={this.selectMatchDay}
-            >
-              {relevantMatchDays.map((g) => (
-                <option value={g.id} key={g.id}>
-                  {g.name}
-                </option>
-              ))}
-            </select>
+              data={relevantMatchDays}
+            />
           </div>
-          <div className="col-xs-1">
+          <div className="col-xs-2">
             <button
               className="btn form-control"
               id={this.nextMatchDay}
               onClick={this.matchDayChange.bind(this)}
             >
-              &gt;
+              {'>'}
             </button>
           </div>
         </div>
-        <div className="row col-xs-8">
-          {state.matchs.length > 0
-            ? state.matchs[0].LeagueName
-            : 'Spieltaginfo'}
+        <div className="row">
+          <Matchs matchs={relevantMatchs} teams={state.teams} />
         </div>
-        <Matchs matchs={relevantMatchs} teams={state.teams} />
       </div>
     )
   }

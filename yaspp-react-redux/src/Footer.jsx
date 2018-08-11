@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import './Footer.css'
 
 class Footer extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Footer extends Component {
     return (
       <footer>
         <hr />
-        <div className="float-right">
+        <div className="text-right">
           <i style={divStyle}>
             Data provided by <a href="https://www.openligadb.de">Openliga DB</a>{' '}
           </i>
