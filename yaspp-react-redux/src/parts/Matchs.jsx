@@ -3,14 +3,11 @@ import './Matchs.css'
 import MatchsPerDay from './MatchsPerDay'
 
 class Matchs extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   logoSize = 20
   render() {
     const matchs = this.props.matchs
     const teams = this.props.teams
-    if (!matchs || matchs.length == 0 || !teams) return <div>empty</div>
+    if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
     const groupByMatchDay = matchs.reduce((result, x) => {
       const key = x.matchDateTime.substring(0, 10)

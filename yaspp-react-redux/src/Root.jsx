@@ -5,10 +5,6 @@ import Header from './parts/Header'
 import Footer from './parts/Footer'
 
 class Root extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const store = this.props.store
     return (

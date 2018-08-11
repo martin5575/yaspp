@@ -11,13 +11,9 @@ import { areSelectedMatchsPresent } from '../utils/storeHelpers'
 import { getMatchDays } from '../utils/filter'
 
 class MatchdayNavigator extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   onSelect(id) {
     const store = this.props.store
-    dispatchSelectMatchDay(store, parseInt(id))
+    dispatchSelectMatchDay(store, parseInt(id, 10))
     this.updateMatchs()
   }
 

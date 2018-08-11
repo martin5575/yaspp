@@ -4,9 +4,6 @@ import Match from './Match'
 import './MatchsPerDay.css'
 
 class MatchsPerDay extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   logoSize = 20
   render() {
     return (

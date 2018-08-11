@@ -16,10 +16,6 @@ import ListNavigator from './ListNavigator'
 import { getYears } from '../utils/filter'
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   update() {
     this.forceUpdate()
   }
@@ -61,7 +57,7 @@ class Navbar extends Component {
   async yearChange(id) {
     const store = this.props.store
     let state = store.getState()
-    const year = parseInt(id)
+    const year = parseInt(id, 10)
     dispatchSelectYear(store, state.selectedLeague, year)
     if (!areSelectedMatchDaysPresent(store)) {
       state = store.getState()

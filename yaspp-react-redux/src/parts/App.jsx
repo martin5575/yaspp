@@ -8,10 +8,6 @@ import { dispatchFetchAll } from '../actions/ActionBuilderWithStore'
 import { getMatchs } from '../utils/filter'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   update() {
     this.forceUpdate()
   }

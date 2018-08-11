@@ -67,9 +67,9 @@ function mapTeamFromMatchs(olMatchs) {
   return teams
 }
 function mapMatchDay(olGroup, league, year) {
-  const id = parseInt(olGroup.GroupOrderID)
+  const id = parseInt(olGroup.GroupOrderID, 10)
   const name = olGroup.GroupName
-  const key = parseInt(olGroup.GroupID)
+  const key = parseInt(olGroup.GroupID, 10)
   return { id, name, key, league, year }
 }
 

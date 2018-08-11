@@ -2,10 +2,6 @@ import * as React from 'react'
 import { Component } from 'react'
 
 class ListNavigator extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   onSelect(event) {
     this.props.onSelect(event.target.id)
   }

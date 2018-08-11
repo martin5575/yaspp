@@ -3,9 +3,6 @@ import moment from 'moment'
 import './Match.css'
 
 class Match extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   logoSize = 20
   render() {
     const match = this.props.match
