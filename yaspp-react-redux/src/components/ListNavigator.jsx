@@ -13,21 +13,16 @@ class ListNavigator extends Component {
   render() {
     console.log(this.props)
     if (!this.props.data) return <div />
-    const buttonStyles = 'btn-sm btn-light'
-    const bgStyles = 'btn-light'
+    const buttonStyles = this.props.buttonStyles ? this.props.buttonStyles : ''
+    const bgStyles = this.props.bgStyles ? this.props.bgStyles : ''
 
     const data = this.props.data
     const currentIndex = data.findIndex((x) => x.id === this.props.selected)
     const selectedItem = data[currentIndex]
-    console.log(currentIndex)
     const nextIndex = currentIndex + 1
     const prevIndex = currentIndex - 1
     const nextId = nextIndex < data.length ? data[nextIndex].id : undefined
     const prevId = prevIndex >= 0 ? data[prevIndex].id : undefined
-
-    console.log(this.props.selected)
-    console.log(nextId)
-    console.log(prevId)
 
     return (
       <div

@@ -93,6 +93,8 @@ class Navbar extends Component {
           {state.selectedLeague}
         </a>
         <ListNavigator
+          buttonStyles={'btn-sm btn-light'}
+          bgStyles={'btn-light'}
           selected={state.selectedYear}
           data={relevantYears}
           onSelect={this.yearChange.bind(this)}
