@@ -6,11 +6,14 @@ import {
   dispatchFetchMatchDays,
   dispatchSelectMatchDay,
   dispatchFetchMatchs,
+  dispatchSelectYear,
 } from '../actions/ActionBuilderWithStore'
 import {
   areSelectedMatchDaysPresent,
   areSelectedMatchsPresent,
 } from '../utils/storeHelpers'
+import ListNavigator from './ListNavigator'
+import { getYears } from '../utils/filter'
 
 class Navbar extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class Navbar extends Component {
     this.unsubscribe()
   }
 
-  async selectionChange(event) {
+  async leagueChange(event) {
     console.log(event.target.id)
     const store = this.props.store
     let state = store.getState()
@@ -55,15 +58,44 @@ class Navbar extends Component {
     }
   }
 
+  async yearChange(event) {
+    const store = this.props.store
+    let state = store.getState()
+    dispatchSelectYear(store, state.selectedLeague, event.target.id)
+    if (!areSelectedMatchDaysPresent(store)) {
+      state = store.getState()
+      dispatchFetchMatchDays(store, state.selectedLeague, state.selectedYear)
+    }
+    state = store.getState()
+    const selectedMatchDay = state.selectedMatchDay ? state.selectedMatchDay : 1
+    dispatchSelectMatchDay(store, selectedMatchDay)
+
+    if (!areSelectedMatchsPresent(store)) {
+      const state = store.getState()
+      dispatchFetchMatchs(
+        store,
+        state.selectedLeague,
+        state.selectedYear,
+        state.selectedMatchDay
+      )
+    }
+  }
+
   render() {
     const store = this.props.store
     const state = store.getState()
+    const relevantYears = getYears(state)
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
           {state.selectedLeague}
         </a>
+        <ListNavigator
+          selection={state.selectedYear}
+          data={relevantYears}
+          onChange={this.yearChange.bind(this)}
+        />
         <button
           className="navbar-toggler"
           type="button"
@@ -75,7 +107,6 @@ class Navbar extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             {state.leagues.map((l) => (
@@ -89,7 +120,7 @@ class Navbar extends Component {
                   className="nav-link"
                   href="#"
                   id={l.id}
-                  onClick={this.selectionChange.bind(this)}
+                  onClick={this.leagueChange.bind(this)}
                 >
                   {l.name}
                 </a>

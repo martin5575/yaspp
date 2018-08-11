@@ -120,22 +120,10 @@ class App extends Component {
       return <h2>Loading Matchs...</h2>
     }
     console.log('render normal')
-    const relevantYears = getYears(state)
     const relevantMatchDays = getMatchDays(state)
     const relevantMatchs = getMatchs(state)
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-xs-5">
-            <DropDown
-              value={state.selectedYear}
-              className="form-control dropdown"
-              onChange={this.selectionChange.bind(this)}
-              id="year"
-              data={relevantYears}
-            />
-          </div>
-        </div>
         <div className="row">
           <div className="col-xs-2">
             <button
