@@ -48,15 +48,15 @@ class ListNavigator extends Component {
           </button>
           <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
             {this.props.data.map((x) => (
-              <a
+              <button
+                type="button"
                 className="dropdown-item"
-                href="#"
                 id={x.id}
                 key={x.id}
                 onClick={this.onSelect.bind(this)}
               >
                 {x.name}
-              </a>
+              </button>
             ))}
           </div>
           <button
