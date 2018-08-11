@@ -1,16 +1,11 @@
 import * as React from 'react'
 import { Component } from 'react'
+
 import Matchs from './Matchs'
-import SelectNavigator from '../components/SelectNavigator'
+import MatchdayNavigator from '../components/MatchdayNavigator'
 
 import { dispatchFetchAll } from '../actions/ActionBuilderWithStore'
-
-import {
-  areSelectedMatchsPresent,
-  areSelectedMatchDaysPresent,
-} from '../utils/storeHelpers'
-import { getMatchs, getYears, getMatchDays } from '../utils/filter'
-import MatchdayNavigator from '../components/MatchdayNavigator'
+import { getMatchs } from '../utils/filter'
 
 class App extends Component {
   constructor(props) {

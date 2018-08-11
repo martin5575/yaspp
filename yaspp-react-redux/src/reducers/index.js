@@ -25,22 +25,6 @@ const initialState = {
 function reducer(state = initialState, action) {
   console.log(action ? action.type : '')
   switch (action.type) {
-    case actions.NextMatchDay: {
-      let selectedMatchDay = state.selectedMatchDay + 1
-      if (!existsMatchDay(state, selectedMatchDay))
-        selectedMatchDay = state.selectedMatchDay
-      return Object.assign({}, state, {
-        selectedMatchDay,
-      })
-    }
-    case actions.PrevMatchDay: {
-      let selectedMatchDay = state.selectedMatchDay - 1
-      if (!existsMatchDay(state, selectedMatchDay))
-        selectedMatchDay = state.selectedMatchDay
-      return Object.assign({}, state, {
-        selectedMatchDay,
-      })
-    }
     case actions.SelectMatchDay: {
       let selectedMatchDay = action.selectedMatchDay
       if (!existsMatchDay(state, selectedMatchDay))

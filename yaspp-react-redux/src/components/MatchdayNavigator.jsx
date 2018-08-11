@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { Component } from 'react'
-import SelectNavigator from './SelectNavigator'
+import ListNavigator from './ListNavigator'
 
 import {
   dispatchFetchMatchs,
-  dispatchNextMatchDay,
-  dispatchPrevMatchDay,
   dispatchSelectMatchDay,
 } from '../actions/ActionBuilderWithStore'
 
@@ -15,18 +13,6 @@ import { getMatchDays } from '../utils/filter'
 class MatchdayNavigator extends Component {
   constructor(props) {
     super(props)
-  }
-
-  onNext() {
-    const store = this.props.store
-    dispatchNextMatchDay(store)
-    this.updateMatchs()
-  }
-
-  onPrevious() {
-    const store = this.props.store
-    dispatchPrevMatchDay(store)
-    this.updateMatchs()
   }
 
   onSelect(id) {
@@ -52,13 +38,13 @@ class MatchdayNavigator extends Component {
     const state = this.props.store.getState()
     const relevantMatchDays = getMatchDays(state)
     return (
-      <SelectNavigator
-        data={relevantMatchDays}
-        selected={state.selectedMatchDay}
-        onNext={this.onNext.bind(this)}
-        onPrevious={this.onPrevious.bind(this)}
-        onSelect={this.onSelect.bind(this)}
-      />
+      <div className="mx-auto">
+        <ListNavigator
+          data={relevantMatchDays}
+          selected={state.selectedMatchDay}
+          onSelect={this.onSelect.bind(this)}
+        />
+      </div>
     )
   }
 }

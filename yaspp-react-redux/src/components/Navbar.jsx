@@ -58,10 +58,10 @@ class Navbar extends Component {
     }
   }
 
-  async yearChange(event) {
+  async yearChange(id) {
     const store = this.props.store
     let state = store.getState()
-    const year = parseInt(event.target.id)
+    const year = parseInt(id)
     dispatchSelectYear(store, state.selectedLeague, year)
     if (!areSelectedMatchDaysPresent(store)) {
       state = store.getState()
@@ -93,7 +93,7 @@ class Navbar extends Component {
           {state.selectedLeague}
         </a>
         <ListNavigator
-          selection={state.selectedYear}
+          selected={state.selectedYear}
           data={relevantYears}
           onSelect={this.yearChange.bind(this)}
         />

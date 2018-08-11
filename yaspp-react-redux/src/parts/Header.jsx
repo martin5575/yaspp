@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import Navbar from '../components/Navbar'
+import './Header.css'
 
 class Header extends Component {
   constructor(props) {

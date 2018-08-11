@@ -5,8 +5,6 @@ import {
   fetchAll,
   fetchLeagues,
   fetchYears,
-  nextMatchDay,
-  prevMatchDay,
   selectMatchDay,
   selectLeague,
   selectYear,
@@ -37,14 +35,6 @@ const dispatchFetchYears = function(store, league) {
   return store.dispatch(fetchYears(league))
 }
 
-const dispatchNextMatchDay = function(store) {
-  return store.dispatch(nextMatchDay())
-}
-
-const dispatchPrevMatchDay = function(store) {
-  return store.dispatch(prevMatchDay())
-}
-
 const dispatchSelectMatchDay = function(store, matchDay) {
   return store.dispatch(selectMatchDay(matchDay))
 }
@@ -64,8 +54,6 @@ export {
   dispatchFetchMatchDays,
   dispatchFetchMatchs,
   dispatchFetchYears,
-  dispatchNextMatchDay,
-  dispatchPrevMatchDay,
   dispatchSelectMatchDay,
   dispatchSelectLeague,
   dispatchSelectYear,

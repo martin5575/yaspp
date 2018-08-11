@@ -13,14 +13,6 @@ const dictionarize = function(array) {
 }
 /******************* ActionBuilder ******************/
 
-function nextMatchDay() {
-  return { type: actions.NextMatchDay }
-}
-
-function prevMatchDay() {
-  return { type: actions.PrevMatchDay }
-}
-
 function selectMatchDay(selectedMatchDay) {
   return {
     type: actions.SelectMatchDay,
@@ -224,8 +216,6 @@ export {
   fetchAll,
   fetchLeagues,
   fetchYears,
-  nextMatchDay,
-  prevMatchDay,
   selectMatchDay,
   selectLeague,
   selectYear,
