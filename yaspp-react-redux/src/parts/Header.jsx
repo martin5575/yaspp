@@ -12,7 +12,6 @@ class Header extends Component {
       <header>
         <p className="text-center">Yet Another Sports Page</p>
         <Navbar store={this.props.store} />
-        <hr />
       </header>
     )
   }
