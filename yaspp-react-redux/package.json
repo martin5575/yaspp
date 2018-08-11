@@ -8,6 +8,7 @@
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "popper": "^1.0.1",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
