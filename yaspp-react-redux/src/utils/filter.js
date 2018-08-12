@@ -45,7 +45,8 @@ export const existsMatchDay = (state, matchDayId) => {
 }
 
 export const existLeagues = (state) => {
-  return any(getAllMatchs)(state)
+  const allLeagues = getAllMatchs(state)
+  return allLeagues && allLeagues.length > 0
 }
 
 export const existYears = (state, selectedLeague) => {

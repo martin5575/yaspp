@@ -8,6 +8,8 @@ import {
   existYears,
   existTeams,
   existMatchDays,
+  getSelectedYears,
+  getSelectedMatchDays,
 } from '../utils/filter'
 import {
   getSelectedMatchDay,
@@ -15,6 +17,7 @@ import {
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
 import { dictionarize } from '../utils/listUtils'
+import { getAllLeagues } from '../reducers/selectors/modelSelector'
 
 /******************* SELECT in UI ******************/
 
@@ -214,17 +217,27 @@ function fetchYears(selectedLeague) {
 
 /***************** INIT  *********************/
 
-function fetchAll(store) {
+function fetchInitial(store) {
   return function(dispatch) {
+    dispatch(startInitializing())
+
     let state = store.getState()
     if (!existLeagues(state)) {
       fetchLeagues()(dispatch)
+      state = store.getState()
+    } else {
+      var league = getAllLeagues(state)[0]
+      dispatch(selectLeague(league.id))
       state = store.getState()
     }
 
     const selectedLeague = getSelectedLeague(state)
     if (!existYears(state, selectedLeague)) {
       fetchYears(selectedLeague)(dispatch)
+      state = store.getState()
+    } else {
+      var year = getSelectedYears(state)[0]
+      dispatch(selectYear(selectedLeague, year.id))
       state = store.getState()
     }
 
@@ -239,15 +252,28 @@ function fetchAll(store) {
         const selectedMatchDay = getSelectedMatchDay(state)
         dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
       })
+    } else {
+      const matchDay = getSelectedMatchDays(state)[0]
+      dispatch(selectMatchDay(state, matchDay.id))
     }
+    dispatch(endInitializing())
   }
 }
+
+const startInitializing = () => ({
+  type: actions.StartInitializing,
+  isInitializing: true,
+})
+const endInitializing = () => ({
+  type: actions.EndInitializing,
+  isInitializing: false,
+})
 
 export {
   fetchTeams,
   fetchMatchs,
   fetchMatchDays,
-  fetchAll,
+  fetchInitial,
   fetchLeagues,
   fetchYears,
   selectMatchDay,

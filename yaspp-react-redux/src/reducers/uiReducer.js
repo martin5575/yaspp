@@ -8,7 +8,7 @@ const initialState = {
   selectedYear: '',
   selectedMatchDay: 0,
 
-  isInitializing: true,
+  isInitializing: false,
   isLoadingLeagues: false,
   isLoadingYears: false,
   isLoadingTeams: false,
@@ -43,8 +43,7 @@ export const uiReducer = (state = initialState, action) => {
     }
     case actions.RequestLeagues: {
       const isLoadingLeagues = action.isLoadingLeague
-      const isInitializing = false
-      return { ...state, isLoadingLeagues, isInitializing }
+      return { ...state, isLoadingLeagues }
     }
     case actions.RequestYears: {
       const isLoadingYears = action.isLoadingYears
@@ -102,6 +101,12 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         isLoadingMatchs,
       }
+    }
+    case actions.StartInitializing: {
+      return { ...state, isInitializing: action.isInitializing }
+    }
+    case actions.EndInitializing: {
+      return { ...state, isInitializing: action.isInitializing }
     }
     default:
       return state

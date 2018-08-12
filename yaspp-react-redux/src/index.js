@@ -11,12 +11,13 @@ import { throttle } from 'lodash'
 
 /******************* Create Store ******************/
 const thunk = ReduxThunk
-const persistedState = undefined //loadState()
+const persistedState = loadState()
 const store = createStore(reducer, persistedState, applyMiddleware(thunk))
 
 store.subscribe(
   throttle(() => {
-    saveState(store.getState())
+    const model = store.getState().model
+    saveState({ model })
   }, 1000)
 )
 

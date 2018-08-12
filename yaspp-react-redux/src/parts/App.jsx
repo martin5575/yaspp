@@ -4,7 +4,7 @@ import { Component } from 'react'
 import Matchs from './Matchs'
 import MatchdayNavigator from '../components/MatchdayNavigator'
 
-import { dispatchFetchAll } from '../actions/ActionBuilderWithStore'
+import { dispatchFetchInitial } from '../actions/ActionBuilderWithStore'
 import { getSelectedMatchs } from '../utils/filter'
 import {
   getIsInitializing,
@@ -31,7 +31,7 @@ class App extends Component {
 
   async componentDidMount() {
     const store = this.props.store
-    dispatchFetchAll(store)
+    dispatchFetchInitial(store)
   }
 
   render() {

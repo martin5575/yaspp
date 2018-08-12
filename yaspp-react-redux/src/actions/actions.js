@@ -15,3 +15,6 @@ export const ReceiveMatchs = 'ReceiveMatchs'
 export const SelectMatchDay = 'SelectMatchDay'
 export const SelectLeague = 'SelectLeague'
 export const SelectYear = 'SelectYear'
+
+export const StartInitializing = 'StartInitializing'
+export const EndInitializing = 'EndInitializing'
