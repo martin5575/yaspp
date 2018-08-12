@@ -14,16 +14,9 @@ import {
   getSelectedLeague,
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
+import { dictionarize } from '../utils/listUtils'
 
-const dictionarize = function(array) {
-  let result = {}
-  for (let i = 0; i < array.length; i++) {
-    const x = array[i]
-    result[x.id] = x
-  }
-  return result
-}
-/******************* ActionBuilder ******************/
+/******************* SELECT in UI ******************/
 
 function selectMatchDay(state, selectedMatchDay) {
   if (!existsMatchDay(state, selectedMatchDay))
@@ -48,6 +41,8 @@ function selectYear(selectedLeague, selectedYear) {
     selectedYear,
   }
 }
+
+/***************** MATCHDAYS  *********************/
 
 function requestMatchDays(selectedLeague, selectedYear) {
   return {
@@ -80,6 +75,8 @@ function fetchMatchDays(selectedLeague, selectedYear) {
       )
   }
 }
+
+/***************** MATCHS  *********************/
 
 function requestMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   return {
@@ -116,6 +113,8 @@ function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   }
 }
 
+/***************** TEAMS  *********************/
+
 function requestTeams(selectedLeague, selectedYear) {
   return {
     type: actions.RequestTeams,
@@ -133,8 +132,6 @@ function receiveTeams(selectedLeague, selectedYear, json) {
     league: selectedLeague,
     year: selectedYear,
   }))
-  /*.reduce({},
-    (x, y) => { x[y.id] = y console.log(x) return x }) */
 
   return {
     type: actions.ReceiveTeams,
@@ -162,6 +159,9 @@ function fetchTeams(selectedLeague, selectedYear) {
     )
   }
 }
+
+/***************** LEAGUES  *********************/
+
 function requestLeagues() {
   return { type: actions.RequestLeagues, isLoadingLeagues: true }
 }
@@ -179,6 +179,9 @@ function fetchLeagues() {
     dispatch(receiveLeagues(leagues))
   }
 }
+
+/***************** YEARS  *********************/
+
 function requestYears(selectedLeague) {
   return {
     type: actions.RequestYears,
@@ -208,6 +211,9 @@ function fetchYears(selectedLeague) {
     dispatch(receiveYears(selectedLeague, years))
   }
 }
+
+/***************** INIT  *********************/
+
 function fetchAll(store) {
   return function(dispatch) {
     let state = store.getState()
