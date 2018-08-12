@@ -2,22 +2,21 @@ import * as actions from './actions'
 
 import * as service from '../services'
 import * as mapper from '../services/mapOpenLigaDB'
-import { existsMatchDay } from '../utils/filter'
+import {
+  existsMatchDay,
+  existLeagues,
+  existYears,
+  existTeams,
+  existMatchDays,
+} from '../utils/filter'
 import {
   getSelectedMatchDay,
   getSelectedLeague,
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
+import { dictionarize } from '../utils/listUtils'
 
-const dictionarize = function(array) {
-  let result = {}
-  for (let i = 0; i < array.length; i++) {
-    const x = array[i]
-    result[x.id] = x
-  }
-  return result
-}
-/******************* ActionBuilder ******************/
+/******************* SELECT in UI ******************/
 
 function selectMatchDay(state, selectedMatchDay) {
   if (!existsMatchDay(state, selectedMatchDay))
@@ -42,6 +41,8 @@ function selectYear(selectedLeague, selectedYear) {
     selectedYear,
   }
 }
+
+/***************** MATCHDAYS  *********************/
 
 function requestMatchDays(selectedLeague, selectedYear) {
   return {
@@ -74,6 +75,8 @@ function fetchMatchDays(selectedLeague, selectedYear) {
       )
   }
 }
+
+/***************** MATCHS  *********************/
 
 function requestMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   return {
@@ -110,6 +113,8 @@ function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   }
 }
 
+/***************** TEAMS  *********************/
+
 function requestTeams(selectedLeague, selectedYear) {
   return {
     type: actions.RequestTeams,
@@ -122,16 +127,19 @@ function requestTeams(selectedLeague, selectedYear) {
 function receiveTeams(selectedLeague, selectedYear, json) {
   const teamData = json.map((x) => mapper.mapTeam(x))
   const teams = dictionarize(teamData)
-  /*.reduce({},
-    (x, y) => { x[y.id] = y console.log(x) return x }) */
+  const teamsByLeagueAndYear = teamData.map((x) => ({
+    teamId: x.id,
+    league: selectedLeague,
+    year: selectedYear,
+  }))
 
-  console.log(teams)
   return {
     type: actions.ReceiveTeams,
     isLoadingTeams: false,
     selectedLeague,
     selectedYear,
     teams,
+    teamsByLeagueAndYear,
   }
 }
 
@@ -151,6 +159,9 @@ function fetchTeams(selectedLeague, selectedYear) {
     )
   }
 }
+
+/***************** LEAGUES  *********************/
+
 function requestLeagues() {
   return { type: actions.RequestLeagues, isLoadingLeagues: true }
 }
@@ -168,6 +179,9 @@ function fetchLeagues() {
     dispatch(receiveLeagues(leagues))
   }
 }
+
+/***************** YEARS  *********************/
+
 function requestYears(selectedLeague) {
   return {
     type: actions.RequestYears,
@@ -190,30 +204,42 @@ function receiveYears(selectedLeague, json) {
 function fetchYears(selectedLeague) {
   if (selectedLeague === undefined)
     throw new Error('selectedLeague is undefined')
+
   return function(dispatch) {
     dispatch(requestYears(selectedLeague))
     const years = service.getYears(selectedLeague)
     dispatch(receiveYears(selectedLeague, years))
   }
 }
+
+/***************** INIT  *********************/
+
 function fetchAll(store) {
   return function(dispatch) {
-    dispatch(requestLeagues())
-    const leagues = service.getLeagues()
-    dispatch(receiveLeagues(leagues))
     let state = store.getState()
+    if (!existLeagues(state)) {
+      fetchLeagues()(dispatch)
+      state = store.getState()
+    }
+
     const selectedLeague = getSelectedLeague(state)
-    dispatch(requestYears(selectedLeague))
-    const years = service.getYears(selectedLeague)
-    dispatch(receiveYears(selectedLeague, years))
-    state = store.getState()
+    if (!existYears(state, selectedLeague)) {
+      fetchYears(selectedLeague)(dispatch)
+      state = store.getState()
+    }
+
     const selectedYear = getSelectedYear(state)
-    dispatch(fetchTeams(selectedLeague, selectedYear))
-    dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
-      let state = store.getState()
-      const selectedMatchDay = getSelectedMatchDay(state)
-      dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
-    })
+    if (!existTeams(state, selectedLeague, selectedYear)) {
+      dispatch(fetchTeams(selectedLeague, selectedYear))
+    }
+
+    if (!existMatchDays(state, selectedLeague, selectedYear)) {
+      dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
+        let state = store.getState()
+        const selectedMatchDay = getSelectedMatchDay(state)
+        dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
+      })
+    }
   }
 }
 

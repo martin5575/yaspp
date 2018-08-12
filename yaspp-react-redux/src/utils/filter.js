@@ -1,7 +1,9 @@
+import { any } from 'ramda'
 import {
   getAllMatchs,
   getAllYearsByLeague,
   getAllMatchDays,
+  getTeamsByLeagueAndYear,
 } from '../reducers/selectors/modelSelector'
 import {
   getSelectedLeague,
@@ -40,4 +42,40 @@ export function getSelectedMatchDays(state) {
 export const existsMatchDay = (state, matchDayId) => {
   const matchDays = getSelectedMatchDays(state)
   return !!matchDays.find((x) => x.id === matchDayId)
+}
+
+export const existLeagues = (state) => {
+  return any(getAllMatchs)(state)
+}
+
+export const existYears = (state, selectedLeague) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+
+  const yearsOfLeague = getAllYearsByLeague(state)[selectedLeague.toString()]
+  return yearsOfLeague && yearsOfLeague.length > 0
+}
+
+export const existTeams = (state, selectedLeague, selectedYear) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+  if (!selectedYear) throw new Error('selectedYear not defined')
+
+  const teamsByLeagueAndYear = getTeamsByLeagueAndYear(state)
+  const relevantTeams = teamsByLeagueAndYear.filter(
+    (x) => x.league === selectedLeague && x.year === selectedYear
+  )
+  return relevantTeams && relevantTeams.length > 0
+}
+
+export const existMatchDays = (state, selectedLeague, selectedYear) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+  if (!selectedYear) throw new Error('selectedYear not defined')
+
+  const matchDays = getAllMatchDays(state)
+  const relevantDay = matchDays.filter(
+    (x) => x.league === selectedLeague && x.year === selectedYear
+  )
+  return relevantDay && relevantDay.length > 0
 }

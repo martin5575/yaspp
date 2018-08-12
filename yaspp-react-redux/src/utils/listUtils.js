@@ -12,3 +12,10 @@ export const groupByFunc = (xs, func) => {
     return rv
   }, {})
 }
+
+export const dictionarize = (array) => {
+  return array.reduce((result, y) => {
+    result[y.id] = y
+    return result
+  }, {})
+}

@@ -12,6 +12,11 @@ export const getAllTeams = pipe(
   prop('teams')
 )
 
+export const getTeamsByLeagueAndYear = pipe(
+  getModel,
+  prop('teamsByLeagueAndYear')
+)
+
 export const getAllMatchDays = pipe(
   getModel,
   prop('matchDays')

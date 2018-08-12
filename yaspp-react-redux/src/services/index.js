@@ -16,22 +16,22 @@ function getYears(leagueId) {
 
 const openligaBaseUrl = 'https://www.openligadb.de'
 function getTeams(league, year) {
-  if (league === undefined) throw new Error('league is undefined')
-  if (year === undefined) throw new Error('year is undefined')
+  if (!league) throw new Error('league is not defined')
+  if (!year) throw new Error('year is not defined')
   const url = `${openligaBaseUrl}/api/getavailableteams/${league}/${year}`
   return fetch(url).then((x) => x.json())
 }
 function getMatchDays(league, year) {
-  if (league === undefined) throw new Error('league is undefined')
-  if (year === undefined) throw new Error('year is undefined')
+  if (!league) throw new Error('league is not defined')
+  if (!year) throw new Error('year is not defined')
   const url = `${openligaBaseUrl}/api/getavailablegroups/${league}/${year}`
   return fetch(url).then((x) => x.json())
 }
 
 function getMatchs(league, year, matchday) {
-  if (league === undefined) throw new Error('league is undefined')
-  if (year === undefined) throw new Error('year is undefined')
-  if (matchday === undefined) throw new Error('matchday is undefined')
+  if (!league) throw new Error('league is not defined')
+  if (!year) throw new Error('year is not defined')
+  if (!matchday) throw new Error('matchday is not defined')
   const url = `${openligaBaseUrl}/api/getmatchdata/${league}/${year}/${matchday}`
   return fetch(url).then((x) => x.json())
 }
