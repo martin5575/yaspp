@@ -2,7 +2,7 @@ import * as actions from './actions'
 
 import * as service from '../services'
 import * as mapper from '../services/mapOpenLigaDB'
-import { existsMatchDay } from '../utils/filter'
+import { existsMatchDay, existLeagues, existYears } from '../utils/filter'
 import {
   getSelectedMatchDay,
   getSelectedLeague,
@@ -190,6 +190,7 @@ function receiveYears(selectedLeague, json) {
 function fetchYears(selectedLeague) {
   if (selectedLeague === undefined)
     throw new Error('selectedLeague is undefined')
+
   return function(dispatch) {
     dispatch(requestYears(selectedLeague))
     const years = service.getYears(selectedLeague)
@@ -198,22 +199,30 @@ function fetchYears(selectedLeague) {
 }
 function fetchAll(store) {
   return function(dispatch) {
-    dispatch(requestLeagues())
-    const leagues = service.getLeagues()
-    dispatch(receiveLeagues(leagues))
     let state = store.getState()
+    if (!existLeagues(state)) {
+      fetchLeagues()(dispatch) // check if invertable
+      state = store.getState()
+    }
+
     const selectedLeague = getSelectedLeague(state)
-    dispatch(requestYears(selectedLeague))
-    const years = service.getYears(selectedLeague)
-    dispatch(receiveYears(selectedLeague, years))
-    state = store.getState()
+    if (!existYears(state, selectedLeague)) {
+      fetchYears(selectedLeague)(dispatch) // check if invertable
+      state = store.getState()
+    }
+
     const selectedYear = getSelectedYear(state)
+    //if (!existTeams(state, selectedLeague, selectedYear)) {
     dispatch(fetchTeams(selectedLeague, selectedYear))
+    //}
+
+    //if (!existMatchDays(state, selectedLeague, selectedYear)) {
     dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
       let state = store.getState()
       const selectedMatchDay = getSelectedMatchDay(state)
       dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
     })
+    //}
   }
 }
 

@@ -1,7 +1,9 @@
+import { any } from 'ramda'
 import {
   getAllMatchs,
   getAllYearsByLeague,
   getAllMatchDays,
+  getAllTeams,
 } from '../reducers/selectors/modelSelector'
 import {
   getSelectedLeague,
@@ -41,3 +43,22 @@ export const existsMatchDay = (state, matchDayId) => {
   const matchDays = getSelectedMatchDays(state)
   return !!matchDays.find((x) => x.id === matchDayId)
 }
+
+export const existLeagues = (state) => {
+  return any(getAllMatchs)(state)
+}
+
+export const existYears = (state, selectedLeague) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+  const yearsOfLeague = getAllYearsByLeague(state)[selectedLeague.toString()]
+  return yearsOfLeague && yearsOfLeague.length > 0
+}
+
+// export const existTeams = (state, selectedLeague, selectedYear) => {
+//   if (!state) throw new Error('state not defined')
+//   if (!selectedLeague) throw new Error('selectedLeague not defined')
+//   if (!selectedYear) throw new Error('selectedYear not defined')
+//   const yearsOfLeague = getAllTeams(state)
+//   return yearsOfLeague && yearsOfLeague.length > 0
+// }
