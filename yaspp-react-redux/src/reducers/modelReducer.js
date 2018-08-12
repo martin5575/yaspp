@@ -8,7 +8,7 @@ const initialState = {
   teams: {},
   matchDays: [],
   matchs: [],
-  teamsByLeagueAndYear: {},
+  teamsByLeagueAndYear: [],
 }
 
 /******************* Reducer ******************/
@@ -37,10 +37,10 @@ export const modelReducer = (state = initialState, action) => {
         ...state.teams,
         ...action.teams,
       }
-      const teamsByLeagueAndYear = {
+      const teamsByLeagueAndYear = [
         ...state.teamsByLeagueAndYear,
         ...action.teamsByLeagueAndYear,
-      }
+      ]
       return { ...state, teams, teamsByLeagueAndYear }
     }
     case actions.ReceiveMatchDays: {

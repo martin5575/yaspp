@@ -3,7 +3,7 @@ import {
   getAllMatchs,
   getAllYearsByLeague,
   getAllMatchDays,
-  getAllTeams,
+  getTeamsByLeagueAndYear,
 } from '../reducers/selectors/modelSelector'
 import {
   getSelectedLeague,
@@ -51,14 +51,31 @@ export const existLeagues = (state) => {
 export const existYears = (state, selectedLeague) => {
   if (!state) throw new Error('state not defined')
   if (!selectedLeague) throw new Error('selectedLeague not defined')
+
   const yearsOfLeague = getAllYearsByLeague(state)[selectedLeague.toString()]
   return yearsOfLeague && yearsOfLeague.length > 0
 }
 
-// export const existTeams = (state, selectedLeague, selectedYear) => {
-//   if (!state) throw new Error('state not defined')
-//   if (!selectedLeague) throw new Error('selectedLeague not defined')
-//   if (!selectedYear) throw new Error('selectedYear not defined')
-//   const yearsOfLeague = getAllTeams(state)
-//   return yearsOfLeague && yearsOfLeague.length > 0
-// }
+export const existTeams = (state, selectedLeague, selectedYear) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+  if (!selectedYear) throw new Error('selectedYear not defined')
+
+  const teamsByLeagueAndYear = getTeamsByLeagueAndYear(state)
+  const relevantTeams = teamsByLeagueAndYear.filter(
+    (x) => x.league === selectedLeague && x.year === selectedYear
+  )
+  return relevantTeams && relevantTeams.length > 0
+}
+
+export const existMatchDays = (state, selectedLeague, selectedYear) => {
+  if (!state) throw new Error('state not defined')
+  if (!selectedLeague) throw new Error('selectedLeague not defined')
+  if (!selectedYear) throw new Error('selectedYear not defined')
+
+  const matchDays = getAllMatchDays(state)
+  const relevantDay = matchDays.filter(
+    (x) => x.league === selectedLeague && x.year === selectedYear
+  )
+  return relevantDay && relevantDay.length > 0
+}

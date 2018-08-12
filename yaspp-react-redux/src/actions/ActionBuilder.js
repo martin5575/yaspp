@@ -2,7 +2,13 @@ import * as actions from './actions'
 
 import * as service from '../services'
 import * as mapper from '../services/mapOpenLigaDB'
-import { existsMatchDay, existLeagues, existYears } from '../utils/filter'
+import {
+  existsMatchDay,
+  existLeagues,
+  existYears,
+  existTeams,
+  existMatchDays,
+} from '../utils/filter'
 import {
   getSelectedMatchDay,
   getSelectedLeague,
@@ -217,17 +223,17 @@ function fetchAll(store) {
     }
 
     const selectedYear = getSelectedYear(state)
-    //if (!existTeams(state, selectedLeague, selectedYear)) {
-    dispatch(fetchTeams(selectedLeague, selectedYear))
-    //}
+    if (!existTeams(state, selectedLeague, selectedYear)) {
+      dispatch(fetchTeams(selectedLeague, selectedYear))
+    }
 
-    //if (!existMatchDays(state, selectedLeague, selectedYear)) {
-    dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
-      let state = store.getState()
-      const selectedMatchDay = getSelectedMatchDay(state)
-      dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
-    })
-    //}
+    if (!existMatchDays(state, selectedLeague, selectedYear)) {
+      dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
+        let state = store.getState()
+        const selectedMatchDay = getSelectedMatchDay(state)
+        dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
+      })
+    }
   }
 }
 
