@@ -2,7 +2,7 @@ import {
   fetchTeams,
   fetchMatchs,
   fetchMatchDays,
-  fetchAll,
+  fetchInitial,
   fetchLeagues,
   fetchYears,
   selectMatchDay,
@@ -32,8 +32,8 @@ const dispatchFetchMatchDays = function(store, league, year) {
   return store.dispatch(fetchMatchDays(league, year))
 }
 
-const dispatchFetchAll = function(store) {
-  return store.dispatch(fetchAll(store))
+const dispatchFetchInitial = function(store) {
+  return store.dispatch(fetchInitial(store))
 }
 
 const dispatchFetchLeagues = function(store) {
@@ -83,7 +83,7 @@ const updateMatchDaysIfNecessary = (store) => {
 }
 
 export {
-  dispatchFetchAll,
+  dispatchFetchInitial,
   dispatchFetchLeagues,
   dispatchFetchTeams,
   dispatchFetchMatchDays,
