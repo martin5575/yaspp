@@ -122,16 +122,21 @@ function requestTeams(selectedLeague, selectedYear) {
 function receiveTeams(selectedLeague, selectedYear, json) {
   const teamData = json.map((x) => mapper.mapTeam(x))
   const teams = dictionarize(teamData)
+  const teamsByLeagueAndYear = teamData.map((x) => ({
+    teamId: x.id,
+    league: selectedLeague,
+    year: selectedYear,
+  }))
   /*.reduce({},
     (x, y) => { x[y.id] = y console.log(x) return x }) */
 
-  console.log(teams)
   return {
     type: actions.ReceiveTeams,
     isLoadingTeams: false,
     selectedLeague,
     selectedYear,
     teams,
+    teamsByLeagueAndYear,
   }
 }
 
@@ -201,13 +206,13 @@ function fetchAll(store) {
   return function(dispatch) {
     let state = store.getState()
     if (!existLeagues(state)) {
-      fetchLeagues()(dispatch) // check if invertable
+      fetchLeagues()(dispatch)
       state = store.getState()
     }
 
     const selectedLeague = getSelectedLeague(state)
     if (!existYears(state, selectedLeague)) {
-      fetchYears(selectedLeague)(dispatch) // check if invertable
+      fetchYears(selectedLeague)(dispatch)
       state = store.getState()
     }
 
