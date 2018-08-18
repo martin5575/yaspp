@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const RefreshButton = ({ onClick, disabled, isUpdating }) => {
   return (
@@ -8,7 +9,7 @@ export const RefreshButton = ({ onClick, disabled, isUpdating }) => {
       onClick={onClick}
       disabled={disabled && !isUpdating}
     >
-      {isUpdating ? 'Updating' : 'Refresh'}
+      <FontAwesomeIcon icon="sync" spin={isUpdating} />
     </button>
   )
 }
