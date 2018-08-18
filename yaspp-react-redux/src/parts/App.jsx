@@ -60,13 +60,21 @@ class App extends Component {
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     return (
-      <div className="container">
-        <div className="row">
+      <div>
+        <div
+          className="btn-toolbar justify-content-between"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
           <MatchdayNavigator store={store} />
-          <RefreshCurrentMatchDayButton />
+          <div className="btn-group" role="group" aria-label="Third group">
+            <RefreshCurrentMatchDayButton />
+          </div>
         </div>
-        <div className="row">
-          <Matchs matchs={relevantMatchs} teams={teams} />
+        <div className="container">
+          <div className="row">
+            <Matchs matchs={relevantMatchs} teams={teams} />
+          </div>
         </div>
       </div>
     )
