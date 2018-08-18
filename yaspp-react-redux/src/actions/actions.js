@@ -18,3 +18,6 @@ export const SelectYear = 'SelectYear'
 
 export const StartInitializing = 'StartInitializing'
 export const EndInitializing = 'EndInitializing'
+
+export const StartRefreshMatchs = 'StartRefreshMatchs'
+export const EndRefreshMatchs = 'EndRefreshMatchs'

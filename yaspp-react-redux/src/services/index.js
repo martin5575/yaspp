@@ -36,7 +36,7 @@ function getMatchs(league, year, matchday) {
   return fetch(url).then((x) => x.json())
 }
 
-function getMatchsUpdateDate(league, year, matchday) {
+function getMatchsLastChangeDate(league, year, matchday) {
   if (!league) throw new Error('league is not defined')
   if (!year) throw new Error('year is not defined')
   if (!matchday) throw new Error('matchday is not defined')
@@ -50,5 +50,5 @@ export {
   getYears,
   getMatchs,
   getMatchDays,
-  getMatchsUpdateDate,
+  getMatchsLastChangeDate,
 }

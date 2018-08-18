@@ -10,6 +10,8 @@ import {
   existMatchDays,
   getSelectedYears,
   getSelectedMatchDays,
+  getSelectedMatchs,
+  getLatestUpdate,
 } from '../utils/filter'
 import {
   getSelectedMatchDay,
@@ -113,6 +115,48 @@ function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
           receiveMatchs(selectedLeague, selectedYear, selectedMatchDay, json)
         )
       )
+  }
+}
+
+function refreshMatchs(state) {
+  const selectedLeague = getSelectedLeague(state)
+  const selectedYear = getSelectedYear(state)
+  const selectedMatchDay = getSelectedMatchDay(state)
+  if (!selectedLeague || !selectedYear || !selectedYear) return
+
+  return function(dispatch) {
+    dispatch(startRefreshMatchs())
+    return service
+      .getMatchsLastChangeDate(selectedLeague, selectedYear, selectedMatchDay)
+      .then((json) => {
+        if (updateMatchsRequired(state, json)) {
+          fetchMatchs(selectedLeague, selectedYear, selectedMatchDay)(
+            dispatch
+          ).then((x) => dispatch(endRefreshMatchs()))
+        } else {
+          dispatch(endRefreshMatchs())
+        }
+      })
+  }
+}
+
+function updateMatchsRequired(state, date) {
+  const matchs = getSelectedMatchs(state)
+  const lastUpdate = getLatestUpdate(matchs)
+  return lastUpdate < date
+}
+
+function startRefreshMatchs() {
+  return {
+    type: actions.StartRefreshMatchs,
+    isRefreshingMatchs: true,
+  }
+}
+
+function endRefreshMatchs() {
+  return {
+    type: actions.StartRefreshMatchs,
+    isRefreshingMatchs: false,
   }
 }
 
@@ -279,4 +323,5 @@ export {
   selectMatchDay,
   selectLeague,
   selectYear,
+  refreshMatchs,
 }
