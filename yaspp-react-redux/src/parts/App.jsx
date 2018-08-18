@@ -15,6 +15,7 @@ import {
   getIsLoadingMatchDay,
 } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
+import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 
 class App extends Component {
   update() {
@@ -62,6 +63,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <MatchdayNavigator store={store} />
+          <RefreshCurrentMatchDayButton />
         </div>
         <div className="row">
           <Matchs matchs={relevantMatchs} teams={teams} />
