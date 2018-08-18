@@ -9,8 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as icons from '@fortawesome/free-solid-svg-icons'
 
 library.add(icons.faSync)
-// library.add(icons.faBars)
-// library.add(icons.faSlidersH)
+library.add(icons.faSlidersH)
 
 class Root extends Component {
   render() {

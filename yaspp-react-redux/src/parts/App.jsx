@@ -16,6 +16,7 @@ import {
 } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
+import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 
 class App extends Component {
   update() {
@@ -66,6 +67,10 @@ class App extends Component {
           role="toolbar"
           aria-label="Toolbar with button groups"
         >
+          <div className="btn-group" role="group" aria-label="Third group">
+            <MatchDayOptionsButton />
+          </div>
+
           <MatchdayNavigator store={store} />
           <div className="btn-group" role="group" aria-label="Third group">
             <RefreshCurrentMatchDayButton />
