@@ -21,3 +21,5 @@ export const EndInitializing = 'EndInitializing'
 
 export const StartRefreshMatchs = 'StartRefreshMatchs'
 export const EndRefreshMatchs = 'EndRefreshMatchs'
+
+export const SwitchMenu = 'SwitchMenu'

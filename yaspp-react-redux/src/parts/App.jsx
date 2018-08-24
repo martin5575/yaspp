@@ -11,6 +11,7 @@ import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 import LoadingPage from './LoadingPage'
+import Storage from './Storage'
 
 class App extends Component {
   update() {
@@ -34,6 +35,8 @@ class App extends Component {
     const store = this.props.store
     const state = store.getState()
     if (getIsLoading(state)) return <LoadingPage />
+    if (state.ui.menuId === 'storage') return <Storage />
+
     console.log('render normal')
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)

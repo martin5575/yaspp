@@ -8,6 +8,7 @@ import {
   selectMatchDay,
   selectLeague,
   selectYear,
+  switchMenu,
 } from './ActionBuilder'
 import {
   areSelectedMatchDaysPresent,
@@ -82,7 +83,10 @@ const updateMatchDaysIfNecessary = (store) => {
   }
 }
 
+const dispatchSwitchMenu = (store, id) => store.dispatch(switchMenu(id))
+
 export {
+  dispatchSwitchMenu,
   dispatchFetchInitial,
   dispatchFetchLeagues,
   dispatchFetchTeams,

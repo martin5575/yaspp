@@ -4,6 +4,7 @@ import { existsMatchDay } from '../utils/filter'
 /******************* State ******************/
 
 const initialState = {
+  menuId: '',
   selectedLeague: '',
   selectedYear: '',
   selectedMatchDay: 0,
@@ -114,6 +115,9 @@ export const uiReducer = (state = initialState, action) => {
     }
     case actions.EndRefreshMatchs: {
       return { ...state, isRefreshingMatchs: action.isRefreshingMatchs }
+    }
+    case actions.SwitchMenu: {
+      return { ...state, menuId: action.menuId }
     }
     default:
       return state

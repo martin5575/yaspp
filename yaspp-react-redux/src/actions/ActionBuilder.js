@@ -313,7 +313,13 @@ const endInitializing = () => ({
   isInitializing: false,
 })
 
+const switchMenu = (id) => ({
+  type: actions.SwitchMenu,
+  menuId: id,
+})
+
 export {
+  switchMenu,
   fetchTeams,
   fetchMatchs,
   fetchMatchDays,
