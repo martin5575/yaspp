@@ -10,6 +10,8 @@ import * as icons from '@fortawesome/free-solid-svg-icons'
 
 library.add(icons.faSync)
 library.add(icons.faSlidersH)
+library.add(icons.faTrashAlt)
+library.add(icons.faTrash)
 
 class Root extends Component {
   render() {
