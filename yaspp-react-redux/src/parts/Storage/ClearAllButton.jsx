@@ -12,4 +12,5 @@ const mapStateToProps = (state) => ({
   state,
 })
 
-export const ClearAllButton = connect(mapStateToProps)(IconButton)
+const ClearAllButton = connect(mapStateToProps)(IconButton)
+export default ClearAllButton
