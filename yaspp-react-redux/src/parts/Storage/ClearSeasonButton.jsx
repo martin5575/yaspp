@@ -1,18 +1,20 @@
 import { IconButton } from '../../components/IconButton'
 import { connect } from 'react-redux'
+import { clearSeason } from '../../actions/ActionBuilder'
 
-const clearTeams = (league, yeear) => (state) => {
-  console.log('clearTeams ' + league)
-}
-
-const mapStateToProps = (league, yeear) => (state) => ({
-  icon: 'trash',
-  onClick: clearTeams(league, yeear),
-  disabled: false,
-  state,
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  handleClick: () => {
+    dispatch(clearSeason(ownProps.league, ownProps.year))
+  },
 })
 
-const ClearSeasonButton = (league, year) =>
-  connect(mapStateToProps(league, year))(IconButton)
+const mapStateToProps = (state, ownProps) => ({
+  icon: 'trash',
+  disabled: false,
+})
 
+const ClearSeasonButton = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(IconButton)
 export default ClearSeasonButton

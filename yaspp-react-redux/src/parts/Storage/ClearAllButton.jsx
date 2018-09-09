@@ -1,16 +1,20 @@
 import { IconButton } from '../../components/IconButton'
 import { connect } from 'react-redux'
+import { clearAll } from '../../actions/ActionBuilder'
 
-const clearAll = (state) => {
-  console.log('clearAll')
-}
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: () => {
+    dispatch(clearAll())
+  },
+})
 
 const mapStateToProps = (state) => ({
   icon: 'trash-alt',
-  onClick: clearAll,
   disabled: false,
-  state,
 })
 
-const ClearAllButton = connect(mapStateToProps)(IconButton)
+const ClearAllButton = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(IconButton)
 export default ClearAllButton

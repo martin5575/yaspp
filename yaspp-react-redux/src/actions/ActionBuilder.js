@@ -313,12 +313,32 @@ const endInitializing = () => ({
   isInitializing: false,
 })
 
+/* ----------- Menu ----------- */
 const switchMenu = (id) => ({
   type: actions.SwitchMenu,
   menuId: id,
 })
 
+/* ----------- Clear ----------- */
+
+const clearAll = () => ({
+  type: actions.clearAll,
+})
+
+const clearTeams = () => ({
+  type: actions.clearTeams,
+})
+
+const clearSeason = (league, year) => ({
+  type: actions.clearSeason,
+  league: league,
+  year: year,
+})
+
 export {
+  clearAll,
+  clearSeason,
+  clearTeams,
   switchMenu,
   fetchTeams,
   fetchMatchs,

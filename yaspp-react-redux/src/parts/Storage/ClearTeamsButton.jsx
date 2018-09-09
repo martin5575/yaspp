@@ -1,16 +1,20 @@
 import { IconButton } from '../../components/IconButton'
 import { connect } from 'react-redux'
+import { clearTeams } from '../../actions/ActionBuilder'
 
-const clearTeams = (state) => {
-  console.log('clearTeams')
-}
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: () => {
+    dispatch(clearTeams())
+  },
+})
 
 const mapStateToProps = (state) => ({
   icon: 'trash',
-  onClick: clearTeams,
   disabled: false,
-  state,
 })
 
-const ClearTeamsButton = connect(mapStateToProps)(IconButton)
+const ClearTeamsButton = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(IconButton)
 export default ClearTeamsButton

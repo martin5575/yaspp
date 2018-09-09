@@ -5,10 +5,9 @@ import ClearTeamsButton from './ClearTeamsButton'
 import ClearSeasonButton from './ClearSeasonButton'
 
 const renderSeasonRow = (league, year, count) => {
-  const ClearButton = ClearSeasonButton(league, year)
   return (
     <div className="storage-row" key={`${league}_${year}`}>
-      {year} ({count}) <ClearButton />
+      {year} ({count}) <ClearSeasonButton league={league} year={year} />
     </div>
   )
 }
