@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ClearAllButton from './ClearAllButton'
 import ClearTeamsButton from './ClearTeamsButton'
 import ClearSeasonButton from './ClearSeasonButton'
+import { getStorageStats } from '../../utils/localStorage'
 
 const renderSeasonRow = (league, year, count) => {
   return (
@@ -34,16 +35,7 @@ const StorageTemplate = ({ teamCount, leagues }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  teamCount: 10,
-  leagues: [
-    {
-      league: 'bl1',
-      name: '1. Bundesl.',
-      seasons: [{ year: '1997', count: 34 }],
-    },
-  ],
-})
+const mapStateToProps = (state) => getStorageStats(state)
 
 const Storage = connect(mapStateToProps)(StorageTemplate)
 
