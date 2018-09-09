@@ -65,7 +65,19 @@ export const modelReducer = (state = initialState, action) => {
       return initialState
     }
     case actions.clearSeason: {
-      return { ...state, teams: [] }
+      const { league, year } = action.payload
+      return {
+        ...state,
+        matchDays: state.matchDays.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+        matchs: state.matchs.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+        teamsByLeagueAndYear: state.teamsByLeagueAndYear.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+      }
     }
 
     default:

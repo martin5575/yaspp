@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import ClearAllButton from './ClearAllButton'
 import ClearSeasonButton from './ClearSeasonButton'
-import { getStorageStats } from '../../utils/localStorage'
+import { getStorageStats } from '../../utils/stateStats'
 
 const renderSeasonRow = (league, year, count) => {
   return (
