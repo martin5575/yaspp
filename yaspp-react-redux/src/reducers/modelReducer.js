@@ -2,7 +2,7 @@ import * as actions from '../actions/actions'
 
 /******************* State ******************/
 
-const initialState = {
+export const initialState = {
   leagues: [],
   yearsByLeague: {},
   teams: {},
@@ -61,6 +61,13 @@ export const modelReducer = (state = initialState, action) => {
         teams,
       }
     }
+    case actions.clearAll: {
+      return initialState
+    }
+    case actions.clearSeason: {
+      return { ...state, teams: [] }
+    }
+
     default:
       return state
   }

@@ -20,6 +20,7 @@ import {
 } from '../reducers/selectors/uiSelector'
 import { dictionarize } from '../utils/listUtils'
 import { getAllLeagues } from '../reducers/selectors/modelSelector'
+import { initialState } from '../reducers/modelReducer'
 
 /******************* SELECT in UI ******************/
 
@@ -325,20 +326,14 @@ const clearAll = () => ({
   type: actions.clearAll,
 })
 
-const clearTeams = () => ({
-  type: actions.clearTeams,
-})
-
 const clearSeason = (league, year) => ({
   type: actions.clearSeason,
-  league: league,
-  year: year,
+  payload: { league, year },
 })
 
 export {
   clearAll,
   clearSeason,
-  clearTeams,
   switchMenu,
   fetchTeams,
   fetchMatchs,

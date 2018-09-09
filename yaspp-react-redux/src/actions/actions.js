@@ -26,5 +26,4 @@ export const SwitchMenu = 'SwitchMenu'
 
 /******** Clear **********/
 export const clearSeason = 'ClearSeason'
-export const clearTeams = 'ClearTeams'
 export const clearAll = 'ClearAll'
