@@ -5,13 +5,13 @@ const getTeamCount = (state) => {
 }
 
 const getSeasonsCount = (state) => {
-  return groupByArray(state.model.matchDays, (x) => x.league).map((x) => ({
+  return groupByArray(state.model.matchs, (x) => x.league).map((x) => ({
     league: x.key,
     name: state.model.leagues.find((y) => y.id === x.key).name,
     seasons: sortByField(
       groupByArray(x.values, (y) => y.year).map((z) => ({
         year: z.key,
-        count: z.values.length,
+        count: groupByArray(z.values, (z1) => z1.matchDayId).length,
       })),
       'year'
     ),
