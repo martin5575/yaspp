@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react'
+import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
 import Root from './Root'
 
@@ -21,4 +22,9 @@ store.subscribe(
   }, 1000)
 )
 
-ReactDOM.render(<Root store={store} />, document.getElementById('root'))
+ReactDOM.render(
+  <Provider store={store}>
+    <Root store={store} />
+  </Provider>,
+  document.getElementById('root')
+)

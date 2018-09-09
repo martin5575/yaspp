@@ -10,6 +10,8 @@ import {
   existMatchDays,
   getSelectedYears,
   getSelectedMatchDays,
+  getSelectedMatchs,
+  getLatestUpdate,
 } from '../utils/filter'
 import {
   getSelectedMatchDay,
@@ -18,6 +20,7 @@ import {
 } from '../reducers/selectors/uiSelector'
 import { dictionarize } from '../utils/listUtils'
 import { getAllLeagues } from '../reducers/selectors/modelSelector'
+import { initialState } from '../reducers/modelReducer'
 
 /******************* SELECT in UI ******************/
 
@@ -113,6 +116,48 @@ function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
           receiveMatchs(selectedLeague, selectedYear, selectedMatchDay, json)
         )
       )
+  }
+}
+
+function refreshMatchs(state) {
+  const selectedLeague = getSelectedLeague(state)
+  const selectedYear = getSelectedYear(state)
+  const selectedMatchDay = getSelectedMatchDay(state)
+  if (!selectedLeague || !selectedYear || !selectedYear) return
+
+  return function(dispatch) {
+    dispatch(startRefreshMatchs())
+    return service
+      .getMatchsLastChangeDate(selectedLeague, selectedYear, selectedMatchDay)
+      .then((json) => {
+        if (updateMatchsRequired(state, json)) {
+          fetchMatchs(selectedLeague, selectedYear, selectedMatchDay)(
+            dispatch
+          ).then((x) => dispatch(endRefreshMatchs()))
+        } else {
+          dispatch(endRefreshMatchs())
+        }
+      })
+  }
+}
+
+function updateMatchsRequired(state, date) {
+  const matchs = getSelectedMatchs(state)
+  const lastUpdate = getLatestUpdate(matchs)
+  return lastUpdate < date
+}
+
+function startRefreshMatchs() {
+  return {
+    type: actions.StartRefreshMatchs,
+    isRefreshingMatchs: true,
+  }
+}
+
+function endRefreshMatchs() {
+  return {
+    type: actions.StartRefreshMatchs,
+    isRefreshingMatchs: false,
   }
 }
 
@@ -269,7 +314,27 @@ const endInitializing = () => ({
   isInitializing: false,
 })
 
+/* ----------- Menu ----------- */
+const switchMenu = (id) => ({
+  type: actions.SwitchMenu,
+  menuId: id,
+})
+
+/* ----------- Clear ----------- */
+
+const clearAll = () => ({
+  type: actions.clearAll,
+})
+
+const clearSeason = (league, year) => ({
+  type: actions.clearSeason,
+  payload: { league, year },
+})
+
 export {
+  clearAll,
+  clearSeason,
+  switchMenu,
   fetchTeams,
   fetchMatchs,
   fetchMatchDays,
@@ -279,4 +344,5 @@ export {
   selectMatchDay,
   selectLeague,
   selectYear,
+  refreshMatchs,
 }

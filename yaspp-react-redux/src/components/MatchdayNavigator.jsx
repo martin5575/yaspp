@@ -41,13 +41,11 @@ class MatchdayNavigator extends Component {
     const relevantMatchDays = getSelectedMatchDays(state)
     const selectedMatchDay = getSelectedMatchDay(state)
     return (
-      <div className="mx-auto">
-        <ListNavigator
-          data={relevantMatchDays}
-          selected={selectedMatchDay}
-          onSelect={this.onSelect.bind(this)}
-        />
-      </div>
+      <ListNavigator
+        data={relevantMatchDays}
+        selected={selectedMatchDay}
+        onSelect={this.onSelect.bind(this)}
+      />
     )
   }
 }

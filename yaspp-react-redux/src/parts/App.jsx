@@ -6,15 +6,12 @@ import MatchdayNavigator from '../components/MatchdayNavigator'
 
 import { dispatchFetchInitial } from '../actions/ActionBuilderWithStore'
 import { getSelectedMatchs } from '../utils/filter'
-import {
-  getIsInitializing,
-  getIsLoadingLeagues,
-  getIsLoadingYears,
-  getIsLoadingAllMatchDays,
-  getIsLoadingTeams,
-  getIsLoadingMatchDay,
-} from '../reducers/selectors/uiSelector'
+import { getIsLoading } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
+import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
+import { MatchDayOptionsButton } from './MatchDayOptionsButton'
+import LoadingPage from './LoadingPage'
+import Storage from './Storage'
 
 class App extends Component {
   update() {
@@ -37,34 +34,32 @@ class App extends Component {
   render() {
     const store = this.props.store
     const state = store.getState()
-    if (getIsInitializing(state)) {
-      return <h2>Intializing...</h2>
-    }
-    if (getIsLoadingLeagues(state)) {
-      return <h2>Loading Leagues...</h2>
-    }
-    if (getIsLoadingYears(state)) {
-      return <h2>Loading Years...</h2>
-    }
-    if (getIsLoadingAllMatchDays(state)) {
-      return <h2>Loading Matchdays...</h2>
-    }
-    if (getIsLoadingTeams(state)) {
-      return <h2>Loading Teams...</h2>
-    }
-    if (getIsLoadingMatchDay(state)) {
-      return <h2>Loading Matchs...</h2>
-    }
+    if (getIsLoading(state)) return <LoadingPage />
+    if (state.ui.menuId === 'storage') return <Storage />
+
     console.log('render normal')
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     return (
-      <div className="container">
-        <div className="row">
+      <div>
+        <div
+          className="btn-toolbar justify-content-between"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
+          <div className="btn-group" role="group" aria-label="Third group">
+            <MatchDayOptionsButton />
+          </div>
+
           <MatchdayNavigator store={store} />
+          <div className="btn-group" role="group" aria-label="Third group">
+            <RefreshCurrentMatchDayButton />
+          </div>
         </div>
-        <div className="row">
-          <Matchs matchs={relevantMatchs} teams={teams} />
+        <div className="container">
+          <div className="row">
+            <Matchs matchs={relevantMatchs} teams={teams} />
+          </div>
         </div>
       </div>
     )

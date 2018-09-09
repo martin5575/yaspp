@@ -46,3 +46,11 @@ export const getIsLoadingMatchDay = pipe(
   getUi,
   prop('isLoadingMatchDay')
 )
+
+export const getIsLoading =
+  getIsInitializing ||
+  getIsLoadingLeagues ||
+  getIsLoadingYears ||
+  getIsLoadingTeams ||
+  getIsLoadingAllMatchDays ||
+  getIsLoadingMatchDay

@@ -2,7 +2,7 @@ import * as actions from '../actions/actions'
 
 /******************* State ******************/
 
-const initialState = {
+export const initialState = {
   leagues: [],
   yearsByLeague: {},
   teams: {},
@@ -61,6 +61,25 @@ export const modelReducer = (state = initialState, action) => {
         teams,
       }
     }
+    case actions.clearAll: {
+      return initialState
+    }
+    case actions.clearSeason: {
+      const { league, year } = action.payload
+      return {
+        ...state,
+        matchDays: state.matchDays.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+        matchs: state.matchs.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+        teamsByLeagueAndYear: state.teamsByLeagueAndYear.filter(
+          (x) => !(x.league === league && x.year === year)
+        ),
+      }
+    }
+
     default:
       return state
   }

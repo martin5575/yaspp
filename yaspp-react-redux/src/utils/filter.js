@@ -1,4 +1,4 @@
-import { any } from 'ramda'
+import { pipe, max, prop, map } from 'ramda'
 import {
   getAllMatchs,
   getAllYearsByLeague,
@@ -79,4 +79,12 @@ export const existMatchDays = (state, selectedLeague, selectedYear) => {
     (x) => x.league === selectedLeague && x.year === selectedYear
   )
   return relevantDay && relevantDay.length > 0
+}
+
+export const getLatestUpdate = (matchs) => {
+  if (!matchs || matchs.length === 0) return undefined
+  const lastUpdates = map(prop('lastUpdate'))(matchs)
+    .sort()
+    .reverse()
+  return lastUpdates[0]
 }

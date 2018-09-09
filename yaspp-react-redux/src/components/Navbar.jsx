@@ -5,6 +5,7 @@ import {
   dispatchFetchYears,
   dispatchSelectYear,
   updateMatchDaysIfNecessary,
+  dispatchSwitchMenu,
 } from '../actions/ActionBuilderWithStore'
 import ListNavigator from './ListNavigator'
 import { getSelectedYears } from '../utils/filter'
@@ -30,6 +31,7 @@ class Navbar extends Component {
   async leagueChange(event) {
     console.log(event.target.id)
     const store = this.props.store
+    dispatchSwitchMenu(store, 'matchs')
     dispatchSelectLeague(store, event.target.id)
     dispatchFetchYears(store, event.target.id)
 
@@ -43,6 +45,12 @@ class Navbar extends Component {
     const selectedLeague = getSelectedLeague(state)
     dispatchSelectYear(store, selectedLeague, year)
     updateMatchDaysIfNecessary(store)
+  }
+
+  selectMenu(event) {
+    console.log(event.target.id)
+    const store = this.props.store
+    dispatchSwitchMenu(store, event.target.id)
   }
 
   render() {
@@ -76,6 +84,9 @@ class Navbar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <span className="navbar-text">
+            <b>Liga</b>
+          </span>
           <ul className="navbar-nav mr-auto">
             {leagues.map((l) => (
               <li
@@ -95,6 +106,21 @@ class Navbar extends Component {
               </li>
             ))}
           </ul>
+          <span className="navbar-text">
+            <b>Einstellungen</b>
+            <ul className="navbar-nav mr-auto">
+              <li className={`nav-item`} key="storage">
+                <a
+                  className="nav-link"
+                  href="#"
+                  id="storage"
+                  onClick={this.selectMenu.bind(this)}
+                >
+                  Speicher
+                </a>
+              </li>
+            </ul>
+          </span>
         </div>
       </nav>
     )
