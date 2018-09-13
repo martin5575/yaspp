@@ -12,6 +12,9 @@ library.add(icons.faSync)
 library.add(icons.faSlidersH)
 library.add(icons.faTrashAlt)
 library.add(icons.faTrash)
+library.add(icons.faCaretLeft)
+library.add(icons.faCaretRight)
+library.add(icons.faFutbol)
 
 class Root extends Component {
   render() {

@@ -14,6 +14,7 @@ import {
   getSelectedLeague,
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Navbar extends Component {
   update() {
@@ -85,7 +86,9 @@ class Navbar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <span className="navbar-text">
-            <b>Liga</b>
+            <FontAwesomeIcon icon="futbol" />
+            &nbsp;
+            <b>Fußball</b>
           </span>
           <ul className="navbar-nav mr-auto">
             {leagues.map((l) => (

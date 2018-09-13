@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ListNavigator extends Component {
   onSelect(event) {
@@ -33,7 +34,7 @@ class ListNavigator extends Component {
           disabled={prevId === undefined}
           onClick={this.onSelect.bind(this)}
         >
-          &lt;
+          <FontAwesomeIcon icon="caret-left" />
         </button>
         <div className="btn-group" role="group">
           <button
@@ -66,7 +67,7 @@ class ListNavigator extends Component {
             onClick={this.onSelect.bind(this)}
             disabled={nextId === undefined}
           >
-            &gt;
+            <FontAwesomeIcon icon="caret-right" />
           </button>
         </div>
       </div>
