@@ -1,3 +1,7 @@
 header > p {
   margin-bottom: 0.25rem;
 }
+
+header {
+  background-color: #f8f9fa;
+}
