@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
+import './App.css'
 
 import Matchs from './Matchs'
 import MatchdayNavigator from '../components/MatchdayNavigator'
@@ -41,7 +42,7 @@ class App extends Component {
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     return (
-      <div>
+      <div className="main">
         <div
           className="btn-toolbar justify-content-between"
           role="toolbar"
