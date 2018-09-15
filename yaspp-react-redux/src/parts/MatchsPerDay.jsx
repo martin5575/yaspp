@@ -11,17 +11,24 @@ class MatchsPerDay extends React.Component {
     return (
       <div key="this.props.date">
         <div className="row">
-          <div className="col self-align-start">
-            <span className="badge badge-light align-left">
+          <div className="col-xs-3 self-align-start">
+            <span className="badge badge-light">
               {moment(this.props.date).format('dddd DD.MM.YY')}
             </span>
           </div>
-          <div className="col self-align-end">
+          <div className="col-xs-3 col-xs-6-push">
             {statsTitle && (
-              <span className="badge badge-secondary align-right">
-                {statsTitle} &nbsp;
-                <FontAwesomeIcon icon="info-circle" size="sm" />
-              </span>
+              <div className="align-right">
+                <span className="badge badge-secondary ">
+                  {statsTitle} &nbsp;
+                  <FontAwesomeIcon icon="info-circle" size="sm" />
+                </span>
+                &nbsp;
+                <span className="badge badge-secondary">
+                  {'1-'}
+                  <FontAwesomeIcon icon="percentage" size="sm" />
+                </span>
+              </div>
             )}
           </div>
         </div>

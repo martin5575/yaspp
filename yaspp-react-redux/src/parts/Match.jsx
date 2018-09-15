@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import './Match.css'
 import { formatStats, calcStats } from '../utils/seasonInfo'
+import { formatProbs, calcWinLossTieProbs } from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Match extends React.Component {
@@ -22,6 +23,8 @@ class Match extends React.Component {
     )
     const digits = 1
     const formatedStats = formatStats(stats, digits)
+    const probs = calcWinLossTieProbs(stats.home, stats.away)
+    const formatedProbs = formatProbs(probs)
 
     return (
       <tr
@@ -34,7 +37,7 @@ class Match extends React.Component {
         }
       >
         <td className="col-xs-1">
-          {moment(match.matchDateTime).format('HH:mm')}
+          <small>{moment(match.matchDateTime).format('HH:mm')}</small>
         </td>
         <td className="col-xs-1">
           <img
@@ -62,7 +65,16 @@ class Match extends React.Component {
         <td>
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
         </td>
-        <td className="col-xs-2">{formatedStats}</td>
+        <td className="col-xs-2">
+          <small>
+            <i>{formatedStats}</i>
+          </small>
+        </td>
+        <td className="col-xs-2">
+          <small>
+            <i>{formatedProbs}</i>
+          </small>
+        </td>
       </tr>
     )
   }

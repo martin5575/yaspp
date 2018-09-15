@@ -103,7 +103,7 @@ export const calcStats = (seasonInfo, teamHomeId, teamAwayId, stats) => {
   return getStats(infoHome, infoAway, stats)
 }
 
-const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '-')
+const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '0.0')
 export const formatStats = (stats, digits = 2) => {
   return `${formatNumber(stats.home, digits)}:${formatNumber(
     stats.away,
