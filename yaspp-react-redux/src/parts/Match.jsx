@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import './Match.css'
 import { formatStats, calcStats } from '../utils/seasonInfo'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Match extends React.Component {
   logoSize = 20
@@ -58,7 +59,10 @@ class Match extends React.Component {
         <td className={'col-xs-1 ' + (match.isFinished ? 'final' : '')}>
           {match.fullTimeHome}:{match.fullTimeAway}
         </td>
-        <td className="col-xs-2 push-xs-2">{formatedStats}</td>
+        <td>
+          <FontAwesomeIcon icon="angle-double-down" color="gray" />
+        </td>
+        <td className="col-xs-2">{formatedStats}</td>
       </tr>
     )
   }

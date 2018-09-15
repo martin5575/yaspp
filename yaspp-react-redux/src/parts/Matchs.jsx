@@ -17,13 +17,14 @@ class Matchs extends React.Component {
     const groupedMatchs = Object.entries(groupByMatchDay)
     return (
       <div className="mx-auto">
-        {groupedMatchs.map((gm) => (
+        {groupedMatchs.map((gm, i) => (
           <MatchsPerDay
             teams={teams}
             seasonInfo={seasonInfo}
             date={gm[0]}
             matchs={gm[1]}
             key={gm[0]}
+            statsTitle={i === 0 ? 'hgf-agf' : ''}
           />
         ))}
       </div>
