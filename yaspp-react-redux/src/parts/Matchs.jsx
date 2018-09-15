@@ -8,6 +8,7 @@ class Matchs extends React.Component {
   render() {
     const matchs = this.props.matchs
     const teams = this.props.teams
+    const seasonInfo = this.props.seasonInfo
     if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
     const groupByMatchDay = groupByFunc(matchs, (x) =>
@@ -17,7 +18,13 @@ class Matchs extends React.Component {
     return (
       <div className="mx-auto">
         {groupedMatchs.map((gm) => (
-          <MatchsPerDay teams={teams} date={gm[0]} matchs={gm[1]} key={gm[0]} />
+          <MatchsPerDay
+            teams={teams}
+            seasonInfo={seasonInfo}
+            date={gm[0]}
+            matchs={gm[1]}
+            key={gm[0]}
+          />
         ))}
       </div>
     )

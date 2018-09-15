@@ -42,3 +42,5 @@ export const compare = (key) => (a, b) => {
   if (a[key] > b[key]) return 1
   return 0
 }
+
+export const sum = (xs) => xs.reduce((res, x) => res + x, 0)

@@ -13,6 +13,7 @@ import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
+import { getSeasonInfo } from '../utils/seasonInfo'
 
 class App extends Component {
   update() {
@@ -41,6 +42,7 @@ class App extends Component {
     console.log('render normal')
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
+    const seasonInfo = getSeasonInfo(state)
     return (
       <div className="main">
         <div
@@ -59,7 +61,11 @@ class App extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <Matchs matchs={relevantMatchs} teams={teams} />
+            <Matchs
+              matchs={relevantMatchs}
+              teams={teams}
+              seasonInfo={seasonInfo}
+            />
           </div>
         </div>
       </div>

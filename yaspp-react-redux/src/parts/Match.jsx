@@ -1,12 +1,27 @@
 import React from 'react'
 import moment from 'moment'
 import './Match.css'
+import { formatStats, calcStats } from '../utils/seasonInfo'
 
 class Match extends React.Component {
   logoSize = 20
   render() {
     const match = this.props.match
     const teams = this.props.teams
+    const seasonInfo = this.props.seasonInfo
+
+    const teamHome = teams[match.teamHomeId]
+    const teamAway = teams[match.teamAwayId]
+
+    const stats = calcStats(
+      seasonInfo,
+      match.teamHomeId,
+      match.teamAwayId,
+      'hgf_agf_avg'
+    )
+    const digits = 1
+    const formatedStats = formatStats(stats, digits)
+
     return (
       <tr
         className="row"
@@ -22,8 +37,8 @@ class Match extends React.Component {
         </td>
         <td className="col-xs-1">
           <img
-            src={teams[match.teamHomeId].iconUrl}
-            alt={teams[match.teamHomeId].shortName}
+            src={teamHome.iconUrl}
+            alt={teamHome.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
@@ -31,8 +46,8 @@ class Match extends React.Component {
         <td className="col-xs-1">:</td>
         <td className="col-xs-1">
           <img
-            src={teams[match.teamAwayId].iconUrl}
-            alt={teams[match.teamAwayId].shortName}
+            src={teamAway.iconUrl}
+            alt={teamAway.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
@@ -43,6 +58,7 @@ class Match extends React.Component {
         <td className={'col-xs-1 ' + (match.isFinished ? 'final' : '')}>
           {match.fullTimeHome}:{match.fullTimeAway}
         </td>
+        <td className="col-xs-2 push-xs-2">{formatedStats}</td>
       </tr>
     )
   }

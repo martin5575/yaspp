@@ -14,7 +14,12 @@ class MatchsPerDay extends React.Component {
         <table className="table">
           <tbody>
             {this.props.matchs.map((m) => (
-              <Match match={m} teams={this.props.teams} key={m.id} />
+              <Match
+                match={m}
+                teams={this.props.teams}
+                seasonInfo={this.props.seasonInfo}
+                key={m.id}
+              />
             ))}
           </tbody>
         </table>
