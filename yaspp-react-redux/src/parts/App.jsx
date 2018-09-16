@@ -45,32 +45,36 @@ class App extends Component {
     const teams = getAllTeams(state)
     const seasonInfo = getSeasonInfo(state)
     return (
-      <div className="main">
-        <div
-          className="btn-toolbar justify-content-between"
-          role="toolbar"
-          aria-label="Toolbar with button groups"
-        >
-          <div className="btn-group" role="group" aria-label="Third group">
-            <MatchDayOptionsButton />
-          </div>
-
-          <MatchdayNavigator store={store} />
-          <div className="btn-group" role="group" aria-label="Third group">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-toggle="button"
-              aria-pressed="false"
+      <div className="container.fluid">
+        <div className="row justify-content-center">
+          <div className="col">
+            <div
+              className="btn-toolbar"
+              role="toolbar"
+              aria-label="Toolbar with button groups"
             >
-              <FontAwesomeIcon icon="percentage" />
-            </button>
-          </div>
-          <div className="btn-group" role="group" aria-label="Third group">
-            <RefreshCurrentMatchDayButton />
+              <div className="btn-group" role="group" aria-label="Third group">
+                <MatchDayOptionsButton />
+              </div>
+
+              <MatchdayNavigator store={store} />
+              <div className="btn-group" role="group" aria-label="Third group">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-toggle="button"
+                  aria-pressed="false"
+                >
+                  <FontAwesomeIcon icon="percentage" />
+                </button>
+              </div>
+              <div className="btn-group" role="group" aria-label="Third group">
+                <RefreshCurrentMatchDayButton />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <Matchs
               matchs={relevantMatchs}
