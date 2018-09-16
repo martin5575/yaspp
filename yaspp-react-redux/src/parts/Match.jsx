@@ -94,9 +94,17 @@ class Match extends React.Component {
           </small>
         </td>
         <td className="col-xs-1">
-          <small>
-            <FontAwesomeIcon icon="info-circle" />
-          </small>
+          <a
+            data-toggle="popover"
+            title="Popover title"
+            data-container="body"
+            data-placement="left"
+            data-content="And here's some amazing content. It's very engaging. Right?"
+          >
+            <small>
+              <FontAwesomeIcon icon="info-circle" />
+            </small>
+          </a>
         </td>
       </tr>
     )
