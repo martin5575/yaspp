@@ -4,7 +4,6 @@ import MatchsPerDay from './MatchsPerDay'
 import { groupByFunc } from '../utils/listUtils'
 
 class Matchs extends React.Component {
-  logoSize = 20
   render() {
     const matchs = this.props.matchs
     const teams = this.props.teams
@@ -24,7 +23,7 @@ class Matchs extends React.Component {
             date={gm[0]}
             matchs={gm[1]}
             key={gm[0]}
-            statsTitle={i === 0 ? 'hgf-agf' : ''}
+            statsTitle={i === 0 ? 'h-a' : ''}
           />
         ))}
       </div>

@@ -5,57 +5,60 @@ import './MatchsPerDay.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class MatchsPerDay extends React.Component {
-  logoSize = 20
   render() {
     const statsTitle = this.props.statsTitle
     return (
       <div key="this.props.date">
-        <table className="table">
-          <thead>
-            <tr>
-              <th colSpan={7}>
-                <span className="badge badge-light">
-                  {moment(this.props.date).format('dddd DD.MM.YY')}
-                </span>
-              </th>
-              <th>
+        <div>
+          <table className="table">
+            <thead>
+              <tr className="row">
+                <th scope="col" className="col-6">
+                  <small>
+                    {moment(this.props.date).format('dddd DD.MM.YY')}
+                  </small>
+                </th>
                 {statsTitle && (
-                  <td>
-                    <span className="badge badge-secondary ">
-                      {statsTitle} &nbsp;
+                  <th scope="col" className="col-2 text-justify">
+                    <small>
+                      {statsTitle}
+                      &nbsp;
                       <FontAwesomeIcon icon="info-circle" size="sm" />
-                    </span>
-                  </td>
+                    </small>
+                  </th>
                 )}
                 {statsTitle && (
-                  <td>
-                    <span className="badge badge-secondary">1</span>
-                  </td>
+                  <th scope="col" className="col-1 text-justify">
+                    <small>1</small>
+                  </th>
                 )}
                 {statsTitle && (
-                  <td>
-                    <span className="badge badge-secondary">0</span>
-                  </td>
+                  <th scope="col" className="col-1 text-justify">
+                    <small>0</small>
+                  </th>
                 )}
                 {statsTitle && (
-                  <td>
-                    <span className="badge badge-secondary">2</span>
-                  </td>
+                  <th scope="col" className="col-1 text-justify">
+                    <small>2</small>
+                  </th>
                 )}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.matchs.map((m) => (
-              <Match
-                match={m}
-                teams={this.props.teams}
-                seasonInfo={this.props.seasonInfo}
-                key={m.id}
-              />
-            ))}
-          </tbody>
-        </table>
+                {statsTitle && (
+                  <th scope="col" className="col-1 text-justify" />
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.matchs.map((m) => (
+                <Match
+                  match={m}
+                  teams={this.props.teams}
+                  seasonInfo={this.props.seasonInfo}
+                  key={m.id}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }

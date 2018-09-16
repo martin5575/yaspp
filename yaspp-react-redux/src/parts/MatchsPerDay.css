@@ -1,11 +1,14 @@
-.final {
+.table td .final {
   font-weight: bold;
 }
 
+.table th,
 .table td {
-  padding: 0.25rem;
+  padding: 0.15rem;
+  page-break-inside: avoid;
 }
 
 .table {
   margin-bottom: 0.15rem;
+  margin-left: 15px;
 }

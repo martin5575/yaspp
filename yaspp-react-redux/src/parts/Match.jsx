@@ -65,12 +65,12 @@ class Match extends React.Component {
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
         </td>
-        <td className={'col-xs-1 ' + (match.isFinished ? 'final' : '')}>
+        <td className={'col-xs-1 ' + match.isFinished ? 'final' : ''}>
           <small>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
         </td>
-        <td>
+        <td className="col-xs-1">
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
         </td>
         <td className="col-xs-2">
@@ -78,19 +78,24 @@ class Match extends React.Component {
             <i>{formatedStats}</i>
           </small>
         </td>
-        <td className="col-xs-2">
+        <td className="col-xs-1">
           <small>
             <i>{formatPercentage(probs.win)}</i>
           </small>
         </td>
-        <td className="col-xs-2">
+        <td className="col-xs-1">
           <small>
             <i>{formatPercentage(probs.tie)}</i>
           </small>
         </td>
-        <td className="col-xs-2">
+        <td className="col-xs-1">
           <small>
             <i>{formatPercentage(probs.loss)}</i>
+          </small>
+        </td>
+        <td className="col-xs-1">
+          <small>
+            <FontAwesomeIcon icon="info-circle" />
           </small>
         </td>
       </tr>
