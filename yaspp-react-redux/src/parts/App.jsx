@@ -62,7 +62,6 @@ class App extends Component {
               className="btn btn-secondary"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
             >
               <FontAwesomeIcon icon="percentage" />
             </button>
