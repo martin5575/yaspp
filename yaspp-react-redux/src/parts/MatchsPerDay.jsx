@@ -28,6 +28,9 @@ class MatchsPerDay extends React.Component {
                   {'1-'}
                   <FontAwesomeIcon icon="percentage" size="sm" />
                 </span>
+                <span className="badge badge-secondary">1</span>
+                <span className="badge badge-secondary">0</span>
+                <span className="badge badge-secondary">2</span>
               </div>
             )}
           </div>
