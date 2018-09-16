@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ListNavigator extends Component {
   onSelect(event) {
-    this.props.onSelect(event.target.id)
+    let node = event.target
+    while (!node.id) {
+      node = node.parentElement
+    }
+    this.props.onSelect(node.id)
   }
 
   render() {

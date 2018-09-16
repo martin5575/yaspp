@@ -15,6 +15,10 @@ library.add(icons.faTrash)
 library.add(icons.faCaretLeft)
 library.add(icons.faCaretRight)
 library.add(icons.faFutbol)
+library.add(icons.faAngleDoubleDown)
+library.add(icons.faInfo)
+library.add(icons.faInfoCircle)
+library.add(icons.faPercentage)
 
 class Root extends Component {
   render() {

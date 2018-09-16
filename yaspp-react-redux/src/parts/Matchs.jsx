@@ -4,10 +4,10 @@ import MatchsPerDay from './MatchsPerDay'
 import { groupByFunc } from '../utils/listUtils'
 
 class Matchs extends React.Component {
-  logoSize = 20
   render() {
     const matchs = this.props.matchs
     const teams = this.props.teams
+    const seasonInfo = this.props.seasonInfo
     if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
     const groupByMatchDay = groupByFunc(matchs, (x) =>
@@ -16,8 +16,15 @@ class Matchs extends React.Component {
     const groupedMatchs = Object.entries(groupByMatchDay)
     return (
       <div className="mx-auto">
-        {groupedMatchs.map((gm) => (
-          <MatchsPerDay teams={teams} date={gm[0]} matchs={gm[1]} key={gm[0]} />
+        {groupedMatchs.map((gm, i) => (
+          <MatchsPerDay
+            teams={teams}
+            seasonInfo={seasonInfo}
+            date={gm[0]}
+            matchs={gm[1]}
+            key={gm[0]}
+            statsTitle={i === 0 ? 'h-a' : ''}
+          />
         ))}
       </div>
     )

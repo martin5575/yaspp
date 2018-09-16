@@ -13,6 +13,8 @@ import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
+import { getSeasonInfo } from '../utils/seasonInfo'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class App extends Component {
   update() {
@@ -41,6 +43,7 @@ class App extends Component {
     console.log('render normal')
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
+    const seasonInfo = getSeasonInfo(state)
     return (
       <div className="main">
         <div
@@ -54,12 +57,26 @@ class App extends Component {
 
           <MatchdayNavigator store={store} />
           <div className="btn-group" role="group" aria-label="Third group">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-toggle="button"
+              aria-pressed="false"
+            >
+              <FontAwesomeIcon icon="percentage" />
+            </button>
+          </div>
+          <div className="btn-group" role="group" aria-label="Third group">
             <RefreshCurrentMatchDayButton />
           </div>
         </div>
         <div className="container">
           <div className="row">
-            <Matchs matchs={relevantMatchs} teams={teams} />
+            <Matchs
+              matchs={relevantMatchs}
+              teams={teams}
+              seasonInfo={seasonInfo}
+            />
           </div>
         </div>
       </div>
