@@ -2,7 +2,11 @@ import React from 'react'
 import moment from 'moment'
 import './Match.css'
 import { formatStats, calcStats } from '../utils/seasonInfo'
-import { formatProbs, calcWinLossTieProbs } from '../utils/probabilities'
+import {
+  formatProbs,
+  calcWinLossTieProbs,
+  formatPercentage,
+} from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Match extends React.Component {
@@ -57,10 +61,14 @@ class Match extends React.Component {
           />
         </td>
         <td className="col-xs-1">
-          ({match.halfTimeHome}:{match.halfTimeAway})
+          <small>
+            ({match.halfTimeHome}:{match.halfTimeAway})
+          </small>
         </td>
         <td className={'col-xs-1 ' + (match.isFinished ? 'final' : '')}>
-          {match.fullTimeHome}:{match.fullTimeAway}
+          <small>
+            {match.fullTimeHome}:{match.fullTimeAway}
+          </small>
         </td>
         <td>
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
@@ -72,7 +80,17 @@ class Match extends React.Component {
         </td>
         <td className="col-xs-2">
           <small>
-            <i>{formatedProbs}</i>
+            <i>{formatPercentage(probs.win)}</i>
+          </small>
+        </td>
+        <td className="col-xs-2">
+          <small>
+            <i>{formatPercentage(probs.tie)}</i>
+          </small>
+        </td>
+        <td className="col-xs-2">
+          <small>
+            <i>{formatPercentage(probs.loss)}</i>
           </small>
         </td>
       </tr>

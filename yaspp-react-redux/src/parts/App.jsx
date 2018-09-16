@@ -14,6 +14,7 @@ import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
 import { getSeasonInfo } from '../utils/seasonInfo'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class App extends Component {
   update() {
@@ -55,6 +56,17 @@ class App extends Component {
           </div>
 
           <MatchdayNavigator store={store} />
+          <div className="btn-group" role="group" aria-label="Third group">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+            >
+              <FontAwesomeIcon icon="percentage" />
+            </button>
+          </div>
           <div className="btn-group" role="group" aria-label="Third group">
             <RefreshCurrentMatchDayButton />
           </div>
