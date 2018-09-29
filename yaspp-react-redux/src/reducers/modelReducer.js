@@ -52,8 +52,18 @@ export const modelReducer = (state = initialState, action) => {
       }
     }
     case actions.ReceiveMatchs: {
-      const matchs = [...state.matchs, ...action.matchs]
       const teams = { ...state.teams, ...action.teams }
+
+      const matchDict = state.matchs.reduce((res,x) => {
+        res[x.id]=x
+        return res
+      }, {})
+      
+      for (let i=0;i<action.matchs.length;++i) {
+        const match = action.matchs[i]
+        matchDict[match.id]=match
+      }
+      const matchs = Object.values(matchDict)
 
       return {
         ...state,
