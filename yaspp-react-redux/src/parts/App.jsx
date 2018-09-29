@@ -11,6 +11,9 @@ import { getIsLoading } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
+import { MatchDayViewSettings } from './MatchDayViewSettings'
+
+
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
 import { getSeasonInfo } from '../utils/seasonInfo'
@@ -47,10 +50,13 @@ class App extends Component {
     return (
       <div className="main">
         <div
-          className="btn-toolbar justify-content-between"
+          className="btn-toolbar center"
           role="toolbar"
           aria-label="Toolbar with button groups"
         >
+          <div className="btn-group" role="group" aria-label="Third group">
+            <MatchDayViewSettings />
+          </div>
           <div className="btn-group" role="group" aria-label="Third group">
             <MatchDayOptionsButton />
           </div>

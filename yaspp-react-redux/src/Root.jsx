@@ -19,6 +19,11 @@ library.add(icons.faAngleDoubleDown)
 library.add(icons.faInfo)
 library.add(icons.faInfoCircle)
 library.add(icons.faPercentage)
+library.add(icons.faEllipsisV)
+library.add(icons.faEllipsisH)
+library.add(icons.faBars)
+library.add(icons.faColumns)
+library.add(icons.faTable)
 
 class Root extends Component {
   render() {
