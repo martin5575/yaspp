@@ -331,6 +331,11 @@ const clearSeason = (league, year) => ({
   payload: { league, year },
 })
 
+
+/* ----------- Visualize ----------- */
+
+const showPercentage = (flag) => ({type:actions.ShowPercentage, payload: flag})
+
 export {
   clearAll,
   clearSeason,
@@ -345,4 +350,5 @@ export {
   selectLeague,
   selectYear,
   refreshMatchs,
+  showPercentage,
 }

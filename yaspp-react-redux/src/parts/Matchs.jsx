@@ -8,6 +8,7 @@ class Matchs extends React.Component {
     const matchs = this.props.matchs
     const teams = this.props.teams
     const seasonInfo = this.props.seasonInfo
+    const showPercentage = this.props.showPercentage
     if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
     const groupByMatchDay = groupByFunc(matchs, (x) =>
@@ -24,6 +25,7 @@ class Matchs extends React.Component {
             matchs={gm[1]}
             key={gm[0]}
             statsTitle={i === 0 ? 'h-a' : ''}
+            showPercentage={showPercentage}
           />
         ))}
       </div>

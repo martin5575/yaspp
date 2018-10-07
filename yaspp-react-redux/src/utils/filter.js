@@ -16,7 +16,8 @@ export function getSelectedMatchs(state) {
   const selectedYear = getSelectedYear(state)
   const selectedMatchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
-  return allMatchs.filter(
+
+  return !allMatchs ? [] : allMatchs.filter(
     (x) =>
       x.league === selectedLeague &&
       x.year === selectedYear &&

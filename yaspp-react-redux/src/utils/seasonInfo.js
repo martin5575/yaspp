@@ -22,7 +22,8 @@ export const getSeasonInfo = (state) => {
   const year = getSelectedYear(state)
   const matchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
-  const previousMatchs = allMatchs.filter(
+  const previousMatchs = !allMatchs ? [] :
+   allMatchs.filter(
     (m) => m.year === year && m.league === league && m.matchDayId < matchDay
   )
   const home = groupByArray(previousMatchs, 'teamHomeId').map((x) => ({

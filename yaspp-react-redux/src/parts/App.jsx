@@ -18,6 +18,9 @@ import LoadingPage from './LoadingPage'
 import Storage from './Storage'
 import { getSeasonInfo } from '../utils/seasonInfo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { PercentageButton } from '../components/PercentageButton';
+
+import * as actionBuilder from '../actions/ActionBuilder'
 
 class App extends Component {
   update() {
@@ -47,10 +50,11 @@ class App extends Component {
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     const seasonInfo = getSeasonInfo(state)
+    const showPercentage = state.ui.showPercentage
     return (
       <div className="main">
         <div
-          className="btn-toolbar center"
+          className="btn-toolbar justify-content-center"
           role="toolbar"
           aria-label="Toolbar with button groups"
         >
@@ -63,14 +67,10 @@ class App extends Component {
 
           <MatchdayNavigator store={store} />
           <div className="btn-group" role="group" aria-label="Third group">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-toggle="button"
-              aria-pressed="false"
-            >
-              <FontAwesomeIcon icon="percentage" />
-            </button>
+         <PercentageButton
+          state={state}
+          onClick={(s) => this.props.store.dispatch(actionBuilder.showPercentage(!s.ui.showPercentage))}
+          />
           </div>
           <div className="btn-group" role="group" aria-label="Third group">
             <RefreshCurrentMatchDayButton />
@@ -82,6 +82,7 @@ class App extends Component {
               matchs={relevantMatchs}
               teams={teams}
               seasonInfo={seasonInfo}
+              showPercentage={showPercentage}
             />
           </div>
         </div>

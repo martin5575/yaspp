@@ -49,11 +49,16 @@ export const calcWinLossTieProbs = (hg, ag) => {
 }
 
 const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '-')
+
 export const formatPercentage = (n, digits = 0) =>
   n ? (n * 100.0).toFixed(digits) + '%' : '-'
+
 export const formatProbs = (probs, n = 2) => {
   return `${formatPercentage(probs.win, n)}/${formatPercentage(
     probs.tie,
     n
   )}/${formatPercentage(probs.loss, n)}`
 }
+
+export const formatRate = (n, digits = 2) =>
+  n ? (Math.min(101, 1.0 / n)).toFixed(digits) : '-'

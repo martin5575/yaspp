@@ -16,6 +16,8 @@ const initialState = {
   isLoadingAllMatchDays: false,
   isLoadingMatchDay: false,
   isRefreshingMatchs: false,
+
+  showPercentage: false,
 }
 
 /******************* Reducer ******************/
@@ -118,6 +120,9 @@ export const uiReducer = (state = initialState, action) => {
     }
     case actions.SwitchMenu: {
       return { ...state, menuId: action.menuId }
+    }
+    case actions.ShowPercentage:{
+      return { ...state, showPercentage: action.payload }
     }
     default:
       return state
