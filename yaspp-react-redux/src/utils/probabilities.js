@@ -60,5 +60,5 @@ export const formatProbs = (probs, n = 2) => {
   )}/${formatPercentage(probs.loss, n)}`
 }
 
-export const formatRate = (n, digits = 2) =>
-  n ? (Math.min(101, 1.0 / n)).toFixed(digits) : '-'
+export const formatRate = (n, digits = 1) =>
+  n ? (Math.min(99.9, 1.0 / n)).toFixed(digits) : '-'
