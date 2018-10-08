@@ -10,42 +10,60 @@ const poissonProbability = (lambda, k) => {
   return (Math.pow(lambda, k) * Math.exp(-lambda)) / faculty(k)
 }
 
-export const calcLossProbs = (hgf, agf, n) => {
+export const calcLossProbs = (probs) => {
   let probSum = 0.0
+  const n = probs.length
   for (let i = 0; i <= n; ++i) {
     for (let j = i + 1; j <= n; ++j) {
-      probSum += poissonProbability(hgf, i) * poissonProbability(agf, j)
+      probSum += probs[i,j]
     }
   }
   return probSum
 }
-export const calcWinProbs = (hgf, agf, n) => {
+
+export const calcWinProbs = (probs) => {
   let probSum = 0.0
+  const n = probs.length
   for (let i = 1; i <= n; ++i) {
     for (let j = 0; j < i; ++j) {
-      probSum += poissonProbability(hgf, i) * poissonProbability(agf, j)
+      probSum += probs[i,j]
     }
   }
   return probSum
 }
-export const calcTieProbs = (hgf, agf, n) => {
+
+export const calcTieProbs = (probs) => {
   let probSum = 0.0
+  const n = probs.length
   for (let i = 0; i <= n; ++i) {
-    probSum += poissonProbability(hgf, i) * poissonProbability(agf, i)
+    probSum += probs[i,j]
   }
   return probSum
 }
 
 export const calcWinLossTieProbs = (hg, ag) => {
-  const n = 20
+  const probs = calcResultProbs(hg, ag, n)
+  return {
+    win: calcWinProbs(probs),
+    loss: calcLossProbs(hprobs),
+    tie: calcTieProbs(probs),
+  }
+}
+
+export const calcResultProbs = (hg, ag, n=20) => {
   const epsilon = 1e-4
   const hgf = (hg ? hg : 0.0) + epsilon
   const agf = (ag ? ag : 0.0) + epsilon
-  return {
-    win: calcWinProbs(hgf, agf, n),
-    loss: calcLossProbs(hgf, agf, n),
-    tie: calcTieProbs(hgf, agf, n),
+
+  let result = []
+  for (let i = 0; i <= n; ++i) {
+    let row = []
+    for (let j = 0; j <= n; ++j) {
+      row.push(poissonProbability(hgf, i) * poissonProbability(agf, j))
+    }
+    result.push(row)
   }
+  return result
 }
 
 const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '-')
