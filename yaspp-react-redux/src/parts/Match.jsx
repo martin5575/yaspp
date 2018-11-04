@@ -42,7 +42,7 @@ class Match extends React.Component {
         data-toggle="tooltip"
         title={
           'aktualisiert: ' +
-          moment(match.lastUpdate).format('DD.Mmatch.YY HH:mm:ss')
+          moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
         <td className="col-xs-1">
