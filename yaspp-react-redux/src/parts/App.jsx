@@ -13,12 +13,10 @@ import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
 import { MatchDayViewSettings } from './MatchDayViewSettings'
 
-
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
 import { getSeasonInfo } from '../utils/seasonInfo'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PercentageButton } from '../components/PercentageButton';
+import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'
 
@@ -54,38 +52,42 @@ class App extends Component {
     return (
       <div className="container.fluid">
         <div className="row justify-content-center">
-          <div className="col">
-            <div
-              className="btn-toolbar"
-              role="toolbar"
-              aria-label="Toolbar with button groups"
-            >
-                      <div className="btn-group" role="group" aria-label="Third group">
-            <MatchDayViewSettings />
-          </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <MatchDayOptionsButton />
-              </div>
-
-              <MatchdayNavigator store={store} />
-              <div className="btn-group" role="group" aria-label="Third group">
-         <PercentageButton
-          state={state}
-          onClick={(s) => this.props.store.dispatch(actionBuilder.showPercentage(!s.ui.showPercentage))}
-          />
-          </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <RefreshCurrentMatchDayButton />
-              </div>
+          <div
+            className="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div className="btn-group" role="group" aria-label="Third group">
+              <MatchDayViewSettings />
             </div>
-        <div className="container-fluid">
-          <div className="row">
-            <Matchs
-              matchs={relevantMatchs}
-              teams={teams}
-              seasonInfo={seasonInfo}
-              showPercentage={showPercentage}
-            />
+            <div className="btn-group" role="group" aria-label="Third group">
+              <MatchDayOptionsButton />
+            </div>
+
+            <MatchdayNavigator store={store} />
+            <div className="btn-group" role="group" aria-label="Third group">
+              <PercentageButton
+                state={state}
+                onClick={(s) =>
+                  this.props.store.dispatch(
+                    actionBuilder.showPercentage(!s.ui.showPercentage)
+                  )
+                }
+              />
+            </div>
+            <div className="btn-group" role="group" aria-label="Third group">
+              <RefreshCurrentMatchDayButton />
+            </div>
+          </div>
+          <div className="container-fluid">
+            <div className="row">
+              <Matchs
+                matchs={relevantMatchs}
+                teams={teams}
+                seasonInfo={seasonInfo}
+                showPercentage={showPercentage}
+              />
+            </div>
           </div>
         </div>
       </div>
