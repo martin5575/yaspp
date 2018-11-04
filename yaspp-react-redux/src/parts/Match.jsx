@@ -4,10 +4,15 @@ import './Match.css'
 import { formatStats, calcStats } from '../utils/seasonInfo'
 import {
   formatProbs,
+  formatRate,
   calcWinLossTieProbs,
   formatPercentage,
 } from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const formatProbOrRate = (showPercentage, value) => showPercentage ?
+  formatPercentage(value) :
+  formatRate(value)
 
 class Match extends React.Component {
   logoSize = 20
@@ -29,7 +34,7 @@ class Match extends React.Component {
     const formatedStats = formatStats(stats, digits)
     const probs = calcWinLossTieProbs(stats.home, stats.away)
     const formatedProbs = formatProbs(probs)
-
+    const showPercentage = this.props.showPercentage
     return (
       <tr
         className="row"
@@ -80,17 +85,17 @@ class Match extends React.Component {
         </td>
         <td className="col-xs-1">
           <small>
-            <i>{formatPercentage(probs.win)}</i>
+            <i>{ formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </td>
         <td className="col-xs-1">
           <small>
-            <i>{formatPercentage(probs.tie)}</i>
+            <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </td>
         <td className="col-xs-1">
           <small>
-            <i>{formatPercentage(probs.loss)}</i>
+            <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>
         </td>
         <td className="col-xs-1">

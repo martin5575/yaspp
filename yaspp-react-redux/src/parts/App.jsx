@@ -11,10 +11,16 @@ import { getIsLoading } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
+import { MatchDayViewSettings } from './MatchDayViewSettings'
+
+
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
 import { getSeasonInfo } from '../utils/seasonInfo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { PercentageButton } from '../components/PercentageButton';
+
+import * as actionBuilder from '../actions/ActionBuilder'
 
 class App extends Component {
   update() {
@@ -44,6 +50,7 @@ class App extends Component {
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     const seasonInfo = getSeasonInfo(state)
+    const showPercentage = state.ui.showPercentage
     return (
       <div className="container.fluid">
         <div className="row justify-content-center">
@@ -53,33 +60,31 @@ class App extends Component {
               role="toolbar"
               aria-label="Toolbar with button groups"
             >
+                      <div className="btn-group" role="group" aria-label="Third group">
+            <MatchDayViewSettings />
+          </div>
               <div className="btn-group" role="group" aria-label="Third group">
                 <MatchDayOptionsButton />
               </div>
 
               <MatchdayNavigator store={store} />
               <div className="btn-group" role="group" aria-label="Third group">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-toggle="button"
-                  aria-pressed="false"
-                >
-                  <FontAwesomeIcon icon="percentage" />
-                </button>
-              </div>
+         <PercentageButton
+          state={state}
+          onClick={(s) => this.props.store.dispatch(actionBuilder.showPercentage(!s.ui.showPercentage))}
+          />
+          </div>
               <div className="btn-group" role="group" aria-label="Third group">
                 <RefreshCurrentMatchDayButton />
               </div>
             </div>
-          </div>
-        </div>
         <div className="container-fluid">
           <div className="row">
             <Matchs
               matchs={relevantMatchs}
               teams={teams}
               seasonInfo={seasonInfo}
+              showPercentage={showPercentage}
             />
           </div>
         </div>

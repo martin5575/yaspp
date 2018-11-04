@@ -90,7 +90,7 @@ class Navbar extends Component {
             &nbsp;
             <b>Fußball</b>
           </span>
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav mr-auto" key="Football">
             {leagues.map((l) => (
               <li
                 className={`nav-item ${
@@ -111,7 +111,7 @@ class Navbar extends Component {
           </ul>
           <span className="navbar-text">
             <b>Einstellungen</b>
-            <ul className="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-auto" key="Settings">
               <li className={`nav-item`} key="storage">
                 <a
                   className="nav-link"

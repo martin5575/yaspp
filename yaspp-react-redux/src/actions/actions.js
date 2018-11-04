@@ -27,3 +27,5 @@ export const SwitchMenu = 'SwitchMenu'
 /******** Clear **********/
 export const clearSeason = 'ClearSeason'
 export const clearAll = 'ClearAll'
+
+export const ShowPercentage = 'ShowPercentage'

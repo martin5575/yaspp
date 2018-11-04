@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class MatchsPerDay extends React.Component {
   render() {
     const statsTitle = this.props.statsTitle
+    const showPercentage = this.props.showPercentage
     return (
       <div key="this.props.date">
         <div>
@@ -54,6 +55,7 @@ class MatchsPerDay extends React.Component {
                   teams={this.props.teams}
                   seasonInfo={this.props.seasonInfo}
                   key={m.id}
+                  showPercentage={showPercentage}
                 />
               ))}
             </tbody>
