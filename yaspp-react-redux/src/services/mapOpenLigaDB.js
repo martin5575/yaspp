@@ -9,10 +9,10 @@ function mapMatch(olMatch, league, year) {
   const leagueKey = olMatch.LeagueId
   const lastUpdate = olMatch.LastUpdateDateTime
   const halfTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultName === 'Halbzeitergebnis'
+    (x) => x.ResultOrderID === 2
   )
   const fullTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultName === 'Endergebnis'
+    (x) => x.ResultOrderID === 1
   )
   const halfTimeHome = halfTimeResult ? halfTimeResult.PointsTeam1 : '-'
   const halfTimeAway = halfTimeResult ? halfTimeResult.PointsTeam2 : '-'
@@ -66,11 +66,23 @@ function mapTeamFromMatchs(olMatchs) {
   }
   return teams
 }
+
 function mapMatchDay(olGroup, league, year) {
   const id = parseInt(olGroup.GroupOrderID, 10)
   const name = olGroup.GroupName
   const key = parseInt(olGroup.GroupID, 10)
-  return { id, name, key, league, year }
+  return {
+    id,
+    name,
+    key,
+    league,
+    year
+  }
 }
 
-export { mapMatch, mapMatchDay, mapTeam, mapTeamFromMatchs }
+export {
+  mapMatch,
+  mapMatchDay,
+  mapTeam,
+  mapTeamFromMatchs
+}
