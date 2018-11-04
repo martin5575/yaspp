@@ -13,9 +13,9 @@ const poissonProbability = (lambda, k) => {
 export const calcLossProbs = (probs) => {
   let probSum = 0.0
   const n = probs.length
-  for (let i = 0; i <= n; ++i) {
-    for (let j = i + 1; j <= n; ++j) {
-      probSum += probs[i,j]
+  for (let i = 0; i < n; ++i) {
+    for (let j = i + 1; j < n; ++j) {
+      probSum += probs[i][j]
     }
   }
   return probSum
@@ -24,9 +24,9 @@ export const calcLossProbs = (probs) => {
 export const calcWinProbs = (probs) => {
   let probSum = 0.0
   const n = probs.length
-  for (let i = 1; i <= n; ++i) {
+  for (let i = 1; i < n; ++i) {
     for (let j = 0; j < i; ++j) {
-      probSum += probs[i,j]
+      probSum += probs[i][j]
     }
   }
   return probSum
@@ -35,22 +35,22 @@ export const calcWinProbs = (probs) => {
 export const calcTieProbs = (probs) => {
   let probSum = 0.0
   const n = probs.length
-  for (let i = 0; i <= n; ++i) {
-    probSum += probs[i,j]
+  for (let i = 0; i < n; ++i) {
+    probSum += probs[i][i]
   }
   return probSum
 }
 
 export const calcWinLossTieProbs = (hg, ag) => {
-  const probs = calcResultProbs(hg, ag, n)
+  const probs = calcResultProbs(hg, ag)
   return {
     win: calcWinProbs(probs),
-    loss: calcLossProbs(hprobs),
     tie: calcTieProbs(probs),
+    loss: calcLossProbs(probs),
   }
 }
 
-export const calcResultProbs = (hg, ag, n=20) => {
+export const calcResultProbs = (hg, ag, n = 20) => {
   const epsilon = 1e-4
   const hgf = (hg ? hg : 0.0) + epsilon
   const agf = (ag ? ag : 0.0) + epsilon
