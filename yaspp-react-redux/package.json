@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -36,12 +36,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
-    "jest": "^23.6.0",
-    "jest-cli": "^23.6.0",
     "regenerator-runtime": "^0.12.1"
-  },
-  "jest": {
-    "verbose": true,
-    "transform": {}
   }
 }
