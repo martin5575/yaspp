@@ -21,7 +21,7 @@ class Matchs extends React.Component {
     sortByField(groupedMatchs, '0')
 
     return (
-      <div className="mx-auto">
+      <div className="schedule">
         {groupedMatchs.map((gm, i) => (
           <MatchsPerDay
             teams={teams}

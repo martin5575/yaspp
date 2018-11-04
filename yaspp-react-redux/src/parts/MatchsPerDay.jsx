@@ -13,7 +13,7 @@ class MatchsPerDay extends React.Component {
         <div>
           <table className="table">
             <thead>
-              <tr className="row">
+              <tr className="d-flex">
                 <th scope="col" className="col-6">
                   <small>
                     {moment(this.props.date).format('dddd DD.MM.YY')}

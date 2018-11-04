@@ -80,14 +80,12 @@ class App extends Component {
             </div>
           </div>
           <div className="container-fluid">
-            <div className="row">
-              <Matchs
-                matchs={relevantMatchs}
-                teams={teams}
-                seasonInfo={seasonInfo}
-                showPercentage={showPercentage}
-              />
-            </div>
+            <Matchs
+              matchs={relevantMatchs}
+              teams={teams}
+              seasonInfo={seasonInfo}
+              showPercentage={showPercentage}
+            />
           </div>
         </div>
       </div>

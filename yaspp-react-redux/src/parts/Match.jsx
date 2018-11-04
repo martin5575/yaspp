@@ -37,7 +37,7 @@ class Match extends React.Component {
     const showPercentage = this.props.showPercentage
     return (
       <tr
-        className="row"
+        className="d-flex"
         key={match.id}
         data-toggle="tooltip"
         title={
@@ -45,19 +45,17 @@ class Match extends React.Component {
           moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
-        <td className="col-xs-1">
+        <td className="col-1">
           <small>{moment(match.matchDateTime).format('HH:mm')}</small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-2">
           <img
             src={teamHome.iconUrl}
             alt={teamHome.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
-        </td>
-        <td className="col-xs-1">:</td>
-        <td className="col-xs-1">
+          <small> : </small>
           <img
             src={teamAway.iconUrl}
             alt={teamAway.shortName}
@@ -65,40 +63,40 @@ class Match extends React.Component {
             width={this.logoSize}
           />
         </td>
-        <td className="col-xs-1">
+        <td className="col-1">
           <small>
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
         </td>
-        <td className={'col-xs-1 ' + match.isFinished ? 'final' : ''}>
-          <small>
+        <td className="col-1">
+          <small className={match.isFinished ? 'final ' : ''}>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1">
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
         </td>
-        <td className="col-xs-2">
+        <td className="col-2 text-justify">
           <small>
             <i>{formatedStats}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <a
             data-toggle="popover"
             title="Popover title"
