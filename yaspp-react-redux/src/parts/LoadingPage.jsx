@@ -9,10 +9,6 @@ import {
 } from '../reducers/selectors/uiSelector'
 
 export default class LoadingPage extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const store = this.props.store
     const state = store.getState()

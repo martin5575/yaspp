@@ -5,7 +5,6 @@ import Header from './parts/Header'
 import Footer from './parts/Footer'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as icons from '@fortawesome/free-solid-svg-icons'
 
 library.add(icons.faSync)

@@ -7,12 +7,12 @@ import {
   formatRate,
   calcWinLossTieProbs,
   formatPercentage,
+  getProbDescription,
 } from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const formatProbOrRate = (showPercentage, value) => showPercentage ?
-  formatPercentage(value) :
-  formatRate(value)
+const formatProbOrRate = (showPercentage, value) =>
+  showPercentage ? formatPercentage(value) : formatRate(value)
 
 class Match extends React.Component {
   logoSize = 20
@@ -34,30 +34,29 @@ class Match extends React.Component {
     const formatedStats = formatStats(stats, digits)
     const probs = calcWinLossTieProbs(stats.home, stats.away)
     const formatedProbs = formatProbs(probs)
+    console.log(formatedProbs)
     const showPercentage = this.props.showPercentage
     return (
       <tr
-        className="row"
+        className="d-flex"
         key={match.id}
         data-toggle="tooltip"
         title={
           'aktualisiert: ' +
-          moment(match.lastUpdate).format('DD.Mmatch.YY HH:mm:ss')
+          moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
-        <td className="col-xs-1">
+        <td className="col-1">
           <small>{moment(match.matchDateTime).format('HH:mm')}</small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-2">
           <img
             src={teamHome.iconUrl}
             alt={teamHome.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
-        </td>
-        <td className="col-xs-1">:</td>
-        <td className="col-xs-1">
+          <small> : </small>
           <img
             src={teamAway.iconUrl}
             alt={teamAway.shortName}
@@ -65,46 +64,47 @@ class Match extends React.Component {
             width={this.logoSize}
           />
         </td>
-        <td className="col-xs-1">
+        <td className="col-1">
           <small>
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
         </td>
-        <td className={'col-xs-1 ' + match.isFinished ? 'final' : ''}>
-          <small>
+        <td className="col-1">
+          <small className={match.isFinished ? 'final ' : ''}>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1">
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
         </td>
-        <td className="col-xs-2">
+        <td className="col-2 text-justify">
           <small>
             <i>{formatedStats}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
-            <i>{ formatProbOrRate(showPercentage, probs.win)}</i>
+            <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>
         </td>
-        <td className="col-xs-1">
+        <td className="col-1 text-justify">
           <a
             data-toggle="popover"
-            title="Popover title"
+            title={`${teamHome.shortName}-${teamAway.shortName}`}
+            data-html="true"
             data-container="body"
             data-placement="left"
-            data-content="And here's some amazing content. It's very engaging. Right?"
+            data-content={getProbDescription(stats.home, stats.away)}
           >
             <small>
               <FontAwesomeIcon icon="info-circle" />

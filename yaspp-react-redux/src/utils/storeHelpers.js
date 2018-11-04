@@ -7,13 +7,13 @@ import {
   getAllMatchDays,
   getAllMatchs,
 } from '../reducers/selectors/modelSelector'
-import { groupByArray, sum } from './listUtils'
 
 export function areSelectedMatchDaysPresent(store) {
   const state = store.getState()
   const selectedLeague = getSelectedLeague(state)
   const selectedYear = getSelectedYear(state)
   const allMatchDays = getAllMatchDays(state)
+  // @ts-ignore
   return allMatchDays.find(
     (x) => x.league === selectedLeague && x.year === selectedYear
   )
@@ -25,10 +25,11 @@ export function areSelectedMatchsPresent(store) {
   const selectedYear = getSelectedYear(state)
   const selectedMatchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
+  // @ts-ignore
   return allMatchs.find(
     (x) =>
-      x.league === selectedLeague &&
-      x.year === selectedYear &&
-      x.matchDayId === selectedMatchDay
+    x.league === selectedLeague &&
+    x.year === selectedYear &&
+    x.matchDayId === selectedMatchDay
   )
 }

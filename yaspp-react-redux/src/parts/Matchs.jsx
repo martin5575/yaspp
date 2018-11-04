@@ -1,7 +1,7 @@
 import React from 'react'
 import './Matchs.css'
 import MatchsPerDay from './MatchsPerDay'
-import { groupByFunc } from '../utils/listUtils'
+import { groupByFunc, sortByField } from '../utils/listUtils'
 
 class Matchs extends React.Component {
   render() {
@@ -14,9 +14,14 @@ class Matchs extends React.Component {
     const groupByMatchDay = groupByFunc(matchs, (x) =>
       x.matchDateTime.substring(0, 10)
     )
+
+    // @ts-ignore
     const groupedMatchs = Object.entries(groupByMatchDay)
+
+    sortByField(groupedMatchs, '0')
+
     return (
-      <div className="mx-auto">
+      <div className="schedule">
         {groupedMatchs.map((gm, i) => (
           <MatchsPerDay
             teams={teams}

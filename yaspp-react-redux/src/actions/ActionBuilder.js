@@ -18,9 +18,12 @@ import {
   getSelectedLeague,
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
-import { dictionarize } from '../utils/listUtils'
-import { getAllLeagues } from '../reducers/selectors/modelSelector'
-import { initialState } from '../reducers/modelReducer'
+import {
+  dictionarize
+} from '../utils/listUtils'
+import {
+  getAllLeagues
+} from '../reducers/selectors/modelSelector'
 
 /******************* SELECT in UI ******************/
 
@@ -72,7 +75,7 @@ function receiveMatchDays(selectedLeague, selectedYear, json) {
 }
 
 function fetchMatchDays(selectedLeague, selectedYear) {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestMatchDays(selectedLeague, selectedYear))
     return service
       .getMatchDays(selectedLeague, selectedYear)
@@ -106,8 +109,9 @@ function receiveMatchs(selectedLeague, selectedYear, selectedMatchDay, json) {
     teams,
   }
 }
+
 function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestMatchs(selectedLeague, selectedYear, selectedMatchDay))
     return service
       .getMatchs(selectedLeague, selectedYear, selectedMatchDay)
@@ -125,7 +129,7 @@ function refreshMatchs(state) {
   const selectedMatchDay = getSelectedMatchDay(state)
   if (!selectedLeague || !selectedYear || !selectedYear) return
 
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(startRefreshMatchs())
     return service
       .getMatchsLastChangeDate(selectedLeague, selectedYear, selectedMatchDay)
@@ -192,18 +196,18 @@ function receiveTeams(selectedLeague, selectedYear, json) {
 }
 
 function fetchTeams(selectedLeague, selectedYear) {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestTeams(selectedLeague, selectedYear))
     const promise = service.getTeams(selectedLeague, selectedYear)
     return (
       promise
-        //.then(
-        // response => response.json()
-        //error => console.log('An error occurred.',   error)
-        //)
-        .then((json) =>
-          dispatch(receiveTeams(selectedLeague, selectedYear, json))
-        )
+      //.then(
+      // response => response.json()
+      //error => console.log('An error occurred.',   error)
+      //)
+      .then((json) =>
+        dispatch(receiveTeams(selectedLeague, selectedYear, json))
+      )
     )
   }
 }
@@ -211,8 +215,12 @@ function fetchTeams(selectedLeague, selectedYear) {
 /***************** LEAGUES  *********************/
 
 function requestLeagues() {
-  return { type: actions.RequestLeagues, isLoadingLeagues: true }
+  return {
+    type: actions.RequestLeagues,
+    isLoadingLeagues: true
+  }
 }
+
 function receiveLeagues(json) {
   return {
     type: actions.ReceiveLeagues,
@@ -220,8 +228,9 @@ function receiveLeagues(json) {
     leagues: json.map((x) => x),
   }
 }
+
 function fetchLeagues() {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestLeagues())
     const leagues = service.getLeagues()
     dispatch(receiveLeagues(leagues))
@@ -237,6 +246,7 @@ function requestYears(selectedLeague) {
     selectedLeague,
   }
 }
+
 function receiveYears(selectedLeague, json) {
   const years = json.map((x) => x)
   let yearsByLeague = {}
@@ -253,7 +263,7 @@ function fetchYears(selectedLeague) {
   if (selectedLeague === undefined)
     throw new Error('selectedLeague is undefined')
 
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestYears(selectedLeague))
     const years = service.getYears(selectedLeague)
     dispatch(receiveYears(selectedLeague, years))
@@ -263,7 +273,7 @@ function fetchYears(selectedLeague) {
 /***************** INIT  *********************/
 
 function fetchInitial(store) {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(startInitializing())
 
     let state = store.getState()
@@ -328,13 +338,19 @@ const clearAll = () => ({
 
 const clearSeason = (league, year) => ({
   type: actions.clearSeason,
-  payload: { league, year },
+  payload: {
+    league,
+    year
+  },
 })
 
 
 /* ----------- Visualize ----------- */
 
-const showPercentage = (flag) => ({type:actions.ShowPercentage, payload: flag})
+const showPercentage = (flag) => ({
+  type: actions.ShowPercentage,
+  payload: flag
+})
 
 export {
   clearAll,
