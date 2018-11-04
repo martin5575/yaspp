@@ -1,4 +1,7 @@
-import { pipe, max, prop, map } from 'ramda'
+import {
+  prop,
+  map
+} from 'ramda'
 import {
   getAllMatchs,
   getAllYearsByLeague,
@@ -19,9 +22,9 @@ export function getSelectedMatchs(state) {
 
   return !allMatchs ? [] : allMatchs.filter(
     (x) =>
-      x.league === selectedLeague &&
-      x.year === selectedYear &&
-      x.matchDayId === selectedMatchDay
+    x.league === selectedLeague &&
+    x.year === selectedYear &&
+    x.matchDayId === selectedMatchDay
   )
 }
 export function getSelectedYears(state) {

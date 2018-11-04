@@ -7,7 +7,6 @@ import {
   getAllMatchDays,
   getAllMatchs,
 } from '../reducers/selectors/modelSelector'
-import { groupByArray, sum } from './listUtils'
 
 export function areSelectedMatchDaysPresent(store) {
   const state = store.getState()
@@ -27,8 +26,8 @@ export function areSelectedMatchsPresent(store) {
   const allMatchs = getAllMatchs(state)
   return allMatchs.find(
     (x) =>
-      x.league === selectedLeague &&
-      x.year === selectedYear &&
-      x.matchDayId === selectedMatchDay
+    x.league === selectedLeague &&
+    x.year === selectedYear &&
+    x.matchDayId === selectedMatchDay
   )
 }

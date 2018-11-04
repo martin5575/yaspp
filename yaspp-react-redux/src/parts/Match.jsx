@@ -10,9 +10,8 @@ import {
 } from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const formatProbOrRate = (showPercentage, value) => showPercentage ?
-  formatPercentage(value) :
-  formatRate(value)
+const formatProbOrRate = (showPercentage, value) =>
+  showPercentage ? formatPercentage(value) : formatRate(value)
 
 class Match extends React.Component {
   logoSize = 20
@@ -34,6 +33,7 @@ class Match extends React.Component {
     const formatedStats = formatStats(stats, digits)
     const probs = calcWinLossTieProbs(stats.home, stats.away)
     const formatedProbs = formatProbs(probs)
+    console.log(formatedProbs)
     const showPercentage = this.props.showPercentage
     return (
       <tr
@@ -85,7 +85,7 @@ class Match extends React.Component {
         </td>
         <td className="col-xs-1">
           <small>
-            <i>{ formatProbOrRate(showPercentage, probs.win)}</i>
+            <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </td>
         <td className="col-xs-1">

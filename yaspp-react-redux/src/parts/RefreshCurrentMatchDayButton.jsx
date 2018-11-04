@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { connect } from 'react-redux'
 import { RefreshButton } from '../components/RefreshButton'
 import { refreshMatchs } from '../actions/ActionBuilder'
