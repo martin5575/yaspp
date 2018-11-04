@@ -30,7 +30,8 @@ export const getSeasonInfo = (state) => {
   const previousMatchs = !allMatchs ? [] :
     // @ts-ignore
     allMatchs.filter(
-      (m) => m.year === year && m.league === league && m.matchDayId < matchDay
+      (m) => m.year === year && m.league === league && m.isFinished &&
+      m.matchDayId < matchDay
     )
   const home = groupByArray(previousMatchs, 'teamHomeId').map((x) => ({
     team: x.key,
