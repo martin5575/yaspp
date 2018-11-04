@@ -9,10 +9,10 @@ function mapMatch(olMatch, league, year) {
   const leagueKey = olMatch.LeagueId
   const lastUpdate = olMatch.LastUpdateDateTime
   const halfTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultOrderID === 2
+    (x) => x.ResultOrderID === 1
   )
   const fullTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultOrderID === 1
+    (x) => x.ResultOrderID === 2
   )
   const halfTimeHome = halfTimeResult ? halfTimeResult.PointsTeam1 : '-'
   const halfTimeAway = halfTimeResult ? halfTimeResult.PointsTeam2 : '-'
