@@ -20,6 +20,7 @@ export function getSelectedMatchs(state) {
   const selectedMatchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
 
+  // @ts-ignore
   return !allMatchs ? [] : allMatchs.filter(
     (x) =>
     x.league === selectedLeague &&
@@ -38,6 +39,7 @@ export function getSelectedMatchDays(state) {
 
   const allMatchDays = getAllMatchDays(state)
 
+  // @ts-ignore
   return allMatchDays.filter(
     (x) => x.league === selectedLeague && x.year === selectedYear
   )
@@ -50,6 +52,7 @@ export const existsMatchDay = (state, matchDayId) => {
 
 export const existLeagues = (state) => {
   const allLeagues = getAllMatchs(state)
+  // @ts-ignore
   return allLeagues && allLeagues.length > 0
 }
 
@@ -67,6 +70,7 @@ export const existTeams = (state, selectedLeague, selectedYear) => {
   if (!selectedYear) throw new Error('selectedYear not defined')
 
   const teamsByLeagueAndYear = getTeamsByLeagueAndYear(state)
+  // @ts-ignore
   const relevantTeams = teamsByLeagueAndYear.filter(
     (x) => x.league === selectedLeague && x.year === selectedYear
   )
@@ -79,6 +83,7 @@ export const existMatchDays = (state, selectedLeague, selectedYear) => {
   if (!selectedYear) throw new Error('selectedYear not defined')
 
   const matchDays = getAllMatchDays(state)
+  // @ts-ignore
   const relevantDay = matchDays.filter(
     (x) => x.league === selectedLeague && x.year === selectedYear
   )

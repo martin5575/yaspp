@@ -3,8 +3,13 @@ import {
   getSelectedYear,
   getSelectedMatchDay,
 } from '../reducers/selectors/uiSelector'
-import { getAllMatchs } from '../reducers/selectors/modelSelector'
-import { groupByArray, sum } from './listUtils'
+import {
+  getAllMatchs
+} from '../reducers/selectors/modelSelector'
+import {
+  groupByArray,
+  sum
+} from './listUtils'
 
 const getPoints = (gf, ga) => {
   if (gf > ga) return 3
@@ -23,9 +28,10 @@ export const getSeasonInfo = (state) => {
   const matchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
   const previousMatchs = !allMatchs ? [] :
-   allMatchs.filter(
-    (m) => m.year === year && m.league === league && m.matchDayId < matchDay
-  )
+    // @ts-ignore
+    allMatchs.filter(
+      (m) => m.year === year && m.league === league && m.matchDayId < matchDay
+    )
   const home = groupByArray(previousMatchs, 'teamHomeId').map((x) => ({
     team: x.key,
     hgf: sum(x.values.map((y) => y.fullTimeHome)),
@@ -42,20 +48,22 @@ export const getSeasonInfo = (state) => {
   }))
   const fullByTeam = groupByArray([...home, ...away], 'team')
   const full = fullByTeam.map((x) =>
-    x.values.reduce((res, x) => ({ ...res, ...x }), {})
+    x.values.reduce((res, x) => ({ ...res,
+      ...x
+    }), {})
   )
 
   return full
 }
 
 const sumFields = (teamInfo, key1, key2) => {
-  return !teamInfo
-    ? undefined
-    : teamInfo[key1] && teamInfo[key2]
-      ? teamInfo[key1] + teamInfo[key2]
-      : teamInfo[key1]
-        ? teamInfo[key1]
-        : teamInfo[key2]
+  return !teamInfo ?
+    undefined :
+    teamInfo[key1] && teamInfo[key2] ?
+    teamInfo[key1] + teamInfo[key2] :
+    teamInfo[key1] ?
+    teamInfo[key1] :
+    teamInfo[key2]
 }
 
 const tgf = (teamInfo) => {
@@ -79,13 +87,19 @@ const getHGF_AGF_AVG = (infoHome, infoAway) => {
     infoHome && infoHome.hg ? infoHome.hgf / infoHome.hg : undefined
   const goalsAway =
     infoAway && infoAway.ag ? infoAway.agf / infoAway.ag : undefined
-  return { home: goalsHome, away: goalsAway }
+  return {
+    home: goalsHome,
+    away: goalsAway
+  }
 }
 
 const getTPF_TPF_TOTAL = (infoHome, infoAway) => {
   const pointsHome = tp(infoHome)
   const pointsAway = tp(infoAway)
-  return { home: pointsHome, away: pointsAway }
+  return {
+    home: pointsHome,
+    away: pointsAway
+  }
 }
 
 const getStats = (infoHome, infoAway, stats) => {

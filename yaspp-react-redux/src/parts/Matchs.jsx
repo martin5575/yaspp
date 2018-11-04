@@ -14,6 +14,7 @@ class Matchs extends React.Component {
     const groupByMatchDay = groupByFunc(matchs, (x) =>
       x.matchDateTime.substring(0, 10)
     )
+    // @ts-ignore
     const groupedMatchs = Object.entries(groupByMatchDay)
     return (
       <div className="mx-auto">

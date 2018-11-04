@@ -13,6 +13,7 @@ export function areSelectedMatchDaysPresent(store) {
   const selectedLeague = getSelectedLeague(state)
   const selectedYear = getSelectedYear(state)
   const allMatchDays = getAllMatchDays(state)
+  // @ts-ignore
   return allMatchDays.find(
     (x) => x.league === selectedLeague && x.year === selectedYear
   )
@@ -24,6 +25,7 @@ export function areSelectedMatchsPresent(store) {
   const selectedYear = getSelectedYear(state)
   const selectedMatchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
+  // @ts-ignore
   return allMatchs.find(
     (x) =>
     x.league === selectedLeague &&
