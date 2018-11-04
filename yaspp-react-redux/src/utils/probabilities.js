@@ -79,4 +79,16 @@ export const formatProbs = (probs, n = 2) => {
 }
 
 export const formatRate = (n, digits = 1) =>
-  n ? (Math.min(99.9, 1.0 / n)).toFixed(digits) : '-'
+  n ? Math.min(99.9, 1.0 / n).toFixed(digits) : '-'
+
+export const getProbDescription = (hg, ag) => {
+  const results = calcResultProbs(hg, ag)
+  let content = ''
+  for (let i = 0; i <= 5; ++i) {
+    for (let j = 0; j <= 5; ++j) {
+      if (i + j > 6) continue
+      content += `<b>${i}:${j}</b> ${formatPercentage(results[i][j])}<br/>`
+    }
+  }
+  return `<div>${content}</div>`
+}

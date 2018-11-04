@@ -7,6 +7,7 @@ import {
   formatRate,
   calcWinLossTieProbs,
   formatPercentage,
+  getProbDescription,
 } from '../utils/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -99,10 +100,11 @@ class Match extends React.Component {
         <td className="col-1 text-justify">
           <a
             data-toggle="popover"
-            title="Popover title"
+            title={`${teamHome.shortName}-${teamAway.shortName}`}
+            data-html="true"
             data-container="body"
             data-placement="left"
-            data-content="And here's some amazing content. It's very engaging. Right?"
+            data-content={getProbDescription(stats.home, stats.away)}
           >
             <small>
               <FontAwesomeIcon icon="info-circle" />
