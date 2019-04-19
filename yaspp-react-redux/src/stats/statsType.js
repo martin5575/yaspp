@@ -21,13 +21,15 @@ const definitions = [
     }
 ]
 
+const find = (key) => definitions.find(x=>x.key===key)
+
 export const getDescription = (key) => {
-    const item = definitions.find(x=>x.key==key)
+    const item = find(key)
     return item ? item.description : ""
 }
 
 export const getShort = (key) => {
-    const item = definitions.find(x=>x.key==key)
+    const item = find(key)
     return item ? item.short : ""
 }
 
