@@ -46,9 +46,6 @@ class Match extends React.Component {
           moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
-        <td className="col-1">
-          <small>{moment(match.matchDateTime).format('HH:mm')}</small>
-        </td>
         <td className="col-2">
           <img
             src={teamHome.iconUrl}

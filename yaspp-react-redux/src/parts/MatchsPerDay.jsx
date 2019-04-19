@@ -14,9 +14,9 @@ class MatchsPerDay extends React.Component {
           <table className="table">
             <thead>
               <tr className="d-flex">
-                <th scope="col" className="col-6">
+                <th scope="col" className="col-5">
                   <small>
-                    {moment(this.props.date).format('dddd DD.MM.YY')}
+                    {moment(this.props.date).format('ddd DD.MM HH:mm')}
                   </small>
                 </th>
                 {statsTitle && (

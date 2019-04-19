@@ -12,7 +12,7 @@ class Matchs extends React.Component {
     if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
     const groupByMatchDay = groupByFunc(matchs, (x) =>
-      x.matchDateTime.substring(0, 10)
+      x.matchDateTime
     )
 
     // @ts-ignore
