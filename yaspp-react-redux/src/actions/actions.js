@@ -29,3 +29,4 @@ export const clearSeason = 'ClearSeason'
 export const clearAll = 'ClearAll'
 
 export const ShowPercentage = 'ShowPercentage'
+export const SwitchModel = 'SwitchModel'
