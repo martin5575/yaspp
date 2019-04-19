@@ -1,5 +1,5 @@
 import * as actions from './actions'
-
+import * as statsType from '../stats/statsType'
 import * as service from '../services'
 import * as mapper from '../services/mapOpenLigaDB'
 import {
@@ -352,6 +352,12 @@ const showPercentage = (flag) => ({
   payload: flag
 })
 
+const switchModel = (selectedModelId) => ({
+  type: actions.SwitchModel,
+  payload: statsType.getNextId(selectedModelId)
+})
+
+
 export {
   clearAll,
   clearSeason,
@@ -367,4 +373,5 @@ export {
   selectYear,
   refreshMatchs,
   showPercentage,
+  switchModel
 }

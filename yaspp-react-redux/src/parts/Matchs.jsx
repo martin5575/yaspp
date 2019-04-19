@@ -2,6 +2,7 @@ import React from 'react'
 import './Matchs.css'
 import MatchsPerDay from './MatchsPerDay'
 import { groupByFunc, sortByField } from '../utils/listUtils'
+import { getKey, getShort, getDescription } from '../stats/statsType'
 
 class Matchs extends React.Component {
   render() {
@@ -17,9 +18,13 @@ class Matchs extends React.Component {
 
     // @ts-ignore
     const groupedMatchs = Object.entries(groupByMatchDay)
-
     sortByField(groupedMatchs, '0')
 
+    const selectedModelId = this.props.selectedModelId
+    const modelKey = getKey(selectedModelId)
+    const statsHeader = getShort(modelKey)
+    const statsDescription = getDescription(modelKey)
+    
     return (
       <div className="schedule">
         {groupedMatchs.map((gm, i) => (
@@ -29,7 +34,9 @@ class Matchs extends React.Component {
             date={gm[0]}
             matchs={gm[1]}
             key={gm[0]}
-            statsTitle={i === 0 ? 'h-a' : ''}
+            statsTitle={i === 0 ? statsHeader : ''}
+            statsDescription={statsDescription}
+            modelKey={modelKey}
             showPercentage={showPercentage}
           />
         ))}

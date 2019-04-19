@@ -49,6 +49,7 @@ class App extends Component {
     const teams = getAllTeams(state)
     const seasonInfo = getSeasonInfo(state)
     const showPercentage = state.ui.showPercentage
+    const selectedModelId = state.ui.selectedModelId
     return (
       <div className="container.fluid">
         <div className="row justify-content-center">
@@ -61,7 +62,7 @@ class App extends Component {
               <MatchDayViewSettings />
             </div>
             <div className="btn-group" role="group" aria-label="Third group">
-              <MatchDayOptionsButton />
+              <MatchDayOptionsButton selectedModelId={state.ui.selectedModelId} />
             </div>
 
             <MatchdayNavigator store={store} />
@@ -85,6 +86,7 @@ class App extends Component {
               teams={teams}
               seasonInfo={seasonInfo}
               showPercentage={showPercentage}
+              selectedModelId={selectedModelId}
             />
           </div>
         </div>

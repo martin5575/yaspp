@@ -10,7 +10,6 @@ import {
   getProbDescription,
 } from '../maths/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import * as statsType from '../stats/statsType'
 
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
@@ -21,6 +20,7 @@ class Match extends React.Component {
     const match = this.props.match
     const teams = this.props.teams
     const seasonInfo = this.props.seasonInfo
+    const modelKey = this.props.modelKey
 
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]
@@ -29,7 +29,7 @@ class Match extends React.Component {
       seasonInfo,
       match.teamHomeId,
       match.teamAwayId,
-      statsType.TotalGoalsVsTotalGoals
+      modelKey
     )
     const digits = 1
     const formatedStats = formatStats(stats, digits)

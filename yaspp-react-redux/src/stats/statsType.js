@@ -17,7 +17,22 @@ const definitions = [
     {
         key: TotalGoalsVsTotalGoals,
         short: "t-t",
-        description: "Zur Bestimmung der Torwahrscheinlichkeit der beiden Mannschaften werden jeweils alle Tore (heim & auswärts) berücksichtigt."
+        description: "Zur Bestimmung der Torwahrscheinlichkeit der beiden Mannschaften werden jeweils alle Tore (heim & auswärts) genutzt."
+    },
+    {
+        key: HomeGoalsVsAwayGoals,
+        short: "h-a",
+        description: "Zur Bestimmung der Torwahrscheinlichkeit der Heimmannschaft werden nur die Heimtore genutzt und für die Auswärtsmannschaft die Auswärtstore."
+    },
+    {
+        key: TotalGoalsVsTotalGoals,
+        short: "t-t*",
+        description: "Zur Bestimmung der Torwahrscheinlichkeit der beiden Mannschaften werden jeweils alle Tore (heim & auswärts) genutzt. Zusätzlich wird die Verteidigungsstärke der gegnerischen Mannschaft berücksichtigt."
+    },
+    {
+        key: HomeGoalsVsAwayGoals,
+        short: "h-a*",
+        description: "Zur Bestimmung der Torwahrscheinlichkeit der Heimmannschaft werden nur die Heimtore genutzt und für die Auswärtsmannschaft die Auswärtstore. Zusätzlich wird die Verteidigungsstärke der gegnerischen Mannschaft berücksichtigt."
     }
 ]
 
@@ -33,3 +48,6 @@ export const getShort = (key) => {
     return item ? item.short : ""
 }
 
+export const getNextId = (currentId) => ++currentId % definitions.length
+
+export const getKey = (currentId) => definitions[currentId].key

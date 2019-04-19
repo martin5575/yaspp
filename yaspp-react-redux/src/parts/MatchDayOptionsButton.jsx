@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { switchModel } from '../actions/ActionBuilder';
 
 const OptionsButton = ({ onClick, disabled }) => {
   return (
@@ -16,10 +17,15 @@ const OptionsButton = ({ onClick, disabled }) => {
 }
 
 const mapStateToProps = (state) => ({
-  onClick: () => {
-    console.log('refresh')
-  },
-  disabled: true,
+  disabled: false
 })
 
-export const MatchDayOptionsButton = connect(mapStateToProps)(OptionsButton)
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(switchModel(ownProps.selectedModelId)) 
+    }
+  }
+}
+
+export const MatchDayOptionsButton = connect(mapStateToProps, mapDispatchToProps)(OptionsButton)

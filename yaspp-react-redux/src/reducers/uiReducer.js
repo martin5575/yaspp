@@ -17,6 +17,7 @@ const initialState = {
   isRefreshingMatchs: false,
 
   showPercentage: false,
+  selectedModelId: 0,
 }
 
 /******************* Reducer ******************/
@@ -164,6 +165,12 @@ export const uiReducer = (state = initialState, action) => {
       {
         return { ...state,
           showPercentage: action.payload
+        }
+      }
+    case actions.SwitchModel:
+      {
+        return { ...state,
+          selectedModelId: action.payload
         }
       }
     default:
