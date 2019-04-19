@@ -1,8 +1,8 @@
 .schedule {
-    margin: 5px;
+    margin: 0.1rem;
 }
 
 td,
 th {
-    margin: 1px;
+    margin: 0.1rem;
 }
