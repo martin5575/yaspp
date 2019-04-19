@@ -74,27 +74,27 @@ class Match extends React.Component {
         <td className="col-1">
           <FontAwesomeIcon icon="angle-double-down" color="gray" />
         </td>
-        <td className="col-2 text-justify">
+        <td className="col-2 text-center">
           <small>
             <i>{formatedStats}</i>
           </small>
         </td>
-        <td className="col-1 text-justify">
+        <td className="col-1 text-center">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </td>
-        <td className="col-1 text-justify">
+        <td className="col-1 text-center">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </td>
-        <td className="col-1 text-justify">
+        <td className="col-1 text-center">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>
         </td>
-        <td className="col-1 text-justify">
+        <td className="col-1 text-center">
           <a
             data-toggle="popover"
             title={`${teamHome.shortName}-${teamAway.shortName}`}

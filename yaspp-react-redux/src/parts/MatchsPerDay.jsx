@@ -20,7 +20,7 @@ class MatchsPerDay extends React.Component {
                   </small>
                 </th>
                 {statsTitle && (
-                  <th scope="col" className="col-2 text-justify">
+                  <th scope="col" className="col-2 text-center">
                     <small>
                       {statsTitle}
                       &nbsp;
@@ -29,22 +29,22 @@ class MatchsPerDay extends React.Component {
                   </th>
                 )}
                 {statsTitle && (
-                  <th scope="col" className="col-1 text-justify">
+                  <th scope="col" className="col-1 text-center">
                     <small>1</small>
                   </th>
                 )}
                 {statsTitle && (
-                  <th scope="col" className="col-1 text-justify">
+                  <th scope="col" className="col-1 text-center">
                     <small>0</small>
                   </th>
                 )}
                 {statsTitle && (
-                  <th scope="col" className="col-1 text-justify">
+                  <th scope="col" className="col-1 text-center">
                     <small>2</small>
                   </th>
                 )}
                 {statsTitle && (
-                  <th scope="col" className="col-1 text-justify" />
+                  <th scope="col" className="col-1 text-center" />
                 )}
               </tr>
             </thead>
