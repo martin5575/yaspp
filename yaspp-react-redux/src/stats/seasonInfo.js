@@ -140,6 +140,14 @@ const getHG_AG_AVG = (infoHome, infoAway) => {
   }
 }
 
+const getHGDF_AGDF_AVG = (infoHome, infoAway) => {
+  const goals = getHG_AG_AVG(infoHome, infoAway)
+  return {
+    home: goals.home && infoAway.adf ? goals.home * infoAway.adf :undefined,
+    away: goals.away && infoHome.hdf ? goals.away * infoHome.hdf: undefined
+  }
+}
+
 const getTG_TG_AVG = (infoHome, infoAway) => {
   const goalsHome =
     infoHome && infoHome.tm ? infoHome.tgf / infoHome.tm : undefined
@@ -151,10 +159,22 @@ const getTG_TG_AVG = (infoHome, infoAway) => {
   }
 }
 
+const getTGDF_TGDF_AVG = (infoHome, infoAway) => {
+  const goals = getTG_TG_AVG(infoHome, infoAway)
+  return {
+    home: goals.home && infoAway.tdf ? goals.home * infoAway.tdf :undefined,
+    away: goals.away && infoHome.tdf ? goals.away * infoHome.tdf :undefined,
+  }
+}
+
 const getStats = (infoHome, infoAway, statsType) => {
   switch (statsType) {
+    case stats.HomeGoalsVsAwayGoalsWithDefenseFactor:
+      return getHGDF_AGDF_AVG(infoHome, infoAway)
     case stats.HomeGoalsVsAwayGoals:
       return getHG_AG_AVG(infoHome, infoAway)
+    case stats.TotalGoalsVsTotalGoalsWithDefenseFactor:
+      return getTGDF_TGDF_AVG(infoHome, infoAway)
     case stats.TotalGoalsVsTotalGoals:
     default:
       return getTG_TG_AVG(infoHome, infoAway)
