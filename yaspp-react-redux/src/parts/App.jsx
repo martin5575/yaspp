@@ -15,7 +15,7 @@ import { MatchDayViewSettings } from './MatchDayViewSettings'
 
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
-import { getSeasonInfo } from '../utils/seasonInfo'
+import { getSeasonInfo } from '../stats/seasonInfo'
 import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'

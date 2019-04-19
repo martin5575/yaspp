@@ -1,15 +1,16 @@
 import React from 'react'
 import moment from 'moment'
 import './Match.css'
-import { formatStats, calcStats } from '../utils/seasonInfo'
+import { formatStats, calcStats } from '../stats/seasonInfo'
 import {
   formatProbs,
   formatRate,
   calcWinLossTieProbs,
   formatPercentage,
   getProbDescription,
-} from '../utils/probabilities'
+} from '../maths/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as statsType from '../stats/statsType'
 
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
@@ -28,7 +29,7 @@ class Match extends React.Component {
       seasonInfo,
       match.teamHomeId,
       match.teamAwayId,
-      'hgf_agf_avg'
+      statsType.TotalGoalsVsTotalGoals
     )
     const digits = 1
     const formatedStats = formatStats(stats, digits)
