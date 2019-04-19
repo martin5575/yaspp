@@ -10,6 +10,12 @@ import { reducer } from './reducers'
 import { saveState, loadState } from './utils/localStorage'
 import { throttle } from 'lodash'
 
+import moment from 'moment'
+import 'moment/locale/de'
+
+/******************* Set globals ******************/
+moment.locale("de")
+
 /******************* Create Store ******************/
 const thunk = ReduxThunk
 const persistedState = loadState()
