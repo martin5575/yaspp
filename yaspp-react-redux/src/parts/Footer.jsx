@@ -19,11 +19,7 @@ const FooterTemplate = ({ lastUpdate }) => (
       </div>
       <div className="col self-align-end text-right">
         <small>
-          <i
-          // style={{
-          //   margin: '20px',
-          // }}
-          >
+          <i>
             powered by <a href="https://www.openligadb.de">Openliga DB</a>
           </i>
         </small>
