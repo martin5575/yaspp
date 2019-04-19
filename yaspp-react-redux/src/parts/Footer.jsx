@@ -14,7 +14,7 @@ const FooterTemplate = ({ lastUpdate }) => (
     <div className="row">
       <div className="col self-align-start">
         <small>
-          <i>update</i> {formatUpdateDate(lastUpdate)}
+          <i>aktualisiert</i> {formatUpdateDate(lastUpdate)}
         </small>
       </div>
       <div className="col self-align-end text-right">
