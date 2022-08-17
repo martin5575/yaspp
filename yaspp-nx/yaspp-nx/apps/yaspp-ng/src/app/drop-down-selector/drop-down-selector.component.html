@@ -1,0 +1,12 @@
+<div class="grid">
+    <button pButton pRipple type="button" icon="pi pi-arrow-circle-left" class="p-button-rounded p-button-text"
+    (click)="moveTo(-1)"></button>
+    
+    <p-dropdown [options]="options" [optionLabel]="optionLabel" [optionValue]="optionValue"
+        [(ngModel)]="selectedLeagueKey" ></p-dropdown>
+
+    <!-- <span class="text-center" style="min-width: 25vw; margin: auto; vertical-align: middle;">{{selectedLeagueKey}}</span> -->
+    <button pButton pRipple type="button" icon="pi pi-arrow-circle-right" class="p-button-rounded p-button-text"
+    (click)="moveTo(1)"></button>
+</div>
+

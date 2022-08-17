@@ -1,0 +1,63 @@
+<div class="card p-card">
+    <div class="grid">
+        <div class="font-bold col-5 text-4xl text-center line-height-4">{{PointsTeam1}}</div>
+        <div class="font-bold col-2 text-4xl text-center line-height-4"> : </div>
+        <div class="font-bold col-5 text-4xl text-center line-height-4">{{PointsTeam2}}</div>
+    </div>
+    <div class="grid justify-content">
+        <div class="flex align-items-center justify-content-center col-6">
+            <p-avatar image={{Team1IconUrl}} size="xlarge"></p-avatar>
+        </div>
+        <div class="flex align-items-center justify-content-center col-6">
+            <p-avatar image={{Team2IconUrl}} size="xlarge"></p-avatar>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-6">
+            <div class="text-center">{{Team1}}</div>
+        </div>
+        <div class="col-6">
+            <div class="text-center">{{Team2}}</div>
+        </div>
+    </div>
+    <div class="right-0">
+        <button pButton pRipple type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-text"
+        (click)="op.show($event, actualTarget)"></button>
+        <button pButton pRipple type="button" icon="pi pi-chart-bar" class="p-button-rounded p-button-text"
+        (click)="toggleExpanded()"></button>
+        <button pButton pRipple type="button" icon="pi pi-chart-line" class="p-button-rounded p-button-text"
+        (click)="toggleExpanded()"></button>
+        <button pButton pRipple type="button" icon="pi pi-chart-pie" class="p-button-rounded p-button-text"
+        (click)="op2.show($event, actualTarget)"></button>
+        <button pButton pRipple type="button" icon="pi pi-money-bill" class="p-button-rounded p-button-text"
+        (click)="op.show($event, actualTarget)"></button>
+    </div>
+    <div #actualTarget></div>
+    <p-overlayPanel #op
+        [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"  [dismissable]="true" [showCloseIcon]="true">
+        <ng-template pTemplate>
+            <div class="grid">
+                <div class="p-3">
+                    <p><b>Datum</b> {{matchDate}}</p>
+                    <p><b>Spielort</b> {{matchLocation}}</p>
+                    <p><b>Zuschauer</b> {{matchViewers}}</p>
+                </div>
+                <div class="p-3">
+                    <p><b>Spielstände</b></p>
+                    <p *ngFor="let result of match.MatchResults">{{result.PointsTeam1}}:{{result.PointsTeam2}} {{result.ResultName}}</p>
+                </div>
+                <div class="p-3">
+                    <p><b>Tore</b></p>
+                    <p *ngFor="let goal of goals">{{goal.ScoreTeam1}}:{{goal.ScoreTeam2}} {{goal.GoalGetterName}}</p>
+                </div>
+            </div>
+        </ng-template>
+    </p-overlayPanel>
+
+    <p-overlayPanel #op2
+        [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"  [dismissable]="true" [showCloseIcon]="true">
+        <yaspp-nx-team-stats [team1Id]="match.Team1.TeamId" [team2Id]="match.Team2.TeamId" [leagueKey]="leagueKey" [year]="year"></yaspp-nx-team-stats>
+        
+    </p-overlayPanel>
+
+</div>

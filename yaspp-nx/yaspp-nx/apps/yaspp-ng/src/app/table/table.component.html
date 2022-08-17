@@ -1,0 +1,30 @@
+<p-panel class="bg-blue-300">
+    <p-table [value]="table" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Mannschaft</th>
+                <th>Sp</th>
+                <th>P</th>
+                <th>TD</th>
+                <th>S</th>
+                <th>U</th>
+                <th>N</th>
+                <th>T</th>
+                <th>GT</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-team>
+            <tr>
+                <td>{{team.TeamName}}</td>
+                <td>{{team.Matches}}</td>
+                <td>{{team.Points}}</td>
+                <td>{{team.Goals - team.OpponentGoals}}</td>
+                <td>{{team.Won}}</td>
+                <td>{{team.Draw}}</td>
+                <td>{{team.Lost}}</td>
+                <td>{{team.Goals}}</td>
+                <td>{{team.OpponentGoals}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>

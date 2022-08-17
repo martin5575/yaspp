@@ -1,0 +1,112 @@
+{
+    "teams": [
+        {
+            "teamId": 91,
+            "hashtag": "#SGE",
+            "color1": "red",
+            "color2": "black"
+        },
+        {
+            "teamId": 40,
+            "hashtag": "#FCB",
+            "color1": "red",
+            "color2": "white"
+        },
+        {
+            "teamId": 95,
+            "hashtag": "#FCA",
+            "color1": "red",
+            "color2": "white"
+        },
+        {
+            "teamId": 112,
+            "hashtag": "#SCF",
+            "color1": "black",
+            "color2": "white"
+        },
+        {
+            "teamId": 129 ,
+            "hashtag": "#BOC",
+            "color1": "blue",
+            "color2": "white"
+        },
+        {
+            "teamId": 81,
+            "hashtag": "#M05",
+            "color1": "red",
+            "color2": "white"
+        },
+        {
+            "teamId": 87,
+            "hashtag": "#BMG",
+            "color1": "green",
+            "color2": "black"
+        },
+        {
+            "teamId": 175,
+            "hashtag": "#TSG",
+            "color1": "blue",
+            "color2": "white"
+        },
+        {
+            "teamId": 80,
+            "hashtag": "#FCU",
+            "color1": "red",
+            "color2": "white"
+        },
+        {
+            "teamId": 54,
+            "hashtag": "#BSC",
+            "color1": "blue",
+            "color2": "white"
+        },
+        {
+            "teamId": 131,
+            "hashtag": "#WOB",
+            "color1": "green",
+            "color2": "white"
+        },
+        {
+            "teamId": 134,
+            "hashtag": "#SVW",
+            "color1": "green",
+            "color2": "white"
+        },
+        {
+            "teamId": 7,
+            "hashtag": "#BVB",
+            "color1": "black",
+            "color2": "yellow"
+        },
+        {
+            "teamId": 6,
+            "hashtag": "#B04",
+            "color1": "red",
+            "color2": "white"
+        },
+        {
+            "teamId": 16,
+            "hashtag": "#VFB",
+            "color1": "red",
+            "color2": "white"
+        }, 
+        {
+            "teamId": 1635,
+            "hashtag": "#RBL",
+            "color1": "red",
+            "color2": "white"
+        }, 
+        {
+            "teamId": 65,
+            "hashtag": "#KOE",
+            "color1": "red",
+            "color2": "white"
+        }, 
+        {
+            "teamId": 9,
+            "hashtag": "#S04",
+            "color1": "blue",
+            "color2": "white"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+<p-panel class="bg-blue-100">
+    <yaspp-nx-drop-down-selector (key)="onLeagueKeyChanges($event)" 
+    [options]="leagues" [optionLabel]="'key'" [optionValue]="'value'"></yaspp-nx-drop-down-selector>
+    <yaspp-nx-match-day [matchDay]=matchDay [leagueKey]="leagueKey" [year]="year"></yaspp-nx-match-day>
+    <yaspp-nx-table [table]="table"></yaspp-nx-table>
+</p-panel>

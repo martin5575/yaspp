@@ -1,0 +1,5 @@
+<p-panel class="bg-blue-200">
+    <h1>{{leagueKey}} {{year}}</h1>
+    <yaspp-nx-drop-down-selector (key)="onMatchDayChanged($event)" 
+    [options]="matchDays" [optionLabel]="'GroupName'" [optionValue]="'GroupID'"></yaspp-nx-drop-down-selector>
+</p-panel>
