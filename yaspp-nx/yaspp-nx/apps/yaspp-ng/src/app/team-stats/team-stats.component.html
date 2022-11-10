@@ -1,27 +1,80 @@
 <div class="grid col-12">
-    <div class="col-6">
-        <header>{{team1Name}}</header>
-        <p><b>Punkte</b></p>
-        <p-knob [ngModel]="pointsTeam1"  [min]="minPoints" [max]="maxPoints" 
-            [valueColor]="team1Color1" [rangeColor]="team1Color2"></p-knob>
-        <p><b>Tore</b></p>
-        <p-knob [ngModel]="goalsTeam1"  [min]="minGoals" [max]="maxGoals" 
-            [valueColor]="team1Color1" [rangeColor]="team1Color2"></p-knob>
-        <p><b>Gegentore</b></p>
-        <p-knob [ngModel]="goalsAgainstTeam1"  [min]="minGoalsAgainst" [max]="maxGoalsAgainst" 
-            [valueColor]="team1Color1" [rangeColor]="team1Color2"></p-knob>
-    </div>
-    <div class="col-6">
-        <header>{{team2Name}}</header>
-        <p><b>Punkte</b></p>
-        <p-knob [ngModel]="pointsTeam2"  [min]="minPoints" [max]="maxPoints" 
-            [valueColor]="team2Color1" [rangeColor]="team2Color2"></p-knob>
-        <p><b>Tore</b></p>
-        <p-knob [ngModel]="goalsTeam2"  [min]="minGoals" [max]="maxGoals" 
-            [valueColor]="team2Color1" [rangeColor]="team2Color2"></p-knob>
-        <p><b>Gegentore</b></p>
-        <p-knob [ngModel]="goalsAgainstTeam2"  [min]="minGoalsAgainst" [max]="maxGoalsAgainst" 
-            [valueColor]="team2Color1" [rangeColor]="team2Color2"></p-knob>
-    </div>
-
+  <div class="col-6">
+    <header>{{ team1Name }}</header>
+  </div>
+  <div class="col-6">
+    <header>{{ team2Name }}</header>
+  </div>
+  <div class="col-6 flex">
+    <p-knob
+      [readonly]="true"
+      [size]="100"
+      [ngModel]="pointsTeam1"
+      [min]="minPoints"
+      [max]="maxPoints"
+      [valueColor]="team1Color1"
+      [rangeColor]="team1Color2"
+    ></p-knob>
+    Punkte
+  </div>
+  <div class="col-6 flex">
+    <p-knob
+      [readonly]="true"
+      [size]="100"
+      [ngModel]="pointsTeam2"
+      [min]="minPoints"
+      [max]="maxPoints"
+      [valueColor]="team2Color1"
+      [rangeColor]="team2Color2"
+    ></p-knob>
+    Punkte
+  </div>
+  <div class="col-3">
+    <p-knob
+      [readonly]="true"
+      [size]="50"
+      [ngModel]="goalsTeam1"
+      [min]="minGoals"
+      [max]="maxGoals"
+      [valueColor]="team1Color1"
+      [rangeColor]="team1Color2"
+    ></p-knob>
+    Tore
+  </div>
+  <div class="col-3">
+    <p-knob
+      [readonly]="true"
+      [size]="50"
+      [ngModel]="goalsAgainstTeam1"
+      [min]="minGoalsAgainst"
+      [max]="maxGoalsAgainst"
+      [valueColor]="team1Color1"
+      [rangeColor]="team1Color2"
+    ></p-knob>
+    Gegentore
+  </div>
+  <div class="col-3">
+    <p-knob
+      [readonly]="true"
+      [size]="50"
+      [ngModel]="goalsTeam2"
+      [min]="minGoals"
+      [max]="maxGoals"
+      [valueColor]="team2Color1"
+      [rangeColor]="team2Color2"
+    ></p-knob>
+    Tore
+  </div>
+  <div class="col-3">
+    <p-knob
+      [readonly]="true"
+      [size]="50"
+      [ngModel]="goalsAgainstTeam2"
+      [min]="minGoalsAgainst"
+      [max]="maxGoalsAgainst"
+      [valueColor]="team2Color1"
+      [rangeColor]="team2Color2"
+    ></p-knob>
+    Gegentore
+  </div>
 </div>

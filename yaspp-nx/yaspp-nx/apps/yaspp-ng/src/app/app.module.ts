@@ -16,6 +16,7 @@ import { SeasonComponent } from './season/season.component';
 import { DropDownSelectorComponent } from './drop-down-selector/drop-down-selector.component';
 import { TableComponent } from './table/table.component';
 import { TeamStatsComponent } from './team-stats/team-stats.component';
+import { MatchBetsComponent } from './match-bets/match-bets.component';
 
 
 const appRoutes: Routes = [
@@ -38,15 +39,16 @@ const appRoutes: Routes = [
     DropDownSelectorComponent,
     SeasonComponent,
     TableComponent,
-    TeamStatsComponent
+    TeamStatsComponent,
+    MatchBetsComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes
     ),
     BrowserAnimationsModule,
-    BrowserModule, 
-    HttpClientModule, 
+    BrowserModule,
+    HttpClientModule,
     PrimeNGModule],
   providers: [],
   bootstrap: [AppComponent],

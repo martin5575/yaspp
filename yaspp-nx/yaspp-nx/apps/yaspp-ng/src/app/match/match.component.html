@@ -22,18 +22,18 @@
     </div>
     <div class="right-0">
         <button pButton pRipple type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-text"
-        (click)="op.show($event, actualTarget)"></button>
+        (click)="opInfo.show($event, actualTarget)"></button>
         <button pButton pRipple type="button" icon="pi pi-chart-bar" class="p-button-rounded p-button-text"
         (click)="toggleExpanded()"></button>
         <button pButton pRipple type="button" icon="pi pi-chart-line" class="p-button-rounded p-button-text"
         (click)="toggleExpanded()"></button>
         <button pButton pRipple type="button" icon="pi pi-chart-pie" class="p-button-rounded p-button-text"
-        (click)="op2.show($event, actualTarget)"></button>
+        (click)="opStats.show($event, actualTarget)"></button>
         <button pButton pRipple type="button" icon="pi pi-money-bill" class="p-button-rounded p-button-text"
-        (click)="op.show($event, actualTarget)"></button>
+        (click)="opBets.show($event, actualTarget)"></button>
     </div>
     <div #actualTarget></div>
-    <p-overlayPanel #op
+    <p-overlayPanel #opInfo
         [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"  [dismissable]="true" [showCloseIcon]="true">
         <ng-template pTemplate>
             <div class="grid">
@@ -54,10 +54,16 @@
         </ng-template>
     </p-overlayPanel>
 
-    <p-overlayPanel #op2
+    <p-overlayPanel #opStats
         [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"  [dismissable]="true" [showCloseIcon]="true">
         <yaspp-nx-team-stats [team1Id]="match.Team1.TeamId" [team2Id]="match.Team2.TeamId" [leagueKey]="leagueKey" [year]="year"></yaspp-nx-team-stats>
-        
+
     </p-overlayPanel>
+
+    <p-overlayPanel #opBets
+        [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"  [dismissable]="true" [showCloseIcon]="true">
+        <yaspp-nx-match-bets [team1Id]="match.Team1.TeamId" [team2Id]="match.Team2.TeamId" [leagueKey]="leagueKey" [year]="year"></yaspp-nx-match-bets>
+    </p-overlayPanel>
+
 
 </div>

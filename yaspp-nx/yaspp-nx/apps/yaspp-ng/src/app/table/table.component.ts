@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BlTableTeam } from '@yaspp-nx/open-liga-db';
+import {max} from "lodash";
 
 @Component({
   selector: 'yaspp-nx-table',
@@ -15,5 +16,10 @@ export class TableComponent implements OnInit {
 
   get loading() {
     return !this.table || this.table.length===0
+  }
+
+  get matchDay(): number | null | undefined {
+    if (this.table === null || this.table.length===0) return null;
+    return max(this.table.map(x=>x.Matches));
   }
 }

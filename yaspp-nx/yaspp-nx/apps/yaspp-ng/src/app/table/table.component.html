@@ -1,5 +1,8 @@
-<p-panel class="bg-blue-300">
-    <p-table [value]="table" [loading]="loading">
+<p-panel class="bg-blue-300" header="Tabelle">
+    <p-table [value]="table" [loading]="loading" responsiveLayout="stack" breakpoint="680px">
+      <ng-template pTemplate="caption">
+        Spieltag {{matchDay}}
+      </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th>Mannschaft</th>
@@ -15,15 +18,15 @@
         </ng-template>
         <ng-template pTemplate="body" let-team>
             <tr>
-                <td>{{team.TeamName}}</td>
-                <td>{{team.Matches}}</td>
-                <td>{{team.Points}}</td>
-                <td>{{team.Goals - team.OpponentGoals}}</td>
-                <td>{{team.Won}}</td>
-                <td>{{team.Draw}}</td>
-                <td>{{team.Lost}}</td>
-                <td>{{team.Goals}}</td>
-                <td>{{team.OpponentGoals}}</td>
+                <td><span class="p-column-title">Mannschaft</span>{{team.TeamName}}</td>
+                <td><span class="p-column-title">Spiele</span>{{team.Matches}}</td>
+                <td><span class="p-column-title">Punkte</span>{{team.Points}}</td>
+                <td><span class="p-column-title">Tordifferenz</span>{{team.Goals - team.OpponentGoals}}</td>
+                <td><span class="p-column-title">Siege</span>{{team.Won}}</td>
+                <td><span class="p-column-title">Unentschieden</span>{{team.Draw}}</td>
+                <td><span class="p-column-title">Niederlagen</span>{{team.Lost}}</td>
+                <td><span class="p-column-title">Tore</span>{{team.Goals}}</td>
+                <td><span class="p-column-title">Gegentore</span>{{team.OpponentGoals}}</td>
             </tr>
         </ng-template>
     </p-table>

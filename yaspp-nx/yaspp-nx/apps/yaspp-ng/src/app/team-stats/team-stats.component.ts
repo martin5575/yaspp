@@ -78,16 +78,22 @@ export class TeamStatsComponent implements OnInit {
 
     const team1Stats = avgStats.find(x=>x.teamId===this.team1Id)
     this.team1Name = team1Stats?.teamName
-    this.goalsTeam1 = team1Stats?.goals
-    this.goalsAgainstTeam1 = team1Stats?.goalsAgainst
-    this.pointsTeam1 = team1Stats?.points
+    this.goalsTeam1 = round(team1Stats?.goals)
+    this.goalsAgainstTeam1 = round(team1Stats?.goalsAgainst)
+    this.pointsTeam1 = round(team1Stats?.points);
 
 
     const team2Stats = avgStats.find(x=>x.teamId===this.team2Id)
     this.team2Name = team2Stats?.teamName
-    this.goalsTeam2 = team2Stats?.goals
-    this.goalsAgainstTeam2 = team2Stats?.goalsAgainst
-    this.pointsTeam2 = team2Stats?.points
-    
+    this.goalsTeam2 = round(team2Stats?.goals)
+    this.goalsAgainstTeam2 = round(team2Stats?.goalsAgainst)
+    this.pointsTeam2 = round(team2Stats?.points)
+
   }
+}
+
+function round(val?: number, decimals: number=2): number {
+  if (val === null || val === undefined) return Number.NaN;
+  const factor = Math.pow(10, decimals);
+  return Math.round(val * factor) / factor;
 }
