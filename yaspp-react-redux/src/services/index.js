@@ -14,7 +14,7 @@ function getYears(leagueId) {
   })
 }
 
-const openligaBaseUrl = 'https://www.openligadb.de'
+const openligaBaseUrl = 'https://api.openligadb.de'
 function getTeams(league, year) {
   if (!league) throw new Error('league is not defined')
   if (!year) throw new Error('year is not defined')
