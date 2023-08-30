@@ -19,7 +19,7 @@ export const modelReducer = (state = initialState, action) => {
   console.log(state)
   switch (action.type) {
     case actions.ReceiveLeagues: {
-      const leagues = [...state.leagues, ...action.leagues]
+      const leagues = [...action.leagues]
       return {
         ...state,
         leagues,

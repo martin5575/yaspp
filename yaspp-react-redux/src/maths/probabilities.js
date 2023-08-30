@@ -50,10 +50,9 @@ export const calcWinLossTieProbs = (hg, ag) => {
   }
 }
 
-export const calcResultProbs = (hg, ag, n = 20) => {
-  const epsilon = 1e-4
-  const hgf = (hg ? hg : 0.0) + epsilon
-  const agf = (ag ? ag : 0.0) + epsilon
+export const calcResultProbs = (hg, ag, n = 20, minProb = 0.01) => {
+  const hgf = Math.max(minProb, hg || 0.0)
+  const agf = Math.max(minProb, ag || 0.0)
 
   let result = []
   for (let i = 0; i <= n; ++i) {

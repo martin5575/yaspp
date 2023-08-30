@@ -1,23 +1,23 @@
 /****************** Map open liga db data ******************/
 function mapMatch(olMatch, league, year) {
-  const id = olMatch.MatchID
-  const matchDateTime = olMatch.MatchDateTime
-  const teamHomeId = olMatch.Team1.TeamId
-  const teamAwayId = olMatch.Team2.TeamId
-  const isFinished = olMatch.MatchIsFinished
-  const matchDayId = olMatch.Group.GroupOrderID
-  const leagueKey = olMatch.LeagueId
-  const lastUpdate = olMatch.LastUpdateDateTime
-  const halfTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultOrderID === 1
+  const id = olMatch.matchID
+  const matchDateTime = olMatch.matchDateTime
+  const teamHomeId = olMatch.team1.teamId
+  const teamAwayId = olMatch.team2.teamId
+  const isFinished = olMatch.matchIsFinished
+  const matchDayId = olMatch.group.groupOrderID
+  const leagueKey = olMatch.leagueId
+  const lastUpdate = olMatch.lastUpdateDateTime
+  const halfTimeResult = olMatch.matchResults.find(
+    (x) => x.resultName === "Halbzeit" || x.resultName === "Halbzeitergebnis"
   )
-  const fullTimeResult = olMatch.MatchResults.find(
-    (x) => x.ResultOrderID === 2
+  const fullTimeResult = olMatch.matchResults.find(
+    (x) => x.resultName === "Endergebnis"
   )
-  const halfTimeHome = halfTimeResult ? halfTimeResult.PointsTeam1 : '-'
-  const halfTimeAway = halfTimeResult ? halfTimeResult.PointsTeam2 : '-'
-  const fullTimeHome = fullTimeResult ? fullTimeResult.PointsTeam1 : '-'
-  const fullTimeAway = fullTimeResult ? fullTimeResult.PointsTeam2 : '-'
+  const halfTimeHome = halfTimeResult ? halfTimeResult.pointsTeam1 : '-'
+  const halfTimeAway = halfTimeResult ? halfTimeResult.pointsTeam2 : '-'
+  const fullTimeHome = fullTimeResult ? fullTimeResult.pointsTeam1 : '-'
+  const fullTimeAway = fullTimeResult ? fullTimeResult.pointsTeam2 : '-'
   return {
     id,
     teamHomeId,
@@ -37,10 +37,10 @@ function mapMatch(olMatch, league, year) {
 }
 
 function mapTeam(olTeam) {
-  const id = olTeam.TeamId
-  const shortName = olTeam.ShortName
-  const iconUrl = olTeam.TeamIconUrl
-  const name = olTeam.TeamName
+  const id = olTeam.teamId
+  const shortName = olTeam.shortName
+  const iconUrl = olTeam.teamIconUrl
+  const name = olTeam.teamName
   return {
     id,
     shortName,
@@ -50,8 +50,8 @@ function mapTeam(olTeam) {
 }
 
 function mapTeamFromMatch(olMatch) {
-  const team1 = mapTeam(olMatch.Team1)
-  const team2 = mapTeam(olMatch.Team2)
+  const team1 = mapTeam(olMatch.team1)
+  const team2 = mapTeam(olMatch.team2)
   return [team1, team2]
 }
 
@@ -68,9 +68,9 @@ function mapTeamFromMatchs(olMatchs) {
 }
 
 function mapMatchDay(olGroup, league, year) {
-  const id = parseInt(olGroup.GroupOrderID, 10)
-  const name = olGroup.GroupName
-  const key = parseInt(olGroup.GroupID, 10)
+  const id = parseInt(olGroup.groupOrderID, 10)
+  const name = olGroup.groupName
+  const key = parseInt(olGroup.groupID, 10)
   return {
     id,
     name,
