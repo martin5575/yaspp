@@ -54,7 +54,7 @@ class Match extends React.Component {
             height={this.logoSize}
             width={this.logoSize}
           />
-          <small> : </small>
+          <small>:</small>
           <img
             src={teamAway.iconUrl}
             alt={teamAway.shortName}
