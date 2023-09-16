@@ -4,8 +4,8 @@ export const HomeGoalsVsAwayGoals = "hg_vs_ag"
 export const HomeGoalsVsAwayGoalsWithDefenseFactor = "hgdf_vs_agdf"
 //export const TotalPointsVsTotalPoints = "tp_vs_tp"
 
-export const getKeys = () => {
-    [
+export const getKeys = () => {     
+    return [
         TotalGoalsVsTotalGoals,
         TotalGoalsVsTotalGoalsWithDefenseFactor,
         HomeGoalsVsAwayGoals,
