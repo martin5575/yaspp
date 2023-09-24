@@ -3,6 +3,7 @@ import { Component } from 'react'
 import './App.css'
 
 import Matchs from './Matchs'
+import Table from './Table'
 import MatchdayNavigator from '../components/MatchdayNavigator'
 
 import { dispatchFetchInitial } from '../actions/ActionBuilderWithStore'
@@ -81,13 +82,24 @@ class App extends Component {
             </div>
           </div>
           <div className="container-fluid">
-            <Matchs
-              matchs={relevantMatchs}
-              teams={teams}
-              seasonInfo={seasonInfo}
-              showPercentage={showPercentage}
-              selectedModelId={selectedModelId}
-            />
+            <div className="row">
+              <div className="col-md-8 no-pad-right">
+                <Matchs
+                  matchs={relevantMatchs}
+                  teams={teams}
+                  seasonInfo={seasonInfo}
+                  showPercentage={showPercentage}
+                  selectedModelId={selectedModelId}
+                />
+              </div>
+              <div className="col-md-3">
+                <Table 
+                  teams={teams}
+                  seasonInfo={seasonInfo}
+                  selectedModelId={selectedModelId}
+                  />
+              </div>
+            </div>
           </div>
         </div>
       </div>
