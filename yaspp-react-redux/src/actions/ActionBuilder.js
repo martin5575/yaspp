@@ -357,6 +357,10 @@ const switchModel = (selectedModelId) => ({
   payload: statsType.getNextId(selectedModelId)
 })
 
+const toggleProbabilityDetails = (matchId) => ({
+  type: actions.ToggleProbabilityDetails,
+  payload: matchId
+})
 
 export {
   clearAll,
@@ -373,5 +377,6 @@ export {
   selectYear,
   refreshMatchs,
   showPercentage,
-  switchModel
+  switchModel,
+  toggleProbabilityDetails,
 }

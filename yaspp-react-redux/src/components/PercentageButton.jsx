@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'reactstrap'
 
 export const PercentageButton = ({ onClick, disabled, state }) => {
   return (
-    <button
+    <Button
       type="button"
       className="btn btn-secondary"
       data-toggle="button"
@@ -12,7 +13,7 @@ export const PercentageButton = ({ onClick, disabled, state }) => {
       disabled={disabled}
     >
       <FontAwesomeIcon icon="percentage" />
-    </button>
+    </Button>
   )
 }
 

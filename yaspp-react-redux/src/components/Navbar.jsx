@@ -15,6 +15,7 @@ import {
   getSelectedYear,
 } from '../reducers/selectors/uiSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'reactstrap'
 
 class Navbar extends Component {
   update() {
@@ -73,9 +74,8 @@ class Navbar extends Component {
           data={relevantYears}
           onSelect={this.yearChange.bind(this)}
         />
-        <button
+        <Button
           className="navbar-toggler"
-          type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
@@ -83,7 +83,7 @@ class Navbar extends Component {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon" />
-        </button>
+        </Button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <span className="navbar-text">
             <FontAwesomeIcon icon="futbol" />

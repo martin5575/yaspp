@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'reactstrap'
 
 class ListNavigator extends Component {
   onSelect(event) {
@@ -31,48 +32,45 @@ class ListNavigator extends Component {
         role="group"
         aria-label="Button group with nested dropdown"
       >
-        <button
-          type="button"
+        <Button
+
           id={prevId}
           className={`btn btn-secondary ${buttonStyles}`}
           disabled={prevId === undefined}
           onClick={this.onSelect.bind(this)}
         >
           <FontAwesomeIcon icon="caret-left" />
-        </button>
+        </Button>
         <div className="btn-group" role="group">
-          <button
+          <Button
             id="btnGroupDrop1"
-            type="button"
             className={`btn btn-secondary dropdown-toggle ${buttonStyles}`}
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
             {selectedItem ? selectedItem.name : this.props.selected}
-          </button>
+          </Button>
           <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
             {this.props.data.map((x) => (
-              <button
-                type="button"
+              <Button
                 className="dropdown-item"
                 id={x.id}
                 key={x.id}
                 onClick={this.onSelect.bind(this)}
               >
                 {x.name}
-              </button>
+              </Button>
             ))}
           </div>
-          <button
-            type="button"
+          <Button
             id={nextId}
             className={`btn btn-secondary ${buttonStyles}`}
             onClick={this.onSelect.bind(this)}
             disabled={nextId === undefined}
           >
             <FontAwesomeIcon icon="caret-right" />
-          </button>
+          </Button>
         </div>
       </div>
     )
