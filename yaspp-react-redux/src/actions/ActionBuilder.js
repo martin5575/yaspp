@@ -146,9 +146,10 @@ function refreshMatchs(state) {
 }
 
 function updateMatchsRequired(state, date) {
+  console.log(state, date)  
   const matchs = getSelectedMatchs(state)
   const lastUpdate = getLatestUpdate(matchs)
-  return lastUpdate < date
+  return !lastUpdate || lastUpdate < date
 }
 
 function startRefreshMatchs() {

@@ -31,7 +31,6 @@ class Navbar extends Component {
   }
 
   async leagueChange(event) {
-    console.log(event.target.id)
     const store = this.props.store
     dispatchSwitchMenu(store, 'matchs')
     dispatchSelectLeague(store, event.target.id)
@@ -50,7 +49,6 @@ class Navbar extends Component {
   }
 
   selectMenu(event) {
-    console.log(event.target.id)
     const store = this.props.store
     dispatchSwitchMenu(store, event.target.id)
   }

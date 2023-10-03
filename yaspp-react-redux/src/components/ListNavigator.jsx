@@ -13,7 +13,6 @@ class ListNavigator extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (!this.props.data) return <div />
     const buttonStyles = this.props.buttonStyles ? this.props.buttonStyles : ''
     const bgStyles = this.props.bgStyles ? this.props.bgStyles : ''

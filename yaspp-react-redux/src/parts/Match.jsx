@@ -42,8 +42,6 @@ class Match extends React.Component {
     const formatedStats = formatStats(stats, digits)
     const probs = calcWinLossTieProbs(stats.home, stats.away)
     const formatedProbs = formatProbs(probs)
-    console.log(formatedProbs)
-    console.log(match.id, probabilityDetailsMatchId)
     const showPercentage = this.props.showPercentage
     return (
       <>
