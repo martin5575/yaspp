@@ -68,12 +68,12 @@ class Match extends React.Component {
             width={this.logoSize}
           />
         </div>
-        <div className="col-1">
+        <div className="col-1 pr-0">
           <small>
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
         </div>
-        <div className="col-1">
+        <div className="col-1 pr-0">
           <small className={match.isFinished ? 'final ' : ''}>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
@@ -83,22 +83,22 @@ class Match extends React.Component {
             <FontAwesomeIcon icon="angle-double-down" color="gray" />
           </Button>
         </div>
-        <div className="col-2 text-center">
+        <div className="col-2 text-center pr-0">
           <small>
             <i>{formatedStats}</i>
           </small>
         </div>
-        <div className="col-1 text-center">
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </div>
-        <div className="col-1 text-center">
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </div>
-        <div className="col-1 text-center">
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>

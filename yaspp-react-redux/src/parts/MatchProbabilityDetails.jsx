@@ -17,15 +17,21 @@ export class MatchProbabilityDetails extends React.Component {
   render() {
     const hg = this.props.stats.home
     const ag = this.props.stats.away
-    const probs = calcResultProbs(hg, ag, 6, 0.01)
+    const probs = calcResultProbs(hg, ag, 7, 0.01)
+    const numberOfGoals = [0,1,2,3,4,5,6]
+    const formatProb = (prob) => { return (prob*100).toFixed(0)};
      return (
-            <div className='container-fluid'>
-                {[0,1,2,3,4,5].map((i) => (
-                    <div className='row'>
-                        {[0,1,2,3,4,5].map((j) => (
-                        <div className='col-2 p-2 text-center score-card' style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}>
-                            <p className='mb-0'>{i}:{j}</p>
-                            <p><small>{formatProbOrRate(true, probs[i][j])}</small></p>
+            <div className='d-flex flex-column p-0'>
+                <div className='d-flex flex-nowrap align-items-stretch'>
+                  <div className='p-2 text-center score-card'>[%]</div>
+                  {numberOfGoals.map((i) => (<div className='p-2 text-center score-card'>{i}</div>))}
+                </div>
+                {numberOfGoals.map((i) => (
+                    <div className='d-flex flex-nowrap align-items-stretch'>
+                        <div className='p-2 text-center score-card'>{i}</div>
+                        {numberOfGoals.map((j) => (
+                        <div className={`p-2 text-center score-card ${i===j?"diagonal":""}`} style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}>
+                            <small>{formatProb(probs[i][j])}</small>
                         </div>
                         ))}
                     </div>

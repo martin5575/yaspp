@@ -1,3 +1,9 @@
 .score-card {
-    border: 3px white solid;
+    margin: 1px;
+    border: 2px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.diagonal {
+    border: 2px dotted darkgray
 }
