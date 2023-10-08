@@ -26,7 +26,7 @@ class Matchs extends React.Component {
     const statsDescription = getDescription(modelKey)
     
     return (
-      <div className="schedule">
+      <div className="container-fluid schedule">
         {groupedMatchs.map((gm, i) => (
           <MatchsPerDay
             teams={teams}
@@ -38,6 +38,8 @@ class Matchs extends React.Component {
             statsDescription={statsDescription}
             modelKey={modelKey}
             showPercentage={showPercentage}
+            probabilityDetailsMatchId={this.props.probabilityDetailsMatchId}
+            toggleProbabilityDetails={this.props.toggleProbabilityDetails}
           />
         ))}
       </div>

@@ -173,6 +173,12 @@ export const uiReducer = (state = initialState, action) => {
           selectedModelId: action.payload
         }
       }
+    case actions.ToggleProbabilityDetails:
+      {
+        return { ...state,
+          probabilityDetailsMatchId: action.payload
+        }
+      }
     default:
       return state
   }

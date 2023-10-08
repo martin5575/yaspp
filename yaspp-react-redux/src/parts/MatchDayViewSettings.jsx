@@ -1,17 +1,17 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'reactstrap'
 
 const OptionsButton = ({ onClick, disabled }) => {
   return (
-    <button
-      type="button"
+    <Button
       className="btn btn-secondary"
       onClick={onClick}
       disabled={disabled}
     >
       <FontAwesomeIcon icon="ellipsis-v" />
-    </button>
+    </Button>
   )
 }
 

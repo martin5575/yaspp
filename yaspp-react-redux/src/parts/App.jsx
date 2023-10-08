@@ -51,6 +51,7 @@ class App extends Component {
     const seasonInfo = getSeasonInfo(state)
     const showPercentage = state.ui.showPercentage
     const selectedModelId = state.ui.selectedModelId
+    const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
     return (
       <div className="container.fluid">
         <div className="row justify-content-center">
@@ -90,7 +91,12 @@ class App extends Component {
                   seasonInfo={seasonInfo}
                   showPercentage={showPercentage}
                   selectedModelId={selectedModelId}
-                />
+                  probabilityDetailsMatchId={probabilityDetailsMatchId}
+              toggleProbabilityDetails={(matchId) => { 
+                this.props.store.dispatch(
+                  actionBuilder.toggleProbabilityDetails(matchId)
+                )  }}
+            />
               </div>
               <div className="col-md-3">
                 <Table 

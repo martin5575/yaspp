@@ -1,8 +1,5 @@
 .schedule {
     margin: 0.1rem;
-}
+    padding: 5px !important;
 
-td,
-th {
-    margin: 0.1rem;
 }

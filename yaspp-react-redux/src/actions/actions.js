@@ -30,3 +30,4 @@ export const clearAll = 'ClearAll'
 
 export const ShowPercentage = 'ShowPercentage'
 export const SwitchModel = 'SwitchModel'
+export const ToggleProbabilityDetails = 'ToggleProbabilityDetails'

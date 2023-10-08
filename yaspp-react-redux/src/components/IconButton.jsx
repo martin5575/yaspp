@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'reactstrap'
 
 export const IconButton = ({ icon, disabled, handleClick }) => {
   return (
-    <a href="#" onClick={handleClick} disabled={disabled}>
+    <Button color='link' onClick={handleClick} disabled={disabled}>
       <FontAwesomeIcon icon={icon} />
-    </a>
+    </Button>
   )
 }

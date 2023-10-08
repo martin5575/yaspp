@@ -10,6 +10,8 @@ import {
   getProbDescription,
 } from '../maths/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button, Collapse } from 'reactstrap'
+import { MatchProbabilityDetails } from './MatchProbabilityDetails'
 
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
@@ -17,10 +19,15 @@ const formatProbOrRate = (showPercentage, value) =>
 class Match extends React.Component {
   logoSize = 20
   render() {
+
+
     const match = this.props.match
     const teams = this.props.teams
     const seasonInfo = this.props.seasonInfo
     const modelKey = this.props.modelKey
+    const probabilityDetailsMatchId = this.props.probabilityDetailsMatchId;
+    const isProbabilityDetailsShown = match.id===probabilityDetailsMatchId;
+ 
 
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]
@@ -35,11 +42,11 @@ class Match extends React.Component {
     const formatedStats = formatStats(stats, digits)
     const probs = calcWinLossTieProbs(stats.home, stats.away)
     const formatedProbs = formatProbs(probs)
-    console.log(formatedProbs)
     const showPercentage = this.props.showPercentage
     return (
-      <tr
-        className="d-flex"
+      <>
+      <div
+        className="row"
         key={match.id}
         data-toggle="tooltip"
         title={
@@ -47,69 +54,62 @@ class Match extends React.Component {
           moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
-        <td className="col-2">
+        <div className="col-2 pr-0">
           <img
             src={teamHome.iconUrl}
             alt={teamHome.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
-          <small>:</small>
           <img
             src={teamAway.iconUrl}
             alt={teamAway.shortName}
             height={this.logoSize}
             width={this.logoSize}
           />
-        </td>
-        <td className="col-1">
+        </div>
+        <div className="col-1 pr-0">
           <small>
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
-        </td>
-        <td className="col-1">
+        </div>
+        <div className="col-1 pr-0">
           <small className={match.isFinished ? 'final ' : ''}>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
-        </td>
-        <td className="col-1">
-          <FontAwesomeIcon icon="angle-double-down" color="gray" />
-        </td>
-        <td className="col-2 text-center">
+        </div>
+        <div className="col-1">
+          <Button size='sm' color="link" onClick={()=>this.props.toggleProbabilityDetails(isProbabilityDetailsShown ? null: match.id)}>
+            <FontAwesomeIcon icon="angle-double-down" color="gray" />
+          </Button>
+        </div>
+        <div className="col-2 text-center pr-0">
           <small>
             <i>{formatedStats}</i>
           </small>
-        </td>
-        <td className="col-1 text-center">
+        </div>
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
-        </td>
-        <td className="col-1 text-center">
+        </div>
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
-        </td>
-        <td className="col-1 text-center">
+        </div>
+        <div className="col-1 text-center pr-0">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>
-        </td>
-        <td className="col-1 text-center">
-          <a
-            data-toggle="popover"
-            title={`${teamHome.shortName}-${teamAway.shortName}`}
-            data-html="true"
-            data-container="body"
-            data-placement="left"
-            data-content={getProbDescription(stats.home, stats.away)}
-          >
-            <small>
-              <FontAwesomeIcon icon="info-circle" />
-            </small>
-          </a>
-        </td>
-      </tr>
+        </div>
+      </div>
+      <div className="row">
+        <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
+          <MatchProbabilityDetails stats={stats} />
+        </Collapse>
+      </div>
+      </>
     )
   }
 }
