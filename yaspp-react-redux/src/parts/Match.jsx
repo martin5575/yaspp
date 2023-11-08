@@ -107,7 +107,7 @@ class Match extends React.Component {
       </div>
       <div className="row">
         <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
-          <MatchDetails match={match} teams={teams} seasonInfo={seasonInfo} />
+          <MatchDetails match={match} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} />
           <MatchProbabilityDetails stats={stats} />
         </Collapse>
       </div>

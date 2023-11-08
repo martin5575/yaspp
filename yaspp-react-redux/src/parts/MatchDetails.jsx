@@ -1,12 +1,17 @@
 import React from 'react'
-import './Matchs.css'
+import './MatchDetails.css'
 
 export class MatchDetails extends React.Component {
     logoSize = 20
 
-  details(teamId, teams, seasonInfo) {
+  details(teamId, teams, seasonInfo, modelKey, isHomeTeam) {
     const team = teams[teamId]
     const info = seasonInfo.find(x=>x.team===teamId)
+    console.log(modelKey)
+    const total = ["tg_vs_tg", "tgdf_vs_tgdf"].includes(modelKey)
+    const home = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && isHomeTeam
+    const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam
+
     return <div className='row'>
         <div className='col-2'>
             <img src={team.iconUrl} alt={team.name} 
@@ -18,20 +23,20 @@ export class MatchDetails extends React.Component {
             <div className='col-1'>
                 <small>{info.tp}</small>
             </div>
-            <div className='col-2'>
-                <small>{info.tgf}:{info.tga}</small>
+            <div className="col-2">
+                <small className={`${total ? 'bold' : ''}`}>{info.tgf}:{info.tga}</small>
             </div>
             <div className='col-1'>
                 <small>{info.hp}</small>
             </div>
             <div className='col-2'>
-                <small>{info.hgf}:{info.hga}</small>
+                <small className={`${home ? 'bold' : ''}`}>{info.hgf}:{info.hga}</small>
             </div>
             <div className='col-1'>
                 <small>{info.ap}</small>
             </div>
             <div className='col-2'>
-                <small>{info.agf}:{info.aga}</small>
+                <small className={`${away ? 'bold' : ''}`}>{info.agf}:{info.aga}</small>
             </div>
         </>)} 
     </div>
@@ -41,6 +46,7 @@ export class MatchDetails extends React.Component {
     const teams = this.props.teams;
     const match = this.props.match;
     const seasonInfo = this.props.seasonInfo;
+    const modelKey = this.props.modelKey;
     if (!teams || !match || !seasonInfo) return <div>empty</div>
     return <div className='container'>
         <div className='row'>
@@ -49,8 +55,8 @@ export class MatchDetails extends React.Component {
             <div className='col-3'><small>Heim</small></div>
             <div className='col-3'><small>Auswärts</small></div>
         </div>
-        {this.details(match.teamHomeId, teams, seasonInfo)}
-        {this.details(match.teamAwayId, teams, seasonInfo)}
+        {this.details(match.teamHomeId, teams, seasonInfo, modelKey, true)}
+        {this.details(match.teamAwayId, teams, seasonInfo, modelKey, false)}
     </div>
   }
 }

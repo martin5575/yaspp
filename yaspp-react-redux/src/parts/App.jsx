@@ -102,6 +102,7 @@ class App extends Component {
                 <Table 
                   teams={teams}
                   seasonInfo={seasonInfo}
+                  matchs={relevantMatchs}
                   selectedModelId={selectedModelId}
                   />
               </div>

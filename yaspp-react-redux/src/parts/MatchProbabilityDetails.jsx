@@ -8,6 +8,7 @@ import {
 } from '../maths/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'reactstrap'
+import _ from 'lodash'
 
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
@@ -20,7 +21,27 @@ export class MatchProbabilityDetails extends React.Component {
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
     const formatProb = (prob) => { return (prob*100).toFixed(0)};
+
+    const probsList = []
+    numberOfGoals.forEach(x=>{
+      numberOfGoals.forEach(y=> {
+        probsList.push(({prob:probs[x][y], result:`${x}:${y}`}))
+      })
+    })
+    const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
+
      return (
+      <>
+        <div className='row'>
+          <div className='col-2'>
+          <small>TOP 3</small>
+          </div>
+          {[0,1,2].map(x=> (
+          <div className='col-3'>
+          <small>{sortedProbs[x].result} ({(sortedProbs[x].prob*100).toFixed(1)}%)</small>
+          </div>
+          ))}
+        </div>
             <div className='d-flex flex-column p-0'>
                 <div className='d-flex flex-nowrap align-items-stretch'>
                   <div className='p-2 text-center score-card'>[%]</div>
@@ -30,13 +51,14 @@ export class MatchProbabilityDetails extends React.Component {
                     <div className='d-flex flex-nowrap align-items-stretch'>
                         <div className='p-2 text-center score-card'>{i}</div>
                         {numberOfGoals.map((j) => (
-                        <div className={`p-2 text-center score-card ${i===j?"diagonal":""}`} style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}>
+                        <div className={`p-2 text-center score-card ${i===j?"diagonal":"non-diagonal"}`} style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}>
                             <small>{formatProb(probs[i][j])}</small>
                         </div>
                         ))}
                     </div>
                 ))}
             </div>
+            </>
      )    
   }
 }

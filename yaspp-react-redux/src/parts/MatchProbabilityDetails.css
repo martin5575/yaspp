@@ -7,3 +7,6 @@
 .diagonal {
     border: 2px dotted darkgray
 }
+.non-diagonal {
+    border: 2px solid white
+}

@@ -10,14 +10,24 @@ class Table extends React.Component {
   render() {
     const seasonInfo = this.props.seasonInfo
     const teams = this.props.teams
+    const matchs = this.props.matchs
     //const selectedModelId = this.props.selectedModelId
- 
-    const rawData = seasonInfo.map((x) => ({
+
+    const relevantTeams = matchs.flatMap(x=>[x.teamHomeId, x.teamAwayId]);
+    const data = seasonInfo && seasonInfo.length ? seasonInfo : relevantTeams
+    .map(x => ({
+      team: x,
+      tp: 0,
+      tgf: 0,
+      tga: 0
+    }))
+
+    const rawData = data.map((x) => ({
       ...x,
       iconUrl: teams[x.team].iconUrl,
       shortName: teams[x.team].shortName,
     }))
-
+    
     const table = sortByField(rawData, "tp").reverse()
     return (
       <table class="table table-striped">
