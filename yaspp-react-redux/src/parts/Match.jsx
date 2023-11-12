@@ -11,7 +11,6 @@ import {
 } from '../maths/probabilities'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Collapse } from 'reactstrap'
-import { MatchProbabilityDetails } from './MatchProbabilityDetails'
 import { MatchDetails } from './MatchDetails'
 
 const formatProbOrRate = (showPercentage, value) =>
@@ -107,8 +106,7 @@ class Match extends React.Component {
       </div>
       <div className="row">
         <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
-          <MatchDetails match={match} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} />
-          <MatchProbabilityDetails stats={stats} />
+          <MatchDetails match={match} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} stats={stats}/>
         </Collapse>
       </div>
       </>
