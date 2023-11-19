@@ -24,7 +24,7 @@ export class MatchDetailsHeatmap extends React.Component {
     return (
     <div className='row'>
     <div className='col-1'></div>
-    <div className='col-9'>
+    <div className='col-10'>
     <div className='d-flex flex-column p-0'>
         <div className='d-flex flex-nowrap align-items-stretch'>
           <div className='p-2 text-center score-card'><small><b>[%]</b></small></div>

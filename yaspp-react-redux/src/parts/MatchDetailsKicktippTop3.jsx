@@ -13,27 +13,76 @@ import _ from 'lodash'
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
-export class MatchDetailsKicktippTop3 extends React.Component {
+  function getPointsForTip(observedHg, observedAg, tippedHg, tippedAg) {
+    if (observedHg === tippedHg && observedAg === tippedAg) {
+      return 4
+    }
+    if (observedHg === observedAg && tippedHg === tippedAg) {
+      return 2
+    }
+    if (observedHg - observedAg === tippedHg - tippedAg) {
+      return 3
+    }
+    if (
+      (observedHg > observedAg && tippedHg > tippedAg) ||
+      (observedHg < observedAg && tippedHg < tippedAg)
+    ) {
+      return 2
+    }
+    return 0
+  }
+
   
+  function calcExpectedPointsForResult(hg, ag, probs, numberOfGoals) {
+    let expectedValue = 0;
+    numberOfGoals.forEach(x=>{
+      numberOfGoals.forEach(y=> {
+        const pointForTip = getPointsForTip(x,y, hg, ag)
+        expectedValue += probs[x][y] * pointForTip
+      })
+    });
+    return expectedValue;
+  }
+  function calcExpectedPointsForAllResults(probs, numberOfGoals) {
+    console.log('probs', probs)
+    const count = numberOfGoals.length
+    const expectedGoalsForResult = [];
+    numberOfGoals.forEach(x=>{
+      expectedGoalsForResult[x]=[];
+      numberOfGoals.forEach(y=> {
+        expectedGoalsForResult[x][y]= calcExpectedPointsForResult(x,y, probs, numberOfGoals)
+      })
+    });
+    return expectedGoalsForResult;
+  }
+
+
+export class MatchDetailsKicktippTop3 extends React.Component {
+
+
+
+
   render() {
     const hg = this.props.stats.home
     const ag = this.props.stats.away
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
-    const probsList = []
+    const expectedPoints = calcExpectedPointsForAllResults(probs, numberOfGoals)
+
+    const expectedPointsList = []
     numberOfGoals.forEach(x=>{
       numberOfGoals.forEach(y=> {
-        probsList.push(({prob:probs[x][y], result:`${x}:${y}`}))
+        expectedPointsList.push(({expectedPoints: expectedPoints[x][y], result:`${x}:${y}`}))
       })
     })
-    const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
+    const sortedExpectedPoints = _.sortBy(expectedPointsList, x=>-x.expectedPoints); 
     return (<div className='row'>
       <div className='col-2 p-0'>
-      <small><b>TOP 3</b></small>
+      <small><b>TIPP3</b></small>
       </div>
       {[0,1,2].map(x=> (
-      <div className='col-3'>
-      <small><b>{sortedProbs[x].result}</b> ({(sortedProbs[x].prob*100).toFixed(1)}%)</small>
+      <div className='col-3 p-0'>
+      <small><b>{sortedExpectedPoints[x].result}</b> ({sortedExpectedPoints[x].expectedPoints.toFixed(2)})</small>
       </div>
       ))}
     </div>

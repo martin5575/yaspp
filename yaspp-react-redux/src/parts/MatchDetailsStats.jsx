@@ -20,22 +20,22 @@ export class MatchDetailsStats extends React.Component {
         </div>
         {!info && (<div className='col-10'><i>no data</i></div>)}
         {info && (<>
-            <div className='col-1'>
+            <div className='col-1 p-0'>
                 <small>{info.tp}</small>
             </div>
-            <div className="col-2">
+            <div className="col-2 p-0">
                 <small className={`${total ? 'bold' : ''}`}>{info.tgf}:{info.tga}</small>
             </div>
-            <div className='col-1'>
+            <div className='col-1 p-0'>
                 <small>{info.hp}</small>
             </div>
-            <div className='col-2'>
+            <div className='col-2 p-0'>
                 <small className={`${home ? 'bold' : ''}`}>{info.hgf}:{info.hga}</small>
             </div>
-            <div className='col-1'>
+            <div className='col-1 p-0'>
                 <small>{info.ap}</small>
             </div>
-            <div className='col-2'>
+            <div className='col-2 p-0'>
                 <small className={`${away ? 'bold' : ''}`}>{info.agf}:{info.aga}</small>
             </div>
         </>)} 
@@ -50,10 +50,10 @@ export class MatchDetailsStats extends React.Component {
     if (!teams || !match || !seasonInfo) return <div>empty</div>
     return <div className='container'>
         <div className='row'>
-            <div className='col-2'><small>Team</small></div>
-            <div className='col-3'><small>Gesamt</small></div>
-            <div className='col-3'><small>Heim</small></div>
-            <div className='col-3'><small>Auswärts</small></div>
+            <div className='col-2 p-0'><small>Team</small></div>
+            <div className='col-3 p-0'><small>Gesamt</small></div>
+            <div className='col-3 p-0'><small>Heim</small></div>
+            <div className='col-3 p-0'><small>Auswärts</small></div>
         </div>
         {this.details(match.teamHomeId, teams, seasonInfo, modelKey, true)}
         {this.details(match.teamAwayId, teams, seasonInfo, modelKey, false)}
