@@ -30,9 +30,9 @@ class Table extends React.Component {
     
     const table = sortByField(rawData, "tp").reverse()
     return (
-      <table class="table table-striped">
+      <table className="table table-striped">
   <thead>
-    <tr>
+    <tr key="table-header">
       <th scope="col">Team</th>
       <th scope="col">P</th>
       <th scope="col">TG</th>
@@ -40,7 +40,7 @@ class Table extends React.Component {
     </tr>
   </thead>
   <tbody>
-    {table.map((team, index) => (<tr>
+    {table.map((team, index) => (<tr key={"table-"+team.shortName}>
       <td>          
         <img
             src={team.iconUrl}

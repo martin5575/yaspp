@@ -14,9 +14,6 @@ export const initialState = {
 /******************* Reducer ******************/
 
 export const modelReducer = (state = initialState, action) => {
-  console.log(action ? action.type : '')
-  console.log(action)
-  console.log(state)
   switch (action.type) {
     case actions.ReceiveLeagues: {
       const leagues = [...action.leagues]

@@ -7,7 +7,6 @@ export class MatchDetailsStats extends React.Component {
   details(teamId, teams, seasonInfo, modelKey, isHomeTeam) {
     const team = teams[teamId]
     const info = seasonInfo.find(x=>x.team===teamId)
-    console.log(modelKey)
     const total = ["tg_vs_tg", "tgdf_vs_tgdf"].includes(modelKey)
     const home = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && isHomeTeam
     const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam

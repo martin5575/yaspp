@@ -31,7 +31,7 @@ export class MatchDetailsTop3 extends React.Component {
       <small><b>TOP 3</b></small>
       </div>
       {[0,1,2].map(x=> (
-      <div className='col-3 p-0'>
+      <div className='col-3 p-0' key={"top-prob-"+x}>
       <small><b>{sortedProbs[x].result}</b> ({(sortedProbs[x].prob*100).toFixed(1)}%)</small>
       </div>
       ))}

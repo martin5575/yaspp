@@ -28,13 +28,15 @@ export class MatchDetailsHeatmap extends React.Component {
     <div className='d-flex flex-column p-0'>
         <div className='d-flex flex-nowrap align-items-stretch'>
           <div className='p-2 text-center score-card'><small><b>[%]</b></small></div>
-          {numberOfGoals.map((i) => (<div className='p-2 text-center score-card'><small><b>{i}</b></small></div>))}
+          {numberOfGoals.map((i) => (<div className='p-2 text-center score-card' key={"heatmap-col-"+i}><small><b>{i}</b></small></div>))}
         </div>
         {numberOfGoals.map((i) => (
-            <div className='d-flex flex-nowrap align-items-stretch'>
+            <div className='d-flex flex-nowrap align-items-stretch' key={"heatmap-row-"+i}>
                 <div className='p-2 text-center score-card'><small><b>{i}</b></small></div>
                 {numberOfGoals.map((j) => (
-                <div className={`p-2 text-center score-card ${i===j?"diagonal":"non-diagonal"}`} style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}>
+                <div className={`p-2 text-center score-card ${i===j?"diagonal":"non-diagonal"}`} 
+                    style={{backgroundColor: `hsl(360 100% ${100 - (probs[i][j]*70.0)}%)`}}
+                    key={`heatmap-cell-${i}-${j}`}>
                     <small>{formatProb(probs[i][j])}</small>
                 </div>
                 ))}

@@ -44,7 +44,6 @@ const formatProbOrRate = (showPercentage, value) =>
     return expectedValue;
   }
   function calcExpectedPointsForAllResults(probs, numberOfGoals) {
-    console.log('probs', probs)
     const count = numberOfGoals.length
     const expectedGoalsForResult = [];
     numberOfGoals.forEach(x=>{
@@ -81,7 +80,7 @@ export class MatchDetailsKicktippTop3 extends React.Component {
       <small><b>TIPP3</b></small>
       </div>
       {[0,1,2].map(x=> (
-      <div className='col-3 p-0'>
+      <div className='col-3 p-0' key={"kickTippTop-"+x}>
       <small><b>{sortedExpectedPoints[x].result}</b> ({sortedExpectedPoints[x].expectedPoints.toFixed(2)})</small>
       </div>
       ))}

@@ -46,7 +46,10 @@ export class MatchDetailsPlusMinus extends React.Component {
         <div className='col-5 text-right'><small><b>Wahrscheinlichkeit</b></small></div>
         <div className='col-5 text-right'><small><b>Top-Ergebnis</b></small></div>
       </div>
-      {plusMinus.filter(x=>x.prob>0.01).map(x=> (<div className='row' style={{backgroundColor: `hsl(360 100% ${100 - (x.prob*70.0)}%)`}}>
+      {plusMinus.filter(x=>x.prob>0.01).map(x=> (<div className='row' 
+          style={{backgroundColor: `hsl(360 100% ${100 - (x.prob*70.0)}%)`}}
+          key={"plusminus-"+x.diff}
+          >
         <div className='col-2 text-center'><small>{x.diff}</small></div>
         <div className='col-5 text-right'><small>{(x.prob*100).toFixed(1)}%</small></div>
         <div className='col-2 text-right'><small>{x.maxResult}</small></div>

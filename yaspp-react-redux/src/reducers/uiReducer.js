@@ -23,7 +23,6 @@ const initialState = {
 /******************* Reducer ******************/
 
 export const uiReducer = (state = initialState, action) => {
-  console.log(action ? action.type : '')
   switch (action.type) {
     case actions.SelectMatchDay:
       {

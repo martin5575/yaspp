@@ -12,7 +12,7 @@ import { getIsLoading } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
-import { MatchDayViewSettings } from './MatchDayViewSettings'
+import  MatchDayViewSettings  from './MatchDayViewSettings'
 
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
@@ -45,7 +45,6 @@ class App extends Component {
     if (getIsLoading(state)) return <LoadingPage />
     if (state.ui.menuId === 'storage') return <Storage />
 
-    console.log('render normal')
     const relevantMatchs = getSelectedMatchs(state)
     const teams = getAllTeams(state)
     const seasonInfo = getSeasonInfo(state)

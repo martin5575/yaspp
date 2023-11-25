@@ -129,7 +129,6 @@ test('aggregateSeasonInfo results in 18 values', () => {
   // @ts-ignore
 test('aggregateSeasonInfo results in symmetric sums for all goals', () => {
     const stats = aggregateSeasonInfo(matchs)
-    //console.log(stats[0])
     const sum = stats.reduce((res,x)=>{
         var aggregate = { ...res };
         aggregate.thgf += x.hgf;
