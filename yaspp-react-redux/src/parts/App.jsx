@@ -54,7 +54,7 @@ class App extends Component {
     const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
     return (
       <div className="container.fluid">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center m-0">
           <div
             className="btn-toolbar"
             role="toolbar"

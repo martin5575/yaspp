@@ -12,13 +12,13 @@ class MatchsPerDay extends React.Component {
     return (
       < >
               <div className="row" key="this.props.date">
-                <div scope="col" className="col-5 ">
+                <div scope="col" className="col-5">
                   <small>
                     {moment(this.props.date).format('ddd DD.MM HH:mm')}
                   </small>
                 </div>
                 {statsTitle && (
-                  <div scope="col" className="col-2 text-center">
+                  <div scope="col" className="col-2 text-center p-0">
                     <small>
                       {statsTitle}
                       &nbsp;
@@ -27,22 +27,22 @@ class MatchsPerDay extends React.Component {
                   </div>
                 )}
                 {statsTitle && (
-                  <div scope="col" className="col-1 text-center">
+                  <div scope="col" className="col-1 text-center p-0">
                     <small>1</small>
                   </div>
                 )}
                 {statsTitle && (
-                  <div scope="col" className="col-1 text-center">
+                  <div scope="col" className="col-1 text-center p-0">
                     <small>0</small>
                   </div>
                 )}
                 {statsTitle && (
-                  <div scope="col" className="col-1 text-center">
+                  <div scope="col" className="col-1 text-center p-0">
                     <small>2</small>
                   </div>
                 )}
                 {statsTitle && (
-                  <div scope="col" className="col-1 text-center" />
+                  <div scope="col" className="col-1 text-center p-0" />
                 )}
               </div>
               {this.props.matchs.map((m) => (
