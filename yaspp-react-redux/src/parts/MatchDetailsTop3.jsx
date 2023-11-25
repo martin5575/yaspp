@@ -26,12 +26,10 @@ export class MatchDetailsTop3 extends React.Component {
       })
     })
     const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
-    return (<div className='row'>
-      <div className='col-2 p-0'>
-      <small><b>TOP 3</b></small>
-      </div>
+    return (<div className="flex-column">
+      <div className='text-center'><small><b>TOP 3</b></small></div>
       {[0,1,2].map(x=> (
-      <div className='col-3 p-0' key={"top-prob-"+x}>
+      <div className='text-center' key={"top-prob-"+x}>
       <small><b>{sortedProbs[x].result}</b> ({(sortedProbs[x].prob*100).toFixed(1)}%)</small>
       </div>
       ))}

@@ -76,14 +76,16 @@ export function MatchDetails2(props) {
       >
         <CarouselCaption 
         captionText="Stats"></CarouselCaption>
-        <div className='row'><div className='col-1'></div>
-            <div className='col-10'>
-
+        <div className='d-flex-column justify-content-around'>
+          <div className='d-flex justify-content-around p-4'>
             <MatchDetailsStats className="mt-3" teams={teams} match={match} seasonInfo={seasonInfo} modelKey={modelKey} /> 
+          </div>
+          <div className='d-flex justify-content-around'>
             <MatchDetailsTop3 className="mt-3" stats={stats} />
             <MatchDetailsKicktippTop3 className="mt-3" stats={stats} />
-            </div>
+          </div>
         </div>
+
       </CarouselItem>, 
       <CarouselItem
         className="custom-tag"
@@ -112,22 +114,12 @@ export function MatchDetails2(props) {
 
 
   return (
-    <Card>
-<CardBody>
-<CardTitle tag="h5">
-Match Details
-<img src={teamHome.iconUrl} alt={teamHome.name} 
-                        height={logoSize}
-                        width={logoSize}/>
-<img src={teamAway.iconUrl} alt={teamAway.name} 
-                        height={logoSize}
-                        width={logoSize}/>
-</CardTitle>        
+    <>        
       <style>
         {`.custom-tag {
               width: 100%;
               height: 400px;
-              background: #eeeeeecc;
+              background: #eeeeee55;
                           }`}
       </style>
       <Carousel activeIndex={activeIndex} next={next} previous={previous}>
@@ -148,8 +140,7 @@ Match Details
           onClickHandler={next}
         />
       </Carousel>
-    </CardBody>
-    </Card>
+      </>
   );
 }
 

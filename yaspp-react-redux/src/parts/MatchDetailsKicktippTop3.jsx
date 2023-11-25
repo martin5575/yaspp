@@ -75,16 +75,16 @@ export class MatchDetailsKicktippTop3 extends React.Component {
       })
     })
     const sortedExpectedPoints = _.sortBy(expectedPointsList, x=>-x.expectedPoints); 
-    return (<div className='row'>
-      <div className='col-2 p-0'>
-      <small><b>TIPP3</b></small>
-      </div>
-      {[0,1,2].map(x=> (
-      <div className='col-3 p-0' key={"kickTippTop-"+x}>
-      <small><b>{sortedExpectedPoints[x].result}</b> ({sortedExpectedPoints[x].expectedPoints.toFixed(2)})</small>
-      </div>
-      ))}
+    return (<div className="flex-column">
+    <div className='text-center'><small><b>TIPP 3</b></small></div>
+    {[0,1,2].map(x=> (
+    <div className='text-center' key={"kickTippTop-"+x}>
+    <small><b>{sortedExpectedPoints[x].result}</b> ({sortedExpectedPoints[x].expectedPoints.toFixed(2)})</small>
     </div>
+    ))}
+  </div>
     ) 
+
+
   }
 }

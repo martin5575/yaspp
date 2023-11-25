@@ -11,7 +11,8 @@ export class MatchDetailsStats extends React.Component {
     const home = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && isHomeTeam
     const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam
 
-    return <div className='row'>
+    return <div className='container p-0'>
+        <div className='row'>
         <div className='col-2'>
             <img src={team.iconUrl} alt={team.name} 
                         height={this.logoSize}
@@ -38,6 +39,7 @@ export class MatchDetailsStats extends React.Component {
                 <small className={`${away ? 'bold' : ''}`}>{info.agf}:{info.aga}</small>
             </div>
         </>)} 
+    </div>
     </div>
   }
 

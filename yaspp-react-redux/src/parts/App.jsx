@@ -60,7 +60,7 @@ class App extends Component {
             aria-label="Toolbar with button groups"
           >
             <div className="btn-group" role="group" aria-label="Third group">
-              <MatchDayViewSettings />
+              <MatchDayViewSettings store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} />
             </div>
             <div className="btn-group" role="group" aria-label="Third group">
               <MatchDayOptionsButton selectedModelId={state.ui.selectedModelId} />
