@@ -5,7 +5,7 @@ import { MatchDetailsHeatmap } from './MatchDetailsHeatmap'
 import { MatchDetailsTop3 } from './MatchDetailsTop3'
 import { MatchDetailsKicktippTop3 } from './MatchDetailsKicktippTop3'
 import { MatchDetailsPlusMinus } from './MatchDetailsPlusMinus'
-import { MatchDetailsStats } from './MatchDetailsStats'
+import MatchDetailsStats from './MatchDetailsStats'
 
 export class MatchDetails extends React.Component {
     logoSize = 30

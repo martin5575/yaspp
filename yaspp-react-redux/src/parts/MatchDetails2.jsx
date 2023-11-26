@@ -11,7 +11,7 @@ import { MatchDetailsHeatmap } from './MatchDetailsHeatmap'
 import { MatchDetailsTop3 } from './MatchDetailsTop3'
 import { MatchDetailsKicktippTop3 } from './MatchDetailsKicktippTop3'
 import { MatchDetailsPlusMinus } from './MatchDetailsPlusMinus'
-import { MatchDetailsStats } from './MatchDetailsStats'
+import MatchDetailsStats from './MatchDetailsStats'
 
 const items = [
   {
@@ -41,8 +41,6 @@ export function MatchDetails2(props) {
     const modelKey = props.modelKey;
     if (!teams || !match || !seasonInfo) return <div>empty</div>
 
-    const teamHome = teams[match.teamHomeId]
-    const teamAway = teams[match.teamAwayId]
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -76,10 +74,8 @@ export function MatchDetails2(props) {
       >
         <CarouselCaption 
         captionText="Stats"></CarouselCaption>
-        <div className='d-flex-column justify-content-around'>
-          <div className='d-flex justify-content-around p-4'>
+        <div className='d-flex-column'>
             <MatchDetailsStats className="mt-3" teams={teams} match={match} seasonInfo={seasonInfo} modelKey={modelKey} /> 
-          </div>
           <div className='d-flex justify-content-around'>
             <MatchDetailsTop3 className="mt-3" stats={stats} />
             <MatchDetailsKicktippTop3 className="mt-3" stats={stats} />
@@ -122,7 +118,7 @@ export function MatchDetails2(props) {
               background: #eeeeee55;
                           }`}
       </style>
-      <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+      <Carousel activeIndex={activeIndex} next={next} previous={previous} interval={0} >
         <CarouselIndicators
           items={items}
           activeIndex={activeIndex}

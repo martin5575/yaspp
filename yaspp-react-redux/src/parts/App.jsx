@@ -20,6 +20,7 @@ import { getSeasonInfo } from '../stats/seasonInfo'
 import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'
+import { ButtonGroup, ButtonToolbar } from 'reactstrap'
 
 class App extends Component {
   update() {
@@ -51,35 +52,32 @@ class App extends Component {
     const showPercentage = state.ui.showPercentage
     const selectedModelId = state.ui.selectedModelId
     const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
+    const modelKey = state.ui.selectedModelId;
     return (
       <div className="container.fluid">
         <div className="row justify-content-center m-0">
-          <div
-            className="btn-toolbar"
-            role="toolbar"
-            aria-label="Toolbar with button groups"
-          >
-            <div className="btn-group" role="group" aria-label="Third group">
-              <MatchDayViewSettings store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} />
-            </div>
-            <div className="btn-group" role="group" aria-label="Third group">
+          <ButtonToolbar>
+            <ButtonGroup>
+              <MatchDayViewSettings store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs}  modelKey={modelKey} />
+            </ButtonGroup>
+            <ButtonGroup>
               <MatchDayOptionsButton selectedModelId={state.ui.selectedModelId} />
-            </div>
-
+            </ButtonGroup>
             <MatchdayNavigator store={store} />
-            <div className="btn-group" role="group" aria-label="Third group">
+            <ButtonGroup>
               <PercentageButton
-                state={state}
-                onClick={(s) =>
-                  this.props.store.dispatch(
-                    actionBuilder.showPercentage(!s.ui.showPercentage)
-                  )
-                }
-              />
-            </div>
-            <div className="btn-group" role="group" aria-label="Third group">
+                  state={state}
+                  onClick={(s) =>
+                    this.props.store.dispatch(
+                      actionBuilder.showPercentage(!s.ui.showPercentage)
+                    )
+                  }
+                />
+            </ButtonGroup>
+            <ButtonGroup>
               <RefreshCurrentMatchDayButton />
-            </div>
+            </ButtonGroup>
+          </ButtonToolbar>
           </div>
           <div className="container-fluid">
             <div className="row">
@@ -108,7 +106,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }
