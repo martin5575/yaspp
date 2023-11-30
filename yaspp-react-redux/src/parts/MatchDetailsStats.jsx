@@ -1,6 +1,6 @@
 import React from 'react'
 import './MatchDetailsStats.css'
-
+import { getKey } from '../stats/statsType'
 
 
 
@@ -83,9 +83,10 @@ function MatchDetailsStats(props) {
     const teams = props.teams;
     const match = props.match;
     const seasonInfo = props.seasonInfo;
-    const modelKey = props.modelKey;
+    const selectedModelId = props.selectedModelId;
+    console.log(selectedModelId)
+    const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
-    console.log(modelKey)
 
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]

@@ -36,7 +36,7 @@ class Matchs extends React.Component {
             key={gm[0]}
             statsTitle={i === 0 ? statsHeader : ''}
             statsDescription={statsDescription}
-            modelKey={modelKey}
+            selectedModelId={selectedModelId}
             showPercentage={showPercentage}
             probabilityDetailsMatchId={this.props.probabilityDetailsMatchId}
             toggleProbabilityDetails={this.props.toggleProbabilityDetails}

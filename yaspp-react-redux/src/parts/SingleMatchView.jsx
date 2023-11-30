@@ -3,16 +3,17 @@ import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Badge, Button, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap'
 import { calcStats } from '../stats/seasonInfo';
-import { MatchDetails2 } from './MatchDetails2';
+import { MatchDetails } from './MatchDetails';
 import { IconButton } from '../components/IconButton';
 import { MatchDayOptionsButton } from './MatchDayOptionsButton';
 import { ButtonGroup, ButtonToolbar } from 'reactstrap';
 import { PercentageButton } from '../components/PercentageButton';
 import  MatchdayNavigator  from '../components/MatchdayNavigator';
+import { getKey } from '../stats/statsType'
 
 const logoSize = 40
 
-function MatchDayViewSettings(props) {
+function SingleMatchView(props) {
   const [visible, setVisible] = useState(false)
   const [matchNo, setMatchNo] = useState(0)
 
@@ -22,7 +23,8 @@ function MatchDayViewSettings(props) {
 
   const seasonInfo = props.seasonInfo;
   const teams = props.teams;
-  const modelKey = props.modelKey;
+  const selectedModelId = props.selectedModelId;
+  console.log(selectedModelId)
   const store = props.store;
   const state = store.getState()
   const selectedLeague = state.ui.selectedLeague;
@@ -38,6 +40,7 @@ function MatchDayViewSettings(props) {
   const teamHome = teams[teamHomeId]
   const teamAwayId = match.teamAwayId;
   const teamAway = teams[teamAwayId]
+  const modelKey = getKey(selectedModelId)
   const stats = calcStats(seasonInfo, teamHomeId, teamAwayId, modelKey )
 
   return (<div>
@@ -54,7 +57,7 @@ function MatchDayViewSettings(props) {
       <OffcanvasBody>
         <ButtonToolbar>
           <ButtonGroup>
-            <MatchDayOptionsButton selectedModelId={state.ui.selectedModelId} />
+            <MatchDayOptionsButton selectedModelId={selectedModelId} />
           </ButtonGroup>
           <MatchdayNavigator store={store} />
             <ButtonGroup>
@@ -68,10 +71,7 @@ function MatchDayViewSettings(props) {
                 />
             </ButtonGroup>
         </ButtonToolbar>
-        <div className="text-center mb-3">
-          
-        </div>
-        <div className="d-flex justify-content-between align-middle mt-2 mb-3">
+        <div className="d-flex justify-content-between align-middle mt-3 mb-3">
         <IconButton icon="caret-left" style={{'height': logoSize+"px", 'width': logoSize+"px"}}
           handleClick={()=>setMatchNo(matchNo<=0 ? matchs.length-1 : 0 + matchNo-1)} />  
           <span style={{lineHeight: logoSize+"px"}} >{ teamHome.shortName.substring(0,3).toUpperCase()}</span>
@@ -85,11 +85,11 @@ function MatchDayViewSettings(props) {
         <span style={{lineHeight: logoSize+"px"}}>{ teamAway.shortName.substring(0,3).toUpperCase()}</span>
         <IconButton icon="caret-right" handleClick={()=>setMatchNo((matchNo+1)%matchs.length)} />
         </div>
-        <MatchDetails2 className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} stats={stats}/>
+        <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
       </OffcanvasBody>
     </Offcanvas>
   </div>
   );
 }
 
-export default MatchDayViewSettings
+export default SingleMatchView

@@ -12,7 +12,7 @@ import { getIsLoading } from '../reducers/selectors/uiSelector'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { RefreshCurrentMatchDayButton } from './RefreshCurrentMatchDayButton'
 import { MatchDayOptionsButton } from './MatchDayOptionsButton'
-import  MatchDayViewSettings  from './MatchDayViewSettings'
+import  SingleMatchView  from './SingleMatchView'
 
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
@@ -52,16 +52,15 @@ class App extends Component {
     const showPercentage = state.ui.showPercentage
     const selectedModelId = state.ui.selectedModelId
     const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
-    const modelKey = state.ui.selectedModelId;
     return (
       <div className="container.fluid">
         <div className="row justify-content-center m-0">
           <ButtonToolbar>
             <ButtonGroup>
-              <MatchDayViewSettings store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs}  modelKey={modelKey} />
+              <SingleMatchView store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} selectedModelId={selectedModelId} />
             </ButtonGroup>
             <ButtonGroup>
-              <MatchDayOptionsButton selectedModelId={state.ui.selectedModelId} />
+              <MatchDayOptionsButton selectedModelId={selectedModelId} />
             </ButtonGroup>
             <MatchdayNavigator store={store} />
             <ButtonGroup>

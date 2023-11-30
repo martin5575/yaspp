@@ -52,7 +52,7 @@ class MatchsPerDay extends React.Component {
                   seasonInfo={this.props.seasonInfo}
                   key={m.id}
                   showPercentage={showPercentage}
-                  modelKey={this.props.modelKey}
+                  selectedModelId={this.props.selectedModelId}
                   probabilityDetailsMatchId={this.props.probabilityDetailsMatchId}
                   toggleProbabilityDetails={this.props.toggleProbabilityDetails}
                 />

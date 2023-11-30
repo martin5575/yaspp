@@ -12,7 +12,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Collapse } from 'reactstrap'
 import { MatchDetails } from './MatchDetails'
-import { MatchDetails2 } from './MatchDetails2'
+import { getKey, getShort, getDescription } from '../stats/statsType'
+
 
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
@@ -25,7 +26,7 @@ class Match extends React.Component {
     const match = this.props.match
     const teams = this.props.teams
     const seasonInfo = this.props.seasonInfo
-    const modelKey = this.props.modelKey
+    const selectedModelId = this.props.selectedModelId
     const probabilityDetailsMatchId = this.props.probabilityDetailsMatchId;
     const isProbabilityDetailsShown = match.id===probabilityDetailsMatchId;
  
@@ -33,6 +34,7 @@ class Match extends React.Component {
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]
 
+    const modelKey = getKey(selectedModelId)
     const stats = calcStats(
       seasonInfo,
       match.teamHomeId,
@@ -107,8 +109,7 @@ class Match extends React.Component {
       </div>
       <div className="row">
         <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
-        <MatchDetails2 className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} stats={stats}/>
-          {/* <MatchDetails match={match} teams={teams} seasonInfo={seasonInfo} modelKey={modelKey} stats={stats}/> */}
+        <MatchDetails className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
         </Collapse>
       </div>
       </>
