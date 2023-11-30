@@ -19,7 +19,8 @@ class Table extends React.Component {
       team: x,
       tp: 0,
       tgf: 0,
-      tga: 0
+      tga: 0,
+      tgd: 0,
     }))
 
     const rawData = data.map((x) => ({
@@ -28,13 +29,14 @@ class Table extends React.Component {
       shortName: teams[x.team].shortName,
     }))
     
-    const table = sortByField(rawData, "tp").reverse()
+    const table = sortByField(rawData, ["tp","tgd","tgf"]).reverse()
     return (
       <table className="table table-striped">
   <thead>
     <tr key="table-header">
       <th scope="col">Team</th>
       <th scope="col">P</th>
+      <th scope="col">TD</th>
       <th scope="col">TG</th>
       <th scope="col">TA</th>
     </tr>
@@ -50,6 +52,7 @@ class Table extends React.Component {
         />
       </td>
       <td>{team.tp}</td>
+      <td>{team.tgd}</td>
       <td>{team.tgf}</td>
       <td>{team.tga}</td>
     </tr>))}

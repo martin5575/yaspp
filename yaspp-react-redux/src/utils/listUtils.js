@@ -35,11 +35,24 @@ export const dictionarize = (array) => {
   }, {})
 }
 
-export const sortByField = (xs, key) => xs.sort(compare(key))
+export const sortByField = (xs, keyOrKeys) => xs.sort(compare(keyOrKeys))
 
-export const compare = (key) => (a, b) => {
+const compareByKey = (key) => (a, b) => {
   if (a[key] < b[key]) return -1
   if (a[key] > b[key]) return 1
+  return 0
+}
+
+
+export const compare = (keys) => (a, b) => {
+  if (!Array.isArray(keys)) {
+    keys = [keys]
+  }
+  for (let i = 0; i < keys.length; ++i) {
+    const key = keys[i]
+    const res = compareByKey(key)(a, b)
+    if (res !== 0) return res
+  }
   return 0
 }
 

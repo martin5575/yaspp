@@ -9,7 +9,8 @@ function MatchDetailsStats(props) {
     
     const teamCard=(team, seasonInfo, modelKey, isHomeTeam) =>{
     const info = seasonInfo.find(x=>x.team===team.id)
-    const rank = seasonInfo.findIndex(x=>x.team===team.id)+1
+    const rawRank = seasonInfo.findIndex(x=>x.team===team.id)
+    const rank = rawRank < 0 ? 1 : rawRank + 1
     const total = ["tg_vs_tg", "tgdf_vs_tgdf"].includes(modelKey)
     const home = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && isHomeTeam
     const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam

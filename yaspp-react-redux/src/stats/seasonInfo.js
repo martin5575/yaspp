@@ -8,10 +8,12 @@ import {
 } from '../reducers/selectors/modelSelector'
 import {
   groupByArray,
+  sortByField,
   sum
 } from '../utils/listUtils'
 
 import * as stats from './statsType';
+import { sortBy } from 'lodash';
 
 const getPoints = (gf, ga) => {
   if (gf > ga) return 3
@@ -65,24 +67,33 @@ export const getSeasonInfo = (state) => {
       m.matchDayId < matchDay
     )
     
-    return aggregateSeasonInfo(previousMatchs)
-  }
+  const aggSeasonInfo = aggregateSeasonInfo(previousMatchs)
+  return sortByField(aggSeasonInfo, ["tp", "tgf", "tga"]).reverse()
+}
 
 export const aggregateSeasonInfo = (matchs) => {
-  const home = groupByArray(matchs, 'teamHomeId').map((x) => ({
+  const home = groupByArray(matchs, 'teamHomeId').map((x) => {
+    const hgf =sum(x.values.map((y) => y.fullTimeHome));
+    const hga = sum(x.values.map((y) => y.fullTimeAway));
+    return ({
     team: x.key,
-    hgf: sum(x.values.map((y) => y.fullTimeHome)),
-    hga: sum(x.values.map((y) => y.fullTimeAway)),
+    hgf: hgf,
+    hga: hga,
+    hgd: hgf - hga,
     hp: sum(x.values.map((y) => getHomePoints(y))),
     hm: x.values.length,
-  }))
-  const away = groupByArray(matchs, 'teamAwayId').map((x) => ({
+  })})
+  const away = groupByArray(matchs, 'teamAwayId').map((x) => { 
+    const agf = sum(x.values.map((y) => y.fullTimeAway));
+    const aga = sum(x.values.map((y) => y.fullTimeHome));
+    return ({
     team: x.key,
-    agf: sum(x.values.map((y) => y.fullTimeAway)),
-    aga: sum(x.values.map((y) => y.fullTimeHome)),
+    agf: agf,
+    aga: aga,
+    agd: agf - aga,
     ap: sum(x.values.map((y) => getAwayPoints(y))),
     am: x.values.length,
-  }))
+  })})
   
   const fullByTeam = groupByArray([...home, ...away], 'team')
   const full = fullByTeam.map((x) =>
@@ -97,6 +108,7 @@ export const aggregateSeasonInfo = (matchs) => {
     res.tga = tga(x)
     res.tp = tp(x)
     res.tm = tm(x)
+    res.tgd = res.tgf - res.tga
     return res    
   })
 
@@ -109,7 +121,7 @@ export const aggregateSeasonInfo = (matchs) => {
     aggregate.tga += x.tga;
     aggregate.tm += x.tm;
     return aggregate;
-  }, {hga:0, hm:0, aga:0, am:0, tga:0, tm:0})
+  }, {hga:0, hm:0, aga:0, am:0, tga:0, tm:0, gd:0})
 
   const avgGA = {
     hga: totalGA.hm > 0 ? totalGA.hga / totalGA.hm : undefined,
