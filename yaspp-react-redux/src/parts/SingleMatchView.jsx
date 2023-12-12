@@ -10,6 +10,9 @@ import { ButtonGroup, ButtonToolbar } from 'reactstrap';
 import { PercentageButton } from '../components/PercentageButton';
 import  MatchdayNavigator  from '../components/MatchdayNavigator';
 import { getKey } from '../stats/statsType'
+import * as actionBuilder from '../actions/ActionBuilder'
+import { sortBy } from 'lodash';
+import moment from 'moment';
 
 const logoSize = 40
 
@@ -17,14 +20,12 @@ function SingleMatchView(props) {
   const [visible, setVisible] = useState(false)
   const [matchNo, setMatchNo] = useState(0)
 
-  
-  const matchs = props.relevantMatchs;
-  if (!matchs || matchs.length===0) return (<div>empty</div>) 
+  if (!props.relevantMatchs || props.relevantMatchs.length===0) return (<div>empty</div>) 
+  const matchs = sortBy(sortBy(props.relevantMatchs, x=>x.id), x=>x.matchDateTime);
 
   const seasonInfo = props.seasonInfo;
   const teams = props.teams;
   const selectedModelId = props.selectedModelId;
-  console.log(selectedModelId)
   const store = props.store;
   const state = store.getState()
   const selectedLeague = state.ui.selectedLeague;
@@ -42,6 +43,8 @@ function SingleMatchView(props) {
   const teamAway = teams[teamAwayId]
   const modelKey = getKey(selectedModelId)
   const stats = calcStats(seasonInfo, teamHomeId, teamAwayId, modelKey )
+
+  const dispatchPercentage = () => store.dispatch(actionBuilder.showPercentage(!state.ui.showPercentage))
 
   return (<div>
       <Button
@@ -63,11 +66,7 @@ function SingleMatchView(props) {
             <ButtonGroup>
               <PercentageButton
                   state={state}
-                  onClick={(s) =>
-                    this.props.store.dispatch(
-                      actionBuilder.showPercentage(!s.ui.showPercentage)
-                    )
-                  }
+                  onClick={dispatchPercentage}
                 />
             </ButtonGroup>
         </ButtonToolbar>
@@ -85,6 +84,7 @@ function SingleMatchView(props) {
         <span style={{lineHeight: logoSize+"px"}}>{ teamAway.shortName.substring(0,3).toUpperCase()}</span>
         <IconButton icon="caret-right" handleClick={()=>setMatchNo((matchNo+1)%matchs.length)} />
         </div>
+        <div>{moment(match?.matchDateTime).format('LLLL')}</div>        
         <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
       </OffcanvasBody>
     </Offcanvas>

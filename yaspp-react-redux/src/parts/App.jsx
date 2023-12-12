@@ -100,6 +100,7 @@ class App extends Component {
                   seasonInfo={seasonInfo}
                   matchs={relevantMatchs}
                   selectedModelId={selectedModelId}
+                  showAvg={showPercentage}
                   />
               </div>
             </div>

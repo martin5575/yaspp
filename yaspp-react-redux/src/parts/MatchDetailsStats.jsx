@@ -14,7 +14,6 @@ function MatchDetailsStats(props) {
     const total = ["tg_vs_tg", "tgdf_vs_tgdf"].includes(modelKey)
     const home = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && isHomeTeam
     const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam
-    console.log(modelKey, total, home, away)
 
     return <div className='d-flex flex-column p-4'>
         <div className='d-flex justify-content-between'>
@@ -84,7 +83,6 @@ function MatchDetailsStats(props) {
     const match = props.match;
     const seasonInfo = props.seasonInfo;
     const selectedModelId = props.selectedModelId;
-    console.log(selectedModelId)
     const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
 

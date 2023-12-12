@@ -13,7 +13,6 @@ import { MatchDetailsKicktippTop3 } from './MatchDetailsKicktippTop3'
 import { MatchDetailsPlusMinus } from './MatchDetailsPlusMinus'
 import MatchDetailsStats from './MatchDetailsStats'
 import { getKey, getShort, getDescription } from '../stats/statsType'
-import { get } from 'lodash';
 
 const items = [
   {
@@ -41,7 +40,6 @@ export function MatchDetails(props) {
     const seasonInfo = props.seasonInfo;
     const stats = props.stats;
     const selectedModelId = props.selectedModelId;
-    console.log(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
 
 
@@ -113,10 +111,8 @@ export function MatchDetails(props) {
       </CarouselItem>
       ];
 
-
-
   return (
-    <>        
+    <>
       <style>
         {`.custom-tag {
               width: 100%;

@@ -65,7 +65,7 @@ export const calcResultProbs = (hg, ag, n = 20, minProb = 0.01) => {
   return result
 }
 
-const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '-')
+export const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '-')
 
 export const formatPercentage = (n, digits = 0) =>
   n ? (n * 100.0).toFixed(digits) + '%' : '-'
