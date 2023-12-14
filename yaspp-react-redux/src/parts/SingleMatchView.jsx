@@ -84,7 +84,7 @@ function SingleMatchView(props) {
         <span style={{lineHeight: logoSize+"px"}}>{ teamAway.shortName.substring(0,3).toUpperCase()}</span>
         <IconButton icon="caret-right" handleClick={()=>setMatchNo((matchNo+1)%matchs.length)} />
         </div>
-        <div>{moment(match?.matchDateTime).format('LLLL')}</div>        
+        <div class="text-center"><small>{moment(match?.matchDateTime).format('LLLL')}</small></div>        
         <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
       </OffcanvasBody>
     </Offcanvas>

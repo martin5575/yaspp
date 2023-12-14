@@ -16,7 +16,7 @@ function MatchDetailsStats(props) {
     const away = ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHomeTeam
 
     return <div className='d-flex flex-column p-4'>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between m-1'>
         <div className='p-0'>
             <img src={team.iconUrl} alt={team.name} 
                         height={logoSize}

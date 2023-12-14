@@ -116,11 +116,10 @@ export function MatchDetails(props) {
       <style>
         {`.custom-tag {
               width: 100%;
-              height: 400px;
-              background: #eeeeee55;
+              height: 500px;
                           }`}
       </style>
-      <Carousel activeIndex={activeIndex} next={next} previous={previous} interval={0} >
+      <Carousel activeIndex={activeIndex} next={next} previous={previous} interval={0} dark={true} >
         <CarouselIndicators
           items={items}
           activeIndex={activeIndex}
