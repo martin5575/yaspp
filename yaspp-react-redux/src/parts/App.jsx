@@ -21,6 +21,7 @@ import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'
 import { ButtonGroup, ButtonToolbar } from 'reactstrap'
+import AgentsView from './Agents/AgentsView'
 
 class App extends Component {
   update() {
@@ -58,9 +59,8 @@ class App extends Component {
           <ButtonToolbar>
             <ButtonGroup>
               <SingleMatchView store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} selectedModelId={selectedModelId} />
-            </ButtonGroup>
-            <ButtonGroup>
               <MatchDayOptionsButton selectedModelId={selectedModelId} />
+              <AgentsView store={store} />
             </ButtonGroup>
             <MatchdayNavigator store={store} />
             <ButtonGroup>

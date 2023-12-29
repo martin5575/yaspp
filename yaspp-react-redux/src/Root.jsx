@@ -23,6 +23,7 @@ library.add(icons.faEllipsisH)
 library.add(icons.faBars)
 library.add(icons.faColumns)
 library.add(icons.faTable)
+library.add(icons.faRobot)
 
 class Root extends Component {
   render() {
