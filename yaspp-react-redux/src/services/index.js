@@ -44,6 +44,12 @@ function getMatchsLastChangeDate(league, year, matchday) {
   return fetch(url).then((x) => x.json())
 }
 
+function getCurrentMatchDay(league) {
+  if (!league) throw new Error('league is not defined')
+  const url = `${openligaBaseUrl}/getcurrentgroup/${league}`
+  return fetch(url).then((x) => x.json())
+}
+
 export {
   getTeams,
   getLeagues,
@@ -51,4 +57,5 @@ export {
   getMatchs,
   getMatchDays,
   getMatchsLastChangeDate,
+  getCurrentMatchDay,
 }

@@ -68,7 +68,7 @@ function receiveMatchDays(selectedLeague, selectedYear, json) {
     isLoadingMatchDays: false,
     selectedLeague,
     selectedYear,
-    matchDays: json.map((x) =>
+    currentMatchDay: json.map((x) =>
       mapper.mapMatchDay(x, selectedLeague, selectedYear)
     ),
   }
@@ -81,6 +81,35 @@ function fetchMatchDays(selectedLeague, selectedYear) {
       .getMatchDays(selectedLeague, selectedYear)
       .then((json) =>
         dispatch(receiveMatchDays(selectedLeague, selectedYear, json))
+      )
+  }
+}
+
+function requestCurrentMatchDay(selectedLeague, selectedYear) {
+  return {
+    type: actions.RequestCurrentMatchDay,
+    isLoadingCurrentMatchDay: true,
+    selectedLeague,
+    selectedYear,
+  }
+}
+
+function receiveCurrentMatchDay(selectedLeague, selectedYear, json) {
+  return {
+    type: actions.ReceiveCurrentMatchDay,
+    isLoadingCurrentMatchDay: false,
+    selectedLeague,
+    currentMatchDay: mapper.mapMatchDay(json, selectedLeague, selectedYear),
+  }
+}
+
+function fetchCurrentMatchDay(selectedLeague, selectedYear) {
+  return function (dispatch) {
+    dispatch(requestCurrentMatchDay(selectedLeague, selectedYear))
+    return service
+      .getCurrentMatchDay(selectedLeague)
+      .then((json) =>
+        dispatch(receiveCurrentMatchDay(selectedLeague, selectedYear, json))
       )
   }
 }
@@ -311,6 +340,12 @@ function fetchInitial(store) {
       const matchDay = getSelectedMatchDays(state)[0]
       dispatch(selectMatchDay(state, matchDay.id))
     }
+
+
+    if (selectedLeague && selectedYear) {
+      dispatch(fetchCurrentMatchDay(selectedLeague, selectedYear))
+    }
+
     dispatch(endInitializing())
   }
 }

@@ -48,6 +48,15 @@ export const modelReducer = (state = initialState, action) => {
         matchDays,
       }
     }
+    case actions.ReceiveCurrentMatchDay: {
+      const currentMatchDay = action.currentMatchDay
+
+      return {
+        ...state,
+        currentMatchDay,
+      }
+      
+    }
     case actions.ReceiveMatchs: {
       const teams = { ...state.teams, ...action.teams }
 
