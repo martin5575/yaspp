@@ -5,9 +5,9 @@ import { Button, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap'
 import { calcStats, aggregateSeasonInfo } from '../../stats/seasonInfo';
 import { IconButton } from '../../components/IconButton';
 import { ButtonGroup, ButtonToolbar } from 'reactstrap';
-import { sortBy } from 'lodash';
+import _, { sortBy } from 'lodash';
 import { getKeys, getShort } from '../../stats/statsType'
-import BarChartRace from './BarChartRace2';
+import BarChartRace from './BarChartRace';
 import { getTopTippResult, getPointsForTipp } from '../../kicktipp';
 
 const logoSize = 40
@@ -42,13 +42,13 @@ function calculatePerformances(agents, matchs) {
         const topTipp = getTopTippResult(stats.home, stats.away, numberOfGoals)
         return getPointsForTipp(match.fullTimeHome, match.fullTimeAway, topTipp.fullTimeHome, topTipp.fullTimeAway)
       });
-      const sum = tippPoints.reduce((a,b)=>a+b, 0)
-      return sum
+      const sum = _.sum(tippPoints)
+      return { points: sum, matchDayId: simulationDay.matchDayId }
     });
     return {
       agent: agent,
       performance: performance,
-      sum: performance.reduce((a,b)=>a+b, 0)
+      sum: _.sum(performance.map(x=>x.points))
     }
   })
 }
@@ -68,12 +68,27 @@ function AgentsView(props) {
   const performances = calculatePerformances(agents, matchs)
   console.log(performances)
 
+  const matchDays = state.model.matchDays?.filter(x=>x.league===selectedLeague && x.year===selectedYear)
+  const matchDayLkp = _.keyBy(matchDays, x=>x.id)
+  console.log(matchDayLkp)
   const barChartData = performances.map(x=> {
     return {
       name: getShort(x.agent),
-      values: x.performance
+      values: x.performance.map(x=>x.points)
     }
   })
+  barChartData.forEach(row => {
+    const accumulatedValues = row.values.reduce((acc, x) => {
+      acc.push(acc[acc.length - 1] + x)
+      return acc
+    }, [0]) 
+    row.values = accumulatedValues.slice(1)
+    delete row.value
+  });
+
+  const dateValues = performances[0].performance.map(x=>matchDayLkp[x.matchDayId]?.name ?? x.matchDayId)
+  console.log(barChartData)
+  console.log(dateValues)
 
   return (<div>
       <Button
@@ -93,8 +108,7 @@ function AgentsView(props) {
             <IconButton icon="caret-right" style={{'height': logoSize+"px", 'width': logoSize+"px"}} ></IconButton>
           </ButtonGroup>
         </ButtonToolbar>
-        <div className="text-center"><small>{state.model.currentMatchDay?.name}</small></div>        
-        <BarChartRace id='test-id' data={barChartData} ></BarChartRace>
+        <BarChartRace id='test-id' data={barChartData} dateValues={dateValues} ></BarChartRace>
       </OffcanvasBody>
     </Offcanvas>
   </div>
