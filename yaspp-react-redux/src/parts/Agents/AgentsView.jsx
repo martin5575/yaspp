@@ -38,8 +38,12 @@ function calculatePerformances(agents, matchs) {
   return agents.map(agent => {
     const performance = data.map(simulationDay => {
       const tippPoints = simulationDay.matchs.map(match => {
-        const stats = calcStats(simulationDay.simulationData.seasonInfo, match.teamHomeId, match.teamAwayId, agent)
-        const topTipp = getTopTippResult(stats.home, stats.away, numberOfGoals)
+      const stats = calcStats(simulationDay.simulationData.seasonInfo, match.teamHomeId, match.teamAwayId, agent)
+      const topTipp = stats.isFixed ? {
+          fullTimeHome: stats.home,
+          fullTimeAway: stats.away
+      } : getTopTippResult(stats.home, stats.away, numberOfGoals)
+
         return getPointsForTipp(match.fullTimeHome, match.fullTimeAway, topTipp.fullTimeHome, topTipp.fullTimeAway)
       });
       const sum = _.sum(tippPoints)

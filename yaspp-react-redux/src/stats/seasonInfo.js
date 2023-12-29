@@ -192,15 +192,28 @@ const getStats = (infoHome, infoAway, statsType) => {
     case stats.TwoToOne:
       return {
         home: 2,
-        away: 1
+        away: 1,
+        isFixed: true
       }
+      case stats.OneToZero:
+        return {
+          home: 1,
+          away: 0,
+          isFixed: true
+        }
     case stats.OneToOne:
       return {
         home: 1,
-        away: 1
+        away: 1,
+        isFixed: true
       }
+    case stats.TotalPointsVsTotalPoints:
+      if (!infoHome || !infoAway) return { home: 2, away: 1, isFixed: true}
+      if (infoHome.tp > infoAway.tp) return { home: 2, away: 1, isFixed: true}
+      if (infoHome.tp < infoAway.tp) return { home: 1, away: 2, isFixed: true}
+      return { home: 1, away: 1, isFixed: true}
     default:
-      return undefined
+      throw new Error("statsType not defined")
   }
 }
 
