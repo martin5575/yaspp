@@ -2,6 +2,8 @@ export const TotalGoalsVsTotalGoals = "tg_vs_tg"
 export const TotalGoalsVsTotalGoalsWithDefenseFactor = "tgdf_vs_tgdf"
 export const HomeGoalsVsAwayGoals = "hg_vs_ag"
 export const HomeGoalsVsAwayGoalsWithDefenseFactor = "hgdf_vs_agdf"
+export const TwoToOne = "2_1"
+export const OneToOne = "1_1"
 //export const TotalPointsVsTotalPoints = "tp_vs_tp"
 
 export const getKeys = () => {     
@@ -9,7 +11,9 @@ export const getKeys = () => {
         TotalGoalsVsTotalGoals,
         TotalGoalsVsTotalGoalsWithDefenseFactor,
         HomeGoalsVsAwayGoals,
-        HomeGoalsVsAwayGoalsWithDefenseFactor
+        HomeGoalsVsAwayGoalsWithDefenseFactor,
+        TwoToOne,
+        OneToOne
     ]
 }
 
@@ -32,6 +36,16 @@ const definitions = [
         key: HomeGoalsVsAwayGoalsWithDefenseFactor,
         short: "h-a*",
         description: "Zur Bestimmung der Torwahrscheinlichkeit der Heimmannschaft werden nur die Heimtore genutzt und für die Auswärtsmannschaft die Auswärtstore. Zusätzlich wird die Verteidigungsstärke der gegnerischen Mannschaft berücksichtigt."
+    },
+    {
+        key: TwoToOne,
+        short: "2:1",
+        description: "Feste Erwartung der Tore: Heim 2, Auswärts 1"
+    },
+    {
+        key: OneToOne,
+        short: "1:1",
+        description: "Feste Erwartung der Tore: Heim 1, Auswärts 1"
     }
 ]
 

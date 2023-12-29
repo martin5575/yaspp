@@ -188,8 +188,19 @@ const getStats = (infoHome, infoAway, statsType) => {
     case stats.TotalGoalsVsTotalGoalsWithDefenseFactor:
       return getTGDF_TGDF_AVG(infoHome, infoAway)
     case stats.TotalGoalsVsTotalGoals:
-    default:
       return getTG_TG_AVG(infoHome, infoAway)
+    case stats.TwoToOne:
+      return {
+        home: 2,
+        away: 1
+      }
+    case stats.OneToOne:
+      return {
+        home: 1,
+        away: 1
+      }
+    default:
+      return undefined
   }
 }
 
