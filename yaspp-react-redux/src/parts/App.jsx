@@ -55,8 +55,8 @@ class App extends Component {
     const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
     return (
       <div className="container.fluid">
-        <div className="row justify-content-center m-0">
-          <ButtonToolbar>
+        <div className="row justify-content-center m-0 p-0">
+          <ButtonToolbar className='m-0 p-0'>
             <ButtonGroup>
               <SingleMatchView store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} selectedModelId={selectedModelId} />
               <MatchDayOptionsButton selectedModelId={selectedModelId} />
