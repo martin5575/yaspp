@@ -22,7 +22,7 @@ class Navbar extends Component {
     this.forceUpdate()
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount () {
     this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
   }
 

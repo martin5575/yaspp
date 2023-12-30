@@ -30,7 +30,6 @@ class Table extends React.Component {
       shortName: teams[x.team].shortName,
     }))
     const table = sortByField(rawData, ["tp","tgd","tgf"]).reverse()
-    console.log(table)
     return (
       <table className="table table-striped">
   <thead>

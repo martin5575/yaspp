@@ -2,7 +2,6 @@ import { orderBy } from "lodash"
 import { getShort } from "../../stats/statsType"
 
 function TotalPointsView(props) {
-    console.log(props)
     const data = props.data
     orderBy(data, ["sum"], ["desc"])
     return <div>

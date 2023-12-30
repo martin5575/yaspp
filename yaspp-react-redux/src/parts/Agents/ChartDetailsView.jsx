@@ -54,7 +54,6 @@ class ChartDetailsView extends Component {
 
 
         // Add X axis --> it is a date format
-        console.log(height)
         const x = d3.scaleLinear([1, this.dateValues.length+1], [ 0, width ]);
         svg.append("g")
             .attr("transform", "translate(0," + (height-margin.top-margin.bottom) + ")")
@@ -127,10 +126,8 @@ class ChartDetailsView extends Component {
         this.dateValues = this.props.dateValues
 
         const toggleVisibility = (name) => {
-            console.log("toggle", name)
             const selector = "#line_"+normalizeName(name)
             const state = d3.select(selector).attr("visibility")
-            console.log("state", state)            
             if (state==="visible") {
                 d3.select(selector).attr("visibility", "hidden")
             } else {
@@ -143,7 +140,7 @@ class ChartDetailsView extends Component {
             <div className="d-flex flex-wrap">
                 {this.data.map(x=>{
                     return (
-                        <Button id={"rb_"+x.name}
+                        <Button key={"rb_"+x.name}
                             onClick={()=>toggleVisibility(x.name)}
                         >{x.name} </Button>)
             })}

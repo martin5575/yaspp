@@ -20,7 +20,7 @@ class MatchDay extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount () {
     this.update(1);
   }
 
