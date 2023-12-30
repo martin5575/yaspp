@@ -68,7 +68,7 @@ function receiveMatchDays(selectedLeague, selectedYear, json) {
     isLoadingMatchDays: false,
     selectedLeague,
     selectedYear,
-    currentMatchDay: json.map((x) =>
+    matchDays: json.map((x) =>
       mapper.mapMatchDay(x, selectedLeague, selectedYear)
     ),
   }

@@ -68,9 +68,9 @@ function mapTeamFromMatchs(olMatchs) {
 }
 
 function mapMatchDay(olGroup, league, year) {
-  const id = parseInt(olGroup.groupOrderID, 10)
+  const id = toInt(olGroup.groupOrderID, 10)
   const name = olGroup.groupName
-  const key = parseInt(olGroup.groupID, 10)
+  const key = toInt(olGroup.groupID, 10)
   return {
     id,
     name,
@@ -78,6 +78,12 @@ function mapMatchDay(olGroup, league, year) {
     league,
     year
   }
+}
+
+function toInt(x) {
+  if (Number.isInteger(x)) return x;
+  if (typeof x === 'string') return parseInt(x, 10)
+  throw new Error(`cannot convert ${x} to int`)
 }
 
 export {
