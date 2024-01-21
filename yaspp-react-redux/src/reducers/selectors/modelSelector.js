@@ -31,3 +31,8 @@ export const getAllYearsByLeague = pipe(
   getModel,
   prop('yearsByLeague')
 )
+
+export const getCurrentMatchDay = pipe(
+  getModel,
+  prop('currentMatchDay')
+) 

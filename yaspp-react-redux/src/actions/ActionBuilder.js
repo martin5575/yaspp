@@ -22,7 +22,8 @@ import {
   dictionarize
 } from '../utils/listUtils'
 import {
-  getAllLeagues
+  getAllLeagues,
+  getCurrentMatchDay
 } from '../reducers/selectors/modelSelector'
 
 /******************* SELECT in UI ******************/
@@ -330,6 +331,7 @@ function fetchInitial(store) {
       dispatch(fetchTeams(selectedLeague, selectedYear))
     }
 
+
     if (!existMatchDays(state, selectedLeague, selectedYear)) {
       dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
         let state = store.getState()
@@ -337,13 +339,15 @@ function fetchInitial(store) {
         dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
       })
     } else {
-      const matchDay = getSelectedMatchDays(state)[0]
-      dispatch(selectMatchDay(state, matchDay.id))
-    }
-
-
-    if (selectedLeague && selectedYear) {
-      dispatch(fetchCurrentMatchDay(selectedLeague, selectedYear))
+      const selectedMatchDay = getSelectedMatchDay(state)
+      if (!selectedMatchDay) {
+        dispatch(fetchCurrentMatchDay(selectedLeague, selectedYear)).then(() => {
+          console.log("here")
+          const matchDay = getCurrentMatchDay(state)
+          // const matchDay = getSelectedMatchDays(state)[0]
+          dispatch(selectMatchDay(state, matchDay.id))
+        })
+      }
     }
 
     dispatch(endInitializing())
