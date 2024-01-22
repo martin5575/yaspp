@@ -12,6 +12,7 @@ export const ReceiveTeams = 'ReceiveTeams'
 
 export const ReceiveMatchDays = 'ReceiveMatchDays'
 export const ReceiveMatchs = 'ReceiveMatchs'
+export const ReceiveAllMatchs = 'ReceiveAllMatchs'
 export const ReceiveCurrentMatchDay = 'ReceiveCurrentMatchDay'
 
 export const SelectMatchDay = 'SelectMatchDay'

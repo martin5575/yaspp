@@ -1,5 +1,6 @@
 import {
   fetchTeams,
+  fetchAllMatchs,
   fetchMatchs,
   fetchMatchDays,
   fetchInitial,
@@ -23,6 +24,10 @@ import {
 /******************* ActionBuilder with store ******************/
 const dispatchFetchTeams = function(store, league, year) {
   return store.dispatch(fetchTeams(league, year))
+}
+
+const dispatchFetchAllMatchs = function(store, league, year) {
+  return store.dispatch(fetchAllMatchs(league, year))
 }
 
 const dispatchFetchMatchs = function(store, league, year, matchDay) {
@@ -74,7 +79,7 @@ const updateMatchDaysIfNecessary = (store) => {
 
   if (!areSelectedMatchsPresent(store)) {
     const state = store.getState()
-    dispatchFetchMatchs(
+    dispatchFetchAllMatchs(
       store,
       getSelectedLeague(state),
       getSelectedYear(state),
@@ -92,6 +97,7 @@ export {
   dispatchFetchTeams,
   dispatchFetchMatchDays,
   dispatchFetchMatchs,
+  dispatchFetchAllMatchs,
   dispatchFetchYears,
   dispatchSelectMatchDay,
   dispatchSelectLeague,

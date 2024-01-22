@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Badge, Button, Label, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap'
 import { calcStats, aggregateSeasonInfo } from '../../stats/seasonInfo';
 import { IconButton } from '../../components/IconButton';
 import { ButtonGroup, ButtonToolbar } from 'reactstrap';
-import _, { sortBy } from 'lodash';
+import _, { groupBy, sortBy } from 'lodash';
 import { getKeys, getShort } from '../../stats/statsType'
 import BarChartRace from './BarChartRace';
 import { getTopTippResult, getPointsForTipp } from '../../kicktipp';
 import TotalPointsView from './TotalPointsView';
 import ChartDetailsView from './ChartDetailsView';
+import { getSelectedYears } from '../../utils/filter';
+import ListNavigator from '../../components/ListNavigator';
+import { dispatchFetchAllMatchs } from '../../actions/ActionBuilderWithStore';
+import { getMatchDays } from '../../services';
 
 const logoSize = 40
 const numberOfGoals = [0,1,2,3,4,5,6]
@@ -89,23 +93,39 @@ const viewModes = [
 ]
 
 function AgentsView(props) {
-  const [visible, setVisible] = useState(false)
-  const [viewMode, setViewMode] = useState(0)
-  const updateViewMode = (step) => setViewMode((viewMode + 3 + step) % 3)
-
   const store = props.store;
   const state = store.getState()
+  console.log("AgentsView", state)
+
   const selectedLeague = state.ui.selectedLeague;
-  const selectedYear = state.ui.selectedYear;
+  const relevantYears = getSelectedYears(state)
+  const initialYear = state.ui.selectedYear
+
+  const [visible, setVisible] = useState(false)
+  const [viewMode, setViewMode] = useState(0)
+  const [year, setYear] = useState(initialYear)
+  useEffect(() => { 
+    console.log("year changed")
+    if (selectedLeague && year &&  year!==state.model.currentMatchDay.year) {
+      const matchDays = state.model.matchDays?.filter(x => x.league === selectedLeague && x.year === year);
+      const matchsPerMatchDay = groupBy(state.model.matchs?.filter(x => x.league === selectedLeague && x.year === year), x=>x.matchDayId)
+      if (matchDays.length!= Object.keys(matchsPerMatchDay).length) {
+        console.log("dispatchFetchAllMatchs for year "+ year)
+        dispatchFetchAllMatchs(props.store, selectedLeague, year)
+      }
+    }
+    setYear(year)}, [year])
+
+  const updateViewMode = (step) => setViewMode((viewMode + 3 + step) % 3)
+
   const league = state.model.leagues.find(x=>x.id===selectedLeague);
-  
-  const matchs = state.model.matchs.filter(x=>x.league===selectedLeague && x.year===selectedYear && x.isFinished)
+  const matchs = state.model.matchs.filter(x=>x.league===selectedLeague && x.year===year && x.isFinished)
   sortBy(matchs, x=>x.matchDateTime)
   const agents = [...getKeys()]
   const performances = calculatePerformances(agents, matchs)
 
   const barChartData = getBarChartData(performances);
-  const dateValues = getDateValues(state, selectedLeague, selectedYear, performances);
+  const dateValues = getDateValues(state, selectedLeague, year, performances);
   const detailsData = performances.map(x => ({
       name: getShort(x.agent),
       values: x.performance.map(x => x.points)
@@ -121,7 +141,14 @@ function AgentsView(props) {
     </Button>
     <Offcanvas fade isOpen={visible} toggle={() => setVisible(!visible)} direction='top' backdrop={false} style={{'height': "100%"}}>
       <OffcanvasHeader toggle={() => setVisible(!visible)}>
-        {league?.name} {selectedYear}
+        {league?.name}
+        <ListNavigator
+        buttonStyles={'btn-sm btn-light'}
+        bgStyles={'btn-light'}
+        selected={year}
+        data={relevantYears}
+        onSelect={(year) => setYear( parseInt(year))}
+      />
       </OffcanvasHeader>
       <OffcanvasBody>
         <ButtonToolbar>
@@ -131,9 +158,10 @@ function AgentsView(props) {
             <IconButton icon="caret-right" handleClick={()=>updateViewMode(1)} ></IconButton>
           </ButtonGroup>
         </ButtonToolbar>
-        {selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={barChartData} dateValues={dateValues} ></BarChartRace>}
-        {selectedViewMode.id==="total-points" && <TotalPointsView id='total-points-chart' data={performances} ></TotalPointsView>}
-        {selectedViewMode.id==="details" && <ChartDetailsView id='details-chart' data={detailsData} dateValues={dateValues} ></ChartDetailsView>}
+        {state.ui.isLoadingMatchs && <div>Loading...</div>}
+        {!state.ui.isLoadingMatchs && selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={barChartData} dateValues={dateValues} ></BarChartRace>}
+        {!state.ui.isLoadingMatchs &&selectedViewMode.id==="total-points" && <TotalPointsView id='total-points-chart' data={performances} ></TotalPointsView>}
+        {!state.ui.isLoadingMatchs &&selectedViewMode.id==="details" && <ChartDetailsView id='details-chart' data={detailsData} dateValues={dateValues} ></ChartDetailsView>}
       </OffcanvasBody>
     </Offcanvas>
   </div>
@@ -141,6 +169,3 @@ function AgentsView(props) {
 }
 
 export default AgentsView
-
-
-

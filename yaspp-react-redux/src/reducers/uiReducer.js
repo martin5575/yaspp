@@ -130,6 +130,14 @@ export const uiReducer = (state = initialState, action) => {
           isLoadingMatchs,
         }
       }
+      case actions.ReceiveAllMatchs:
+        {
+          const isLoadingMatchs = action.isLoadingMatchs
+          return {
+            ...state,
+            isLoadingMatchs,
+          }
+        }
     case actions.StartInitializing:
       {
         return { ...state,

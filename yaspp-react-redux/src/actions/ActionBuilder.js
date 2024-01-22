@@ -153,6 +153,40 @@ function fetchMatchs(selectedLeague, selectedYear, selectedMatchDay) {
   }
 }
 
+function requestAllMatchs(selectedLeague, selectedYear) {
+  return {
+    type: actions.RequestMatchs,
+    isLoadingMatchs: true,
+    selectedLeague,
+    selectedYear,
+  }
+}
+
+function receiveAllMatchs(selectedLeague, selectedYear, json) {
+  const teams = mapper.mapTeamFromMatchs(json)
+  return {
+    type: actions.ReceiveAllMatchs,
+    isLoadingMatchs: false,
+    selectedLeague,
+    selectedYear,
+    matchs: json.map((x) => mapper.mapMatch(x, selectedLeague, selectedYear)),
+    teams,
+  }
+}
+
+function fetchAllMatchs(selectedLeague, selectedYear) {
+  return function (dispatch) {
+    dispatch(requestAllMatchs(selectedLeague, selectedYear))
+    return service
+      .getAllMatchs(selectedLeague, selectedYear)
+      .then((json) =>
+        dispatch(
+          receiveAllMatchs(selectedLeague, selectedYear, json)
+        )
+      )
+  }
+}
+
 function refreshMatchs(state) {
   const selectedLeague = getSelectedLeague(state)
   const selectedYear = getSelectedYear(state)
@@ -190,7 +224,7 @@ function startRefreshMatchs() {
 
 function endRefreshMatchs() {
   return {
-    type: actions.StartRefreshMatchs,
+    type: actions.EndRefreshMatchs,
     isRefreshingMatchs: false,
   }
 }
@@ -334,9 +368,10 @@ function fetchInitial(store) {
 
     if (!existMatchDays(state, selectedLeague, selectedYear)) {
       dispatch(fetchMatchDays(selectedLeague, selectedYear)).then(() => {
-        let state = store.getState()
-        const selectedMatchDay = getSelectedMatchDay(state)
-        dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
+        //let state = store.getState()
+        //const selectedMatchDay = getSelectedMatchDay(state)
+        //dispatch(fetchMatchs(selectedLeague, selectedYear, selectedMatchDay))
+        dispatch(fetchAllMatchs(selectedLeague, selectedYear))
       })
     } else {
       const selectedMatchDay = getSelectedMatchDay(state)
@@ -407,6 +442,7 @@ export {
   switchMenu,
   fetchTeams,
   fetchMatchs,
+  fetchAllMatchs,
   fetchMatchDays,
   fetchInitial,
   fetchLeagues,
