@@ -1,0 +1,353 @@
+[
+  {
+    "matchID": 70136,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 125,
+      "teamName": "TSV 1860 München",
+      "shortName": "1860 München",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/TSV_1860_M%C3%BCnchen.svg/192px-TSV_1860_M%C3%BCnchen.svg.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 76,
+      "teamName": "1. FC Kaiserslautern",
+      "shortName": "Kaiserslautern",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Logo_1_FC_Kaiserslautern.svg",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:44:00.14",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 14,
+      "locationCity": "München",
+      "locationStadium": "Stadion an der Grünwalder Straße "
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70137,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 16,
+      "teamName": "VfB Stuttgart",
+      "shortName": "Stuttgart",
+      "teamIconUrl": "https://i.imgur.com/v0tkpNx.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 65,
+      "teamName": "1. FC Köln",
+      "shortName": "Köln",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/1._FC_Koeln_Logo_2014–.svg/296px-1._FC_Koeln_Logo_2014–.svg.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:45:43.473",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 493,
+      "locationCity": "Stuttgart",
+      "locationStadium": "Mercedes-Benz Arena"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70138,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 93,
+      "teamName": "FC Energie Cottbus",
+      "shortName": "Cottbus",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Logo_Energie_Cottbus.svg",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 100,
+      "teamName": "Hamburger SV",
+      "shortName": "HSV",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hamburger_SV_logo.svg",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:46:27.857",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 84,
+      "locationCity": "Cottbus",
+      "locationStadium": "Stadion der Freundschaft"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70139,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 112,
+      "teamName": "SC Freiburg",
+      "shortName": "Freiburg",
+      "teamIconUrl": "https://i.imgur.com/r3mvi0h.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 134,
+      "teamName": "Werder Bremen",
+      "shortName": "Bremen",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/681px-SV-Werder-Bremen-Logo.svg.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:47:52.3",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 966,
+      "locationCity": "Freiburg",
+      "locationStadium": "Schwarzwald-Stadion"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70140,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 7,
+      "teamName": "Borussia Dortmund",
+      "shortName": "BVB",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/560px-Borussia_Dortmund_logo.svg.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 79,
+      "teamName": "1. FC Nürnberg",
+      "shortName": "Nürnberg",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/1._FC_Nürnberg_logo.svg",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:49:08.007",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 35,
+      "locationCity": "Dortmund",
+      "locationStadium": "Signal Iduna Park"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70141,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 6,
+      "teamName": "Bayer Leverkusen",
+      "shortName": "Leverkusen",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/de/thumb/f/f7/Bayer_Leverkusen_Logo.svg/1200px-Bayer_Leverkusen_Logo.svg.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 131,
+      "teamName": "VfL Wolfsburg",
+      "shortName": "Wolfsburg",
+      "teamIconUrl": "https://i.imgur.com/ucqKV4B.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:49:50.167",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 28,
+      "locationCity": "Leverkusen",
+      "locationStadium": "BayArena"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70142,
+    "matchDateTime": "2001-07-28T15:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-28T13:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 87,
+      "teamName": "Borussia Mönchengladbach",
+      "shortName": "Gladbach",
+      "teamIconUrl": "https://i.imgur.com/KSIk0Eu.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 40,
+      "teamName": "FC Bayern München",
+      "shortName": "Bayern",
+      "teamIconUrl": "https://i.imgur.com/jJEsJrj.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:51:04.557",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 32,
+      "locationCity": "Mönchengladbach",
+      "locationStadium": "Borussia Park"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70143,
+    "matchDateTime": "2001-07-29T17:30:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-07-29T15:30:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 98,
+      "teamName": "FC St. Pauli",
+      "shortName": "St. Pauli",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/de/b/b3/Fc_st_pauli_logo.svg",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 54,
+      "teamName": "Hertha BSC",
+      "shortName": "Hertha",
+      "teamIconUrl": "https://i.imgur.com/apFwbYZ.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:52:29.54",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 73,
+      "locationCity": "Hamburg",
+      "locationStadium": "Millerntor-Stadion"
+    },
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 70144,
+    "matchDateTime": "2001-08-21T18:45:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4722,
+    "leagueName": "1. Fußball-Bundesliga 2001/2002",
+    "leagueSeason": 2001,
+    "leagueShortcut": "bl1",
+    "matchDateTimeUTC": "2001-08-21T16:45:00Z",
+    "group": {
+      "groupName": "1. Spieltag",
+      "groupOrderID": 1,
+      "groupID": 44548
+    },
+    "team1": {
+      "teamId": 9,
+      "teamName": "FC Schalke 04",
+      "shortName": "Schalke",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/FC_Schalke_04_Logo.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 102,
+      "teamName": "FC Hansa Rostock",
+      "shortName": "Rostock",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/F.C._Hansa_Rostock_Logo.svg/240px-F.C._Hansa_Rostock_Logo.svg.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2024-04-05T11:54:09.103",
+    "matchIsFinished": false,
+    "matchResults": [],
+    "goals": [],
+    "location": {
+      "locationID": 33,
+      "locationCity": "Gelsenkirchen",
+      "locationStadium": "Veltins Arena"
+    },
+    "numberOfViewers": null
+  }
+]
