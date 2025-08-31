@@ -5,17 +5,15 @@ import { groupByFunc, sortByField } from '../utils/listUtils'
 import { getKey, getShort, getDescription } from '../stats/statsType'
 import { formatNumber } from '../maths/probabilities'
 
-class Table extends React.Component {
-  logoSize = 20
+function Table(props) {
+  const logoSize = 20
+  const seasonInfo = props.seasonInfo
+  const teams = props.teams
+  const matchs = props.matchs
+  const showAvg = props.showAvg
 
-  render() {
-    const seasonInfo = this.props.seasonInfo
-    const teams = this.props.teams
-    const matchs = this.props.matchs
-    const showAvg = this.props.showAvg
-
-    const relevantTeams = matchs.flatMap(x=>[x.teamHomeId, x.teamAwayId]);
-    const data = seasonInfo && seasonInfo.length ? seasonInfo : relevantTeams
+  const relevantTeams = matchs.flatMap(x=>[x.teamHomeId, x.teamAwayId]);
+  const data = seasonInfo && seasonInfo.length ? seasonInfo : relevantTeams
     .map(x => ({
       team: x,
       tp: 0,
@@ -24,14 +22,14 @@ class Table extends React.Component {
       tgd: 0,
     }))
 
-    const rawData = data.map((x) => ({
-      ...x,
-      iconUrl: teams[x.team].iconUrl,
-      shortName: teams[x.team].shortName,
-    }))
-    const table = sortByField(rawData, ["tp","tgd","tgf"]).reverse()
-    return (
-      <table className="table table-striped">
+  const rawData = data.map((x) => ({
+    ...x,
+    iconUrl: teams[x.team].iconUrl,
+    shortName: teams[x.team].shortName,
+  }))
+  const table = sortByField(rawData, ["tp","tgd","tgf"]).reverse()
+  return (
+    <table className="table table-striped">
   <thead>
     <tr key="table-header">
       <th scope="col">Team</th>
@@ -48,8 +46,8 @@ class Table extends React.Component {
         <img
             src={team.iconUrl}
             alt={team.shortName}
-            height={this.logoSize}
-            width={this.logoSize}
+            height={logoSize}
+            width={logoSize}
         />
       </td>
       <td>{team.tm}</td>
@@ -60,8 +58,7 @@ class Table extends React.Component {
     </tr>))}
   </tbody>
 </table>
-    )
-  }
+  )
 }
 
 export default Table

@@ -18,36 +18,32 @@ import { getKey, getShort, getDescription } from '../stats/statsType'
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
-class Match extends React.Component {
-  logoSize = 20
-  render() {
+function Match(props) {
+  const logoSize = 20
+  const match = props.match
+  const teams = props.teams
+  const seasonInfo = props.seasonInfo
+  const selectedModelId = props.selectedModelId
+  const probabilityDetailsMatchId = props.probabilityDetailsMatchId
+  const isProbabilityDetailsShown = match.id === probabilityDetailsMatchId
 
+  const teamHome = teams[match.teamHomeId]
+  const teamAway = teams[match.teamAwayId]
 
-    const match = this.props.match
-    const teams = this.props.teams
-    const seasonInfo = this.props.seasonInfo
-    const selectedModelId = this.props.selectedModelId
-    const probabilityDetailsMatchId = this.props.probabilityDetailsMatchId;
-    const isProbabilityDetailsShown = match.id===probabilityDetailsMatchId;
- 
-
-    const teamHome = teams[match.teamHomeId]
-    const teamAway = teams[match.teamAwayId]
-
-    const modelKey = getKey(selectedModelId)
-    const stats = calcStats(
-      seasonInfo,
-      match.teamHomeId,
-      match.teamAwayId,
-      modelKey
-    )
-    const digits = 1
-    const formatedStats = formatStats(stats, digits)
-    const probs = calcWinLossTieProbs(stats.home, stats.away)
-    const formatedProbs = formatProbs(probs)
-    const showPercentage = this.props.showPercentage
-    return (
-      <>
+  const modelKey = getKey(selectedModelId)
+  const stats = calcStats(
+    seasonInfo,
+    match.teamHomeId,
+    match.teamAwayId,
+    modelKey
+  )
+  const digits = 1
+  const formatedStats = formatStats(stats, digits)
+  const probs = calcWinLossTieProbs(stats.home, stats.away)
+  const formatedProbs = formatProbs(probs)
+  const showPercentage = props.showPercentage
+  return (
+    <>
       <div
         className="row"
         key={match.id}
@@ -61,14 +57,14 @@ class Match extends React.Component {
           <img
             src={teamHome.iconUrl}
             alt={teamHome.shortName}
-            height={this.logoSize}
-            width={this.logoSize}
+            height={logoSize}
+            width={logoSize}
           />
           <img
             src={teamAway.iconUrl}
             alt={teamAway.shortName}
-            height={this.logoSize}
-            width={this.logoSize}
+            height={logoSize}
+            width={logoSize}
           />
         </div>
         <div className="col-1 p-0">
@@ -82,7 +78,7 @@ class Match extends React.Component {
           </small>
         </div>
         <div className="col-1">
-          <Button size='sm' color="link" onClick={()=>this.props.toggleProbabilityDetails(isProbabilityDetailsShown ? null: match.id)}>
+          <Button size='sm' color="link" onClick={()=>props.toggleProbabilityDetails(isProbabilityDetailsShown ? null: match.id)}>
             <FontAwesomeIcon icon="angle-double-down" color="gray" />
           </Button>
         </div>
@@ -109,12 +105,11 @@ class Match extends React.Component {
       </div>
       <div className="row">
         <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
-        <MatchDetails className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
+          <MatchDetails className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
         </Collapse>
       </div>
-      </>
-    )
-  }
+  </>
+  )
 }
 
 export default Match

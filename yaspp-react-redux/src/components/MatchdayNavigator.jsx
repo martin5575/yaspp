@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Component } from 'react'
 import ListNavigator from './ListNavigator'
 
 import {
@@ -15,39 +14,31 @@ import {
   getSelectedMatchDay,
 } from '../reducers/selectors/uiSelector'
 
-class MatchdayNavigator extends Component {
-  onSelect(id) {
-    const store = this.props.store
-    dispatchSelectMatchDay(store, parseInt(id, 10))
-    this.updateMatchs()
-  }
+function MatchdayNavigator({ store }) {
+  const state = store.getState()
+  const relevantMatchDays = getSelectedMatchDays(state)
+  const selectedMatchDay = getSelectedMatchDay(state)
 
-  updateMatchs() {
-    const store = this.props.store
+  function onSelect(id) {
+    dispatchSelectMatchDay(store, parseInt(id, 10))
     if (!areSelectedMatchsPresent(store)) {
-      const state = store.getState()
+      const st = store.getState()
       dispatchFetchMatchs(
         store,
-        getSelectedLeague(state),
-        getSelectedYear(state),
-        getSelectedMatchDay(state)
+        getSelectedLeague(st),
+        getSelectedYear(st),
+        getSelectedMatchDay(st)
       )
     }
   }
 
-  render() {
-    const store = this.props.store
-    const state = store.getState()
-    const relevantMatchDays = getSelectedMatchDays(state)
-    const selectedMatchDay = getSelectedMatchDay(state)
-    return (
-      <ListNavigator
-        data={relevantMatchDays}
-        selected={selectedMatchDay}
-        onSelect={this.onSelect.bind(this)}
-      />
-    )
-  }
+  return (
+    <ListNavigator
+      data={relevantMatchDays}
+      selected={selectedMatchDay}
+      onSelect={onSelect}
+    />
+  )
 }
 
 export default MatchdayNavigator

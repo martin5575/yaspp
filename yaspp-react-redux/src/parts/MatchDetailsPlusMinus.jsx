@@ -13,11 +13,9 @@ import _ from 'lodash'
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
-export class MatchDetailsPlusMinus extends React.Component {
-
-  render() {
-    const hg = this.props.stats.home
-    const ag = this.props.stats.away
+export function MatchDetailsPlusMinus(props) {
+  const hg = props.stats.home
+  const ag = props.stats.away
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
 
@@ -40,7 +38,7 @@ export class MatchDetailsPlusMinus extends React.Component {
     const range = Object.keys(plusMinusList).map(x=>parseInt(x)).sort((a,b)=>a-b)
     const plusMinus = range.map(x=> ({diff:x, prob:_.sum(plusMinusList[x]), maxResult:max[x].result, maxProb:max[x].prob}))
     
-    return (<>
+  return (<>
       <div className='row'>
         <div className='col-2 text-center'><small><b>+/-</b></small></div>
         <div className='col-5 text-right'><small><b>Wahrscheinlichkeit</b></small></div>
@@ -56,6 +54,4 @@ export class MatchDetailsPlusMinus extends React.Component {
         <div className='col-2 text-right p-0'><small>({(x.maxProb*100).toFixed(1)}%)</small></div>
       </div>))}
     </>)
- 
-  }
 }

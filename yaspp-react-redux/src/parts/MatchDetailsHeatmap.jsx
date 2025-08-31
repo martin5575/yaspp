@@ -13,15 +13,14 @@ import _ from 'lodash'
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
-export class MatchDetailsHeatmap extends React.Component {
-  render() {
-    const hg = this.props.stats.home
-    const ag = this.props.stats.away
+export function MatchDetailsHeatmap(props) {
+  const hg = props.stats.home
+  const ag = props.stats.away
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
 
     const formatProb = (prob) => { return (prob*100).toFixed(0)};
-    return (
+  return (
     <div className='row'>
     <div className='col-1'></div>
     <div className='col-10'>
@@ -44,6 +43,5 @@ export class MatchDetailsHeatmap extends React.Component {
         ))}
     </div>
     </div>
-    </div>)
-  }
+  </div>)
 }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Component } from 'react'
 import App from './parts/App'
 import Header from './parts/Header'
 import Footer from './parts/Footer'
@@ -25,16 +24,13 @@ library.add(icons.faColumns)
 library.add(icons.faTable)
 library.add(icons.faRobot)
 
-class Root extends Component {
-  render() {
-    const store = this.props.store
-    return (
-      <div>
-        <Header store={store} />
-        <App store={store} />
-        <Footer />
-      </div>
-    )
-  }
+function Root({ store }) {
+  return (
+    <div>
+      <Header store={store} />
+      <App store={store} />
+      <Footer />
+    </div>
+  )
 }
 export default Root

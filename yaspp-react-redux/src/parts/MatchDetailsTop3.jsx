@@ -13,10 +13,9 @@ import _ from 'lodash'
 const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
-export class MatchDetailsTop3 extends React.Component {
-  render() {
-    const hg = this.props.stats.home
-    const ag = this.props.stats.away
+export function MatchDetailsTop3(props) {
+  const hg = props.stats.home
+  const ag = props.stats.away
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
     const probsList = []
@@ -26,7 +25,7 @@ export class MatchDetailsTop3 extends React.Component {
       })
     })
     const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
-    return (<div className="flex-column">
+  return (<div className="flex-column">
       <div className='text-center'><small><b>TOP 3</b></small></div>
       {[0,1,2].map(x=> (
       <div className='text-center' key={"top-prob-"+x}>
@@ -35,5 +34,4 @@ export class MatchDetailsTop3 extends React.Component {
       ))}
     </div>
     ) 
-  }
 }

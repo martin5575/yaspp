@@ -2,11 +2,9 @@ import React from 'react'
 import './MatchDetailsKicktippTop3.css'
 import {getTopTippResults} from '../kicktipp'
 
-export class MatchDetailsKicktippTop3 extends React.Component {
-
-  render() {
-    const hg = this.props.stats.home
-    const ag = this.props.stats.away
+export function MatchDetailsKicktippTop3(props) {
+  const hg = props.stats.home
+  const ag = props.stats.away
     const numberOfGoals = [0,1,2,3,4,5,6]
     const topTippResults = getTopTippResults(hg, ag, numberOfGoals, 3)
 
@@ -20,6 +18,4 @@ return (<div className="flex-column">
   </div>
     ) 
 
-
-  }
 }
