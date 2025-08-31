@@ -25,8 +25,9 @@ const league: string = "bl1";
 const season: number = 2015; // 2009
 
 const matches: Match[] = loadAll(
-  ["bl1", "bl2"],
-  [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]
+  ["bl1", /*"bl2"*/],
+//  [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]
+    [2018, 2019, 2020, 2021, 2022, /*2023*/]
 );
 
 const totalGoalDistribution: ITotalGoalsPerSection = calcTotalGoalsPerSection(
@@ -45,7 +46,7 @@ printGoalsByTimeAndGoalDifferenceTable(goalDistributionDifference);
 const transitionMatrix: ITransitionMatrixRow[] = calcTransitionMatrix(
   matches,
   minutes,
-  100
+  30
 );
 printTransitionMatrix(transitionMatrix);
 

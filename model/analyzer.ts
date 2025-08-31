@@ -7,6 +7,12 @@ import {
   IGoalsPerSectionAndDifference,
 } from "./types/analyzing";
 
+const getGoals: (match: Match) => Goal[] = (match) => match.Goals ?? match.goals;
+const getMatchMinute: (goal: Goal) => number = (goal) => goal.MatchMinute ?? goal.matchMinute;
+const getScoreTeam1: (goal: Goal) => number = (goal) => goal.ScoreTeam1 ?? goal.scoreTeam1;
+const getScoreTeam2: (goal: Goal) => number = (goal) => goal.ScoreTeam2 ?? goal.scoreTeam2;
+const getGoalDifference: (goal: Goal) => number = (goal) => getScoreTeam1(goal) - getScoreTeam2(goal);
+
 const initEmpty: (numberOfMinutes: number) => number[] = (minutes) => {
   let result: number[] = [];
   const count: number = Math.ceil(90 / minutes) + 1;
@@ -31,10 +37,10 @@ const calcTotalGoalsPerSection: (
 
   for (let i: number = 0; i < matchs.length; ++i) {
     const match: Match = matchs[i];
-    const goals: Goal[] = match.Goals;
+    const goals: Goal[] = getGoals(match);
     for (let j: number = 0; j < goals.length; ++j) {
       const goal: Goal = goals[j];
-      const index: number = calcIndex(goal.MatchMinute, minutes, maxIndex);
+      const index: number = calcIndex(getMatchMinute(goal), minutes, maxIndex);
       goalsPerSection[index] += 1;
     }
   }
@@ -67,14 +73,14 @@ const calcGoalsPerSection: (
 
   for (let i: number = 0; i < matchs.length; ++i) {
     const match: Match = matchs[i];
-    const goals: Goal[] = match.Goals;
+    const goals: Goal[] = getGoals(match);
     let oldTd: number = 0;
 
     for (let j: number = 0; j < goals.length; ++j) {
       const goal: Goal = goals[j];
-      const index: number = calcIndex(goal.MatchMinute, minutes, maxIndex);
+      const index: number = calcIndex(getMatchMinute(goal), minutes, maxIndex);
 
-      const newTd: number = goal.ScoreTeam1 - goal.ScoreTeam2;
+      const newTd: number = getGoalDifference(goal);
       if (newTd > oldTd) {
         goalsPerSectionHome[index] += 1;
       } else {
@@ -144,7 +150,7 @@ const calcGoalsPerSectionAndDifference: (
 
   for (let i: number = 0; i < matches.length; ++i) {
     const match: Match = matches[i];
-    const goals: Goal[] = match.Goals;
+    const goals: Goal[] = getGoals(match);
 
     let oldDifference: number = 0;
     for (let j: number = 0; j < goals.length; ++j) {
@@ -156,8 +162,8 @@ const calcGoalsPerSectionAndDifference: (
       );
 
       const maxIndex: number = differenceRow.Home.length - 1;
-      const index: number = calcIndex(goal.MatchMinute, minutes, maxIndex);
-      const newDifference: number = goal.ScoreTeam1 - goal.ScoreTeam2;
+      const index: number = calcIndex(getMatchMinute(goal), minutes, maxIndex);
+      const newDifference: number = getGoalDifference(goal);
 
       if (newDifference > oldDifference) {
         differenceRow.Home[index] += 1;
@@ -258,8 +264,8 @@ const calcTransitionMatrix: (
 
   for (let i: number = 0; i < matches.length; ++i) {
     const match: Match = matches[i];
-    const goals: Goal[] = match.Goals.sort(
-      (a, b) => a.MatchMinute - b.MatchMinute
+    const goals: Goal[] = getGoals(match).sort(
+      (a, b) => getMatchMinute(a) - getMatchMinute(b) 
     );
 
     let oldDifference: number = 0;
@@ -285,10 +291,10 @@ const calcTransitionMatrix: (
       row.count += 1;
       const goal: Goal = goals[goalIndex];
       const timeIndex: number = goal
-        ? calcIndex(goal.MatchMinute, minutes, T)
+        ? calcIndex(getMatchMinute(goal), minutes, T)
         : T + 1;
       const newDifference: number =
-        timeIndex === t ? goal.ScoreTeam1 - goal.ScoreTeam2 : oldDifference;
+        timeIndex === t ? getGoalDifference(goal) : oldDifference;
       if (newDifference > oldDifference) {
         row.probabilities["1"] += 1;
       } else if (newDifference < oldDifference) {
