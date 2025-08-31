@@ -1,0 +1,52 @@
+.legend-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem .5rem;
+  align-items:center;
+  margin-bottom:.5rem;
+}
+
+.legend-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  padding:4px 10px;
+  border:1.5px solid #ddd;
+  border-radius:999px;
+  background:transparent;
+  color:#444;
+  font-size:12px;
+  line-height:1;
+  cursor:pointer;
+  user-select:none;
+  box-shadow:0 0 0 0 rgba(0,0,0,0);
+  transition:box-shadow .15s ease, transform .05s ease, background-color .15s ease, border-color .15s ease, opacity .15s ease;
+}
+
+.legend-chip:hover{
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transform:translateY(-1px);
+}
+
+.legend-chip:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(99,102,241,.25);
+}
+
+.legend-chip.active{
+  background:rgba(0,0,0,0.03);
+  border-color:var(--legend-border, #bbb);
+}
+
+.legend-chip.inactive{
+  opacity:.65;
+}
+
+.legend-swatch{
+  width:12px;
+  height:12px;
+  border-radius:3px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.2);
+}
+
+.legend-label{font-size:12px}

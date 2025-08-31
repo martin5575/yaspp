@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import _ from 'lodash'
-import { Button } from 'reactstrap'
+import { getAgentColorScale } from './colors'
 
 const normalizeName = (name) => {
     return name.replace(/[^a-zA-Z0-9]/g, "_")
@@ -12,118 +12,117 @@ function ChartDetailsView(props) {
     const visibleLines = useRef([])
 
     useEffect(() => {
-        // Clear previous svg if any
         if (props.id) {
             d3.select(`#${props.id}`).selectAll("*").remove()
         }
 
-        // Draw chart
-        const margin = {top: 16, right: 6, bottom: 50, left: 40};
+        const margin = {top: 16, right: 16, bottom: 48, left: 48};
 
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-        const width = vw * 0.9
-        const height = vh * 0.5
-        const rectHeight = 30;
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    const containerEl = document.getElementById(props.id)
+    const outerWidth = (containerEl?.clientWidth ?? (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.9))
+        const outerHeight = vh * 0.5
+        const width = outerWidth - margin.left - margin.right
+        const height = outerHeight - margin.top - margin.bottom
 
         const svg = d3.select(`#${props.id}`)
                     .append("svg")
-                    .attr("width", '90vw')
-                    .attr("height", '50vh')
+                    .attr("width", outerWidth)
+                    .attr("height", outerHeight)
                     .append("g")
                     .attr("transform",
                           "translate(" + margin.left + "," + margin.top + ")");
-                  
-        // const root = svg.append("g")
-        //   .attr("id", "root")
-        //   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+        const n = props.dateValues.length
+        const x = d3.scalePoint()
+            .domain(d3.range(1, n+1))
+            .range([0, width])
+            .padding(0.5)
 
-        // Add X axis --> it is a date format
-        const x = d3.scaleLinear([1, props.dateValues.length+1], [ 0, width ]);
+        // Prepare series based on toggle
+        const series = (props.data || []).map(s => ({
+            name: s.name,
+            values: props.isCumulative
+                ? s.values.reduce((acc, v, i) => {
+                    acc.push((acc[i-1] || 0) + (v || 0))
+                    return acc
+                }, [])
+                : s.values
+        }))
+
+        const allValues = series.flatMap(s => s.values)
+        const yMax = d3.max(allValues) || 0
+        const y = d3.scaleLinear()
+            .domain([0, yMax])
+            .nice()
+            .range([height, 0])
+
+        // gridlines
+        svg.append('g')
+            .attr('class', 'y-grid')
+            .call(d3.axisLeft(y).ticks(5).tickSize(-width).tickFormat(''))
+            .selectAll('line').attr('stroke', '#eee')
+
+        // axes
         svg.append("g")
-            .attr("transform", "translate(0," + (height-margin.top-margin.bottom) + ")")
+            .attr("transform", "translate(0," + height + ")")
             .attr("id", "x-axis")
-            .attr("stroke-width", 1)
-            .attr("color", "black")
-            .call(d3.axisBottom(x).ticks(props.dateValues.length));
+            .call(d3.axisBottom(x)
+                .tickValues(d3.range(1, n+1))
+                .tickFormat((d)=> {
+                    const raw = props.dateValues[d-1]
+                    if (!raw) return d
+                    return String(raw).replace(/\bspieltag\b\s*/i, '').trim()
+                }))
+            .selectAll("text")
+            .style('font-size', '10px')
+            .attr('transform', 'rotate(0)')
 
-        // Add Y axis
-        const max = _.max(props.data.map(x=>_.max(x.values)))
-        const y = d3.scaleLinear([-4, max] , [ height, 0 ])
         svg.append("g")
             .attr("id", "y-axis")
-            .call(d3.axisLeft(y).ticks(max));
+            .call(d3.axisLeft(y).ticks(5))
 
-        // color palette
-        const color = d3.scaleOrdinal()
-            .domain(props.data.map(x=>x.name))
-            .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#33ff33','#a65628','#f781bf'])
+    const color = getAgentColorScale(series.map(x=>x.name))
 
+        const lineGen = d3.line()
+            .x((d, i) => x(i+1))
+            .y((d) => y(d))
+            .curve(d3.curveMonotoneX)
 
-        // Draw the line
-        svg.selectAll(".line")
-            .data(props.data)
-            .enter()
-            .append("path")
-                .attr("fill", "none")
-                .attr("stroke", d=> {
-                    //console.log("stroke", d, color(d))
-                    return color(d)
-                })
-                .attr("id", d => "line_"+normalizeName(d.name))
-                .attr("stroke-width", 1.5)
-                .attr("visibility", (d,i)=>{
-                    //console.log("visible", d, i, this.visibleLines, this.visibleLines.includes(d.name))
-                    return visibleLines.current.includes(d.name) ? "visible" : "hidden"
-                })
-                .attr("d", d => {
-                    //console.log(d)
-                    return d3.line()
-                    .x((foo, i) => { 
-                        // console.log("x", foo, i, x(i))
-                        return x(i+1) 
-                    })
-                    .y((baa, i) => { 
-                        // console.log("y", baa, i, y(baa)) 
-                        return y(baa)}
-                    )
-                    (d.values)})
+        // draw lines
+        const paths = svg.selectAll("path.series")
+            .data(series)
+            .join("path")
+            .attr("class", "series")
+            .attr("fill", "none")
+            .attr("stroke", d=> color(d.name))
+            .attr("stroke-width", 2)
+            .attr("d", d => lineGen(d.values))
 
-        // Add the points
-        svg.selectAll(".point")
-                        .data(props.data)
-                        .enter()
-                    .append("text")
-                    .attr("x", (d, i) => (i+1)*30+"px")
-                    .attr("y", (d) => (height-margin.top-10)+"px")
-                    .style("font-size", "14px")
-                    .attr("stroke", d=> color(d))
-                    .text((d) => d.name)
-        
-    }, [props.id, props.data, props.dateValues])
+        // animate path draw
+        paths.each(function() {
+            const p = d3.select(this)
+            const total = typeof this.getTotalLength === 'function' ? this.getTotalLength() : 0
+            p.attr('stroke-dasharray', `${total} ${total}`)
+             .attr('stroke-dashoffset', total)
+             .transition().duration(800).ease(d3.easeCubicOut)
+             .attr('stroke-dashoffset', 0)
+        })
 
-    const toggleVisibility = (name) => {
-        const selector = "#line_"+normalizeName(name)
-        const state = d3.select(selector).attr("visibility")
-        if (state==="visible") {
-            d3.select(selector).attr("visibility", "hidden")
-        } else {
-            d3.select(selector).attr("visibility", "visible")
-        }
-    }
+        // draw points with titles
+        const points = series.flatMap(s => s.values.map((v, i) => ({ name: s.name, value: v, idx: i })))
+        svg.selectAll('circle.dot')
+            .data(points)
+            .join('circle')
+            .attr('class', 'dot')
+            .attr('r', 3)
+            .attr('cx', d => x(d.idx+1))
+            .attr('cy', d => y(d.value))
+            .attr('fill', d => color(d.name))
+            .append('title')
+        .text(d => `${d.name} • ${props.dateValues[d.idx]}: ${d.value}${props.isCumulative ? ' (cum.)' : ''}`)
 
-    return <>
-        <div className="d-flex flex-wrap">
-            {props.data.map(x=>{
-                return (
-                    <Button key={"rb_"+x.name}
-                        onClick={()=>toggleVisibility(x.name)}
-                    >{x.name} </Button>)
-        })}
-        </div>
-        <div id={props.id} ref={containerRef}></div>
-    </>
+    }, [props.id, props.data, props.dateValues, props.isCumulative])
+    return <div id={props.id} ref={containerRef}></div>
 }
 export default ChartDetailsView;

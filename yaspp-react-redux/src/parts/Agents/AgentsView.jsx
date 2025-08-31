@@ -8,9 +8,11 @@ import { ButtonGroup, ButtonToolbar } from 'reactstrap';
 import _, { groupBy, sortBy } from 'lodash';
 import { getKeys, getShort } from '../../stats/statsType'
 import BarChartRace from './BarChartRace';
+import MultiSeasonView from './MultiSeasonView';
 import { getTopTippResult, getPointsForTipp } from '../../kicktipp';
 import TotalPointsView from './TotalPointsView';
 import ChartDetailsView from './ChartDetailsView';
+import Legend from './Legend';
 import { getSelectedYears } from '../../utils/filter';
 import ListNavigator from '../../components/ListNavigator';
 import { dispatchFetchAllMatchs } from '../../actions/ActionBuilderWithStore';
@@ -89,7 +91,8 @@ function getDateValues(state, selectedLeague, selectedYear, performances) {
 const viewModes = [
   {label: "Total Points", id: "total-points"},
   {label: "Running Points", id: "running-points"} ,
-  {label: "Chart Details", id: "details"}
+  {label: "Chart Details", id: "details"},
+  {label: "Multi Season", id: "multi-season"}
 ]
 
 function AgentsView(props) {
@@ -104,6 +107,7 @@ function AgentsView(props) {
   const [visible, setVisible] = useState(false)
   const [viewMode, setViewMode] = useState(0)
   const [year, setYear] = useState(initialYear)
+  const [detailsCumulative, setDetailsCumulative] = useState(false)
 
   // Keep local year in sync with global selection (e.g., Navbar changes)
   useEffect(() => {
@@ -123,7 +127,7 @@ function AgentsView(props) {
     }
   }, [year, selectedLeague])
 
-  const updateViewMode = (step) => setViewMode((viewMode + 3 + step) % 3)
+  const updateViewMode = (step) => setViewMode((viewMode + 4 + step) % 4)
 
   const league = state.model.leagues.find(x=>x.id===selectedLeague);
   const matchs = state.model.matchs.filter(x=>x.league===selectedLeague && x.year===year && x.isFinished)
@@ -138,6 +142,61 @@ function AgentsView(props) {
       values: x.performance.map(x => x.points)
   }));
   const selectedViewMode = viewModes[viewMode]
+  const legendNames = detailsData.map(d => d.name)
+
+  // Visible selection: default to top-3 by total points
+  const defaultTop3 = legendNames
+    .map((n, idx) => ({ name: n, sum: performances[idx]?.sum ?? 0 }))
+    .sort((a, b) => b.sum - a.sum)
+    .slice(0, 3)
+    .map(x => x.name)
+  const [visibleNames, setVisibleNames] = useState(new Set(defaultTop3))
+  useEffect(() => {
+    // Reset selection when dataset changes (league/year)
+    const nextTop3 = legendNames
+      .map((n, idx) => ({ name: n, sum: performances[idx]?.sum ?? 0 }))
+      .sort((a, b) => b.sum - a.sum)
+      .slice(0, 3)
+      .map(x => x.name)
+    setVisibleNames(new Set(nextTop3))
+  }, [selectedLeague, year])
+
+  const toggleVisible = (name) => {
+    setVisibleNames(prev => {
+      const next = new Set(prev)
+      if (next.has(name)) next.delete(name)
+      else next.add(name)
+      return next
+    })
+  }
+
+  const filteredDetailsData = detailsData.filter(d => visibleNames.has(d.name))
+
+  // Multi-season data: aggregate finished matches by year for current league
+  const seasonsAll = [...new Set((state.model.matchDays||[]).filter(x=>x.league===selectedLeague).map(x=>x.year))].sort((a,b)=>a-b)
+  const seasonsForLeague = seasonsAll.slice(-5)
+  const multiSeasonSeries = agents.map(agent => {
+    const perYear = seasonsForLeague.map(yr => {
+      const m = state.model.matchs.filter(x=>x.league===selectedLeague && seasonsForLeague.includes(x.year) && x.year===yr && x.isFinished)
+      // reuse existing calc pipeline
+      const perf = calculatePerformances([agent], m)[0]
+      return perf?.sum || 0
+    })
+    return { name: getShort(agent), values: perYear }
+  })
+
+  // Ensure data is loaded for the 5 selected seasons when viewing multi-season
+  useEffect(() => {
+    if (selectedLeague && selectedViewMode.id === 'multi-season') {
+      seasonsForLeague.forEach(yr => {
+        const matchDays = (state.model.matchDays||[]).filter(x => x.league === selectedLeague && x.year === yr)
+        const matchesByDay = groupBy(state.model.matchs?.filter(x=>x.league===selectedLeague && x.year===yr && x.isFinished), x=>x.matchDayId)
+        if (!matchDays || matchDays.length !== Object.keys(matchesByDay||{}).length) {
+          dispatchFetchAllMatchs(props.store, selectedLeague, yr)
+        }
+      })
+    }
+  }, [selectedLeague, selectedViewMode.id, seasonsForLeague.join(',')])
 
   return (<div>
       <Button
@@ -158,17 +217,92 @@ function AgentsView(props) {
       />
       </OffcanvasHeader>
       <OffcanvasBody>
-        <ButtonToolbar>
-          <ButtonGroup>
-            <IconButton icon="caret-left" handleClick={()=>updateViewMode(-1)} ></IconButton>
-            <Label className='mb-0' style={{lineHeight: "36px", width: "150px"}}>{selectedViewMode.label}</Label>
-            <IconButton icon="caret-right" handleClick={()=>updateViewMode(1)} ></IconButton>
-          </ButtonGroup>
-        </ButtonToolbar>
+        <div className='d-flex justify-content-center mb-2'>
+          <div className='btn-group' role='group' aria-label='Select view'>
+            <button
+              type='button'
+              className={`btn btn-sm ${viewMode===0 ? 'btn-secondary' : 'btn-outline-secondary'}`}
+              aria-pressed={viewMode===0}
+              onClick={()=>setViewMode(0)}
+              title='Show total points table'
+            >
+              Total Points
+            </button>
+            <button
+              type='button'
+              className={`btn btn-sm ${viewMode===1 ? 'btn-secondary' : 'btn-outline-secondary'}`}
+              aria-pressed={viewMode===1}
+              onClick={()=>setViewMode(1)}
+              title='Show running points (bar race)'
+            >
+              Running Points
+            </button>
+            <button
+              type='button'
+              className={`btn btn-sm ${viewMode===2 ? 'btn-secondary' : 'btn-outline-secondary'}`}
+              aria-pressed={viewMode===2}
+              onClick={()=>setViewMode(2)}
+              title='Show detailed chart'
+            >
+              Chart Details
+            </button>
+            <button
+              type='button'
+              className={`btn btn-sm ${viewMode===3 ? 'btn-secondary' : 'btn-outline-secondary'}`}
+              aria-pressed={viewMode===3}
+              onClick={()=>setViewMode(3)}
+              title='Show multi-season performance'
+            >
+              Multi Season
+            </button>
+          </div>
+        </div>
+  <Legend names={legendNames} selectedNames={visibleNames} onToggle={toggleVisible} />
         {state.ui.isLoadingMatchs && <div>Loading...</div>}
-        {!state.ui.isLoadingMatchs && selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={barChartData} dateValues={dateValues} ></BarChartRace>}
-        {!state.ui.isLoadingMatchs &&selectedViewMode.id==="total-points" && <TotalPointsView id='total-points-chart' data={performances} ></TotalPointsView>}
-        {!state.ui.isLoadingMatchs &&selectedViewMode.id==="details" && <ChartDetailsView id='details-chart' data={detailsData} dateValues={dateValues} ></ChartDetailsView>}
+  {!state.ui.isLoadingMatchs && selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={barChartData} dateValues={dateValues} ></BarChartRace>}
+  {!state.ui.isLoadingMatchs &&selectedViewMode.id==="total-points" && <TotalPointsView id='total-points-chart' data={performances} ></TotalPointsView>}
+  {!state.ui.isLoadingMatchs &&selectedViewMode.id==="details" && (
+    <>
+      <div className='d-flex justify-content-end mb-2' style={{ gap: 6 }}>
+        <button
+          type='button'
+          className='btn btn-sm'
+          aria-pressed={!detailsCumulative}
+          onClick={() => setDetailsCumulative(false)}
+          title='Show per-matchday points'
+          style={{
+            padding: '2px 8px',
+            borderRadius: 8,
+            border: '1px solid #ddd',
+            background: !detailsCumulative ? 'rgba(0,0,0,0.04)' : 'transparent',
+            color: '#222'
+          }}
+        >
+          Points
+        </button>
+        <button
+          type='button'
+          className='btn btn-sm'
+          aria-pressed={detailsCumulative}
+          onClick={() => setDetailsCumulative(true)}
+          title='Show cumulative points'
+          style={{
+            padding: '2px 8px',
+            borderRadius: 8,
+            border: '1px solid #ddd',
+            background: detailsCumulative ? 'rgba(0,0,0,0.04)' : 'transparent',
+            color: '#222'
+          }}
+        >
+          Cumulative
+        </button>
+      </div>
+      <ChartDetailsView id='details-chart' data={filteredDetailsData} dateValues={dateValues} isCumulative={detailsCumulative} />
+    </>
+  )}
+  {!state.ui.isLoadingMatchs && selectedViewMode.id==="multi-season" && (
+    <MultiSeasonView id='multi-season-chart' seasons={seasonsForLeague} series={multiSeasonSeries} />
+  )}
       </OffcanvasBody>
     </Offcanvas>
   </div>
