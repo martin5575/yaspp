@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import "./App.css";
-import MatchDay from "./MatchDay";
+import MatchDay from "./Matchday";
 
 class App extends Component {
   render() {

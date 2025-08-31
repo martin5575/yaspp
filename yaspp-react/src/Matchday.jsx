@@ -20,18 +20,25 @@ class MatchDay extends Component {
     };
   }
 
-  UNSAFE_componentWillMount () {
+  componentDidMount() {
     this.update(1);
   }
 
   update(matchDay) {
+    const md = Number(matchDay);
     const service = new DataService();
-    service.getMatchDay("bl1", 2017, matchDay).then(res => {
-      const matches = res.data;
-      let state = Object.assign({}, this.state);
-      state.matches = matches;
-      this.setState(state);
-    });
+    service
+      .getMatchDay("bl1", 2017, md)
+      .then((res) => {
+        const data = res && res.data;
+        const matches = Array.isArray(data) ? data : [];
+        this.setState({ selectedMatchDay: md, matches });
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error("Failed to load matches", err);
+        this.setState({ selectedMatchDay: md, matches: [] });
+      });
   }
 
   render() {
@@ -48,7 +55,16 @@ class MatchDay extends Component {
           </div>
         </div>
         <div>
-          {this.state.matches.map(x => <Match match={x} key={x.MatchID} />)}
+          {Array.isArray(this.state.matches) && this.state.matches.map((x, i) => (
+            <Match
+              match={x}
+              key={
+                x.MatchID ??
+                x.MatchIDTeam1 ??
+                `${x.Team1?.TeamName || x.Team1?.teamName || 't1'}-${x.Team2?.TeamName || x.Team2?.teamName || 't2'}-${x.MatchDateTime || 'date'}-${i}`
+              }
+            />
+          ))}
         </div>
       </div>
     );

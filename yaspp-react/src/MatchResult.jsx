@@ -3,10 +3,11 @@ import { Component } from "react";
 
 class MatchResult extends Component {
   render() {
+  const r = this.props.matchResult;
     return (
       <div className="col-sm-2">
-        {this.props.matchResult.PointsTeam1} {" - "}
-        {this.props.matchResult.PointsTeam2}
+    {r ? r.PointsTeam1 : "?"} {" - "}
+    {r ? r.PointsTeam2 : "?"}
       </div>
     );
   }
