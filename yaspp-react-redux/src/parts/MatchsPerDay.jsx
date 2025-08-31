@@ -10,14 +10,14 @@ function MatchsPerDay(props) {
   const showPercentage = props.showPercentage
   return (
     <>
-      <div className="row" key="this.props.date">
-        <div scope="col" className="col-5">
+  <div className="row match-header align-items-baseline g-0" key="this.props.date">
+        <div scope="col" className="col-5 match-date">
           <small>
             {moment(props.date).format('ddd DD.MM HH:mm')}
           </small>
         </div>
         {statsTitle && (
-          <div scope="col" className="col-2 text-center p-0">
+          <div scope="col" className="col-2 text-center p-0 match-title">
             <small>
               {statsTitle}
               &nbsp;
@@ -26,22 +26,22 @@ function MatchsPerDay(props) {
           </div>
         )}
         {statsTitle && (
-          <div scope="col" className="col-1 text-center p-0">
+          <div scope="col" className="col-1 text-center p-0 match-col-head">
             <small>1</small>
           </div>
         )}
         {statsTitle && (
-          <div scope="col" className="col-1 text-center p-0">
+          <div scope="col" className="col-1 text-center p-0 match-col-head">
             <small>0</small>
           </div>
         )}
         {statsTitle && (
-          <div scope="col" className="col-1 text-center p-0">
+          <div scope="col" className="col-1 text-center p-0 match-col-head">
             <small>2</small>
           </div>
         )}
         {statsTitle && (
-          <div scope="col" className="col-1 text-center p-0" />
+          <div scope="col" className="col-1 text-center p-0 match-col-head" />
         )}
       </div>
       {props.matchs.map((m) => (

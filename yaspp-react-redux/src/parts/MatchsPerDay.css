@@ -12,3 +12,7 @@
 .table {
   margin: 0.15rem;
 }
+
+/* Compact header alignment */
+.match-header small{line-height:1.1;display:inline-block;height:1.1em}
+.match-header small, .match-header i, .match-header svg{vertical-align:baseline}

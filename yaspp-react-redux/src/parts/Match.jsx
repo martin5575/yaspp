@@ -45,7 +45,7 @@ function Match(props) {
   return (
     <>
       <div
-        className="row"
+        className="row match-row align-items-baseline g-0"
         key={match.id}
         data-toggle="tooltip"
         title={
@@ -53,7 +53,7 @@ function Match(props) {
           moment(match.lastUpdate).format('DD.MM.YY HH:mm:ss')
         }
       >
-        <div className="col-2 p-0">
+        <div className="col-2 p-0 match-logos">
           <img
             src={teamHome.iconUrl}
             alt={teamHome.shortName}
@@ -67,37 +67,37 @@ function Match(props) {
             width={logoSize}
           />
         </div>
-        <div className="col-1 p-0">
+        <div className="col-1 p-0 match-half">
           <small>
             ({match.halfTimeHome}:{match.halfTimeAway})
           </small>
         </div>
-        <div className="col-1 p-0">
+        <div className="col-1 p-0 match-final">
           <small className={match.isFinished ? 'final ' : ''}>
             {match.fullTimeHome}:{match.fullTimeAway}
           </small>
         </div>
-        <div className="col-1">
+  <div className="col-1 p-0 match-toggle">
           <Button size='sm' color="link" onClick={()=>props.toggleProbabilityDetails(isProbabilityDetailsShown ? null: match.id)}>
             <FontAwesomeIcon icon="angle-double-down" color="gray" />
           </Button>
         </div>
-        <div className="col-2 text-center p-0">
+        <div className="col-2 text-center p-0 match-stats">
           <small>
             <i>{formatedStats}</i>
           </small>
         </div>
-        <div className="col-1 text-center p-0">
+        <div className="col-1 text-center p-0 match-prob">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.win)}</i>
           </small>
         </div>
-        <div className="col-1 text-center p-0">
+        <div className="col-1 text-center p-0 match-prob">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.tie)}</i>
           </small>
         </div>
-        <div className="col-1 text-center p-0">
+        <div className="col-1 text-center p-0 match-prob">
           <small>
             <i>{formatProbOrRate(showPercentage, probs.loss)}</i>
           </small>

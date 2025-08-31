@@ -1,5 +1,6 @@
 import React from 'react'
 import './Matchs.css'
+import './Table.css'
 import MatchsPerDay from './MatchsPerDay'
 import { groupByFunc, sortByField } from '../utils/listUtils'
 import { getKey, getShort, getDescription } from '../stats/statsType'
@@ -29,20 +30,20 @@ function Table(props) {
   }))
   const table = sortByField(rawData, ["tp","tgd","tgf"]).reverse()
   return (
-    <table className="table table-striped">
+    <table className="table table-striped table-sm league-table">
   <thead>
     <tr key="table-header">
-      <th scope="col">Team</th>
-      <th scope="col">S</th>
-      <th scope="col">P</th>
-      <th scope="col">+/-</th>
-      <th scope="col">T</th>
-      <th scope="col">GT</th>
+      <th scope="col" className='col-team'>Team</th>
+      <th scope="col" className='col-s col-num'>S</th>
+      <th scope="col" className='col-p col-num'>P</th>
+      <th scope="col" className='col-gd col-num'>±</th>
+      <th scope="col" className='col-gf col-num'>T</th>
+      <th scope="col" className='col-ga col-num'>GT</th>
     </tr>
   </thead>
   <tbody>
     {table.map((team, index) => (<tr key={"table-"+team.shortName}>
-      <td>          
+      <td className='col-team'>          
         <img
             src={team.iconUrl}
             alt={team.shortName}
@@ -50,11 +51,11 @@ function Table(props) {
             width={logoSize}
         />
       </td>
-      <td>{team.tm}</td>
-      <td>{!showAvg ? team.tp : formatNumber(team.tp / team.tm, 1)}</td>
-      <td>{team.tgd}</td>
-      <td>{!showAvg ? team.tgf : formatNumber(team.tgf / team.tm, 1)}</td>
-      <td>{!showAvg ? team.tga : formatNumber(team.tga / team.tm, 1)}</td>
+      <td className='col-s col-num'>{team.tm}</td>
+      <td className='col-p col-num'>{!showAvg ? team.tp : formatNumber(team.tp / team.tm, 1)}</td>
+      <td className='col-gd col-num'>{team.tgd}</td>
+      <td className='col-gf col-num'>{!showAvg ? team.tgf : formatNumber(team.tgf / team.tm, 1)}</td>
+      <td className='col-ga col-num'>{!showAvg ? team.tga : formatNumber(team.tga / team.tm, 1)}</td>
     </tr>))}
   </tbody>
 </table>

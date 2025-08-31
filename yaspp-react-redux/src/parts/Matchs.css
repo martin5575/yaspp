@@ -3,3 +3,7 @@
     padding: 5px !important;
 
 }
+
+@media (max-width: 400px){
+    .schedule{padding:4px !important}
+}

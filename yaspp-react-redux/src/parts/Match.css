@@ -1,0 +1,17 @@
+/* Compact match day view for small screens */
+.match-row small{font-size:12px}
+.match-row small, .match-row i, .match-row button, .match-row img, .match-row svg{vertical-align:baseline}
+.match-row small{line-height:1.1;display:inline-block;height:1.1em}
+.match-row .btn{padding:0 .25rem;line-height:1;height:1.1em}
+.match-toggle .btn .svg-inline--fa{vertical-align:baseline;line-height:1}
+.match-logos img{margin-right:6px}
+.match-final .final{font-weight:700}
+
+@media (max-width: 400px){
+		.match-row small{font-size:11px}
+		.match-row small{line-height:1.05;height:1.05em}
+	.match-logos img{width:18px;height:18px;margin-right:4px}
+	.match-row .btn{padding:0 .2rem}
+	.match-stats small i{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block;max-width:100%}
+	.match-header small{font-size:11px}
+}

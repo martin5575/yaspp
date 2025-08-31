@@ -1,0 +1,12 @@
+.league-table th, .league-table td{padding: .2rem .4rem;vertical-align: middle}
+.league-table .col-num{text-align:right;font-variant-numeric: tabular-nums}
+.league-table .col-team{width:40%;white-space:nowrap}
+.league-table img{width:20px;height:20px;margin-right:6px;vertical-align:middle}
+
+@media (max-width: 400px){
+  .league-table th, .league-table td{padding: .15rem .3rem}
+  .league-table{font-size: 12px}
+  .league-table img{width:18px;height:18px;margin-right:4px}
+  .league-table .col-team{width:auto}
+  .league-table thead th{position:sticky;top:0;background:#fff}
+}

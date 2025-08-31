@@ -44,8 +44,8 @@ function App({ store }) {
 
   return (
     <div className="container.fluid">
-      <div className="row justify-content-center m-0 p-0">
-        <ButtonToolbar className='m-0 p-0'>
+      <div className="row m-0 p-0">
+        <ButtonToolbar className='m-0 p-0 w-100 d-flex justify-content-center'>
           <MatchdayNavigator store={store} hideActions={false} />
         </ButtonToolbar>
       </div>

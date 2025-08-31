@@ -14,3 +14,5 @@
 
 /* Default spacing for matchday-nav */
 .matchday-nav{gap:6px;flex-wrap:nowrap}
+/* Center variant when used standalone in App toolbar */
+.matchday-nav{justify-content:center}
