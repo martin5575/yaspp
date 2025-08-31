@@ -28,17 +28,14 @@ class App extends Component {
     this.forceUpdate()
   }
 
-  UNSAFE_componentWillMount () {
+  componentDidMount() {
     this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
+    const store = this.props.store
+    dispatchFetchInitial(store)
   }
 
   componentWillUnmount() {
-    this.unsubscribe()
-  }
-
-  async componentDidMount() {
-    const store = this.props.store
-    dispatchFetchInitial(store)
+    if (this.unsubscribe) this.unsubscribe()
   }
 
   render() {

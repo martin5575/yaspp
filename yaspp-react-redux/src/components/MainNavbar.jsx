@@ -18,12 +18,12 @@ class MainNavbar extends Component {
     this.forceUpdate()
   }
 
-  UNSAFE_componentWillMount () {
+  componentDidMount () {
     this.unsubscribe = this.props.store.subscribe(this.update.bind(this))
   }
 
   componentWillUnmount() {
-    this.unsubscribe()
+    if (this.unsubscribe) this.unsubscribe()
   }
 
   async yearChange(id) {

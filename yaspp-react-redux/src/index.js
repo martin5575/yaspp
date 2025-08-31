@@ -32,7 +32,9 @@ store.subscribe(
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
+  <React.StrictMode>
   <Provider store={store}>
-    <Root store={store} />
-  </Provider>
+      <Root store={store} />
+    </Provider>
+  </React.StrictMode>
 )
