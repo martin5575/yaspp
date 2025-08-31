@@ -5,10 +5,9 @@ import { Badge, Button, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reacts
 import { calcStats } from '../stats/seasonInfo';
 import { MatchDetails } from './MatchDetails';
 import { IconButton } from '../components/IconButton';
-import { MatchDayOptionsButton } from './MatchDayOptionsButton';
 import { ButtonGroup, ButtonToolbar } from 'reactstrap';
-import { PercentageButton } from '../components/PercentageButton';
 import  MatchdayNavigator  from '../components/MatchdayNavigator';
+import GameSelector from '../components/GameSelector';
 import { getKey } from '../stats/statsType'
 import * as actionBuilder from '../actions/ActionBuilder'
 import { sortBy } from 'lodash';
@@ -17,6 +16,7 @@ import moment from 'moment';
 const logoSize = 40
 
 function SingleMatchView(props) {
+  const { triggerClass } = props
   const [visible, setVisible] = useState(false)
   const [matchNo, setMatchNo] = useState(0)
 
@@ -48,10 +48,12 @@ function SingleMatchView(props) {
 
   return (<div>
       <Button
-      className="btn btn-secondary"
+      className={triggerClass || "btn btn-secondary"}
       onClick={() => setVisible(!visible)}
+      title='Open Single Match view'
+      aria-label='Open Single Match view'
     >
-      <FontAwesomeIcon icon="ellipsis-v" />
+      <FontAwesomeIcon icon="futbol" />
     </Button>
     <Offcanvas fade isOpen={visible} toggle={() => setVisible(!visible)} direction='top' backdrop={false} style={{'height': "100%"}}>
       <OffcanvasHeader toggle={() => setVisible(!visible)}>
@@ -60,29 +62,11 @@ function SingleMatchView(props) {
       <OffcanvasBody>
         <ButtonToolbar>
           <ButtonGroup>
-            <MatchDayOptionsButton selectedModelId={selectedModelId} />
           </ButtonGroup>
           <MatchdayNavigator store={store} />
-            <ButtonGroup>
-              <PercentageButton
-                  state={state}
-                  onClick={dispatchPercentage}
-                />
-            </ButtonGroup>
         </ButtonToolbar>
-        <div className="d-flex justify-content-between align-middle mt-3 mb-3">
-        <IconButton icon="caret-left" style={{'height': logoSize+"px", 'width': logoSize+"px"}}
-          handleClick={()=>setMatchNo(matchNo<=0 ? matchs.length-1 : 0 + matchNo-1)} />  
-          <span style={{lineHeight: logoSize+"px"}} >{ teamHome.shortName.substring(0,3).toUpperCase()}</span>
-        
-        <img src={teamHome.iconUrl} alt={teamHome.name} 
-                        height={logoSize}
-                        width={logoSize}/>
-        <img src={teamAway.iconUrl} alt={teamAway.name} 
-                        height={logoSize}
-                        width={logoSize}/>
-        <span style={{lineHeight: logoSize+"px"}}>{ teamAway.shortName.substring(0,3).toUpperCase()}</span>
-        <IconButton icon="caret-right" handleClick={()=>setMatchNo((matchNo+1)%matchs.length)} />
+        <div className="d-flex justify-content-center align-middle mt-3 mb-2">
+          <GameSelector matches={matchs} teams={teams} index={matchNo} onChange={setMatchNo} logoSize={logoSize} />
         </div>
         <div className="text-center"><small>{moment(match?.matchDateTime).format('LLLL')}</small></div>        
         <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>

@@ -1,0 +1,13 @@
+.year-selector{display:flex;align-items:center;gap:6px;min-width:0}
+.ys-toggle{background:#fff;border:1px solid #e1e5ea;color:#222}
+.ys-current{display:flex;align-items:center;gap:10px}
+.ys-line1{font-weight:600;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ys-count{margin-left:8px;background:#f2f3f5;border:1px solid #e1e5ea;border-radius:999px;padding:2px 6px;font-size:12px;color:#333}
+.ys-menu{max-height:300px;overflow:auto}
+.ys-item{display:flex;align-items:center;gap:8px}
+.ys-item-label{font-size:13px}
+.ys-search{display:flex;gap:6px;align-items:center;padding:6px 8px;border-bottom:1px solid #eceff3;position:sticky;top:0;background:#fff;z-index:1}
+.ys-input{flex:1;border:1px solid #e1e5ea;border-radius:6px;padding:6px 8px;font-size:13px}
+.ys-clear{border:none;background:transparent;font-size:18px;line-height:1;color:#666}
+.ys-latest-btn{border:1px dashed #e1e5ea;background:#fff;border-radius:8px;padding:4px 8px;font-size:12px;color:#333}
+@media (max-width:390px){.ys-count{padding:1px 5px;font-size:11px}.ys-item-label{font-size:12px}}

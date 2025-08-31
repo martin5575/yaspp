@@ -1,0 +1,10 @@
+.yaspp-top{flex-wrap:nowrap}
+.yaspp-top .year-selector{min-width:0}
+.yaspp-top .ys-current{overflow:hidden}
+.yaspp-top .ys-line1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yaspp-top .ms-auto{flex-shrink:0}
+.yaspp-top .tb-btn{margin-left:4px}
+
+@media (max-width: 576px){
+  .yaspp-top .ys-count{display:none}
+}

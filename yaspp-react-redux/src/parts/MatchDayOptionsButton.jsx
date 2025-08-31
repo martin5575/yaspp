@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { switchModel } from '../actions/ActionBuilder';
 import { Button } from 'reactstrap'
 
-const OptionsButton = ({ onClick, disabled }) => {
+const OptionsButton = ({ onClick, disabled, className, title }) => {
   return (
     <Button
-      className="btn btn-secondary"
+  className={className || "btn btn-secondary"}
       onClick={onClick}
       disabled={disabled}
+  title={title}
+  aria-label={title}
     >
       <FontAwesomeIcon icon="sliders-h" />
     </Button>

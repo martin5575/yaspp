@@ -1,0 +1,6 @@
+.tb-btn{border:1px solid #e1e5ea;background:#ffffff;border-radius:999px;padding:4px 8px;color:#222;box-shadow:0 0 0 rgba(0,0,0,0);transition:background .15s ease,border-color .15s ease,box-shadow .15s ease}
+.tb-btn:hover{background:#f6f8fb;border-color:#d9dee5}
+.tb-btn:active{background:#eef1f6;border-color:#cfd6df}
+.tb-btn:focus{outline:0;box-shadow:0 0 0 3px rgba(13,110,253,.15)}
+.tb-btn[disabled]{opacity:.6}
+.tb-btn .svg-inline--fa{vertical-align:-0.125em}

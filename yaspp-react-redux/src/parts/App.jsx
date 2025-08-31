@@ -21,7 +21,6 @@ import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'
 import { ButtonGroup, ButtonToolbar } from 'reactstrap'
-import AgentsView from './Agents/AgentsView'
 
 function App({ store }) {
   const [, setTick] = useState(0)
@@ -47,25 +46,7 @@ function App({ store }) {
     <div className="container.fluid">
       <div className="row justify-content-center m-0 p-0">
         <ButtonToolbar className='m-0 p-0'>
-          <ButtonGroup>
-            <SingleMatchView store={store} teams={teams} seasonInfo={seasonInfo} relevantMatchs={relevantMatchs} selectedModelId={selectedModelId} />
-            <MatchDayOptionsButton selectedModelId={selectedModelId} />
-            <AgentsView store={store} />
-          </ButtonGroup>
-          <MatchdayNavigator store={store} />
-          <ButtonGroup>
-            <PercentageButton
-              state={state}
-              onClick={(s) =>
-                store.dispatch(
-                  actionBuilder.showPercentage(!s.ui.showPercentage)
-                )
-              }
-            />
-          </ButtonGroup>
-          <ButtonGroup>
-            <RefreshCurrentMatchDayButton />
-          </ButtonGroup>
+          <MatchdayNavigator store={store} hideActions={false} />
         </ButtonToolbar>
       </div>
       <div className="container-fluid">

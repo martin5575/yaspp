@@ -13,7 +13,11 @@ import { getAllLeagues } from '../reducers/selectors/modelSelector'
 
 function MainMenu(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => {
+    const next = !isOpen
+    setIsOpen(next)
+    if (typeof props.onOpenChange === 'function') props.onOpenChange(next)
+  }
 
   function selectMenu(event) {
     const store = props.store
@@ -37,7 +41,7 @@ function MainMenu(props) {
   return (
     <React.StrictMode>
       <NavbarToggler className='me-2' onClick={toggle} />
-      <Collapse isOpen={isOpen} {...props}>
+      <Collapse isOpen={isOpen}>
         <div className='vw-100'>
         <Nav navbar vertical="sm" fill={false}>
             <NavbarText>

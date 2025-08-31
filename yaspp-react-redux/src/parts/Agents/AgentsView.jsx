@@ -97,6 +97,7 @@ const viewModes = [
 
 function AgentsView(props) {
   const store = props.store;
+  const triggerClass = props.triggerClass
   const state = store.getState()
   console.log("AgentsView", state)
 
@@ -200,8 +201,10 @@ function AgentsView(props) {
 
   return (<div>
       <Button
-      className="btn btn-secondary"
+      className={triggerClass || "btn btn-secondary"}
       onClick={() => setVisible(!visible)}
+      title='Open Agents view'
+      aria-label='Open Agents view'
     >
       <FontAwesomeIcon icon="robot" />
     </Button>
