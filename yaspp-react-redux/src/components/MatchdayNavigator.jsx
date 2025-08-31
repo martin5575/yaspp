@@ -61,7 +61,7 @@ function MatchdayNavigator({ store, hideActions }) {
   }
 
   return (
-    <div className='d-flex align-items-center' style={{ gap: 4, flexWrap: 'nowrap' }}>
+    <div className='matchday-nav d-flex align-items-center'>
       <MatchdaySelector
         days={relevantMatchDays}
         index={index}

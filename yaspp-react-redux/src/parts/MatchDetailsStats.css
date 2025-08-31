@@ -4,9 +4,9 @@
 .match-stats-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    padding: 8px 12px;
+    padding: 0;
 }
 
 .team-card {
@@ -84,4 +84,18 @@
     width: 0%;
     border-radius: 999px;
     transition: width 300ms ease;
+}
+
+/* Keep side-by-side on small screens, but condense spacing and fonts */
+@media (max-width: 400px){
+    .match-stats-cards{gap:8px}
+    .team-card{padding:8px 10px}
+    .team-head{margin-bottom:4px}
+    .team-head img{width:28px;height:28px}
+    .team-rank{font-size:16px}
+    .stats-title{font-size:10px;margin-bottom:2px}
+    .kpi-row{gap:6px}
+    .kpi-val{font-size:14px}
+    .kpi-label{font-size:9px}
+    .kpi-bar{height:5px}
 }

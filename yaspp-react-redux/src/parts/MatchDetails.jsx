@@ -27,14 +27,14 @@ export function MatchDetails(props) {
   const modelShortDescription = getShort(getKey(selectedModelId))
 
   const Overview = (
-    <div className='d-flex-column'>
-      <MatchDetailsStats className="mt-3" teams={teams} match={match} seasonInfo={seasonInfo} selectedModelId={selectedModelId} /> 
-      <div className='d-flex justify-content-around'>
-        <MatchDetailsTop3 className="mt-3" stats={stats} />
-        <MatchDetailsKicktippTop3 className="mt-3" stats={stats} />
+    <div className='md-overview'>
+      <MatchDetailsStats teams={teams} match={match} seasonInfo={seasonInfo} selectedModelId={selectedModelId} />
+      <div className='md-two-col'>
+        <MatchDetailsTop3 stats={stats} />
+        <MatchDetailsKicktippTop3 stats={stats} />
       </div>
-      <div className='text-center'>
-        <span>Model: {modelShortDescription}</span>
+      <div className='md-model-note'>
+        Model: {modelShortDescription}
       </div>
     </div>
   )

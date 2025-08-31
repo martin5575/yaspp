@@ -3,14 +3,15 @@ import './MatchDetailsKicktippTop3.css'
 import { getTopTippResults } from '../kicktipp'
 
 export function MatchDetailsKicktippTop3(props) {
-  const hg = props.stats.home
-  const ag = props.stats.away
+  const { stats, className = '' } = props
+  const hg = stats.home
+  const ag = stats.away
   const numberOfGoals = [0, 1, 2, 3, 4, 5, 6]
   const topTippResults = getTopTippResults(hg, ag, numberOfGoals, 3)
   const maxExp = Math.max(...topTippResults.map(r => r.expectedPoints || 0), 1)
 
   return (
-    <div className="kicktipp-card">
+    <div className={`kicktipp-card ${className}`}>
       <div className='kicktipp-header'>Tipp 3</div>
       <div className='kicktipp-list'>
         {topTippResults.map((t, idx) => (

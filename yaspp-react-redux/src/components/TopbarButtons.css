@@ -4,3 +4,13 @@
 .tb-btn:focus{outline:0;box-shadow:0 0 0 3px rgba(13,110,253,.15)}
 .tb-btn[disabled]{opacity:.6}
 .tb-btn .svg-inline--fa{vertical-align:-0.125em}
+
+/* Condense on small screens (e.g., iPhone 12 width ~390px) */
+@media (max-width: 400px){
+	.tb-btn{padding:2px 6px}
+	.btn-group{gap:4px}
+	.matchday-nav{gap:4px;flex-wrap:nowrap}
+}
+
+/* Default spacing for matchday-nav */
+.matchday-nav{gap:6px;flex-wrap:nowrap}

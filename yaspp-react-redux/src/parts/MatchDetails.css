@@ -6,3 +6,13 @@
 .md-tab.active:before{content:"";position:absolute;inset:0;background:#fff;border-radius:999px;box-shadow:0 1px 2px rgba(0,0,0,.06),inset 0 0 0 1px rgba(0,0,0,.06)}
 .md-tab-label{position:relative;z-index:1}
 .md-panel{padding:4px 2px}
+
+/* Overview responsive grid */
+.md-overview{display:grid;grid-template-columns:1fr;gap:12px}
+.md-two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.md-model-note{text-align:center;color:#555;font-size:12px;margin-top:4px}
+
+@media (max-width: 400px){
+	.md-two-col{gap:8px}
+	.md-model-note{font-size:11px}
+}

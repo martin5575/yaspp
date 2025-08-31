@@ -14,8 +14,9 @@ const formatProbOrRate = (showPercentage, value) =>
   showPercentage ? formatPercentage(value) : formatRate(value)
 
 export function MatchDetailsTop3(props) {
-  const hg = props.stats.home
-  const ag = props.stats.away
+  const { stats, className = '' } = props
+  const hg = stats.home
+  const ag = stats.away
     const probs = calcResultProbs(hg, ag, 7, 0.01)
     const numberOfGoals = [0,1,2,3,4,5,6]
     const probsList = []
@@ -27,7 +28,7 @@ export function MatchDetailsTop3(props) {
     const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
   const maxProb = Math.max(...sortedProbs.slice(0,3).map(p=>p.prob), 1)
   return (
-    <div className="prob-card">
+    <div className={`prob-card ${className}`}>
       <div className='prob-header'>Top 3</div>
       <div className='prob-list'>
         {sortedProbs.slice(0,3).map((p, idx) => (
