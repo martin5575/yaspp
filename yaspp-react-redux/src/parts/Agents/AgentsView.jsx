@@ -104,17 +104,24 @@ function AgentsView(props) {
   const [visible, setVisible] = useState(false)
   const [viewMode, setViewMode] = useState(0)
   const [year, setYear] = useState(initialYear)
+
+  // Keep local year in sync with global selection (e.g., Navbar changes)
+  useEffect(() => {
+    if (state.ui.selectedYear && state.ui.selectedYear !== year) {
+      setYear(state.ui.selectedYear)
+    }
+  }, [state.ui.selectedYear])
+
+  // Fetch data when league/year changes
   useEffect(() => { 
-    console.log("year changed")
     if (selectedLeague && year &&  year!==state.model.currentMatchDay.year) {
       const matchDays = state.model.matchDays?.filter(x => x.league === selectedLeague && x.year === year);
-      const matchsPerMatchDay = groupBy(state.model.matchs?.filter(x => x.league === selectedLeague && x.year === year), x=>x.matchDayId)
+      const matchsPerMatchDay = groupBy(state.model.matchs?.filter(x=>x.league === selectedLeague && x.year === year), x=>x.matchDayId)
       if (matchDays.length!= Object.keys(matchsPerMatchDay).length) {
-        console.log("dispatchFetchAllMatchs for year "+ year)
         dispatchFetchAllMatchs(props.store, selectedLeague, year)
       }
     }
-    setYear(year)}, [year])
+  }, [year, selectedLeague])
 
   const updateViewMode = (step) => setViewMode((viewMode + 3 + step) % 3)
 
