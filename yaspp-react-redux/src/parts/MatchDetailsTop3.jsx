@@ -25,13 +25,23 @@ export function MatchDetailsTop3(props) {
       })
     })
     const sortedProbs = _.sortBy(probsList, x=>-x.prob); 
-  return (<div className="flex-column">
-      <div className='text-center'><small><b>TOP 3</b></small></div>
-      {[0,1,2].map(x=> (
-      <div className='text-center' key={"top-prob-"+x}>
-      <small><b>{sortedProbs[x].result}</b> ({(sortedProbs[x].prob*100).toFixed(1)}%)</small>
+  const maxProb = Math.max(...sortedProbs.slice(0,3).map(p=>p.prob), 1)
+  return (
+    <div className="prob-card">
+      <div className='prob-header'>Top 3</div>
+      <div className='prob-list'>
+        {sortedProbs.slice(0,3).map((p, idx) => (
+          <div className='prob-item' key={`top-prob-${idx}`} title={`Wahrscheinlichkeit für ${p.result}: ${(p.prob*100).toFixed(1)}%`}>
+            <span className='prob-rank'>{idx + 1}</span>
+            <span className='prob-result'>{p.result}</span>
+            <span className='prob-val'>{(p.prob*100).toFixed(1)}%</span>
+            <div className='prob-bar'>
+              <div className='prob-bar-fill' style={{ width: `${(100 * p.prob) / maxProb}%` }} />
+            </div>
+          </div>
+        ))}
       </div>
-      ))}
+      <div className='prob-note'>Wahrscheinlichkeit</div>
     </div>
-    ) 
+  ) 
 }

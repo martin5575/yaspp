@@ -1,0 +1,8 @@
+.md-tabs-wrapper{display:flex;justify-content:center;margin-bottom:8px}
+.md-tabs{display:inline-grid;grid-auto-flow:column;gap:0;background:#f2f3f5;border:1px solid #e1e5ea;border-radius:999px;padding:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.md-tab{position:relative;appearance:none;border:0;background:transparent;color:#444;padding:6px 12px;font-size:13px;border-radius:999px;cursor:pointer;transition:color .15s ease}
+.md-tab:hover{color:#111}
+.md-tab.active{color:#111}
+.md-tab.active:before{content:"";position:absolute;inset:0;background:#fff;border-radius:999px;box-shadow:0 1px 2px rgba(0,0,0,.06),inset 0 0 0 1px rgba(0,0,0,.06)}
+.md-tab-label{position:relative;z-index:1}
+.md-panel{padding:4px 2px}

@@ -1,12 +1,18 @@
-.score-card {
-    margin: 1px;
-    border: 2px;
-    flex-grow: 1;
-    flex-basis: 0;
-}
-.diagonal {
-    border: 2px dotted darkgray
-}
-.non-diagonal {
-    border: 2px solid white
-}
+/* Heatmap modern card */
+.heatmap-card{border:1px solid rgba(0,0,0,0.08);border-radius:10px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.04);padding:10px}
+.hm-title{font-size:14px;font-weight:600;margin-bottom:8px;color:#333}
+.hm-grid{display:grid;grid-template-columns:40px repeat(7,1fr);gap:4px}
+.hm-cell{min-height:36px;display:flex;align-items:center;justify-content:center;border-radius:6px}
+.hm-corner{background:transparent}
+.hm-colhdr,.hm-rowhdr{background:#f6f7f9;color:#555;font-weight:600}
+.hm-data{position:relative;color:#111}
+.hm-data.diag{position:relative}
+.hm-data.diag::after{content:"";position:absolute;inset:3px;border-radius:4px;border:2px dotted rgba(0,0,0,0.35);pointer-events:none}
+.hm-data.diag.darkbg::after{border-color:rgba(255,255,255,0.85)}
+.hm-data.diag.lightbg::after{border-color:rgba(0,0,0,0.5)}
+.hm-pct{font-size:12px}
+.hm-pct.light{color:#111;text-shadow:0 1px 0 rgba(255,255,255,0.6)}
+.hm-pct.dark{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,0.25)}
+.hm-legend{display:flex;align-items:center;gap:8px;margin-top:10px}
+.hm-legend-bar{flex:1;height:8px;border-radius:999px;background:linear-gradient(90deg,hsl(210 80% 96%),hsl(210 80% 40%))}
+.hm-legend-labels{display:flex;justify-content:space-between;width:160px;font-size:12px;color:#666}

@@ -1,3 +1,87 @@
 .bold {
     font-weight: bold;
 }
+.match-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.team-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.team-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.team-rank {
+    font-weight: 700;
+    font-size: 18px;
+    color: #333;
+}
+
+.stats-section {
+    margin-top: 6px;
+}
+
+.stats-section.emph .stats-title {
+    color: #111;
+}
+
+.stats-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.kpi {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+}
+
+.kpi-val {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.kpi-label {
+    text-align: center;
+    font-size: 10px;
+    color: #777;
+    margin-top: -2px;
+}
+
+.kpi-bar {
+    height: 6px;
+    background: #f0f2f5;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.kpi-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6c757d, #9aa1a7);
+    width: 0%;
+    border-radius: 999px;
+    transition: width 300ms ease;
+}
