@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import Root from './Root'
 
 import { createStore, applyMiddleware } from 'redux'
@@ -29,9 +29,10 @@ store.subscribe(
   }, 1000)
 )
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(
   <Provider store={store}>
     <Root store={store} />
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 )
