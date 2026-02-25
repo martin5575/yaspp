@@ -28,7 +28,13 @@ export function MatchDetails(props) {
 
   const Overview = (
     <div className='md-overview'>
-      <MatchDetailsStats teams={teams} match={match} seasonInfo={seasonInfo} selectedModelId={selectedModelId} />
+      <MatchDetailsStats 
+        teams={teams} 
+        match={match} 
+        seasonInfo={seasonInfo} 
+        selectedModelId={selectedModelId}
+        matches={stats?.matchs || []} 
+      />
       <div className='md-two-col'>
         <MatchDetailsTop3 stats={stats} />
         <MatchDetailsKicktippTop3 stats={stats} />

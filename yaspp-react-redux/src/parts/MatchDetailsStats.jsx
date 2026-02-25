@@ -1,9 +1,11 @@
 import React from 'react'
 import './MatchDetailsStats.css'
 import { getKey } from '../stats/statsType'
+import TeamFormChart from './TeamFormChart'
+import { getTeamMatches, getTeamInfo } from './teamFormSelectors'
 
 function MatchDetailsStats(props) {
-    const teamCard = (team, info, rank, highlights, maxima) => {
+    const teamCard = (team, info, rank, highlights, maxima, matches, teamData) => {
         const bar = (val, max) => {
             const v = Math.max(0, Number(val) || 0)
             const m = Math.max(1, Number(max) || 1)
@@ -78,11 +80,25 @@ function MatchDetailsStats(props) {
                         </div>
                     </div>
                 </div>
+
+                {/* Team Form Chart Integration */}
+                {matches && matches.length > 0 && (
+                    <div className='stats-section form-chart-section'>
+                        <div className='stats-title'>LETZTE 5 SPIELE</div>
+                        <TeamFormChart
+                            teamId={team.id}
+                            matches={matches}
+                            teamData={teamData}
+                            width={350}
+                            height={100}
+                        />
+                    </div>
+                )}
             </div>
         )
     }
 
-    const { teams, match, seasonInfo, selectedModelId } = props
+    const { teams, match, seasonInfo, selectedModelId, matches = [] } = props
     const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
 
@@ -117,10 +133,25 @@ function MatchDetailsStats(props) {
         away: ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHome,
     })
 
+    // Get team data for form charts
+    const teamHomeData = {
+        id: teamHome.id,
+        name: teamHome.name,
+        shortName: teamHome.shortName || teamHome.name?.substring(0, 3).toUpperCase(),
+        logo: teamHome.iconUrl
+    }
+
+    const teamAwayData = {
+        id: teamAway.id,
+        name: teamAway.name,
+        shortName: teamAway.shortName || teamAway.name?.substring(0, 3).toUpperCase(),
+        logo: teamAway.iconUrl
+    }
+
     return (
         <div className='match-stats-cards'>
-            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima)}
-            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima)}
+            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima, matches, teamHomeData)}
+            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima, matches, teamAwayData)}
         </div>
     )
 }
