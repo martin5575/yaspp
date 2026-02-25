@@ -2,7 +2,6 @@ import React from 'react'
 import './MatchDetailsStats.css'
 import { getKey } from '../stats/statsType'
 import TeamFormChart from './TeamFormChart'
-import { getTeamMatches, getTeamInfo } from './teamFormSelectors'
 
 function MatchDetailsStats(props) {
     const teamCard = (team, info, rank, highlights, maxima, matches, teamData) => {
