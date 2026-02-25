@@ -81,9 +81,9 @@ function MatchDetailsStats(props) {
                 </div>
 
                 {/* Team Form Chart Integration */}
-                {matches && matches.length > 0 && (
-                    <div className='stats-section form-chart-section'>
-                        <div className='stats-title'>LETZTE 5 SPIELE</div>
+                <div className='stats-section form-chart-section'>
+                    <div className='stats-title'>LETZTE 5 SPIELE</div>
+                    {matches && matches.length > 0 ? (
                         <TeamFormChart
                             teamId={team.id}
                             matches={matches}
@@ -91,8 +91,17 @@ function MatchDetailsStats(props) {
                             width={350}
                             height={100}
                         />
-                    </div>
-                )}
+                    ) : (
+                        <div className='chart-placeholder'>
+                            <div style={{ textAlign: 'center', color: '#6c757d', fontSize: '12px', padding: '20px' }}>
+                                📊 Form chart will appear here when match data is available
+                                <div style={{ fontSize: '11px', marginTop: '4px' }}>
+                                    (Requires matches data from OpenLigaDB)
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         )
     }
@@ -100,6 +109,14 @@ function MatchDetailsStats(props) {
     const { teams, match, seasonInfo, selectedModelId, matches = [] } = props
     const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
+    
+    // Debug: log matches data
+    console.log('MatchDetailsStats - matches data:', {
+        matchesCount: matches.length,
+        matchesSample: matches.slice(0, 2),
+        teamHomeId: match.teamHomeId,
+        teamAwayId: match.teamAwayId
+    })
 
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]

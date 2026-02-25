@@ -97,6 +97,16 @@
     margin-bottom: 6px;
 }
 
+.chart-placeholder {
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px dashed #ced4da;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Keep side-by-side on small screens, but condense spacing and fonts */
 @media (max-width: 400px){
     .match-stats-cards{gap:8px}
