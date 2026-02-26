@@ -43,6 +43,7 @@ function SingleMatchView(props) {
   const teamAway = teams[teamAwayId]
   const modelKey = getKey(selectedModelId)
   const stats = calcStats(seasonInfo, teamHomeId, teamAwayId, modelKey )
+  const previousMatchs = props.previousMatchs
 
   const dispatchPercentage = () => store.dispatch(actionBuilder.showPercentage(!state.ui.showPercentage))
 
@@ -69,7 +70,8 @@ function SingleMatchView(props) {
           <GameSelector matches={matchs} teams={teams} index={matchNo} onChange={setMatchNo} logoSize={logoSize} />
         </div>
         <div className="text-center"><small>{moment(match?.matchDateTime).format('LLLL')}</small></div>        
-        <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
+        <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} 
+          selectedModelId={selectedModelId} stats={stats} previousMatchs={previousMatchs}/>
       </OffcanvasBody>
     </Offcanvas>
   </div>

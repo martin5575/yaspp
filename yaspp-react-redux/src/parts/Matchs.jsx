@@ -30,6 +30,7 @@ function Matchs(props) {
           statsDescription={statsDescription}
           selectedModelId={selectedModelId}
           showPercentage={showPercentage}
+          previousMatchs={props.previousMatchs}
           probabilityDetailsMatchId={props.probabilityDetailsMatchId}
           toggleProbabilityDetails={props.toggleProbabilityDetails}
         />

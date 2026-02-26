@@ -1,9 +1,10 @@
 import React from 'react'
 import './MatchDetailsStats.css'
 import { getKey } from '../stats/statsType'
+import TeamFormChart from './TeamFormChart'
 
 function MatchDetailsStats(props) {
-    const teamCard = (team, info, rank, highlights, maxima) => {
+    const teamCard = (team, info, rank, highlights, maxima, matches, teamData, allTeams) => {
         const bar = (val, max) => {
             const v = Math.max(0, Number(val) || 0)
             const m = Math.max(1, Number(max) || 1)
@@ -78,13 +79,44 @@ function MatchDetailsStats(props) {
                         </div>
                     </div>
                 </div>
+
+                {/* Team Form Chart Integration */}
+                <div className='stats-section form-chart-section'>
+                    <div className='stats-title'>LETZTE 5 SPIELE</div>
+                    {matches && matches.length > 0 ? (
+                        <TeamFormChart
+                            teamId={team.id}
+                            matches={matches}
+                            teamData={teamData}
+                            allTeams={allTeams}
+                            width={350}
+                            height={100}
+                        />
+                    ) : (
+                        <div className='chart-placeholder'>
+                            <div style={{ textAlign: 'center', color: '#6c757d', fontSize: '12px', padding: '20px' }}>
+                                📊 Form chart will appear here when match data is available
+                                <div style={{ fontSize: '11px', marginTop: '4px' }}>
+                                    (Requires matches data from OpenLigaDB)
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         )
     }
 
-    const { teams, match, seasonInfo, selectedModelId } = props
+    const { teams, match, seasonInfo, selectedModelId, matches} = props
     const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
+    
+    console.log('MatchDetailsStats - matches data:', {
+        matchesCount: matches.length,
+        matchesSample: matches.slice(0, 2),
+        teamHomeId: match.teamHomeId,
+        teamAwayId: match.teamAwayId
+    })
 
     const teamHome = teams[match.teamHomeId]
     const teamAway = teams[match.teamAwayId]
@@ -117,12 +149,27 @@ function MatchDetailsStats(props) {
         away: ["hg_vs_ag", "hgdf_vs_agdf"].includes(modelKey) && !isHome,
     })
 
+    // Get team data for form charts
+    const teamHomeData = normalizeTeamData(teamHome);
+    const teamAwayData = normalizeTeamData(teamAway);
+    const allTeams = Object.values(teams).map(t => normalizeTeamData(t));
+
     return (
         <div className='match-stats-cards'>
-            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima)}
-            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima)}
+            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima, matches, teamHomeData, allTeams)}
+            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima, matches, teamAwayData, allTeams)}
         </div>
     )
+}
+
+function normalizeTeamData(team) {
+    return {
+        id: team.id,
+        name: team.name,
+        shortName: team.shortName || team.name?.substring(0, 3).toUpperCase(),
+        threeLetter: team.shortName ? team.shortName.substring(0, 3).toUpperCase() : team.name?.substring(0, 3).toUpperCase(),
+        logo: team.iconUrl
+    }
 }
 
 export default MatchDetailsStats

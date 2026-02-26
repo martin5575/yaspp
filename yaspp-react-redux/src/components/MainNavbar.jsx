@@ -16,7 +16,7 @@ import { Navbar, NavbarBrand } from 'reactstrap'
 import SingleMatchView from '../parts/SingleMatchView'
 import AgentsView from '../parts/Agents/AgentsView'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
-import { getSeasonInfo } from '../stats/seasonInfo'
+import { getSeasonInfo, getPreviousMatchs } from '../stats/seasonInfo'
 import './TopbarButtons.css'
 import './Navbar.css'
 
@@ -44,6 +44,7 @@ function MainNavbar({ store }) {
   const relevantMatchs = getSelectedMatchs(state)
   const teams = getAllTeams(state)
   const seasonInfo = getSeasonInfo(state)
+  const previousMatchs = getPreviousMatchs(state)
   const selectedModelId = state.ui.selectedModelId
 
   return (
@@ -60,6 +61,7 @@ function MainNavbar({ store }) {
             teams={teams}
             seasonInfo={seasonInfo}
             relevantMatchs={relevantMatchs}
+            previousMatchs={previousMatchs}
             selectedModelId={selectedModelId}
             triggerClass={'tb-btn btn btn-sm'}
           />
