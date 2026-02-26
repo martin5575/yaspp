@@ -26,6 +26,7 @@ function Match(props) {
   const selectedModelId = props.selectedModelId
   const probabilityDetailsMatchId = props.probabilityDetailsMatchId
   const isProbabilityDetailsShown = match.id === probabilityDetailsMatchId
+  const previousMatchs = props.previousMatchs
 
   const teamHome = teams[match.teamHomeId]
   const teamAway = teams[match.teamAwayId]
@@ -105,7 +106,8 @@ function Match(props) {
       </div>
       <div className="row">
         <Collapse className='col-12' isOpen={isProbabilityDetailsShown}>
-          <MatchDetails className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
+          <MatchDetails className="p-1" match={match} teams={teams} seasonInfo={seasonInfo} 
+            selectedModelId={selectedModelId} stats={stats} previousMatchs={previousMatchs} />
         </Collapse>
       </div>
   </>

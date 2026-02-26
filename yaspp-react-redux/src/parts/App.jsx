@@ -16,7 +16,7 @@ import  SingleMatchView  from './SingleMatchView'
 
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
-import { getSeasonInfo } from '../stats/seasonInfo'
+import { getSeasonInfo, getPreviousMatchs } from '../stats/seasonInfo'
 import { PercentageButton } from '../components/PercentageButton'
 
 import * as actionBuilder from '../actions/ActionBuilder'
@@ -37,6 +37,7 @@ function App({ store }) {
 
   const relevantMatchs = getSelectedMatchs(state)
   const teams = getAllTeams(state)
+  const previousMatchs = getPreviousMatchs(state)
   const seasonInfo = getSeasonInfo(state)
   const showPercentage = state.ui.showPercentage
   const selectedModelId = state.ui.selectedModelId
@@ -56,6 +57,7 @@ function App({ store }) {
               matchs={relevantMatchs}
               teams={teams}
               seasonInfo={seasonInfo}
+              previousMatchs={previousMatchs}
               showPercentage={showPercentage}
               selectedModelId={selectedModelId}
               probabilityDetailsMatchId={probabilityDetailsMatchId}

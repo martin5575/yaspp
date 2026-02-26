@@ -18,6 +18,7 @@ const TeamFormChart = ({
   teamId, 
   matches, 
   teamData = {}, 
+  allTeams = [],
   width = 400, 
   height = 120 
 }) => {
@@ -31,36 +32,32 @@ const TeamFormChart = ({
     // Filter matches involving this team and sort by date (newest first)
     const teamMatches = matches
       .filter(match => 
-        (match.Team1?.TeamId === teamId || match.Team2?.TeamId === teamId) &&
-        match.MatchResults?.length > 0
+        (match.teamHomeId === teamId || match.teamAwayId === teamId)
       )
-      .sort((a, b) => new Date(b.MatchDateTime) - new Date(a.MatchDateTime))
+      .sort((a, b) => new Date(b.matchDateTime) - new Date(a.matchDateTime))
       .slice(0, 5) // Last 5 matches
       .reverse(); // Oldest to newest for left-to-right display
     
     return teamMatches.map(match => {
-      const isHome = match.Team1?.TeamId === teamId;
-      const opponent = isHome ? match.Team2 : match.Team1;
-      const teamGoals = isHome ? 
-        (match.MatchResults.find(r => r.ResultName === 'Endergebnis')?.PointsTeam1 || 0) :
-        (match.MatchResults.find(r => r.ResultName === 'Endergebnis')?.PointsTeam2 || 0);
-      const opponentGoals = isHome ? 
-        (match.MatchResults.find(r => r.ResultName === 'Endergebnis')?.PointsTeam2 || 0) :
-        (match.MatchResults.find(r => r.ResultName === 'Endergebnis')?.PointsTeam1 || 0);
+      const isHome = match.teamHomeId === teamId;
+      const opponent = isHome ? match.teamAwayId : match.teamHomeId;
+      const teamGoals = isHome ? match.fullTimeHome : match.fullTimeAway;
+      const opponentGoals = isHome ? match.fullTimeAway : match.fullTimeHome;
       
       let result;
       if (teamGoals > opponentGoals) result = 'W';
       else if (teamGoals < opponentGoals) result = 'L';
       else result = 'D';
-      
+      const opponentInfo = allTeams.find(t => t.id === opponent) || {};
       return {
-        matchId: match.MatchID,
-        date: new Date(match.MatchDateTime),
+        matchId: match.id,
+        date: new Date(match.matchDateTime),
         isHome,
         opponent: {
-          id: opponent?.TeamId,
-          name: opponent?.TeamName || opponent?.teamName || 'Unknown',
-          shortName: opponent?.ShortName || opponent?.shortName || 'UNK'
+          id: opponent,
+          name: opponentInfo.name || 'Unknown',
+          shortName: opponentInfo.shortName || 'UNK',
+          threeLetter: opponentInfo.threeLetter
         },
         score: `${teamGoals}-${opponentGoals}`,
         result,
@@ -69,7 +66,7 @@ const TeamFormChart = ({
         competition: match.LeagueName || 'Bundesliga'
       };
     });
-  }, [matches, teamId]);
+  }, [matches, teamId, allTeams]);
 
   useEffect(() => {
     if (!svgRef.current || formMatches.length === 0) return;
@@ -200,7 +197,7 @@ const TeamFormChart = ({
       .attr('fill', '#666')
       .attr('font-size', '11px')
       .attr('font-weight', '500')
-      .text(d => d.opponent.shortName);
+      .text(d => d.opponent.threeLetter);
 
     // Add home/away indicator
     chart.selectAll('.venue-indicator')

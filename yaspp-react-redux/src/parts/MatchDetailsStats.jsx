@@ -4,7 +4,7 @@ import { getKey } from '../stats/statsType'
 import TeamFormChart from './TeamFormChart'
 
 function MatchDetailsStats(props) {
-    const teamCard = (team, info, rank, highlights, maxima, matches, teamData) => {
+    const teamCard = (team, info, rank, highlights, maxima, matches, teamData, allTeams) => {
         const bar = (val, max) => {
             const v = Math.max(0, Number(val) || 0)
             const m = Math.max(1, Number(max) || 1)
@@ -88,6 +88,7 @@ function MatchDetailsStats(props) {
                             teamId={team.id}
                             matches={matches}
                             teamData={teamData}
+                            allTeams={allTeams}
                             width={350}
                             height={100}
                         />
@@ -106,11 +107,10 @@ function MatchDetailsStats(props) {
         )
     }
 
-    const { teams, match, seasonInfo, selectedModelId, matches = [] } = props
+    const { teams, match, seasonInfo, selectedModelId, matches} = props
     const modelKey = getKey(selectedModelId)
     if (!teams || !match || !seasonInfo) return <div>empty</div>
     
-    // Debug: log matches data
     console.log('MatchDetailsStats - matches data:', {
         matchesCount: matches.length,
         matchesSample: matches.slice(0, 2),
@@ -150,26 +150,26 @@ function MatchDetailsStats(props) {
     })
 
     // Get team data for form charts
-    const teamHomeData = {
-        id: teamHome.id,
-        name: teamHome.name,
-        shortName: teamHome.shortName || teamHome.name?.substring(0, 3).toUpperCase(),
-        logo: teamHome.iconUrl
-    }
-
-    const teamAwayData = {
-        id: teamAway.id,
-        name: teamAway.name,
-        shortName: teamAway.shortName || teamAway.name?.substring(0, 3).toUpperCase(),
-        logo: teamAway.iconUrl
-    }
+    const teamHomeData = normalizeTeamData(teamHome);
+    const teamAwayData = normalizeTeamData(teamAway);
+    const allTeams = Object.values(teams).map(t => normalizeTeamData(t));
 
     return (
         <div className='match-stats-cards'>
-            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima, matches, teamHomeData)}
-            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima, matches, teamAwayData)}
+            {teamCard(teamHome, infoHome, rankHome, highlightsFor(true), maxima, matches, teamHomeData, allTeams)}
+            {teamCard(teamAway, infoAway, rankAway, highlightsFor(false), maxima, matches, teamAwayData, allTeams)}
         </div>
     )
+}
+
+function normalizeTeamData(team) {
+    return {
+        id: team.id,
+        name: team.name,
+        shortName: team.shortName || team.name?.substring(0, 3).toUpperCase(),
+        threeLetter: team.shortName ? team.shortName.substring(0, 3).toUpperCase() : team.name?.substring(0, 3).toUpperCase(),
+        logo: team.iconUrl
+    }
 }
 
 export default MatchDetailsStats

@@ -15,7 +15,7 @@ export function MatchDetails(props) {
     const seasonInfo = props.seasonInfo;
     const stats = props.stats;
     const selectedModelId = props.selectedModelId;
-    const matchs = props.matchs || [];
+    const previousMatchs = props.previousMatchs;
     if (!teams || !match || !seasonInfo) return <div>empty</div>
 
   const views = [
@@ -34,7 +34,7 @@ export function MatchDetails(props) {
         match={match} 
         seasonInfo={seasonInfo} 
         selectedModelId={selectedModelId}
-        matches={matchs} 
+        matches={previousMatchs} 
       />
       <div className='md-two-col'>
         <MatchDetailsTop3 stats={stats} />

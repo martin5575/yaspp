@@ -53,20 +53,22 @@ const getAwayPoints = (match) =>
     return sumFields(teamInfo, 'hm', 'am')
   }
 
-
-export const getSeasonInfo = (state) => {
+export const getPreviousMatchs = (state) => {
   const league = getSelectedLeague(state)
   const year = getSelectedYear(state)
   const matchDay = getSelectedMatchDay(state)
   const allMatchs = getAllMatchs(state)
 
-  const previousMatchs = !allMatchs ? [] :
+  return !allMatchs ? [] :
     // @ts-ignore
     allMatchs.filter(
       (m) => m.year === year && m.league === league && m.isFinished &&
       m.matchDayId < matchDay
     )
-    
+}
+
+export const getSeasonInfo = (state) => {
+  const previousMatchs = getPreviousMatchs(state)
   const aggSeasonInfo = aggregateSeasonInfo(previousMatchs)
   return sortByField(aggSeasonInfo, ["tp", "tgf", "tga"]).reverse()
 }

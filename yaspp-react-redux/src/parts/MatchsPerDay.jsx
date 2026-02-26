@@ -49,6 +49,7 @@ function MatchsPerDay(props) {
           match={m}
           teams={props.teams}
           seasonInfo={props.seasonInfo}
+          previousMatchs={props.previousMatchs}
           key={m.id}
           showPercentage={showPercentage}
           selectedModelId={props.selectedModelId}
