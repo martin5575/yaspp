@@ -69,7 +69,7 @@ function SingleMatchView(props) {
           <GameSelector matches={matchs} teams={teams} index={matchNo} onChange={setMatchNo} logoSize={logoSize} />
         </div>
         <div className="text-center"><small>{moment(match?.matchDateTime).format('LLLL')}</small></div>        
-        <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats}/>
+        <MatchDetails className="p-1 mt-2" match={matchs[matchNo]} teams={teams} seasonInfo={seasonInfo} selectedModelId={selectedModelId} stats={stats} matchs={matchs}/>
       </OffcanvasBody>
     </Offcanvas>
   </div>
