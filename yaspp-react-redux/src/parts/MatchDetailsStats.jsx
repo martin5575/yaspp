@@ -89,8 +89,6 @@ function MatchDetailsStats(props) {
                             matches={matches}
                             teamData={teamData}
                             allTeams={allTeams}
-                            width={350}
-                            height={100}
                         />
                     ) : (
                         <div className='chart-placeholder'>
