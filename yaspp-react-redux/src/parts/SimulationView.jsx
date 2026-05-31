@@ -51,7 +51,7 @@ export default function SimulationView({ store, triggerClass }) {
   const [groupsOpen, setGroupsOpen]     = useState(true);
   const [computedParams, setComputedParams] = useState({});
   const [leagueAvg, setLeagueAvg]           = useState(1.3);
-  const [wc26Presets, setWc26Presets]       = useState(null);
+  const [presetsData, setPresetsData]       = useState(null); // { data, league, year }
   const workerRef = useRef(null);
 
   useEffect(() => {
@@ -68,15 +68,23 @@ export default function SimulationView({ store, triggerClass }) {
     return (getAllMatchs(st) || []).filter(m => m.league === league && m.year === year);
   }, [store]);
 
-  // Load WC26 preset params from JSON when the panel opens for a tournament league
+  // Load preset params whenever the panel opens or league/year changes
   useEffect(() => {
-    if (!visible || !isTournamentLeague(getSelectedLeague(store.getState()))) return;
-    if (wc26Presets) return; // already loaded
-    fetch('./data/wc26-params.json')
+    if (!visible) return;
+    const st     = store.getState();
+    const league = getSelectedLeague(st);
+    const year   = getSelectedYear(st);
+    if (presetsData?.league === league && presetsData?.year === year) return;
+
+    const url = isTournamentLeague(league)
+      ? `./data/wc26-params.json`                        // tournaments: fixed file
+      : `./data/${league}-${year}-params.json`;          // leagues: per season
+
+    fetch(url)
       .then(r => r.json())
-      .then(setWc26Presets)
-      .catch(err => console.warn('WC26 presets not found:', err));
-  }, [visible, store, wc26Presets]);
+      .then(d => setPresetsData({ data: d, league, year }))
+      .catch(() => setPresetsData({ data: null, league, year })); // not available — suppress button
+  }, [visible, store, presetsData]);
 
   // Recompute params when panel is open or alpha/N changes
   useEffect(() => {
@@ -122,19 +130,29 @@ export default function SimulationView({ store, triggerClass }) {
     setSimState('idle'); setProgress(0); setResults(null); setGroupsData(null); setInputsOpen(true);
   }
 
-  function applyWC26Preset() {
-    if (!wc26Presets) return;
+  function applyPreset() {
+    const pd = presetsData?.data;
+    if (!pd) return;
     const newOverrides = {};
     for (const id of teamIds) {
-      // Primary: look up by OpenLigaDB numeric team ID (most reliable)
-      const code = wc26Presets.teamIdMap?.[String(id)]
-        || wc26Presets.codeMap?.[teams[id]?.shortName || '']
-        || teams[id]?.shortName;
-      const preset = code ? wc26Presets.teams?.[code] : null;
+      // Tournament (WC26): look up via teamIdMap first, then shortName alias chain
+      // League (BL1 etc.): look up directly by numeric team ID
+      const code = pd.teamIdMap?.[String(id)]
+        || pd.codeMap?.[teams[id]?.shortName || '']
+        || teams[id]?.shortName
+        || String(id);
+      const preset = pd.teams?.[code]
+        || pd.teams?.[String(id)]          // BL1: keyed by numeric ID string
+        || (pd.promotedTeamTemplate && !pd.teams?.[code] ? pd.promotedTeamTemplate : null);
       if (preset) newOverrides[id] = { attack: preset.attack, defense: preset.defense };
     }
     setOverrides(newOverrides);
-    setGlobalParams(p => ({ ...p, leagueAvgOverride: wc26Presets.leagueAvg }));
+    setGlobalParams(p => ({
+      ...p,
+      leagueAvgOverride: pd.leagueAvg ?? p.leagueAvgOverride,
+      // Also apply calibrated home advantage if present (league preset)
+      homeAdvantage: pd.homeAdvantage ?? p.homeAdvantage,
+    }));
   }
 
   const effectiveLeagueAvg = globalParams.leagueAvgOverride ?? leagueAvg;
@@ -286,11 +304,11 @@ export default function SimulationView({ store, triggerClass }) {
             <div className="sim-section-title sim-collapse-toggle" onClick={() => setInputsOpen(o => !o)}>
               <FontAwesomeIcon icon={inputsOpen ? 'caret-down' : 'caret-right'} className="sim-caret" />
               Parameter
-              {isTournament && wc26Presets && (
+              {presetsData?.data && (
                 <button className="sim-preset-btn"
-                  onClick={e => { e.stopPropagation(); applyWC26Preset(); setInputsOpen(true); }}
-                  title="Kalibrierte WC26-Parameter aus historischen Matches + FIFA-Ranking anwenden">
-                  🎯 WC26-Preset
+                  onClick={e => { e.stopPropagation(); applyPreset(); setInputsOpen(true); }}
+                  title={`Kalibrierte Parameter für ${selectedLeague?.toUpperCase()} ${selectedYear} anwenden`}>
+                  🎯 {selectedLeague?.toUpperCase()}-Preset
                 </button>
               )}
             </div>
