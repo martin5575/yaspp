@@ -340,15 +340,8 @@ function fetchInitial(store) {
   return function (dispatch) {
     dispatch(startInitializing())
 
+    fetchLeagues()(dispatch)
     let state = store.getState()
-    if (!existLeagues(state)) {
-      fetchLeagues()(dispatch)
-      state = store.getState()
-    } else {
-      var league = getAllLeagues(state)[0]
-      dispatch(selectLeague(league.id))
-      state = store.getState()
-    }
 
     const selectedLeague = getSelectedLeague(state)
     if (!existYears(state, selectedLeague)) {
