@@ -1,28 +1,67 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Yet another sports page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASPP – Yet another sports page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .hero {
+            background: linear-gradient(135deg, #198754 0%, #0d6efd 100%);
+            color: white;
+            padding: 3rem 1rem;
+        }
+        .card {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to YASPP</h1>
-        <h2>- Yet another sports page -</h2>
+    <header class="hero text-center mb-5">
+        <h1 class="display-4 fw-bold">YASPP</h1>
+        <p class="lead mb-0">Yet another sports page — sports statistics from <a href="https://www.openligadb.de" class="text-white fw-semibold">OpenLigaDB</a></p>
     </header>
-    <main>
-        <p>Please check some sports statistics taken from e.g. open liga db.</p>
-        <p>
-            <ul>
-                <li>
-                    <a href="./simple/view.html">JS &amp; JQuery</a> simple example for one leage and season</li>
-                <li>
-                    <a href="./yaspp-react-redux/build/index.html">React-Redux</a> simple example with React and Redux</li>
-            </ul>
-        </p>
-    </main>
-    <footer>
 
-    </footer>
+    <main class="container pb-5">
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">JS &amp; jQuery</h5>
+                        <p class="card-text text-muted flex-grow-1">A simple example showing one league and season using vanilla JavaScript and jQuery.</p>
+                        <a href="./simple/view.html" class="btn btn-outline-success mt-3">Open →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">React &amp; Redux</h5>
+                        <p class="card-text text-muted flex-grow-1">A richer example built with React and Redux, featuring league tables, match results, and team form charts.</p>
+                        <a href="./yaspp-react-redux/build/index.html" class="btn btn-primary mt-3">Open →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="https://github.com/martin5575/yaspp" class="text-muted small">View on GitHub</a>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
