@@ -1,0 +1,398 @@
+{
+  "metadata": {
+    "tournament": "FIFA World Cup 2026",
+    "source": "FIFA.com (rankings as of April 1, 2026), Transfermarkt (squad market values)",
+    "lastUpdated": "2026-05-31",
+    "notes": {
+      "fifaRankingPoints": "FIFA points calculated as P = M x I x T x C (result x importance x opponent strength x confederation factor)",
+      "marketValueCurrency": "EUR",
+      "marketValueUnit": "millions"
+    }
+  },
+  "teams": [
+    {
+      "code": "FRA",
+      "name": "France",
+      "confederation": "UEFA",
+      "fifaRank": 1,
+      "fifaPoints": 1877.32,
+      "squadValueM": 1480
+    },
+    {
+      "code": "ESP",
+      "name": "Spain",
+      "confederation": "UEFA",
+      "fifaRank": 2,
+      "fifaPoints": 1876.4,
+      "squadValueM": 1270
+    },
+    {
+      "code": "ARG",
+      "name": "Argentina",
+      "confederation": "CONMEBOL",
+      "fifaRank": 3,
+      "fifaPoints": 1874.81,
+      "squadValueM": 816.5
+    },
+    {
+      "code": "ENG",
+      "name": "England",
+      "confederation": "UEFA",
+      "fifaRank": 4,
+      "fifaPoints": 1825.97,
+      "squadValueM": 1310
+    },
+    {
+      "code": "POR",
+      "name": "Portugal",
+      "confederation": "UEFA",
+      "fifaRank": 5,
+      "fifaPoints": 1763.83,
+      "squadValueM": 957
+    },
+    {
+      "code": "BRA",
+      "name": "Brazil",
+      "confederation": "CONMEBOL",
+      "fifaRank": 6,
+      "fifaPoints": 1761.16,
+      "squadValueM": 909.2
+    },
+    {
+      "code": "NLD",
+      "name": "Netherlands",
+      "confederation": "UEFA",
+      "fifaRank": 7,
+      "fifaPoints": 1757.87,
+      "squadValueM": 837.2
+    },
+    {
+      "code": "MAR",
+      "name": "Morocco",
+      "confederation": "CAF",
+      "fifaRank": 8,
+      "fifaPoints": 1755.87,
+      "squadValueM": 487.2
+    },
+    {
+      "code": "BEL",
+      "name": "Belgium",
+      "confederation": "UEFA",
+      "fifaRank": 9,
+      "fifaPoints": 1734.71,
+      "squadValueM": 530.2
+    },
+    {
+      "code": "DEU",
+      "name": "Germany",
+      "confederation": "UEFA",
+      "fifaRank": 10,
+      "fifaPoints": 1730.37,
+      "squadValueM": 998
+    },
+    {
+      "code": "HRV",
+      "name": "Croatia",
+      "confederation": "UEFA",
+      "fifaRank": 11,
+      "fifaPoints": 1717.07,
+      "squadValueM": 385.7
+    },
+    {
+      "code": "COL",
+      "name": "Colombia",
+      "confederation": "CONMEBOL",
+      "fifaRank": 13,
+      "fifaPoints": 1693.09,
+      "squadValueM": 305.45
+    },
+    {
+      "code": "SEN",
+      "name": "Senegal",
+      "confederation": "CAF",
+      "fifaRank": 14,
+      "fifaPoints": 1688.99,
+      "squadValueM": 468
+    },
+    {
+      "code": "MEX",
+      "name": "Mexico",
+      "confederation": "CONCACAF",
+      "fifaRank": 15,
+      "fifaPoints": 1681.03,
+      "squadValueM": 194.6
+    },
+    {
+      "code": "USA",
+      "name": "United States",
+      "confederation": "CONCACAF",
+      "fifaRank": 16,
+      "fifaPoints": 1673.13,
+      "squadValueM": 367.2
+    },
+    {
+      "code": "URY",
+      "name": "Uruguay",
+      "confederation": "CONMEBOL",
+      "fifaRank": 17,
+      "fifaPoints": 1673.07,
+      "squadValueM": 371.1
+    },
+    {
+      "code": "JPN",
+      "name": "Japan",
+      "confederation": "AFC",
+      "fifaRank": 18,
+      "fifaPoints": 1660.43,
+      "squadValueM": 279.05
+    },
+    {
+      "code": "CHE",
+      "name": "Switzerland",
+      "confederation": "UEFA",
+      "fifaRank": 19,
+      "fifaPoints": 1649.4,
+      "squadValueM": 331.1
+    },
+    {
+      "code": "IRN",
+      "name": "Iran",
+      "confederation": "AFC",
+      "fifaRank": 21,
+      "fifaPoints": 1615,
+      "squadValueM": 35.95
+    },
+    {
+      "code": "TUR",
+      "name": "Turkey",
+      "confederation": "UEFA",
+      "fifaRank": 22,
+      "fifaPoints": 1599,
+      "squadValueM": 536.2
+    },
+    {
+      "code": "ECU",
+      "name": "Ecuador",
+      "confederation": "CONMEBOL",
+      "fifaRank": 23,
+      "fifaPoints": 1595,
+      "squadValueM": 257.05
+    },
+    {
+      "code": "AUT",
+      "name": "Austria",
+      "confederation": "UEFA",
+      "fifaRank": 24,
+      "fifaPoints": 1593,
+      "squadValueM": 271.7
+    },
+    {
+      "code": "KOR",
+      "name": "South Korea",
+      "confederation": "AFC",
+      "fifaRank": 25,
+      "fifaPoints": 1589,
+      "squadValueM": 142.3
+    },
+    {
+      "code": "AUS",
+      "name": "Australia",
+      "confederation": "AFC",
+      "fifaRank": 27,
+      "fifaPoints": 1581,
+      "squadValueM": 69.8
+    },
+    {
+      "code": "DZA",
+      "name": "Algeria",
+      "confederation": "CAF",
+      "fifaRank": 28,
+      "fifaPoints": 1564,
+      "squadValueM": 226.8
+    },
+    {
+      "code": "EGY",
+      "name": "Egypt",
+      "confederation": "CAF",
+      "fifaRank": 29,
+      "fifaPoints": 1563,
+      "squadValueM": 135.18
+    },
+    {
+      "code": "CAN",
+      "name": "Canada",
+      "confederation": "CONCACAF",
+      "fifaRank": 30,
+      "fifaPoints": 1556,
+      "squadValueM": 204.05
+    },
+    {
+      "code": "NOR",
+      "name": "Norway",
+      "confederation": "UEFA",
+      "fifaRank": 31,
+      "fifaPoints": 1551,
+      "squadValueM": 601
+    },
+    {
+      "code": "PAN",
+      "name": "Panama",
+      "confederation": "CONCACAF",
+      "fifaRank": 33,
+      "fifaPoints": 1541,
+      "squadValueM": 34.93
+    },
+    {
+      "code": "CIV",
+      "name": "Ivory Coast",
+      "confederation": "CAF",
+      "fifaRank": 34,
+      "fifaPoints": 1533,
+      "squadValueM": 525.9
+    },
+    {
+      "code": "SWE",
+      "name": "Sweden",
+      "confederation": "UEFA",
+      "fifaRank": 38,
+      "fifaPoints": 1515,
+      "squadValueM": 428.18
+    },
+    {
+      "code": "PRY",
+      "name": "Paraguay",
+      "confederation": "CONMEBOL",
+      "fifaRank": 40,
+      "fifaPoints": 1504,
+      "squadValueM": 138.8
+    },
+    {
+      "code": "CZE",
+      "name": "Czech Republic",
+      "confederation": "UEFA",
+      "fifaRank": 41,
+      "fifaPoints": 1501,
+      "squadValueM": 196.23
+    },
+    {
+      "code": "SCO",
+      "name": "Scotland",
+      "confederation": "UEFA",
+      "fifaRank": 43,
+      "fifaPoints": 1498,
+      "squadValueM": 196.23
+    },
+    {
+      "code": "TUN",
+      "name": "Tunisia",
+      "confederation": "CAF",
+      "fifaRank": 44,
+      "fifaPoints": 1483,
+      "squadValueM": 69.25
+    },
+    {
+      "code": "COD",
+      "name": "DR Congo",
+      "confederation": "CAF",
+      "fifaRank": 46,
+      "fifaPoints": 1478,
+      "squadValueM": 147.05
+    },
+    {
+      "code": "UZB",
+      "name": "Uzbekistan",
+      "confederation": "AFC",
+      "fifaRank": 50,
+      "fifaPoints": 1465,
+      "squadValueM": 78.73
+    },
+    {
+      "code": "QAT",
+      "name": "Qatar",
+      "confederation": "AFC",
+      "fifaRank": 55,
+      "fifaPoints": 1455,
+      "squadValueM": 20.48
+    },
+    {
+      "code": "IRQ",
+      "name": "Iraq",
+      "confederation": "AFC",
+      "fifaRank": 57,
+      "fifaPoints": 1447,
+      "squadValueM": 23.9
+    },
+    {
+      "code": "ZAF",
+      "name": "South Africa",
+      "confederation": "CAF",
+      "fifaRank": 60,
+      "fifaPoints": 1430,
+      "squadValueM": 45.8
+    },
+    {
+      "code": "SAU",
+      "name": "Saudi Arabia",
+      "confederation": "AFC",
+      "fifaRank": 61,
+      "fifaPoints": 1421,
+      "squadValueM": 31.4
+    },
+    {
+      "code": "JOR",
+      "name": "Jordan",
+      "confederation": "AFC",
+      "fifaRank": 63,
+      "fifaPoints": 1391,
+      "squadValueM": 18.13
+    },
+    {
+      "code": "BIH",
+      "name": "Bosnia-Herzegovina",
+      "confederation": "UEFA",
+      "fifaRank": 65,
+      "fifaPoints": 1386,
+      "squadValueM": 149.5
+    },
+    {
+      "code": "CPV",
+      "name": "Cape Verde",
+      "confederation": "CAF",
+      "fifaRank": 69,
+      "fifaPoints": 1366,
+      "squadValueM": 56.18
+    },
+    {
+      "code": "GHA",
+      "name": "Ghana",
+      "confederation": "CAF",
+      "fifaRank": 74,
+      "fifaPoints": 1346,
+      "squadValueM": 234.75
+    },
+    {
+      "code": "CUW",
+      "name": "Curaçao",
+      "confederation": "CONCACAF",
+      "fifaRank": 82,
+      "fifaPoints": 1295,
+      "squadValueM": 26.03
+    },
+    {
+      "code": "HTI",
+      "name": "Haiti",
+      "confederation": "CONCACAF",
+      "fifaRank": 83,
+      "fifaPoints": 1292,
+      "squadValueM": 55.88
+    },
+    {
+      "code": "NZL",
+      "name": "New Zealand",
+      "confederation": "OFC",
+      "fifaRank": 85,
+      "fifaPoints": 1282,
+      "squadValueM": 35.35
+    }
+  ]
+}

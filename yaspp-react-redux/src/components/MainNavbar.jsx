@@ -15,6 +15,7 @@ import MainMenu from './MainMenu'
 import { Navbar, NavbarBrand } from 'reactstrap'
 import SingleMatchView from '../parts/SingleMatchView'
 import AgentsView from '../parts/Agents/AgentsView'
+import SimulationView from '../parts/SimulationView'
 import { getAllTeams } from '../reducers/selectors/modelSelector'
 import { getSeasonInfo, getPreviousMatchs } from '../stats/seasonInfo'
 import './TopbarButtons.css'
@@ -66,6 +67,7 @@ function MainNavbar({ store }) {
             triggerClass={'tb-btn btn btn-sm'}
           />
           <AgentsView store={store} triggerClass={'tb-btn btn btn-sm'} />
+          <SimulationView store={store} triggerClass={'tb-btn btn btn-sm'} />
         </div>
         <MainMenu store={store} onOpenChange={setMenuOpen} />
       </div>

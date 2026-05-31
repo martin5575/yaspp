@@ -1,0 +1,3604 @@
+{
+  "metadata": {
+    "tournament": "FIFA World Cup 2026",
+    "source": "Wikipedia National Football Team pages (fetched 2026-05-31)",
+    "lastUpdated": "2026-05-31T14:59:33.873Z",
+    "totalMatches": 352,
+    "teamsWithData": 35,
+    "coverageNotes": "Most teams have 10+ matches; some teams have partial data due to Wikipedia truncation",
+    "dataStructure": {
+      "date": "YYYY-MM-DD",
+      "team": "3-letter country code (team playing)",
+      "opponent": "3-letter country code",
+      "goalsFor": "goals scored by team",
+      "goalsAgainst": "goals conceded by team",
+      "homeAway": "home or away (implicit)",
+      "location": "city where match was played",
+      "matchType": "qualification, friendly, tournament, or playoff"
+    }
+  },
+  "matches": [
+    {
+      "date": "2025-03-31",
+      "team": "ARG",
+      "opponent": "ZMB",
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-03-27",
+      "team": "ARG",
+      "opponent": "MRT",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "ARG",
+      "opponent": "AGO",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Luanda",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "ARG",
+      "opponent": "PRI",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "San Juan",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "ARG",
+      "opponent": "VEN",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "ARG",
+      "opponent": "ECU",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Quito",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "ARG",
+      "opponent": "VEN",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "ARG",
+      "opponent": "COL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "ARG",
+      "opponent": "CHL",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Santiago",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-03-27",
+      "team": "ESP",
+      "opponent": "SRB",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Madrid",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-03-31",
+      "team": "ESP",
+      "opponent": "EGY",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Cairo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "ESP",
+      "opponent": "TUR",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Madrid",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "ESP",
+      "opponent": "GEO",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Tbilisi",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "ESP",
+      "opponent": "BGR",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Madrid",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-11",
+      "team": "ESP",
+      "opponent": "GEO",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Madrid",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-07",
+      "team": "ESP",
+      "opponent": "TUR",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Istanbul",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "ESP",
+      "opponent": "BGR",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Sofia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-08",
+      "team": "FRA",
+      "opponent": "DEU",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Munich",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "FRA",
+      "opponent": "ESP",
+      "goalsFor": 4,
+      "goalsAgainst": 5,
+      "homeAway": "away",
+      "location": "Valencia",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "FRA",
+      "opponent": "UKR",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Paris",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "FRA",
+      "opponent": "ISL",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Paris",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-03-31",
+      "team": "ENG",
+      "opponent": "JPN",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Tokyo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-03-27",
+      "team": "ENG",
+      "opponent": "URY",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Montevideo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-16",
+      "team": "ENG",
+      "opponent": "ALB",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Tirana",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "ENG",
+      "opponent": "SRB",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "London",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "ENG",
+      "opponent": "LVA",
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Riga",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "ENG",
+      "opponent": "WLS",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "London",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "ENG",
+      "opponent": "SRB",
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Belgrade",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-06",
+      "team": "ENG",
+      "opponent": "AND",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Andorra",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "ENG",
+      "opponent": "SEN",
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "London",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "ENG",
+      "opponent": "AND",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "London",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-17",
+      "team": "NLD",
+      "opponent": "LTU",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Amsterdam",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "NLD",
+      "opponent": "POL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Warsaw",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "NLD",
+      "opponent": "FIN",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Amsterdam",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "NLD",
+      "opponent": "MLT",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Valletta",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-07",
+      "team": "NLD",
+      "opponent": "LTU",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Vilnius",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "NLD",
+      "opponent": "POL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Amsterdam",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "NLD",
+      "opponent": "MLT",
+      "goalsFor": 8,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Amsterdam",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "NLD",
+      "opponent": "FIN",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Helsinki",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-16",
+      "team": "POR",
+      "opponent": "ARM",
+      "goalsFor": 9,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Yerevan",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "POR",
+      "opponent": "IRL",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Lisbon",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "POR",
+      "opponent": "HUN",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Lisbon",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-11",
+      "team": "POR",
+      "opponent": "IRL",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Dublin",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "POR",
+      "opponent": "HUN",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Budapest",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-06",
+      "team": "POR",
+      "opponent": "ARM",
+      "goalsFor": 0,
+      "goalsAgainst": 5,
+      "homeAway": "home",
+      "location": "Lisbon",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-08",
+      "team": "POR",
+      "opponent": "DEU",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Munich",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-04",
+      "team": "POR",
+      "opponent": "DEU",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Munich",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-03-31",
+      "team": "CHE",
+      "opponent": "NOR",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-03-27",
+      "team": "CHE",
+      "opponent": "DEU",
+      "goalsFor": 3,
+      "goalsAgainst": 4,
+      "homeAway": "away",
+      "location": "Berlin",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "CHE",
+      "opponent": "KOS",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Pristina",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "CHE",
+      "opponent": "SWE",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Zurich",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-13",
+      "team": "CHE",
+      "opponent": "SVN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Ljubljana",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "CHE",
+      "opponent": "SWE",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Zurich",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "CHE",
+      "opponent": "SVN",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Zurich",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "CHE",
+      "opponent": "KOS",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Zurich",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "CHE",
+      "opponent": "USA",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Zurich",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "CHE",
+      "opponent": "MEX",
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Mexico City",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "TUR",
+      "opponent": "KOS",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Pristina",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2026-03-26",
+      "team": "TUR",
+      "opponent": "ROU",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Istanbul",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "TUR",
+      "opponent": "ESP",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Madrid",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "TUR",
+      "opponent": "BGR",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Istanbul",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "TUR",
+      "opponent": "GEO",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Istanbul",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-11",
+      "team": "TUR",
+      "opponent": "BGR",
+      "goalsFor": 6,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Sofia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-07",
+      "team": "TUR",
+      "opponent": "ESP",
+      "goalsFor": 0,
+      "goalsAgainst": 6,
+      "homeAway": "home",
+      "location": "Istanbul",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "TUR",
+      "opponent": "GEO",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Tbilisi",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "TUR",
+      "opponent": "MEX",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Istanbul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "TUR",
+      "opponent": "USA",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "New York",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "KOR",
+      "opponent": "GHA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "KOR",
+      "opponent": "BOL",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "KOR",
+      "opponent": "PRY",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "KOR",
+      "opponent": "BRA",
+      "goalsFor": 0,
+      "goalsAgainst": 5,
+      "homeAway": "away",
+      "location": "Rio de Janeiro",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "KOR",
+      "opponent": "MEX",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-06",
+      "team": "KOR",
+      "opponent": "USA",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-07-15",
+      "team": "KOR",
+      "opponent": "JPN",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Tokyo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-07-11",
+      "team": "KOR",
+      "opponent": "HKG",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-07-07",
+      "team": "KOR",
+      "opponent": "CHN",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Shanghai",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "KOR",
+      "opponent": "KWT",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Seoul",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "COL",
+      "opponent": "AUS",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "COL",
+      "opponent": "NZL",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "COL",
+      "opponent": "CAN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Toronto",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-11",
+      "team": "COL",
+      "opponent": "MEX",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "COL",
+      "opponent": "VEN",
+      "goalsFor": 6,
+      "goalsAgainst": 3,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "COL",
+      "opponent": "BOL",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "La Paz",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "COL",
+      "opponent": "ARG",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Buenos Aires",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-06",
+      "team": "COL",
+      "opponent": "PER",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "ECU",
+      "opponent": "NZL",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Quito",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "ECU",
+      "opponent": "CAN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Vancouver",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "ECU",
+      "opponent": "MEX",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Mexico City",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "ECU",
+      "opponent": "USA",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Denver",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "ECU",
+      "opponent": "ARG",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Quito",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "ECU",
+      "opponent": "PRY",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Asuncion",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "ECU",
+      "opponent": "PER",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Lima",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "ECU",
+      "opponent": "BRA",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Quito",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-12-18",
+      "team": "MAR",
+      "opponent": "JOR",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-15",
+      "team": "MAR",
+      "opponent": "ARE",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-11",
+      "team": "MAR",
+      "opponent": "SYR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-08",
+      "team": "MAR",
+      "opponent": "SAU",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-05",
+      "team": "MAR",
+      "opponent": "OMN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Muscat",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-02",
+      "team": "MAR",
+      "opponent": "COM",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "MAR",
+      "opponent": "UGA",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "MAR",
+      "opponent": "MOZ",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "MAR",
+      "opponent": "COG",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "MAR",
+      "opponent": "BHR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Casablanca",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "SEN",
+      "opponent": "GMB",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-28",
+      "team": "SEN",
+      "opponent": "PER",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-01-18",
+      "team": "SEN",
+      "opponent": "MAR",
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Casablanca",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-01-14",
+      "team": "SEN",
+      "opponent": "EGY",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-01-09",
+      "team": "SEN",
+      "opponent": "MLI",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-01-03",
+      "team": "SEN",
+      "opponent": "SDN",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-30",
+      "team": "SEN",
+      "opponent": "COD",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Kinshasa",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-23",
+      "team": "SEN",
+      "opponent": "BWA",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "SEN",
+      "opponent": "KEN",
+      "goalsFor": 8,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Dakar",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "AUT",
+      "opponent": "KOR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "AUT",
+      "opponent": "GHA",
+      "goalsFor": 5,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "AUT",
+      "opponent": "BIH",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "AUT",
+      "opponent": "CYP",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "AUT",
+      "opponent": "ROU",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Bucharest",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "AUT",
+      "opponent": "SMR",
+      "goalsFor": 10,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "AUT",
+      "opponent": "BIH",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-06",
+      "team": "AUT",
+      "opponent": "CYP",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Nicosia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "AUT",
+      "opponent": "SMR",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Serravalle",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "AUT",
+      "opponent": "ROU",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Vienna",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-06",
+      "team": "CZE",
+      "opponent": "MNE",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-09",
+      "team": "CZE",
+      "opponent": "HRV",
+      "goalsFor": 1,
+      "goalsAgainst": 5,
+      "homeAway": "away",
+      "location": "Zagreb",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "CZE",
+      "opponent": "MNE",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Podgorica",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "CZE",
+      "opponent": "SAU",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "CZE",
+      "opponent": "HRV",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "CZE",
+      "opponent": "FRO",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Torshavn",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "CZE",
+      "opponent": "SMR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-17",
+      "team": "CZE",
+      "opponent": "GIB",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-26",
+      "team": "CZE",
+      "opponent": "IRL",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "CZE",
+      "opponent": "DNK",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Prague",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2025-05-28",
+      "team": "GHA",
+      "opponent": "NGA",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Abuja",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-05-31",
+      "team": "GHA",
+      "opponent": "TTO",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Accra",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "GHA",
+      "opponent": "TCD",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "N'Djamena",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "GHA",
+      "opponent": "MLI",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Accra",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-08",
+      "team": "GHA",
+      "opponent": "CAF",
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Accra",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "GHA",
+      "opponent": "COM",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Accra",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "GHA",
+      "opponent": "JPN",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Tokyo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "GHA",
+      "opponent": "KOR",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "GHA",
+      "opponent": "AUT",
+      "goalsFor": 1,
+      "goalsAgainst": 5,
+      "homeAway": "away",
+      "location": "Vienna",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-30",
+      "team": "GHA",
+      "opponent": "DEU",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Stuttgart",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "PRY",
+      "opponent": "MAR",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Marrakech",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "PRY",
+      "opponent": "GRC",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Asuncion",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "PRY",
+      "opponent": "MEX",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Asuncion",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "PRY",
+      "opponent": "USA",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Florida",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "PRY",
+      "opponent": "KOR",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "PRY",
+      "opponent": "JPN",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Asuncion",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "PRY",
+      "opponent": "PER",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Asuncion",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "PRY",
+      "opponent": "ECU",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Asuncion",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "PRY",
+      "opponent": "BRA",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Rio",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "PRY",
+      "opponent": "URY",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Montevideo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "NOR",
+      "opponent": "CHE",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "NOR",
+      "opponent": "NZL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-16",
+      "team": "NOR",
+      "opponent": "ITA",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "NOR",
+      "opponent": "EST",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "NOR",
+      "opponent": "NZL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-11",
+      "team": "NOR",
+      "opponent": "ISR",
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "NOR",
+      "opponent": "MDA",
+      "goalsFor": 11,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "NOR",
+      "opponent": "FIN",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-09",
+      "team": "NOR",
+      "opponent": "EST",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-06",
+      "team": "NOR",
+      "opponent": "ITA",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Oslo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-16",
+      "team": "EGY",
+      "opponent": "NGA",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Lagos",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-01-29",
+      "team": "EGY",
+      "opponent": "ZAF",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-29",
+      "team": "EGY",
+      "opponent": "AGO",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-26",
+      "team": "EGY",
+      "opponent": "ZAF",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-22",
+      "team": "EGY",
+      "opponent": "ZWE",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-16",
+      "team": "EGY",
+      "opponent": "NGA",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-12-06",
+      "team": "EGY",
+      "opponent": "ARE",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Abu Dhabi",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-02",
+      "team": "EGY",
+      "opponent": "KWT",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Kuwait",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-17",
+      "team": "EGY",
+      "opponent": "CPV",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "EGY",
+      "opponent": "UZB",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Tashkent",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "EGY",
+      "opponent": "GBS",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Cairo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-08",
+      "team": "EGY",
+      "opponent": "DJI",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Djibouti",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-17",
+      "team": "CAN",
+      "opponent": "CUW",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Vancouver",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-24",
+      "team": "CAN",
+      "opponent": "JAM",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Kingston",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-17",
+      "team": "CAN",
+      "opponent": "HND",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Vancouver",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "CAN",
+      "opponent": "CIV",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "California",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "CAN",
+      "opponent": "UKR",
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Toronto",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-03-23",
+      "team": "CAN",
+      "opponent": "USA",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Vancouver",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "BIH",
+      "opponent": "ITA",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Rome",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2026-03-26",
+      "team": "BIH",
+      "opponent": "WLS",
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "playoff"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "BIH",
+      "opponent": "AUT",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Vienna",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "BIH",
+      "opponent": "ROU",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-12",
+      "team": "BIH",
+      "opponent": "MLT",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "BIH",
+      "opponent": "CYP",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "BIH",
+      "opponent": "AUT",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-06",
+      "team": "BIH",
+      "opponent": "SMR",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Serravalle",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "BIH",
+      "opponent": "SMR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Sarajevo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "BIH",
+      "opponent": "SVN",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Ljubljana",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-01-10",
+      "team": "CIV",
+      "opponent": "EGY",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-01-06",
+      "team": "CIV",
+      "opponent": "BFA",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Abidjan",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-31",
+      "team": "CIV",
+      "opponent": "GAB",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Libreville",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-28",
+      "team": "CIV",
+      "opponent": "CMR",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Abidjan",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-24",
+      "team": "CIV",
+      "opponent": "MOZ",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Maputo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "CIV",
+      "opponent": "OMN",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Abidjan",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "CIV",
+      "opponent": "SAU",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Riyadh",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "CIV",
+      "opponent": "KEN",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Abidjan",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "CIV",
+      "opponent": "SYC",
+      "goalsFor": 7,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Victoria",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "CIV",
+      "opponent": "GAB",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Abidjan",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-31",
+      "team": "ZAF",
+      "opponent": "UGA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-24",
+      "team": "ZAF",
+      "opponent": "GHA",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-12-16",
+      "team": "ZAF",
+      "opponent": "GHA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "ZAF",
+      "opponent": "RWA",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "ZAF",
+      "opponent": "ZWE",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "ZAF",
+      "opponent": "NGA",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "ZAF",
+      "opponent": "LSO",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Maseru",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "ZAF",
+      "opponent": "MOZ",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Johannesburg",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-06",
+      "team": "ZAF",
+      "opponent": "TZA",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Dar es Salaam",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-01-10",
+      "team": "DZA",
+      "opponent": "NGA",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Abuja",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-01-06",
+      "team": "DZA",
+      "opponent": "COD",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-31",
+      "team": "DZA",
+      "opponent": "GNQ",
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-28",
+      "team": "DZA",
+      "opponent": "BFA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-24",
+      "team": "DZA",
+      "opponent": "SDN",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-12",
+      "team": "DZA",
+      "opponent": "ARE",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-09",
+      "team": "DZA",
+      "opponent": "IRQ",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-06",
+      "team": "DZA",
+      "opponent": "BHR",
+      "goalsFor": 1,
+      "goalsAgainst": 5,
+      "homeAway": "away",
+      "location": "Manama",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-03",
+      "team": "DZA",
+      "opponent": "SDN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Algiers",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "DZA",
+      "opponent": "SAU",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Riyadh",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "JPN",
+      "opponent": "AUS",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Sydney",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "JPN",
+      "opponent": "IDN",
+      "goalsFor": 6,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-07-08",
+      "team": "JPN",
+      "opponent": "HKG",
+      "goalsFor": 6,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-07-12",
+      "team": "JPN",
+      "opponent": "CHN",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2026-03-30",
+      "team": "NZL",
+      "opponent": "CHL",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Wellington",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "NZL",
+      "opponent": "FIN",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Helsinki",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "NZL",
+      "opponent": "ECU",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Quito",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "NZL",
+      "opponent": "COL",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Barranquilla",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "NZL",
+      "opponent": "NOR",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Oslo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "NZL",
+      "opponent": "POL",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Warsaw",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "NZL",
+      "opponent": "AUS",
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Sydney",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "NZL",
+      "opponent": "AUS",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Brisbane",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "NZL",
+      "opponent": "UKR",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Auckland",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-07",
+      "team": "NZL",
+      "opponent": "CIV",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Wellington",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-12-07",
+      "team": "QAT",
+      "opponent": "TUN",
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Doha",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-04",
+      "team": "QAT",
+      "opponent": "SYR",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Doha",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-01",
+      "team": "QAT",
+      "opponent": "PSE",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Doha",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-17",
+      "team": "QAT",
+      "opponent": "ZWE",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Harare",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "QAT",
+      "opponent": "ARE",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Doha",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-08",
+      "team": "QAT",
+      "opponent": "OMN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Doha",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-07",
+      "team": "QAT",
+      "opponent": "RUS",
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "homeAway": "away",
+      "location": "Moscow",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-03",
+      "team": "QAT",
+      "opponent": "BHR",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Doha",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-08-24",
+      "team": "QAT",
+      "opponent": "LBN",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Beirut",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "QAT",
+      "opponent": "UZB",
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Tashkent",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-08",
+      "team": "SAU",
+      "opponent": "IDN",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "home",
+      "location": "Riyadh",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "SAU",
+      "opponent": "CZE",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Prague",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "SAU",
+      "opponent": "MKD",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Skopje",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-28",
+      "team": "SAU",
+      "opponent": "MEX",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Phoenix",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-22",
+      "team": "SAU",
+      "opponent": "TTO",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Riyadh",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-19",
+      "team": "SAU",
+      "opponent": "USA",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Las Vegas",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-15",
+      "team": "SAU",
+      "opponent": "HTI",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Riyadh",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "SAU",
+      "opponent": "AUS",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Adelaide",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "SAU",
+      "opponent": "BHR",
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Manama",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-05-30",
+      "team": "SAU",
+      "opponent": "JOR",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Riyadh",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "UZB",
+      "opponent": "IRN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Tehran",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "UZB",
+      "opponent": "EGY",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tashkent",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-10-13",
+      "team": "UZB",
+      "opponent": "URY",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Montevideo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "UZB",
+      "opponent": "KWT",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tashkent",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "UZB",
+      "opponent": "IRN",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tashkent",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "UZB",
+      "opponent": "KGZ",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tashkent",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-09-02",
+      "team": "UZB",
+      "opponent": "TKM",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Ashgabat",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-08-30",
+      "team": "UZB",
+      "opponent": "OMN",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Muscat",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "UZB",
+      "opponent": "QAT",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tashkent",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "UZB",
+      "opponent": "ARE",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Abu Dhabi",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "PAN",
+      "opponent": "SLV",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "PAN",
+      "opponent": "GUA",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Guatemala City",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "PAN",
+      "opponent": "SUR",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "PAN",
+      "opponent": "SLV",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "San Salvador",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-08",
+      "team": "PAN",
+      "opponent": "GUA",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "PAN",
+      "opponent": "SUR",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Paramaribo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-28",
+      "team": "PAN",
+      "opponent": "HND",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-24",
+      "team": "PAN",
+      "opponent": "JAM",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-20",
+      "team": "PAN",
+      "opponent": "GUA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Guatemala City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-16",
+      "team": "PAN",
+      "opponent": "GLP",
+      "goalsFor": 5,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Panama City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "HTI",
+      "opponent": "NIC",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Port-au-Prince",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "HTI",
+      "opponent": "CRC",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Port-au-Prince",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-13",
+      "team": "HTI",
+      "opponent": "HND",
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Tegucigalpa",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-09",
+      "team": "HTI",
+      "opponent": "NIC",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Managua",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "HTI",
+      "opponent": "CRC",
+      "goalsFor": 3,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "San Jose",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "HTI",
+      "opponent": "HND",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Port-au-Prince",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-22",
+      "team": "HTI",
+      "opponent": "USA",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Kansas City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-19",
+      "team": "HTI",
+      "opponent": "TTO",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Port of Spain",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-15",
+      "team": "HTI",
+      "opponent": "SAU",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Phoenix",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "HTI",
+      "opponent": "CUW",
+      "goalsFor": 1,
+      "goalsAgainst": 5,
+      "homeAway": "home",
+      "location": "Port-au-Prince",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2026-03-30",
+      "team": "CPV",
+      "opponent": "FIN",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Helsinki",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-03-27",
+      "team": "CPV",
+      "opponent": "CHL",
+      "goalsFor": 2,
+      "goalsAgainst": 4,
+      "homeAway": "away",
+      "location": "Santiago",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-17",
+      "team": "CPV",
+      "opponent": "EGY",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "CPV",
+      "opponent": "IRN",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Tehran",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-10-13",
+      "team": "CPV",
+      "opponent": "SWZ",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Praia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-08",
+      "team": "CPV",
+      "opponent": "LBR",
+      "goalsFor": 3,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Monrovia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "CPV",
+      "opponent": "CMR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Praia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-04",
+      "team": "CPV",
+      "opponent": "MUS",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Port Louis",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-08",
+      "team": "CPV",
+      "opponent": "GEO",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Tbilisi",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-03",
+      "team": "CPV",
+      "opponent": "MYS",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Praia",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-12-23",
+      "team": "COD",
+      "opponent": "BEN",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-16",
+      "team": "COD",
+      "opponent": "ZMB",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Lusaka",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-16",
+      "team": "COD",
+      "opponent": "NGA",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "COD",
+      "opponent": "CMR",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "COD",
+      "opponent": "SDN",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "COD",
+      "opponent": "TGO",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Lome",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "COD",
+      "opponent": "SEN",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "COD",
+      "opponent": "SSD",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Juba",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-08",
+      "team": "COD",
+      "opponent": "MDG",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-06-05",
+      "team": "COD",
+      "opponent": "MLI",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Kinshasa",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-12-18",
+      "team": "JOR",
+      "opponent": "MAR",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "home",
+      "location": "Amman",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-15",
+      "team": "JOR",
+      "opponent": "SAU",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Riyadh",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-12",
+      "team": "JOR",
+      "opponent": "IRQ",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Amman",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-09",
+      "team": "JOR",
+      "opponent": "EGY",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Cairo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-06",
+      "team": "JOR",
+      "opponent": "KWT",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Kuwait City",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-12-03",
+      "team": "JOR",
+      "opponent": "ARE",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Amman",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "JOR",
+      "opponent": "MLI",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Bamako",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "JOR",
+      "opponent": "TUN",
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Tunis",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "JOR",
+      "opponent": "ALB",
+      "goalsFor": 2,
+      "goalsAgainst": 4,
+      "homeAway": "away",
+      "location": "Tirana",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "JOR",
+      "opponent": "BOL",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Amman",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-18",
+      "team": "CUW",
+      "opponent": "JAM",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Kingston",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-13",
+      "team": "CUW",
+      "opponent": "BER",
+      "goalsFor": 7,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-14",
+      "team": "CUW",
+      "opponent": "TTO",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "CUW",
+      "opponent": "JAM",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-09",
+      "team": "CUW",
+      "opponent": "BER",
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-05",
+      "team": "CUW",
+      "opponent": "TTO",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Port of Spain",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-24",
+      "team": "CUW",
+      "opponent": "HND",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "away",
+      "location": "Tegucigalpa",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-21",
+      "team": "CUW",
+      "opponent": "CAN",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-17",
+      "team": "CUW",
+      "opponent": "SLV",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Willemstad",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-06-10",
+      "team": "CUW",
+      "opponent": "HTI",
+      "goalsFor": 5,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Port-au-Prince",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-04-24",
+      "team": "JPN",
+      "opponent": "VIE",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Hanoi",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-03-20",
+      "team": "JPN",
+      "opponent": "THA",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-02-01",
+      "team": "JPN",
+      "opponent": "KOR",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Seoul",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2024-11-19",
+      "team": "JPN",
+      "opponent": "AUS",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2024-10-10",
+      "team": "JPN",
+      "opponent": "CHN",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Yokohama",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2024-09-10",
+      "team": "JPN",
+      "opponent": "KOR",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Tokyo",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-11-14",
+      "team": "FRA",
+      "opponent": "ISL",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Paris",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-10",
+      "team": "FRA",
+      "opponent": "ISR",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Paris",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-10-07",
+      "team": "FRA",
+      "opponent": "GRE",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Athens",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-12",
+      "team": "FRA",
+      "opponent": "POR",
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Lisbon",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2025-05-29",
+      "team": "FRA",
+      "opponent": "BEL",
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "homeAway": "home",
+      "location": "Paris",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2024-11-14",
+      "team": "FRA",
+      "opponent": "ISR",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Tel Aviv",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-11-15",
+      "team": "CAN",
+      "opponent": "USA",
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "homeAway": "away",
+      "location": "Denver",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2025-10-15",
+      "team": "CAN",
+      "opponent": "MEX",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Mexico City",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-09-10",
+      "team": "CAN",
+      "opponent": "USA",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Toronto",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-21",
+      "team": "CAN",
+      "opponent": "CUW",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Willemstad",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-10-12",
+      "team": "ESP",
+      "opponent": "DNK",
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Madrid",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-11-19",
+      "team": "ESP",
+      "opponent": "CHE",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Geneva",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-10-14",
+      "team": "NLD",
+      "opponent": "DEU",
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Munich",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-11-19",
+      "team": "NLD",
+      "opponent": "BIH",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Sarajevo",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-10-12",
+      "team": "POR",
+      "opponent": "POL",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Warsaw",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-11-15",
+      "team": "POR",
+      "opponent": "POL",
+      "goalsFor": 5,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Lisbon",
+      "matchType": "tournament"
+    },
+    {
+      "date": "2024-10-10",
+      "team": "COL",
+      "opponent": "CHL",
+      "goalsFor": 4,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Barranquilla",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2024-10-15",
+      "team": "COL",
+      "opponent": "BOL",
+      "goalsFor": 2,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "La Paz",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2024-10-10",
+      "team": "ECU",
+      "opponent": "BOL",
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "homeAway": "home",
+      "location": "Quito",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2024-10-15",
+      "team": "ECU",
+      "opponent": "ARG",
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "homeAway": "away",
+      "location": "Buenos Aires",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2024-10-15",
+      "team": "ARG",
+      "opponent": "ECU",
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "homeAway": "home",
+      "location": "Buenos Aires",
+      "matchType": "qualification"
+    },
+    {
+      "date": "2025-06-06",
+      "team": "SEN",
+      "opponent": "IRL",
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "homeAway": "away",
+      "location": "Dublin",
+      "matchType": "friendly"
+    },
+    {
+      "date": "2026-01-03",
+      "team": "ZAF",
+      "opponent": "CMR",
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "homeAway": "neutral",
+      "location": "Morocco",
+      "matchType": "tournament"
+    }
+  ],
+  "teams": {
+    "AFC": [
+      "AUS",
+      "IRN",
+      "IRQ",
+      "JPN",
+      "JOR",
+      "QAT",
+      "SAU",
+      "KOR",
+      "UZB"
+    ],
+    "CAF": [
+      "DZA",
+      "CPV",
+      "COD",
+      "EGY",
+      "GHA",
+      "CIV",
+      "MAR",
+      "SEN",
+      "ZAF",
+      "TUN"
+    ],
+    "CONCACAF": [
+      "CAN",
+      "CUW",
+      "HTI",
+      "MEX",
+      "PAN",
+      "USA"
+    ],
+    "CONMEBOL": [
+      "ARG",
+      "BRA",
+      "COL",
+      "ECU",
+      "PRY",
+      "URY"
+    ],
+    "OFC": [
+      "NZL"
+    ],
+    "UEFA": [
+      "AUT",
+      "BEL",
+      "BIH",
+      "HRV",
+      "CZE",
+      "ENG",
+      "FRA",
+      "DEU",
+      "NLD",
+      "NOR",
+      "POR",
+      "SCO",
+      "ESP",
+      "SWE",
+      "CHE",
+      "TUR"
+    ]
+  }
+}

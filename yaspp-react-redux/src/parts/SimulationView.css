@@ -1,0 +1,309 @@
+.sim-header-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
+  margin-left: 4px;
+}
+
+.sim-body {
+  padding: 0 12px 24px;
+  font-size: 13px;
+}
+
+.sim-section {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+.sim-section:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+
+.sim-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.sim-collapse-toggle {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-collapse-toggle:hover {
+  color: #111;
+}
+
+.sim-preset-btn {
+  margin-left: auto;
+  padding: 1px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  background: #fff8e1;
+  border: 1px solid #f9a825;
+  border-radius: 4px;
+  color: #6d4c00;
+  cursor: pointer;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sim-preset-btn:hover {
+  background: #fff3cd;
+}
+
+.sim-preset-active {
+  color: #f9a825;
+  font-weight: 600;
+}
+
+.sim-caret {
+  font-size: 10px;
+  width: 10px;
+  color: #666;
+}
+
+.sim-hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #888;
+}
+
+/* Global params grid */
+.sim-global-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  align-items: center;
+  max-width: 480px;
+}
+
+.sim-global-grid label {
+  margin: 0;
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.sim-host-nations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.sim-host-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f0f4ff;
+  border: 1px solid #c8d4f0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2c4a9e;
+}
+
+.sim-input-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-input-hint span {
+  font-size: 11px;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* Team params table */
+.sim-params-table {
+  font-size: 12px;
+}
+
+.sim-params-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #666;
+  border-bottom-width: 1px;
+  padding: 4px 6px;
+}
+
+.sim-params-table td {
+  padding: 3px 6px;
+  vertical-align: middle;
+}
+
+.sim-team-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.sim-team-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sim-param-input {
+  width: 70px !important;
+  text-align: right;
+  padding: 2px 4px !important;
+  font-size: 12px !important;
+}
+
+/* Controls */
+.sim-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.sim-controls-row label {
+  margin: 0;
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.sim-progress {
+  margin-top: 4px;
+  border-radius: 4px;
+  height: 20px;
+  font-size: 11px;
+}
+
+.sim-error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.sim-complete {
+  margin-top: 16px;
+  color: #666;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* Results table */
+.sim-results-table {
+  font-size: 12px;
+}
+
+.sim-results-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #666;
+  border-bottom-width: 1px;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+.sim-results-table td {
+  padding: 3px 6px;
+  vertical-align: middle;
+}
+
+.sim-prob-col {
+  text-align: center;
+}
+
+.sim-rank {
+  color: #999;
+  font-size: 11px;
+  width: 22px;
+}
+
+.sim-avg {
+  font-weight: 600;
+}
+
+.sim-range {
+  color: #888;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sim-prob {
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+/* ── Tournament group cards ──────────────────────────────────────── */
+
+.sim-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.sim-group-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: #fafafa;
+}
+
+.sim-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.sim-group-table {
+  font-size: 11px;
+  margin-bottom: 0;
+}
+
+.sim-group-table th {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #888;
+  border-bottom-width: 1px;
+  padding: 2px 4px;
+  text-align: center;
+}
+
+.sim-group-table th:first-child {
+  text-align: left;
+}
+
+.sim-group-table td {
+  padding: 2px 4px;
+  vertical-align: middle;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .sim-global-grid {
+    grid-template-columns: 1fr;
+  }
+  .sim-input-hint span {
+    display: none;
+  }
+}

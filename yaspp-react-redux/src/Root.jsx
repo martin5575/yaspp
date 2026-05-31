@@ -23,6 +23,7 @@ library.add(icons.faBars)
 library.add(icons.faColumns)
 library.add(icons.faTable)
 library.add(icons.faRobot)
+library.add(icons.faChartBar)
 
 function Root({ store }) {
   return (

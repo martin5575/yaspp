@@ -1,0 +1,3165 @@
+{
+  "metadata": {
+    "tournament": "FIFA World Cup 2026",
+    "source": "Wikipedia National Football Team pages (fetched 2026-05-31)",
+    "lastUpdated": "2026-05-31T14:59:33.873Z",
+    "totalMatches": 352,
+    "teamsWithData": 35,
+    "coverageNotes": "Most teams have 10+ matches; some teams have partial data due to Wikipedia truncation",
+    "dataStructure": {
+      "date": "YYYY-MM-DD",
+      "team": "3-letter country code (team playing)",
+      "opponent": "3-letter country code",
+      "goalsFor": "goals scored by team",
+      "goalsAgainst": "goals conceded by team",
+      "homeAway": "home or away (implicit)",
+      "location": "city where match was played",
+      "matchType": "qualification, friendly, tournament, or playoff"
+    }
+  },
+  "generatedAt": "2026-05-31T15:00:38.722Z",
+  "summary": {
+    "teamsWithData": 35,
+    "totalMatches": 352,
+    "totalWins": 197,
+    "totalDraws": 83,
+    "totalLosses": 72,
+    "totalGoalsFor": 665,
+    "totalGoalsAgainst": 308,
+    "totalPoints": 674,
+    "averageGoalsPerMatch": "1.89",
+    "averagePointsPerTeam": "19.26",
+    "averageMatchesPerTeam": "10.1"
+  },
+  "teamStats": [
+    {
+      "team": "EGY",
+      "matches": [
+        {
+          "date": "2026-03-16",
+          "opponent": "NGA",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-29",
+          "opponent": "ZAF",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-29",
+          "opponent": "AGO",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-26",
+          "opponent": "ZAF",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-22",
+          "opponent": "ZWE",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-16",
+          "opponent": "NGA",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-06",
+          "opponent": "ARE",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-02",
+          "opponent": "KWT",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-17",
+          "opponent": "CPV",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "UZB",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "GBS",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-08",
+          "opponent": "DJI",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 8,
+      "draws": 3,
+      "losses": 1,
+      "goalsFor": 16,
+      "goalsAgainst": 8,
+      "points": 27,
+      "totalMatches": 12,
+      "avgPoints": "2.25",
+      "avgGoalsFor": "1.33",
+      "avgGoalsAgainst": "0.67",
+      "goalDifference": 8,
+      "avgGoalDifference": "0.67",
+      "firstMatch": "2025-10-08",
+      "lastMatch": "2026-03-16"
+    },
+    {
+      "team": "ARG",
+      "matches": [
+        {
+          "date": "2025-03-31",
+          "opponent": "ZMB",
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-27",
+          "opponent": "MRT",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "AGO",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "PRI",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "VEN",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "ECU",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "VEN",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "COL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "CHL",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-15",
+          "opponent": "ECU",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 8,
+      "draws": 1,
+      "losses": 1,
+      "goalsFor": 24,
+      "goalsAgainst": 3,
+      "points": 25,
+      "totalMatches": 10,
+      "avgPoints": "2.50",
+      "avgGoalsFor": "2.40",
+      "avgGoalsAgainst": "0.30",
+      "goalDifference": 21,
+      "avgGoalDifference": "2.10",
+      "firstMatch": "2024-10-15",
+      "lastMatch": "2025-11-14"
+    },
+    {
+      "team": "ESP",
+      "matches": [
+        {
+          "date": "2025-03-27",
+          "opponent": "SRB",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-31",
+          "opponent": "EGY",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "TUR",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "GEO",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "BGR",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-11",
+          "opponent": "GEO",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-07",
+          "opponent": "TUR",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "BGR",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-12",
+          "opponent": "DNK",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-11-19",
+          "opponent": "CHE",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 8,
+      "draws": 2,
+      "losses": 0,
+      "goalsFor": 29,
+      "goalsAgainst": 3,
+      "points": 26,
+      "totalMatches": 10,
+      "avgPoints": "2.60",
+      "avgGoalsFor": "2.90",
+      "avgGoalsAgainst": "0.30",
+      "goalDifference": 26,
+      "avgGoalDifference": "2.60",
+      "firstMatch": "2024-10-12",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "FRA",
+      "matches": [
+        {
+          "date": "2025-06-08",
+          "opponent": "DEU",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "ESP",
+          "goalsFor": 4,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "UKR",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "ISL",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "ISL",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "ISR",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-07",
+          "opponent": "GRE",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-12",
+          "opponent": "POR",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-05-29",
+          "opponent": "BEL",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2024-11-14",
+          "opponent": "ISR",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 2,
+      "losses": 1,
+      "goalsFor": 24,
+      "goalsAgainst": 9,
+      "points": 23,
+      "totalMatches": 10,
+      "avgPoints": "2.30",
+      "avgGoalsFor": "2.40",
+      "avgGoalsAgainst": "0.90",
+      "goalDifference": 15,
+      "avgGoalDifference": "1.50",
+      "firstMatch": "2024-11-14",
+      "lastMatch": "2025-11-14"
+    },
+    {
+      "team": "ENG",
+      "matches": [
+        {
+          "date": "2025-03-31",
+          "opponent": "JPN",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-03-27",
+          "opponent": "URY",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-16",
+          "opponent": "ALB",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "SRB",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "LVA",
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "WLS",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "SRB",
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-06",
+          "opponent": "AND",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "SEN",
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "AND",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 1,
+      "losses": 2,
+      "goalsFor": 22,
+      "goalsAgainst": 5,
+      "points": 22,
+      "totalMatches": 10,
+      "avgPoints": "2.20",
+      "avgGoalsFor": "2.20",
+      "avgGoalsAgainst": "0.50",
+      "goalDifference": 17,
+      "avgGoalDifference": "1.70",
+      "firstMatch": "2025-03-27",
+      "lastMatch": "2025-11-16"
+    },
+    {
+      "team": "NLD",
+      "matches": [
+        {
+          "date": "2025-11-17",
+          "opponent": "LTU",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "POL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "FIN",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "MLT",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-07",
+          "opponent": "LTU",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "POL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "MLT",
+          "goalsFor": 8,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "FIN",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-14",
+          "opponent": "DEU",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2024-11-19",
+          "opponent": "BIH",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        }
+      ],
+      "wins": 6,
+      "draws": 3,
+      "losses": 1,
+      "goalsFor": 28,
+      "goalsAgainst": 6,
+      "points": 21,
+      "totalMatches": 10,
+      "avgPoints": "2.10",
+      "avgGoalsFor": "2.80",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 22,
+      "avgGoalDifference": "2.20",
+      "firstMatch": "2024-10-14",
+      "lastMatch": "2025-11-17"
+    },
+    {
+      "team": "POR",
+      "matches": [
+        {
+          "date": "2025-11-16",
+          "opponent": "ARM",
+          "goalsFor": 9,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "IRL",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "HUN",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-11",
+          "opponent": "IRL",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "HUN",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-06",
+          "opponent": "ARM",
+          "goalsFor": 0,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-08",
+          "opponent": "DEU",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-04",
+          "opponent": "DEU",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2024-10-12",
+          "opponent": "POL",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2024-11-15",
+          "opponent": "POL",
+          "goalsFor": 5,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 4,
+      "draws": 1,
+      "losses": 5,
+      "goalsFor": 24,
+      "goalsAgainst": 19,
+      "points": 13,
+      "totalMatches": 10,
+      "avgPoints": "1.30",
+      "avgGoalsFor": "2.40",
+      "avgGoalsAgainst": "1.90",
+      "goalDifference": 5,
+      "avgGoalDifference": "0.50",
+      "firstMatch": "2024-10-12",
+      "lastMatch": "2025-11-16"
+    },
+    {
+      "team": "CHE",
+      "matches": [
+        {
+          "date": "2025-03-31",
+          "opponent": "NOR",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-03-27",
+          "opponent": "DEU",
+          "goalsFor": 3,
+          "goalsAgainst": 4,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "KOS",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "SWE",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-13",
+          "opponent": "SVN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "SWE",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "SVN",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "KOS",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "USA",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "MEX",
+          "goalsFor": 4,
+          "goalsAgainst": 2,
+          "result": "W"
+        }
+      ],
+      "wins": 6,
+      "draws": 3,
+      "losses": 1,
+      "goalsFor": 25,
+      "goalsAgainst": 8,
+      "points": 21,
+      "totalMatches": 10,
+      "avgPoints": "2.10",
+      "avgGoalsFor": "2.50",
+      "avgGoalsAgainst": "0.80",
+      "goalDifference": 17,
+      "avgGoalDifference": "1.70",
+      "firstMatch": "2025-03-27",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "TUR",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "KOS",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-26",
+          "opponent": "ROU",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "ESP",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "BGR",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "GEO",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-11",
+          "opponent": "BGR",
+          "goalsFor": 6,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-07",
+          "opponent": "ESP",
+          "goalsFor": 0,
+          "goalsAgainst": 6,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "GEO",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "MEX",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "USA",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 1,
+      "losses": 2,
+      "goalsFor": 21,
+      "goalsAgainst": 14,
+      "points": 22,
+      "totalMatches": 10,
+      "avgPoints": "2.20",
+      "avgGoalsFor": "2.10",
+      "avgGoalsAgainst": "1.40",
+      "goalDifference": 7,
+      "avgGoalDifference": "0.70",
+      "firstMatch": "2025-06-07",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "KOR",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "GHA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "BOL",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "PRY",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "BRA",
+          "goalsFor": 0,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "MEX",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-06",
+          "opponent": "USA",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-07-15",
+          "opponent": "JPN",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-07-11",
+          "opponent": "HKG",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-07-07",
+          "opponent": "CHN",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "KWT",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 1,
+      "losses": 2,
+      "goalsFor": 18,
+      "goalsAgainst": 8,
+      "points": 22,
+      "totalMatches": 10,
+      "avgPoints": "2.20",
+      "avgGoalsFor": "1.80",
+      "avgGoalsAgainst": "0.80",
+      "goalDifference": 10,
+      "avgGoalDifference": "1.00",
+      "firstMatch": "2025-06-10",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "COL",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "AUS",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "NZL",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "CAN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-11",
+          "opponent": "MEX",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "VEN",
+          "goalsFor": 6,
+          "goalsAgainst": 3,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "BOL",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "ARG",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-06",
+          "opponent": "PER",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2024-10-10",
+          "opponent": "CHL",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-15",
+          "opponent": "BOL",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 3,
+      "losses": 0,
+      "goalsFor": 25,
+      "goalsAgainst": 6,
+      "points": 24,
+      "totalMatches": 10,
+      "avgPoints": "2.40",
+      "avgGoalsFor": "2.50",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 19,
+      "avgGoalDifference": "1.90",
+      "firstMatch": "2024-10-10",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "ECU",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "NZL",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "CAN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "MEX",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "USA",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "ARG",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "PRY",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "PER",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "BRA",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2024-10-10",
+          "opponent": "BOL",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-15",
+          "opponent": "ARG",
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "result": "L"
+        }
+      ],
+      "wins": 3,
+      "draws": 6,
+      "losses": 1,
+      "goalsFor": 8,
+      "goalsAgainst": 6,
+      "points": 15,
+      "totalMatches": 10,
+      "avgPoints": "1.50",
+      "avgGoalsFor": "0.80",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 2,
+      "avgGoalDifference": "0.20",
+      "firstMatch": "2024-10-10",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "MAR",
+      "matches": [
+        {
+          "date": "2025-12-18",
+          "opponent": "JOR",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-15",
+          "opponent": "ARE",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-11",
+          "opponent": "SYR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-08",
+          "opponent": "SAU",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-05",
+          "opponent": "OMN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-02",
+          "opponent": "COM",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "UGA",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "MOZ",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "COG",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "BHR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 9,
+      "draws": 1,
+      "losses": 0,
+      "goalsFor": 18,
+      "goalsAgainst": 3,
+      "points": 28,
+      "totalMatches": 10,
+      "avgPoints": "2.80",
+      "avgGoalsFor": "1.80",
+      "avgGoalsAgainst": "0.30",
+      "goalDifference": 15,
+      "avgGoalDifference": "1.50",
+      "firstMatch": "2025-10-09",
+      "lastMatch": "2025-12-18"
+    },
+    {
+      "team": "SEN",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "GMB",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-28",
+          "opponent": "PER",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-18",
+          "opponent": "MAR",
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2026-01-14",
+          "opponent": "EGY",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-09",
+          "opponent": "MLI",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-01-03",
+          "opponent": "SDN",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-30",
+          "opponent": "COD",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-23",
+          "opponent": "BWA",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "KEN",
+          "goalsFor": 8,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-06",
+          "opponent": "IRL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        }
+      ],
+      "wins": 7,
+      "draws": 2,
+      "losses": 1,
+      "goalsFor": 23,
+      "goalsAgainst": 7,
+      "points": 23,
+      "totalMatches": 10,
+      "avgPoints": "2.30",
+      "avgGoalsFor": "2.30",
+      "avgGoalsAgainst": "0.70",
+      "goalDifference": 16,
+      "avgGoalDifference": "1.60",
+      "firstMatch": "2025-06-06",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "AUT",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "KOR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "GHA",
+          "goalsFor": 5,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "BIH",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "CYP",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "ROU",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "SMR",
+          "goalsFor": 10,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "BIH",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-06",
+          "opponent": "CYP",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "SMR",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "ROU",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 8,
+      "draws": 1,
+      "losses": 1,
+      "goalsFor": 28,
+      "goalsAgainst": 5,
+      "points": 25,
+      "totalMatches": 10,
+      "avgPoints": "2.50",
+      "avgGoalsFor": "2.80",
+      "avgGoalsAgainst": "0.50",
+      "goalDifference": 23,
+      "avgGoalDifference": "2.30",
+      "firstMatch": "2025-06-07",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "CZE",
+      "matches": [
+        {
+          "date": "2025-06-06",
+          "opponent": "MNE",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-09",
+          "opponent": "HRV",
+          "goalsFor": 1,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "MNE",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "SAU",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "HRV",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "FRO",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "SMR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-17",
+          "opponent": "GIB",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-26",
+          "opponent": "IRL",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2026-03-31",
+          "opponent": "DNK",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        }
+      ],
+      "wins": 4,
+      "draws": 4,
+      "losses": 2,
+      "goalsFor": 18,
+      "goalsAgainst": 12,
+      "points": 16,
+      "totalMatches": 10,
+      "avgPoints": "1.60",
+      "avgGoalsFor": "1.80",
+      "avgGoalsAgainst": "1.20",
+      "goalDifference": 6,
+      "avgGoalDifference": "0.60",
+      "firstMatch": "2025-06-06",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "GHA",
+      "matches": [
+        {
+          "date": "2025-05-28",
+          "opponent": "NGA",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-05-31",
+          "opponent": "TTO",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "TCD",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "MLI",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-08",
+          "opponent": "CAF",
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "COM",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "JPN",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "KOR",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "AUT",
+          "goalsFor": 1,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2026-03-30",
+          "opponent": "DEU",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        }
+      ],
+      "wins": 4,
+      "draws": 1,
+      "losses": 5,
+      "goalsFor": 15,
+      "goalsAgainst": 13,
+      "points": 13,
+      "totalMatches": 10,
+      "avgPoints": "1.30",
+      "avgGoalsFor": "1.50",
+      "avgGoalsAgainst": "1.30",
+      "goalDifference": 2,
+      "avgGoalDifference": "0.20",
+      "firstMatch": "2025-05-28",
+      "lastMatch": "2026-03-30"
+    },
+    {
+      "team": "PRY",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "MAR",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "GRC",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "MEX",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "USA",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "KOR",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "JPN",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "PER",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "ECU",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "BRA",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "URY",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        }
+      ],
+      "wins": 3,
+      "draws": 2,
+      "losses": 5,
+      "goalsFor": 8,
+      "goalsAgainst": 12,
+      "points": 11,
+      "totalMatches": 10,
+      "avgPoints": "1.10",
+      "avgGoalsFor": "0.80",
+      "avgGoalsAgainst": "1.20",
+      "goalDifference": -4,
+      "avgGoalDifference": "-0.40",
+      "firstMatch": "2025-06-05",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "NOR",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "CHE",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "NZL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-16",
+          "opponent": "ITA",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "EST",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "NZL",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-11",
+          "opponent": "ISR",
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "MDA",
+          "goalsFor": 11,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "FIN",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-09",
+          "opponent": "EST",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-06",
+          "opponent": "ITA",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 3,
+      "losses": 0,
+      "goalsFor": 31,
+      "goalsAgainst": 5,
+      "points": 24,
+      "totalMatches": 10,
+      "avgPoints": "2.40",
+      "avgGoalsFor": "3.10",
+      "avgGoalsAgainst": "0.50",
+      "goalDifference": 26,
+      "avgGoalDifference": "2.60",
+      "firstMatch": "2025-06-06",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "CAN",
+      "matches": [
+        {
+          "date": "2026-03-17",
+          "opponent": "CUW",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-24",
+          "opponent": "JAM",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-17",
+          "opponent": "HND",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "CIV",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "UKR",
+          "goalsFor": 4,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-23",
+          "opponent": "USA",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "USA",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-15",
+          "opponent": "MEX",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-10",
+          "opponent": "USA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-21",
+          "opponent": "CUW",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        }
+      ],
+      "wins": 7,
+      "draws": 3,
+      "losses": 0,
+      "goalsFor": 22,
+      "goalsAgainst": 6,
+      "points": 24,
+      "totalMatches": 10,
+      "avgPoints": "2.40",
+      "avgGoalsFor": "2.20",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 16,
+      "avgGoalDifference": "1.60",
+      "firstMatch": "2025-03-23",
+      "lastMatch": "2026-03-24"
+    },
+    {
+      "team": "BIH",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "ITA",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-26",
+          "opponent": "WLS",
+          "goalsFor": 4,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "AUT",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "ROU",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-12",
+          "opponent": "MLT",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "CYP",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "AUT",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-06",
+          "opponent": "SMR",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "SMR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "SVN",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 2,
+      "losses": 1,
+      "goalsFor": 28,
+      "goalsAgainst": 11,
+      "points": 23,
+      "totalMatches": 10,
+      "avgPoints": "2.30",
+      "avgGoalsFor": "2.80",
+      "avgGoalsAgainst": "1.10",
+      "goalDifference": 17,
+      "avgGoalDifference": "1.70",
+      "firstMatch": "2025-06-10",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "CIV",
+      "matches": [
+        {
+          "date": "2025-01-10",
+          "opponent": "EGY",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-01-06",
+          "opponent": "BFA",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-31",
+          "opponent": "GAB",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-28",
+          "opponent": "CMR",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-24",
+          "opponent": "MOZ",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "OMN",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "SAU",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "KEN",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "SYC",
+          "goalsFor": 7,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "GAB",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        }
+      ],
+      "wins": 6,
+      "draws": 2,
+      "losses": 2,
+      "goalsFor": 22,
+      "goalsAgainst": 7,
+      "points": 20,
+      "totalMatches": 10,
+      "avgPoints": "2.00",
+      "avgGoalsFor": "2.20",
+      "avgGoalsAgainst": "0.70",
+      "goalDifference": 15,
+      "avgGoalDifference": "1.50",
+      "firstMatch": "2025-01-06",
+      "lastMatch": "2025-12-31"
+    },
+    {
+      "team": "ZAF",
+      "matches": [
+        {
+          "date": "2026-03-31",
+          "opponent": "UGA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-24",
+          "opponent": "GHA",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-16",
+          "opponent": "GHA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "RWA",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "ZWE",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "NGA",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "LSO",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "MOZ",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-06",
+          "opponent": "TZA",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2026-01-03",
+          "opponent": "CMR",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        }
+      ],
+      "wins": 5,
+      "draws": 4,
+      "losses": 1,
+      "goalsFor": 12,
+      "goalsAgainst": 3,
+      "points": 19,
+      "totalMatches": 10,
+      "avgPoints": "1.90",
+      "avgGoalsFor": "1.20",
+      "avgGoalsAgainst": "0.30",
+      "goalDifference": 9,
+      "avgGoalDifference": "0.90",
+      "firstMatch": "2025-06-06",
+      "lastMatch": "2026-03-31"
+    },
+    {
+      "team": "DZA",
+      "matches": [
+        {
+          "date": "2026-01-10",
+          "opponent": "NGA",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2026-01-06",
+          "opponent": "COD",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-31",
+          "opponent": "GNQ",
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-28",
+          "opponent": "BFA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-24",
+          "opponent": "SDN",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-12",
+          "opponent": "ARE",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-09",
+          "opponent": "IRQ",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-06",
+          "opponent": "BHR",
+          "goalsFor": 1,
+          "goalsAgainst": 5,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-03",
+          "opponent": "SDN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "SAU",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        }
+      ],
+      "wins": 4,
+      "draws": 2,
+      "losses": 4,
+      "goalsFor": 10,
+      "goalsAgainst": 13,
+      "points": 14,
+      "totalMatches": 10,
+      "avgPoints": "1.40",
+      "avgGoalsFor": "1.00",
+      "avgGoalsAgainst": "1.30",
+      "goalDifference": -3,
+      "avgGoalDifference": "-0.30",
+      "firstMatch": "2025-11-18",
+      "lastMatch": "2026-01-10"
+    },
+    {
+      "team": "JPN",
+      "matches": [
+        {
+          "date": "2025-06-10",
+          "opponent": "AUS",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "IDN",
+          "goalsFor": 6,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-07-08",
+          "opponent": "HKG",
+          "goalsFor": 6,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-07-12",
+          "opponent": "CHN",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-04-24",
+          "opponent": "VIE",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-03-20",
+          "opponent": "THA",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-02-01",
+          "opponent": "KOR",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2024-11-19",
+          "opponent": "AUS",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2024-10-10",
+          "opponent": "CHN",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2024-09-10",
+          "opponent": "KOR",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 7,
+      "draws": 1,
+      "losses": 2,
+      "goalsFor": 23,
+      "goalsAgainst": 6,
+      "points": 22,
+      "totalMatches": 10,
+      "avgPoints": "2.20",
+      "avgGoalsFor": "2.30",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 17,
+      "avgGoalDifference": "1.70",
+      "firstMatch": "2024-09-10",
+      "lastMatch": "2025-07-12"
+    },
+    {
+      "team": "NZL",
+      "matches": [
+        {
+          "date": "2026-03-30",
+          "opponent": "CHL",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "FIN",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "ECU",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-15",
+          "opponent": "COL",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "NOR",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "POL",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "AUS",
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "AUS",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "UKR",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-07",
+          "opponent": "CIV",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 2,
+      "draws": 1,
+      "losses": 7,
+      "goalsFor": 9,
+      "goalsAgainst": 15,
+      "points": 7,
+      "totalMatches": 10,
+      "avgPoints": "0.70",
+      "avgGoalsFor": "0.90",
+      "avgGoalsAgainst": "1.50",
+      "goalDifference": -6,
+      "avgGoalDifference": "-0.60",
+      "firstMatch": "2025-06-07",
+      "lastMatch": "2026-03-30"
+    },
+    {
+      "team": "QAT",
+      "matches": [
+        {
+          "date": "2025-12-07",
+          "opponent": "TUN",
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-04",
+          "opponent": "SYR",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-12-01",
+          "opponent": "PSE",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-17",
+          "opponent": "ZWE",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "ARE",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-08",
+          "opponent": "OMN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-07",
+          "opponent": "RUS",
+          "goalsFor": 1,
+          "goalsAgainst": 4,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-03",
+          "opponent": "BHR",
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "result": "D"
+        },
+        {
+          "date": "2025-08-24",
+          "opponent": "LBN",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "UZB",
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "result": "L"
+        }
+      ],
+      "wins": 1,
+      "draws": 3,
+      "losses": 6,
+      "goalsFor": 7,
+      "goalsAgainst": 18,
+      "points": 6,
+      "totalMatches": 10,
+      "avgPoints": "0.60",
+      "avgGoalsFor": "0.70",
+      "avgGoalsAgainst": "1.80",
+      "goalDifference": -11,
+      "avgGoalDifference": "-1.10",
+      "firstMatch": "2025-06-10",
+      "lastMatch": "2025-12-07"
+    },
+    {
+      "team": "SAU",
+      "matches": [
+        {
+          "date": "2025-10-08",
+          "opponent": "IDN",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "CZE",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "MKD",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-28",
+          "opponent": "MEX",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-22",
+          "opponent": "TTO",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-19",
+          "opponent": "USA",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-15",
+          "opponent": "HTI",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "AUS",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "BHR",
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-05-30",
+          "opponent": "JOR",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 2,
+      "draws": 2,
+      "losses": 6,
+      "goalsFor": 9,
+      "goalsAgainst": 14,
+      "points": 8,
+      "totalMatches": 10,
+      "avgPoints": "0.80",
+      "avgGoalsFor": "0.90",
+      "avgGoalsAgainst": "1.40",
+      "goalDifference": -5,
+      "avgGoalDifference": "-0.50",
+      "firstMatch": "2025-05-30",
+      "lastMatch": "2025-10-08"
+    },
+    {
+      "team": "UZB",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "IRN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "EGY",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-13",
+          "opponent": "URY",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "KWT",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "IRN",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "KGZ",
+          "goalsFor": 4,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-02",
+          "opponent": "TKM",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-08-30",
+          "opponent": "OMN",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "QAT",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "ARE",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        }
+      ],
+      "wins": 6,
+      "draws": 3,
+      "losses": 1,
+      "goalsFor": 16,
+      "goalsAgainst": 4,
+      "points": 21,
+      "totalMatches": 10,
+      "avgPoints": "2.10",
+      "avgGoalsFor": "1.60",
+      "avgGoalsAgainst": "0.40",
+      "goalDifference": 12,
+      "avgGoalDifference": "1.20",
+      "firstMatch": "2025-06-05",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "PAN",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "SLV",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "GUA",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "SUR",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "SLV",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-08",
+          "opponent": "GUA",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "SUR",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-28",
+          "opponent": "HND",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-24",
+          "opponent": "JAM",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-20",
+          "opponent": "GUA",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-16",
+          "opponent": "GLP",
+          "goalsFor": 5,
+          "goalsAgainst": 2,
+          "result": "W"
+        }
+      ],
+      "wins": 6,
+      "draws": 4,
+      "losses": 0,
+      "goalsFor": 20,
+      "goalsAgainst": 8,
+      "points": 22,
+      "totalMatches": 10,
+      "avgPoints": "2.20",
+      "avgGoalsFor": "2.00",
+      "avgGoalsAgainst": "0.80",
+      "goalDifference": 12,
+      "avgGoalDifference": "1.20",
+      "firstMatch": "2025-06-16",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "HTI",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "NIC",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "CRC",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-13",
+          "opponent": "HND",
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-09",
+          "opponent": "NIC",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "CRC",
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "HND",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-22",
+          "opponent": "USA",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-19",
+          "opponent": "TTO",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-15",
+          "opponent": "SAU",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "CUW",
+          "goalsFor": 1,
+          "goalsAgainst": 5,
+          "result": "L"
+        }
+      ],
+      "wins": 3,
+      "draws": 3,
+      "losses": 4,
+      "goalsFor": 12,
+      "goalsAgainst": 15,
+      "points": 12,
+      "totalMatches": 10,
+      "avgPoints": "1.20",
+      "avgGoalsFor": "1.20",
+      "avgGoalsAgainst": "1.50",
+      "goalDifference": -3,
+      "avgGoalDifference": "-0.30",
+      "firstMatch": "2025-06-10",
+      "lastMatch": "2025-11-18"
+    },
+    {
+      "team": "CPV",
+      "matches": [
+        {
+          "date": "2026-03-30",
+          "opponent": "FIN",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2026-03-27",
+          "opponent": "CHL",
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "result": "L"
+        },
+        {
+          "date": "2025-11-17",
+          "opponent": "EGY",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "IRN",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-13",
+          "opponent": "SWZ",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-08",
+          "opponent": "LBR",
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "result": "D"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "CMR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-04",
+          "opponent": "MUS",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-08",
+          "opponent": "GEO",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-03",
+          "opponent": "MYS",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 4,
+      "draws": 5,
+      "losses": 1,
+      "goalsFor": 17,
+      "goalsAgainst": 10,
+      "points": 17,
+      "totalMatches": 10,
+      "avgPoints": "1.70",
+      "avgGoalsFor": "1.70",
+      "avgGoalsAgainst": "1.00",
+      "goalDifference": 7,
+      "avgGoalDifference": "0.70",
+      "firstMatch": "2025-06-03",
+      "lastMatch": "2026-03-30"
+    },
+    {
+      "team": "COD",
+      "matches": [
+        {
+          "date": "2025-12-23",
+          "opponent": "BEN",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-16",
+          "opponent": "ZMB",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-16",
+          "opponent": "NGA",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "CMR",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "SDN",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "TGO",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "SEN",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "SSD",
+          "goalsFor": 4,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-08",
+          "opponent": "MDG",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-06-05",
+          "opponent": "MLI",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        }
+      ],
+      "wins": 8,
+      "draws": 1,
+      "losses": 1,
+      "goalsFor": 17,
+      "goalsAgainst": 6,
+      "points": 25,
+      "totalMatches": 10,
+      "avgPoints": "2.50",
+      "avgGoalsFor": "1.70",
+      "avgGoalsAgainst": "0.60",
+      "goalDifference": 11,
+      "avgGoalDifference": "1.10",
+      "firstMatch": "2025-06-05",
+      "lastMatch": "2025-12-23"
+    },
+    {
+      "team": "JOR",
+      "matches": [
+        {
+          "date": "2025-12-18",
+          "opponent": "MAR",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-12-15",
+          "opponent": "SAU",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-12",
+          "opponent": "IRQ",
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-09",
+          "opponent": "EGY",
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-06",
+          "opponent": "KWT",
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-12-03",
+          "opponent": "ARE",
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "result": "W"
+        },
+        {
+          "date": "2025-11-18",
+          "opponent": "MLI",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-14",
+          "opponent": "TUN",
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "ALB",
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "result": "L"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "BOL",
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "result": "L"
+        }
+      ],
+      "wins": 5,
+      "draws": 1,
+      "losses": 4,
+      "goalsFor": 16,
+      "goalsAgainst": 13,
+      "points": 16,
+      "totalMatches": 10,
+      "avgPoints": "1.60",
+      "avgGoalsFor": "1.60",
+      "avgGoalsAgainst": "1.30",
+      "goalDifference": 3,
+      "avgGoalDifference": "0.30",
+      "firstMatch": "2025-10-10",
+      "lastMatch": "2025-12-18"
+    },
+    {
+      "team": "CUW",
+      "matches": [
+        {
+          "date": "2025-11-18",
+          "opponent": "JAM",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-11-13",
+          "opponent": "BER",
+          "goalsFor": 7,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-10-14",
+          "opponent": "TTO",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-10-10",
+          "opponent": "JAM",
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-09",
+          "opponent": "BER",
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "result": "W"
+        },
+        {
+          "date": "2025-09-05",
+          "opponent": "TTO",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-24",
+          "opponent": "HND",
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "result": "L"
+        },
+        {
+          "date": "2025-06-21",
+          "opponent": "CAN",
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-17",
+          "opponent": "SLV",
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "result": "D"
+        },
+        {
+          "date": "2025-06-10",
+          "opponent": "HTI",
+          "goalsFor": 5,
+          "goalsAgainst": 1,
+          "result": "W"
+        }
+      ],
+      "wins": 4,
+      "draws": 5,
+      "losses": 1,
+      "goalsFor": 20,
+      "goalsAgainst": 7,
+      "points": 17,
+      "totalMatches": 10,
+      "avgPoints": "1.70",
+      "avgGoalsFor": "2.00",
+      "avgGoalsAgainst": "0.70",
+      "goalDifference": 13,
+      "avgGoalDifference": "1.30",
+      "firstMatch": "2025-06-10",
+      "lastMatch": "2025-11-18"
+    }
+  ]
+}
