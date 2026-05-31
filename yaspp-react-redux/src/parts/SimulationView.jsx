@@ -43,6 +43,7 @@ export default function SimulationView({ store, triggerClass }) {
   const [globalParams, setGlobalParams] = useState(DEFAULT_GLOBAL);
   const [overrides, setOverrides]       = useState({});
   const [nPaths, setNPaths]             = useState(10000);
+  const [infoOpen, setInfoOpen]         = useState(false);
   const [simState, setSimState]         = useState('idle');
   const [progress, setProgress]         = useState(0);
   const [results, setResults]           = useState(null);   // { data, isTournament, nPaths }
@@ -291,13 +292,139 @@ export default function SimulationView({ store, triggerClass }) {
       <Offcanvas fade isOpen={visible} toggle={toggle} direction="end" backdrop={false}
         style={{ width: '100%', maxWidth: 660, overflowY: 'auto' }}>
         <OffcanvasHeader toggle={toggle}>
-          Saison-Simulation
-          {selectedLeague && selectedYear && (
-            <span className="sim-header-sub"> — {selectedLeague.toUpperCase()} {selectedYear}</span>
-          )}
+          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            Saison-Simulation
+            {selectedLeague && selectedYear && (
+              <span className="sim-header-sub">{selectedLeague.toUpperCase()} {selectedYear}</span>
+            )}
+            <button
+              className={`sim-info-btn${infoOpen ? ' active' : ''}`}
+              onClick={e => { e.stopPropagation(); setInfoOpen(o => !o); }}
+              title="Erklärung: Parameter & Simulationsmethodik"
+            >
+              <FontAwesomeIcon icon="info" />
+            </button>
+          </span>
         </OffcanvasHeader>
 
         <OffcanvasBody className="sim-body">
+
+          {/* ── Info panel ──────────────────────────────────────── */}
+          <Collapse isOpen={infoOpen}>
+            <div className="sim-info-panel">
+
+              <div className="sim-info-section">
+                <div className="sim-info-title">Teamparameter</div>
+                <p>Jedes Team bekommt zwei Werte, normiert auf den Liga-Durchschnitt (= 1,0):</p>
+                <div className="sim-info-table">
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Angriff</span>
+                    <span>Ø erzielte Tore / Liga-Ø &nbsp;|&nbsp; <b>&gt; 1</b> = starker Angriff</span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Abwehr</span>
+                    <span>Ø kassierte Tore / Liga-Ø &nbsp;|&nbsp; <b>&gt; 1</b> = schwache Abwehr</span>
+                  </div>
+                </div>
+                <p className="sim-info-note">
+                  Berechnung: gleitender Durchschnitt der letzten N Spiele, normiert so dass der
+                  geometrische Mittelwert aller Teams = 1,0 ist.
+                  &nbsp;<b>Preset</b>: kalibrierte Werte aus der Vorsaison (vollständig berechnete
+                  Saisonstatistik ± FIFA-Ranking für Turniere).
+                </p>
+              </div>
+
+              <div className="sim-info-section">
+                <div className="sim-info-title">Globale Parameter</div>
+                <div className="sim-info-table">
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Heimvorteil</span>
+                    <span>
+                      Multiplikator für den Heimvorteil.<br />
+                      <code>λ_Heim = Angriff × Abwehr_Gegner × <b>Heimvorteil</b> × Liga-Ø</code><br />
+                      <code>λ_Auswärts = Angriff × Abwehr_Gegner / <b>Heimvorteil</b> × Liga-Ø</code>
+                    </span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Gastgebervorteil</span>
+                    <span>
+                      Wie Heimvorteil, aber nur für Gastgebernationen (z. B. USA/Kanada/Mexiko bei WM26).
+                      Alle anderen Spiele finden auf neutralem Boden statt (Faktor = 1,0).
+                    </span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Liga-Ø</span>
+                    <span>Durchschnittliche Tore pro Team pro Spiel. Kalibrierter Preset-Wert aus der Vorsaison.</span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Gewichtung α</span>
+                    <span>
+                      Mischung zwischen langfristigem Preset und aktuellem Saisonverlauf.<br />
+                      <code>α = 0</code>: nur Preset &nbsp;|&nbsp; <code>α = 1</code>: nur aktuelle Saison
+                    </span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Letzte N Spiele</span>
+                    <span>Fenster für die Formberechnung aus dem laufenden Saisonverlauf.</span>
+                  </div>
+                  <div className="sim-info-row">
+                    <span className="sim-info-label">Lernrate γ</span>
+                    <span>
+                      EMA-Update der Teamstärke nach jedem simulierten Spiel innerhalb eines Pfades.
+                      Ein höheres γ erzeugt stärkere Auf- und Abschwünge (Streaks).
+                      <br /><code>atk_neu = (1−γ)·atk_alt + γ·(Tore / Liga-Ø)</code>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sim-info-section">
+                <div className="sim-info-title">Simulationsmodell</div>
+                <p>
+                  Für jedes Spiel werden die erwarteten Tore (λ) mit obiger Formel berechnet.
+                  Die tatsächlichen Tore werden dann per <b>Poisson-Zufallsvariable</b> gezogen:
+                  eine Verteilung, die kleine ganzzahlige Ereignisse (Tore) gut beschreibt.
+                </p>
+                <p>
+                  Pro <b>Simulationspfad</b> wird die gesamte verbleibende Saison einmal durchgespielt.
+                  Nach jedem Spiel werden die Teamparameter per EMA (Lernrate γ) angepasst —
+                  ein Team, das gut spielt, bekommt höhere Werte für die Folgesspiele desselben Pfades.
+                  Das erzeugt realistische <b>Auf- und Abschwünge (Streaks)</b>.
+                </p>
+                <p>
+                  Mit <b>10 000 Pfaden</b> entstehen stabile Wahrscheinlichkeiten (Varianz &lt; 0,5 %).
+                </p>
+
+                <div className="sim-info-title" style={{ marginTop: 10 }}>Liga (z. B. Bundesliga)</div>
+                <p>
+                  Alle verbleibenden Spiele werden simuliert und Punkte akkumuliert.
+                  Das Ergebnis zeigt die Wahrscheinlichkeiten für jeden Tabellenplatz sowie
+                  Ø-Punkte und Punktespanne (min–max).
+                </p>
+
+                <div className="sim-info-title" style={{ marginTop: 10 }}>Turnier (z. B. WM)</div>
+                <p>Dreistufiger Ablauf pro Pfad:</p>
+                <ol className="sim-info-ol">
+                  <li>
+                    <b>Gruppenphase</b>: Alle verbleibenden Gruppenspiele werden simuliert.
+                    Abschlusstabellen pro Gruppe (Punkte → Tordifferenz → Tore → Zufalls-Tiebreak).
+                    Je Gruppe: 1. und 2. qualifiziert. Die 8 besten Drittplatzierten auch (WM26).
+                  </li>
+                  <li>
+                    <b>Bracket-Setzung</b>: Die 32 qualifizierten Teams werden nach Leistung gereiht
+                    (Gruppensieger Rang 1–12, Zweite 13–24, beste Dritte 25–32) und in ein
+                    Standard-K.o.-Bracket gesetzt. Rang 1 und 2 können erst im Finale aufeinandertreffen.
+                  </li>
+                  <li>
+                    <b>K.o.-Runden</b> (R32 → R16 → QF → HF → Finale):
+                    Alle Spiele auf neutralem Boden. Unentschieden → Verlängerung (30 min, ⅓ Rate).
+                    Noch unentschieden → 50/50 Elfmeterschießen.
+                  </li>
+                </ol>
+              </div>
+
+            </div>
+          </Collapse>
 
           {/* ── Collapsible parameter block ─────────────────────── */}
           <div className="sim-section">
