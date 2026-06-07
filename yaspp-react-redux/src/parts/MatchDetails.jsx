@@ -4,6 +4,7 @@ import { MatchDetailsTop3 } from './MatchDetailsTop3'
 import { MatchDetailsKicktippTop3 } from './MatchDetailsKicktippTop3'
 import { MatchDetailsPlusMinus } from './MatchDetailsPlusMinus'
 import MatchDetailsStats from './MatchDetailsStats'
+import { MatchDetailsFacts } from './MatchDetailsFacts'
 import { getKey, getShort, getDescription } from '../stats/statsType'
 import './MatchDetails.css'
 
@@ -20,8 +21,9 @@ export function MatchDetails(props) {
 
   const views = [
     { id: 'overview', label: 'Overview' },
-    { id: 'plusminus', label: 'Plus/Minus' },
+    { id: 'plusminus', label: '+/-' },
     { id: 'heatmap', label: 'Heatmap' },
+    { id: 'fakten', label: 'Fakten' },
   ]
   const [activeView, setActiveView] = useState('overview')
 
@@ -96,6 +98,14 @@ export function MatchDetails(props) {
         {activeView==='overview' && Overview}
         {activeView==='plusminus' && PlusMinus}
         {activeView==='heatmap' && Heatmap}
+        {activeView==='fakten' && (
+          <MatchDetailsFacts
+            teams={teams}
+            match={match}
+            seasonInfo={seasonInfo}
+            previousMatchs={previousMatchs}
+          />
+        )}
       </div>
       </>
   );

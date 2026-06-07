@@ -1,0 +1,59 @@
+.mdf-root { display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Team streak facts ─────────────────────────────────────────────── */
+.mdf-team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.mdf-team-col { display: flex; flex-direction: column; gap: 5px; }
+
+.mdf-team-header {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 2px;
+    padding-bottom: 4px; border-bottom: 1px solid #e9ecef;
+}
+.mdf-team-logo { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
+.mdf-team-name { font-size: 12px; font-weight: 600; color: #333; line-height: 1.2; }
+
+.mdf-no-facts { font-size: 11px; color: #aaa; font-style: italic; padding: 2px 0; }
+
+.mdf-fact {
+    display: flex; align-items: flex-start; gap: 5px;
+    font-size: 11px; line-height: 1.35;
+}
+.mdf-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 3px;
+}
+.mdf-fact.pos { color: #155724; }
+.mdf-fact.pos .mdf-dot { background: #198754; }
+.mdf-fact.neg { color: #842029; }
+.mdf-fact.neg .mdf-dot { background: #dc3545; }
+
+/* ── League rankings ───────────────────────────────────────────────── */
+.mdf-rankings-section {
+    border-top: 1px solid #e9ecef; padding-top: 10px;
+}
+.mdf-section-head {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .6px; color: #888; margin-bottom: 8px;
+}
+.mdf-rankings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+.mdf-mini-list { margin-bottom: 8px; }
+.mdf-mini-title {
+    font-size: 10px; font-weight: 600; color: #444;
+    margin-bottom: 3px; padding-bottom: 2px;
+    border-bottom: 1px solid #f0f1f3;
+}
+.mdf-mini-row {
+    display: flex; align-items: center; gap: 3px;
+    font-size: 10px; color: #444; padding: 1px 2px;
+    border-radius: 4px;
+}
+.mdf-mini-row.hi {
+    background: #fff3cd; font-weight: 600; padding: 1px 4px; margin: 0 -2px;
+}
+.mdf-mini-rank { color: #999; width: 18px; flex-shrink: 0; }
+.mdf-mini-logo { width: 13px; height: 13px; object-fit: contain; flex-shrink: 0; }
+.mdf-mini-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mdf-mini-val { color: #666; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+
+.mdf-no-data { font-size: 12px; color: #aaa; text-align: center; padding: 8px 0; }
