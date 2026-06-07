@@ -40,9 +40,6 @@ export function MatchDetails(props) {
         <MatchDetailsTop3 stats={stats} />
         <MatchDetailsKicktippTop3 stats={stats} />
       </div>
-      <div className='md-model-note'>
-        Model: {modelShortDescription}
-      </div>
     </div>
   )
 
@@ -61,6 +58,7 @@ export function MatchDetails(props) {
   return (
     <>
       <div className='md-tabs-wrapper'>
+        <span className='md-agent-badge'>{modelShortDescription}</span>
         <div
           className='md-tabs'
           role='tablist'

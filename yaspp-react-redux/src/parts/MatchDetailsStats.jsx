@@ -91,13 +91,8 @@ function MatchDetailsStats(props) {
                             allTeams={allTeams}
                         />
                     ) : (
-                        <div className='chart-placeholder'>
-                            <div style={{ textAlign: 'center', color: '#6c757d', fontSize: '12px', padding: '20px' }}>
-                                📊 Form chart will appear here when match data is available
-                                <div style={{ fontSize: '11px', marginTop: '4px' }}>
-                                    (Requires matches data from OpenLigaDB)
-                                </div>
-                            </div>
+                        <div style={{ textAlign: 'center', color: '#aaa', fontSize: '11px', padding: '4px 0' }}>
+                            keine Daten
                         </div>
                     )}
                 </div>
