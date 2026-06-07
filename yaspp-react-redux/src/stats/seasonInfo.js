@@ -148,7 +148,11 @@ const getDynAvg = (infoHome, infoAway, previousMatchs, params, teamHomeId, teamA
 
   const getPresetEntry = (teamId) => {
     if (!preset?.teams || teamId == null) return null
-    return preset.teams[String(teamId)] ?? preset.promotedTeamTemplate ?? null
+    // Tournaments (e.g. wc26) key teams by 3-letter FIFA code; use teamIdMap to translate
+    const key = preset.teamIdMap
+      ? (preset.teamIdMap[String(teamId)] ?? String(teamId))
+      : String(teamId)
+    return preset.teams[key] ?? preset.promotedTeamTemplate ?? null
   }
 
   const getLt = (info, teamId) => {
