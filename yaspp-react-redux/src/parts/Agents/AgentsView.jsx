@@ -6,7 +6,7 @@ import { calcStats, aggregateSeasonInfo } from '../../stats/seasonInfo';
 import { IconButton } from '../../components/IconButton';
 import { ButtonGroup, ButtonToolbar } from 'reactstrap';
 import _, { groupBy, sortBy } from 'lodash';
-import { getKeys, getShort, getDefinitions, getParams } from '../../stats/statsType'
+import { getKeys, getShort } from '../../stats/statsType'
 import BarChartRace from './BarChartRace';
 import MultiSeasonView from './MultiSeasonView';
 import { getTopTippResult, getPointsForTipp } from '../../kicktipp';
@@ -99,7 +99,6 @@ const viewModes = [
   {label: "Running Points", id: "running-points"},
   {label: "Chart Details", id: "details"},
   {label: "Multi Season", id: "multi-season"},
-  {label: "About", id: "about"},
 ]
 
 function AgentsView(props) {
@@ -267,15 +266,6 @@ function AgentsView(props) {
             >
               Multi Season
             </button>
-            <button
-              type='button'
-              className={`btn btn-sm ${viewMode===4 ? 'btn-secondary' : 'btn-outline-secondary'}`}
-              aria-pressed={viewMode===4}
-              onClick={()=>setViewMode(4)}
-              title='About agents'
-            >
-              About
-            </button>
           </div>
         </div>
   <Legend names={legendNames} selectedNames={visibleNames} onToggle={toggleVisible} />
@@ -324,64 +314,6 @@ function AgentsView(props) {
   {!state.ui.isLoadingMatchs && selectedViewMode.id==="multi-season" && (
     <MultiSeasonView id='multi-season-chart' seasons={seasonsForLeague} series={multiSeasonSeries} />
   )}
-  {selectedViewMode.id === "about" && (() => {
-    const dynParams = getParams('dyn')
-    return (
-      <div style={{ maxWidth: 700, margin: '0 auto', padding: '0 8px' }}>
-        <h6 className='mt-3 mb-2'>All Agents</h6>
-        <table className='table table-sm table-bordered'>
-          <thead className='table-light'>
-            <tr><th style={{ width: 60 }}>Agent</th><th>Beschreibung</th></tr>
-          </thead>
-          <tbody>
-            {getDefinitions().map(def => (
-              <tr key={def.key} style={def.key === 'dyn' ? { background: '#f0f7ff' } : {}}>
-                <td><strong>{def.short}</strong></td>
-                <td>{def.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {dynParams && (
-          <>
-            <h6 className='mt-4 mb-2'>Dynamic Agent — Parameter</h6>
-            <p className='text-muted' style={{ fontSize: 13 }}>
-              Der <strong>dyn</strong>-Agent kombiniert den Saisondurchschnitt (Langzeitwert)
-              mit einem gleitenden Durchschnitt der letzten N Spiele (Formwert).
-              Die folgende Formel beschreibt die erwarteten Tore:
-            </p>
-            <pre style={{ background: '#f8f9fa', padding: 10, borderRadius: 4, fontSize: 12 }}>
-              {`λ_eff = (1 − α) × λ_longterm + α × λ_recent\n`+
-               `λ_final = λ_eff × defense_factor (opponent)`}
-            </pre>
-            <table className='table table-sm table-bordered'>
-              <thead className='table-light'>
-                <tr><th>Parameter</th><th>Wert</th><th>Bedeutung</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>α (alpha)</strong></td>
-                  <td>{dynParams.alpha}</td>
-                  <td>Gewichtung der aktuellen Form (0 = nur Saison, 1 = nur letzte N Spiele)</td>
-                </tr>
-                <tr>
-                  <td><strong>N (recentN)</strong></td>
-                  <td>{dynParams.recentN}</td>
-                  <td>Anzahl der letzten Spiele für den gleitenden Durchschnitt</td>
-                </tr>
-                <tr>
-                  <td><strong>Defensefaktor</strong></td>
-                  <td>{dynParams.useDefenseFactor ? 'Ja' : 'Nein'}</td>
-                  <td>Berücksichtigung der Defensivstärke des Gegners</td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )}
-      </div>
-    )
-  })()}
       </OffcanvasBody>
     </Offcanvas>
   </div>

@@ -5,7 +5,7 @@ import { groupByFunc, sortByField } from '../utils/listUtils'
 import { getKey, getShort, getDescription } from '../stats/statsType'
 
 function Matchs(props) {
-  const { matchs, teams, seasonInfo, showPercentage } = props
+  const { matchs, teams, seasonInfo, showPercentage, onAgentInfo } = props
   if (!matchs || matchs.length === 0 || !teams) return <div>empty</div>
 
   const groupByMatchDay = groupByFunc(matchs, (x) => x.matchDateTime)
@@ -33,6 +33,7 @@ function Matchs(props) {
           previousMatchs={props.previousMatchs}
           probabilityDetailsMatchId={props.probabilityDetailsMatchId}
           toggleProbabilityDetails={props.toggleProbabilityDetails}
+          onAgentInfo={i === 0 ? onAgentInfo : undefined}
         />
       ))}
     </div>

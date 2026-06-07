@@ -1,4 +1,12 @@
 import * as actions from '../actions/actions'
+import { getParams } from '../stats/statsType'
+
+const loadDynParams = () => {
+  try {
+    const saved = localStorage.getItem('yaspp_dyn_params')
+    return saved ? JSON.parse(saved) : null
+  } catch { return null }
+}
 
 /******************* State ******************/
 
@@ -18,6 +26,7 @@ const initialState = {
 
   showPercentage: false,
   selectedModelId: 0,
+  dynParams: loadDynParams() || getParams('dyn'),
 }
 
 /******************* Reducer ******************/
@@ -184,6 +193,12 @@ export const uiReducer = (state = initialState, action) => {
       {
         return { ...state,
           probabilityDetailsMatchId: action.payload
+        }
+      }
+    case actions.SetDynParams:
+      {
+        return { ...state,
+          dynParams: action.payload
         }
       }
     default:
