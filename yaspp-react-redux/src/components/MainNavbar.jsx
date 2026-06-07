@@ -5,6 +5,7 @@ import {
   updateMatchDaysIfNecessary,
 } from '../actions/ActionBuilderWithStore'
 import * as actionBuilder from '../actions/ActionBuilder'
+import { isTournamentLeague } from '../simulation/params'
 import ListNavigator from './ListNavigator'
 import YearSelector from './YearSelector'
 import { getSelectedYears, getSelectedMatchs } from '../utils/filter'
@@ -50,7 +51,10 @@ function MainNavbar({ store }) {
     const key = `${selectedLeague}-${selectedYear}`
     if (loadedPresetRef.current === key) return
     loadedPresetRef.current = key
-    fetch(`./data/${selectedLeague}-${selectedYear}-params.json`)
+    const presetUrl = isTournamentLeague(selectedLeague)
+      ? `./data/wc26-params.json`
+      : `./data/${selectedLeague}-${selectedYear}-params.json`
+    fetch(presetUrl)
       .then(r => r.json())
       .then(data => store.dispatch(actionBuilder.setDynPreset(data)))
       .catch(() => store.dispatch(actionBuilder.setDynPreset(null)))
