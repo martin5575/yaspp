@@ -1,0 +1,58 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: yaspp-react-redux/package-lock.json
+
+      - name: Install dependencies
+        working-directory: yaspp-react-redux
+        run: npm ci
+
+      - name: Build React app
+        working-directory: yaspp-react-redux
+        run: npm run build
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/yaspp-react-redux
+          cp index.html _site/
+          cp -r simple _site/
+          cp -r yaspp-react-redux/build _site/yaspp-react-redux/build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
