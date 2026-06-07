@@ -149,6 +149,7 @@ function AgentsView(props) {
       name: getShort(x.agent),
       values: x.performance.map(x => x.points)
   }));
+  const allAgentNames = detailsData.map(d => d.name)
   const selectedViewMode = viewModes[viewMode]
   const legendNames = detailsData.map(d => d.name)
 
@@ -179,6 +180,7 @@ function AgentsView(props) {
   }
 
   const filteredDetailsData = detailsData.filter(d => visibleNames.has(d.name))
+  const filteredBarChartData = barChartData.filter(d => visibleNames.has(d.name))
 
   // Multi-season data: aggregate finished matches by year for current league
   const seasonsAll = [...new Set((state.model.matchDays||[]).filter(x=>x.league===selectedLeague).map(x=>x.year))].sort((a,b)=>a-b)
@@ -278,7 +280,7 @@ function AgentsView(props) {
         </div>
   <Legend names={legendNames} selectedNames={visibleNames} onToggle={toggleVisible} />
         {state.ui.isLoadingMatchs && <div>Loading...</div>}
-  {!state.ui.isLoadingMatchs && selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={barChartData} dateValues={dateValues} ></BarChartRace>}
+  {!state.ui.isLoadingMatchs && selectedViewMode.id==="running-points" && <BarChartRace id='running-points-chart' data={filteredBarChartData} dateValues={dateValues} allNames={allAgentNames} />}
   {!state.ui.isLoadingMatchs &&selectedViewMode.id==="total-points" && <TotalPointsView id='total-points-chart' data={performances} ></TotalPointsView>}
   {!state.ui.isLoadingMatchs &&selectedViewMode.id==="details" && (
     <>
@@ -316,7 +318,7 @@ function AgentsView(props) {
           Cumulative
         </button>
       </div>
-      <ChartDetailsView id='details-chart' data={filteredDetailsData} dateValues={dateValues} isCumulative={detailsCumulative} />
+      <ChartDetailsView id='details-chart' data={filteredDetailsData} dateValues={dateValues} isCumulative={detailsCumulative} allNames={allAgentNames} />
     </>
   )}
   {!state.ui.isLoadingMatchs && selectedViewMode.id==="multi-season" && (

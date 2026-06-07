@@ -82,7 +82,9 @@ function ChartDetailsView(props) {
             .attr("id", "y-axis")
             .call(d3.axisLeft(y).ticks(5))
 
-    const color = getAgentColorScale(series.map(x=>x.name))
+    // Use allNames (full agent set) so colors stay pinned to legend indices
+    // even when only a filtered subset of series is drawn
+    const color = getAgentColorScale(props.allNames || series.map(x => x.name))
 
         const lineGen = d3.line()
             .x((d, i) => x(i+1))

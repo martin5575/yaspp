@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import { getAgentColorScale } from './colors'
 
-async function drawChart({ id, data, dateValues, runToken, containerWidth, onDone }) {
+async function drawChart({ id, data, dateValues, runToken, containerWidth, onDone, allNames }) {
     if (!id || !data || !dateValues || data.length === 0 || (dateValues?.length || 0) === 0) {
         if (onDone) onDone()
         return
@@ -62,9 +62,10 @@ async function drawChart({ id, data, dateValues, runToken, containerWidth, onDon
         .style('font', `bold 18px var(--sans-serif)`) 
         .style('font-variant-numeric', 'tabular-nums')
 
-    // Shared color palette per name
+    // Shared color palette per name — use allNames (full set) so colors stay
+    // consistent with the legend even when only a subset of agents is drawn
     const names = data.map(d => d.name)
-    const color = getAgentColorScale(names)
+    const color = getAgentColorScale(allNames || names)
 
     const frames = buildFrames(data, dateValues)
     if (frames.length === 0) { if (onDone) onDone(); return }
@@ -262,7 +263,7 @@ function BarChartRace(props) {
 
         const cw = containerRef.current?.clientWidth || (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.9)
     setIsRunning(true)
-    drawChart({ id: containerId, data: props.data || [], dateValues: props.dateValues || [], runToken: token, containerWidth: cw, onDone: () => { setIsRunning(false); setIsFading(false) } })
+    drawChart({ id: containerId, data: props.data || [], dateValues: props.dateValues || [], runToken: token, containerWidth: cw, onDone: () => { setIsRunning(false); setIsFading(false) }, allNames: props.allNames })
 
         return () => {
             // Cancel and cleanup
