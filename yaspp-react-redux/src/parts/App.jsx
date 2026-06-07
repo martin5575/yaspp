@@ -44,6 +44,8 @@ function App({ store }) {
   const showPercentage = state.ui.showPercentage
   const selectedModelId = state.ui.selectedModelId
   const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
+  const dynParams = state.ui.dynParams
+  const dynPreset = state.ui.dynPreset
 
   const onAgentInfo = () => store.dispatch(actionBuilder.switchMenu('agents'))
 
@@ -65,6 +67,8 @@ function App({ store }) {
               showPercentage={showPercentage}
               selectedModelId={selectedModelId}
               probabilityDetailsMatchId={probabilityDetailsMatchId}
+              dynParams={dynParams}
+              dynPreset={dynPreset}
               onAgentInfo={onAgentInfo}
               toggleProbabilityDetails={(matchId) => {
                 store.dispatch(

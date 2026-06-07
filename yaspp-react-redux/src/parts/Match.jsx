@@ -32,11 +32,16 @@ function Match(props) {
   const teamAway = teams[match.teamAwayId]
 
   const modelKey = getKey(selectedModelId)
+  const dynParams = props.dynParams
+  const dynPreset = props.dynPreset
+  const effectiveDynParams = { ...(dynParams || {}), preset: dynPreset }
   const stats = calcStats(
     seasonInfo,
     match.teamHomeId,
     match.teamAwayId,
-    modelKey
+    modelKey,
+    previousMatchs,
+    effectiveDynParams
   )
   const digits = 1
   const formatedStats = formatStats(stats, digits)

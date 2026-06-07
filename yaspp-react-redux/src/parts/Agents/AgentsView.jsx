@@ -40,17 +40,21 @@ function getDataForSimulation(matchs) {
   })
 }
 
-function calculatePerformances(agents, matchs) {
+function calculatePerformances(agents, matchs, dynParams, dynPreset) {
   const data = getDataForSimulation(matchs)
   return agents.map(agent => {
     const performance = data.map(simulationDay => {
       const tippPoints = simulationDay.matchs.map(match => {
+      const agentParams = agent === 'dyn'
+        ? { ...(dynParams || {}), preset: dynPreset }
+        : null
       const stats = calcStats(
         simulationDay.simulationData.seasonInfo,
         match.teamHomeId,
         match.teamAwayId,
         agent,
-        simulationDay.simulationData.matchsUntil
+        simulationDay.simulationData.matchsUntil,
+        agentParams
       )
       const topTipp = stats.isFixed ? {
           fullTimeHome: stats.home,
@@ -136,11 +140,14 @@ function AgentsView(props) {
 
   const updateViewMode = (step) => setViewMode((viewMode + viewModes.length + step) % viewModes.length)
 
+  const dynParams = state.ui.dynParams
+  const dynPreset = state.ui.dynPreset
+
   const league = state.model.leagues.find(x=>x.id===selectedLeague);
   const matchs = state.model.matchs.filter(x=>x.league===selectedLeague && x.year===year && x.isFinished)
   sortBy(matchs, x=>x.matchDateTime)
   const agents = [...getKeys()]
-  const performances = calculatePerformances(agents, matchs)
+  const performances = calculatePerformances(agents, matchs, dynParams, dynPreset)
 
   const barChartData = getBarChartData(performances);
   const dateValues = getDateValues(state, selectedLeague, year, performances);
@@ -188,7 +195,7 @@ function AgentsView(props) {
     const perYear = seasonsForLeague.map(yr => {
       const m = state.model.matchs.filter(x=>x.league===selectedLeague && seasonsForLeague.includes(x.year) && x.year===yr && x.isFinished)
       // reuse existing calc pipeline
-      const perf = calculatePerformances([agent], m)[0]
+      const perf = calculatePerformances([agent], m, dynParams, dynPreset)[0]
       return perf?.sum || 0
     })
     return { name: getShort(agent), values: perYear }

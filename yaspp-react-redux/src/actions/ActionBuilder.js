@@ -434,6 +434,11 @@ const setDynParams = (params) => {
   return { type: actions.SetDynParams, payload: params }
 }
 
+const setDynPreset = (presetData) => ({
+  type: actions.SetDynPreset,
+  payload: presetData,
+})
+
 export {
   clearAll,
   clearSeason,
@@ -453,4 +458,5 @@ export {
   switchModel,
   toggleProbabilityDetails,
   setDynParams,
+  setDynPreset,
 }

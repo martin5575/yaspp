@@ -27,6 +27,7 @@ const initialState = {
   showPercentage: false,
   selectedModelId: 0,
   dynParams: loadDynParams() || getParams('dyn'),
+  dynPreset: null,
 }
 
 /******************* Reducer ******************/
@@ -199,6 +200,12 @@ export const uiReducer = (state = initialState, action) => {
       {
         return { ...state,
           dynParams: action.payload
+        }
+      }
+    case actions.SetDynPreset:
+      {
+        return { ...state,
+          dynPreset: action.payload
         }
       }
     default:

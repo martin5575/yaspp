@@ -8,6 +8,7 @@ import { getSelectedLeague, getSelectedYear } from '../../reducers/selectors/uiS
 function AgentInfoView({ store }) {
   const state = store.getState()
   const [tab, setTab] = useState('about')
+  const dynPreset = state.ui.dynPreset
 
   const currentLeague = getSelectedLeague(state)
   const currentYear = getSelectedYear(state)
@@ -93,6 +94,41 @@ function AgentInfoView({ store }) {
             {`λ_eff   = (1 − α) × λ_longterm + α × λ_recent\n` +
               `λ_final = λ_eff × defense_factor (opponent)`}
           </pre>
+
+          <h6 className='mt-4 mb-2'>Vorschau-Parameter (Preset-Daten)</h6>
+          <p style={{ fontSize: 13 }}>
+            Für die ersten Spieltage einer Saison fehlen noch aktuelle Statistiken.
+            Der Dynamic Agent greift dann automatisch auf vorberechnete Preset-Parameter aus der Vorsaison zurück.
+          </p>
+          <table className='table table-sm table-bordered' style={{ fontSize: 12 }}>
+            <tbody>
+              <tr><td><strong>Datenquelle</strong></td>
+                <td>Alle Spieltage der Vorsaison (Spieltag 1–34, n = 34)</td></tr>
+              <tr><td><strong>Angriffsstärke (attack)</strong></td>
+                <td>Ø Tore / Spiel des Teams ÷ Liga-Durchschnitt, normalisiert auf geometrisches Mittel = 1,0</td></tr>
+              <tr><td><strong>Abwehrstärke (defense)</strong></td>
+                <td>Kassierte Tore / Spiel ÷ Liga-Durchschnitt, normalisiert auf geometrisches Mittel = 1,0</td></tr>
+              <tr><td><strong>λ_preset</strong></td>
+                <td>attack × leagueAvg — ergibt erwartete Tore pro Spiel</td></tr>
+              <tr><td><strong>Aufstiegsteams</strong></td>
+                <td>Template-Werte basierend auf historischer Performance von Aufsteigern (schwächerer Angriff, schwächere Abwehr)</td></tr>
+            </tbody>
+          </table>
+          {dynPreset ? (
+            <div className='alert alert-info py-2' style={{ fontSize: 12 }}>
+              <strong>Aktives Preset:</strong> {dynPreset.league?.toUpperCase()} Saison {dynPreset.targetYear}
+              {' '}(Quelle: Saison {dynPreset.sourceYear}) ·{' '}
+              Liga-Ø {dynPreset.leagueAvg?.toFixed(3)} Tore/Spiel ·{' '}
+              Heimvorteil {dynPreset.homeAdvantage?.toFixed(4)}
+              {dynPreset.promotedTeamTemplate && (
+                <span> · Aufsteiger-Template: attack {dynPreset.promotedTeamTemplate.attack?.toFixed(3)}, defense {dynPreset.promotedTeamTemplate.defense?.toFixed(3)}</span>
+              )}
+            </div>
+          ) : (
+            <div className='text-muted' style={{ fontSize: 12 }}>
+              Kein Preset geladen (keine Datei für diese Liga / Saison verfügbar).
+            </div>
+          )}
         </>
       )}
 
@@ -122,7 +158,58 @@ function AgentInfoView({ store }) {
             </select>
           </div>
 
-          {seasonInfo.length === 0 ? (
+          {seasonInfo.length === 0 && dynPreset && statsLeague === getSelectedLeague(state) && statsYear === getSelectedYear(state) ? (
+            <>
+              <p className='text-muted' style={{ fontSize: 13 }}>
+                Noch keine Saison-Daten verfügbar — Preset-Werte aus Saison {dynPreset.sourceYear}:
+              </p>
+              <table className='table table-sm table-bordered'>
+                <thead className='table-light'>
+                  <tr>
+                    <th>Team</th>
+                    <th className='text-center' title='λ aus Preset (attack × leagueAvg)'>λ Preset</th>
+                    <th className='text-center' title='Defensivfaktor aus Preset'>Def Preset</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(dynPreset.teams)
+                    .filter(([, t]) => t.source === 'season_data')
+                    .sort(([, a], [, b]) => (b.attack * dynPreset.leagueAvg) - (a.attack * dynPreset.leagueAvg))
+                    .map(([id, t]) => {
+                      const lambdaPreset = t.attack * dynPreset.leagueAvg
+                      const teamObj = teams[parseInt(id, 10)]
+                      return (
+                        <tr key={id}>
+                          <td>
+                            <span className='d-flex align-items-center gap-1'>
+                              {teamObj?.iconUrl && (
+                                <img src={teamObj.iconUrl} alt='' style={{ width: 16, height: 16, objectFit: 'contain' }} />
+                              )}
+                              {teamObj?.shortName || teamObj?.name || t.name}
+                            </span>
+                          </td>
+                          <td className='text-center fw-semibold'>{fmt(lambdaPreset)}</td>
+                          <td className='text-center'
+                            style={{ color: t.defense < 0.95 ? '#198754' : t.defense > 1.05 ? '#dc3545' : undefined }}>
+                            {fmt(t.defense)}
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  {dynPreset.promotedTeamTemplate && (
+                    <tr style={{ fontStyle: 'italic', color: '#888' }}>
+                      <td>Aufstiegsteams (Template)</td>
+                      <td className='text-center'>{fmt(dynPreset.promotedTeamTemplate.attack * dynPreset.leagueAvg)}</td>
+                      <td className='text-center'>{fmt(dynPreset.promotedTeamTemplate.defense)}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+              <p className='text-muted mt-1' style={{ fontSize: 11 }}>
+                λ = erwartete Tore pro Spiel (Preset) · Def &lt; 1: starke Abwehr · Def &gt; 1: schwache Abwehr
+              </p>
+            </>
+          ) : seasonInfo.length === 0 ? (
             <p className='text-muted' style={{ fontSize: 13 }}>
               Keine Daten für diese Liga / Saison geladen.
             </p>

@@ -62,6 +62,8 @@ function MatchsPerDay(props) {
           selectedModelId={props.selectedModelId}
           probabilityDetailsMatchId={props.probabilityDetailsMatchId}
           toggleProbabilityDetails={props.toggleProbabilityDetails}
+          dynParams={props.dynParams}
+          dynPreset={props.dynPreset}
         />
       ))}
     </>

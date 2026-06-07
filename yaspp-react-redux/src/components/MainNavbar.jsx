@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   dispatchSelectYear,
   updateMatchDaysIfNecessary,
 } from '../actions/ActionBuilderWithStore'
+import * as actionBuilder from '../actions/ActionBuilder'
 import ListNavigator from './ListNavigator'
 import YearSelector from './YearSelector'
 import { getSelectedYears, getSelectedMatchs } from '../utils/filter'
@@ -24,6 +25,7 @@ import './Navbar.css'
 function MainNavbar({ store }) {
   const [, setTick] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const loadedPresetRef = useRef(null)
 
   useEffect(() => {
     const unsubscribe = store.subscribe(() => setTick((t) => t + 1))
@@ -42,6 +44,17 @@ function MainNavbar({ store }) {
   const relevantYears = getSelectedYears(state)
   const selectedLeague = getSelectedLeague(state)
   const selectedYear = getSelectedYear(state)
+
+  useEffect(() => {
+    if (!selectedLeague || !selectedYear) return
+    const key = `${selectedLeague}-${selectedYear}`
+    if (loadedPresetRef.current === key) return
+    loadedPresetRef.current = key
+    fetch(`./data/${selectedLeague}-${selectedYear}-params.json`)
+      .then(r => r.json())
+      .then(data => store.dispatch(actionBuilder.setDynPreset(data)))
+      .catch(() => store.dispatch(actionBuilder.setDynPreset(null)))
+  }, [selectedLeague, selectedYear])
   const relevantMatchs = getSelectedMatchs(state)
   const teams = getAllTeams(state)
   const seasonInfo = getSeasonInfo(state)

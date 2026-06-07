@@ -143,11 +143,28 @@ export const aggregateSeasonInfo = (matchs) => {
 
 
 
-const getDynAvg = (infoHome, infoAway, previousMatchs, params) => {
-  const { alpha = 0.35, recentN = 6, useDefenseFactor = true } = params || {}
+const getDynAvg = (infoHome, infoAway, previousMatchs, params, teamHomeId, teamAwayId) => {
+  const { alpha = 0.35, recentN = 6, useDefenseFactor = true, preset } = params || {}
 
-  const ltHome = infoHome && infoHome.tm > 0 ? infoHome.tgf / infoHome.tm : undefined
-  const ltAway = infoAway && infoAway.tm > 0 ? infoAway.tgf / infoAway.tm : undefined
+  const getPresetEntry = (teamId) => {
+    if (!preset?.teams || teamId == null) return null
+    return preset.teams[String(teamId)] ?? preset.promotedTeamTemplate ?? null
+  }
+
+  const getLt = (info, teamId) => {
+    if (info && info.tm > 0) return info.tgf / info.tm
+    const p = getPresetEntry(info?.team ?? teamId)
+    return (p && preset?.leagueAvg) ? p.attack * preset.leagueAvg : undefined
+  }
+
+  const getEffectiveTdf = (info, teamId) => {
+    if (info?.tdf) return info.tdf
+    const p = getPresetEntry(info?.team ?? teamId)
+    return p?.defense ?? null
+  }
+
+  const ltHome = getLt(infoHome, teamHomeId)
+  const ltAway = getLt(infoAway, teamAwayId)
 
   if (ltHome === undefined || ltAway === undefined) return { home: ltHome, away: ltAway }
 
@@ -166,15 +183,21 @@ const getDynAvg = (infoHome, infoAway, previousMatchs, params) => {
       : null
   }
 
-  const rfHome = recentGoals(infoHome.team) ?? ltHome
-  const rfAway = recentGoals(infoAway.team) ?? ltAway
+  const resolvedHomeId = infoHome?.team ?? teamHomeId
+  const resolvedAwayId = infoAway?.team ?? teamAwayId
+
+  const rfHome = recentGoals(resolvedHomeId) ?? ltHome
+  const rfAway = recentGoals(resolvedAwayId) ?? ltAway
 
   const effHome = (1 - alpha) * ltHome + alpha * rfHome
   const effAway = (1 - alpha) * ltAway + alpha * rfAway
 
+  const tdfAway = getEffectiveTdf(infoAway, teamAwayId)
+  const tdfHome = getEffectiveTdf(infoHome, teamHomeId)
+
   return {
-    home: useDefenseFactor && infoAway?.tdf ? effHome * infoAway.tdf : effHome,
-    away: useDefenseFactor && infoHome?.tdf ? effAway * infoHome.tdf : effAway,
+    home: useDefenseFactor && tdfAway ? effHome * tdfAway : effHome,
+    away: useDefenseFactor && tdfHome ? effAway * tdfHome : effAway,
   }
 }
 
@@ -216,7 +239,7 @@ const getTGDF_TGDF_AVG = (infoHome, infoAway) => {
   }
 }
 
-const getStats = (infoHome, infoAway, statsType, previousMatchs, params) => {
+const getStats = (infoHome, infoAway, statsType, previousMatchs, params, teamHomeId, teamAwayId) => {
   switch (statsType) {
     case stats.HomeGoalsVsAwayGoalsWithDefenseFactor:
       return getHGDF_AGDF_AVG(infoHome, infoAway)
@@ -227,7 +250,7 @@ const getStats = (infoHome, infoAway, statsType, previousMatchs, params) => {
     case stats.TotalGoalsVsTotalGoals:
       return getTG_TG_AVG(infoHome, infoAway)
     case stats.Dynamic:
-      return getDynAvg(infoHome, infoAway, previousMatchs, params)
+      return getDynAvg(infoHome, infoAway, previousMatchs, params, teamHomeId, teamAwayId)
     case stats.TwoToOne:
       return { home: 2, away: 1, isFixed: true }
     case stats.OneToZero:
@@ -248,7 +271,7 @@ export const calcStats = (seasonInfo, teamHomeId, teamAwayId, statsType, previou
   const infoHome = seasonInfo.find((x) => x.team === teamHomeId)
   const infoAway = seasonInfo.find((x) => x.team === teamAwayId)
   const resolvedParams = params ?? stats.getParams(statsType)
-  return getStats(infoHome, infoAway, statsType, previousMatchs || [], resolvedParams)
+  return getStats(infoHome, infoAway, statsType, previousMatchs || [], resolvedParams, teamHomeId, teamAwayId)
 }
 
 const formatNumber = (n, digits) => (n ? n.toFixed(digits) : '0.0')
