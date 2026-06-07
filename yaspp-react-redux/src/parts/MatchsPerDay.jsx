@@ -8,6 +8,7 @@ function MatchsPerDay(props) {
   const statsTitle = props.statsTitle
   const statsDescription = props.statsDescription
   const showPercentage = props.showPercentage
+  const onAgentInfo = props.onAgentInfo
   return (
     <>
   <div className="row match-header align-items-baseline g-0" key="this.props.date">
@@ -21,7 +22,13 @@ function MatchsPerDay(props) {
             <small>
               {statsTitle}
               &nbsp;
-              <FontAwesomeIcon icon="info-circle" size="sm" />
+              <FontAwesomeIcon
+                icon="info-circle"
+                size="sm"
+                onClick={onAgentInfo}
+                style={onAgentInfo ? { cursor: 'pointer' } : {}}
+                title="Agenten-Info & Einstellungen"
+              />
             </small>
           </div>
         )}

@@ -429,6 +429,11 @@ const toggleProbabilityDetails = (matchId) => ({
   payload: matchId
 })
 
+const setDynParams = (params) => {
+  try { localStorage.setItem('yaspp_dyn_params', JSON.stringify(params)) } catch {}
+  return { type: actions.SetDynParams, payload: params }
+}
+
 export {
   clearAll,
   clearSeason,
@@ -447,4 +452,5 @@ export {
   showPercentage,
   switchModel,
   toggleProbabilityDetails,
+  setDynParams,
 }

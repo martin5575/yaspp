@@ -16,6 +16,7 @@ import  SingleMatchView  from './SingleMatchView'
 
 import LoadingPage from './LoadingPage'
 import Storage from './Storage'
+import AgentInfoView from './Agents/AgentInfoView'
 import { getSeasonInfo, getPreviousMatchs } from '../stats/seasonInfo'
 import { PercentageButton } from '../components/PercentageButton'
 
@@ -34,6 +35,7 @@ function App({ store }) {
   const state = store.getState()
   if (getIsLoading(state)) return <LoadingPage store={store} />
   if (state.ui.menuId === 'storage') return <Storage />
+  if (state.ui.menuId === 'agents') return <AgentInfoView store={store} />
 
   const relevantMatchs = getSelectedMatchs(state)
   const teams = getAllTeams(state)
@@ -42,6 +44,8 @@ function App({ store }) {
   const showPercentage = state.ui.showPercentage
   const selectedModelId = state.ui.selectedModelId
   const probabilityDetailsMatchId = state.ui.probabilityDetailsMatchId
+
+  const onAgentInfo = () => store.dispatch(actionBuilder.switchMenu('agents'))
 
   return (
     <div className="container.fluid">
@@ -61,6 +65,7 @@ function App({ store }) {
               showPercentage={showPercentage}
               selectedModelId={selectedModelId}
               probabilityDetailsMatchId={probabilityDetailsMatchId}
+              onAgentInfo={onAgentInfo}
               toggleProbabilityDetails={(matchId) => {
                 store.dispatch(
                   actionBuilder.toggleProbabilityDetails(matchId)

@@ -59,10 +59,15 @@ function MainMenu(props) {
                 <b>Einstellungen</b>
             </NavbarText>
             <NavItem>
+                <NavLink href="#" id="agents" onClick={selectMenu}>
+                  Agenten
+                </NavLink>
+            </NavItem>
+            <NavItem>
                 <NavLink href="#" id="storage" onClick={selectMenu}>
                   Speicher
                 </NavLink>
-          </NavItem>  
+          </NavItem>
         </Nav>
         </div>
       </Collapse>
