@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getDefinitions, getParams } from '../../stats/statsType'
 import * as actionBuilder from '../../actions/ActionBuilder'
+<<<<<<< HEAD
 import { aggregateSeasonInfo } from '../../stats/seasonInfo'
 import { getAllLeagues, getAllTeams, getAllYearsByLeague, getAllMatchs } from '../../reducers/selectors/modelSelector'
 import { getSelectedLeague, getSelectedYear } from '../../reducers/selectors/uiSelector'
@@ -14,12 +15,19 @@ function AgentInfoView({ store }) {
   const [statsLeague, setStatsLeague] = useState(currentLeague)
   const [statsYear, setStatsYear] = useState(currentYear)
 
+=======
+
+function AgentInfoView({ store }) {
+  const [tab, setTab] = useState('about')
+  const state = store.getState()
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
   const dynParams = state.ui.dynParams || getParams('dyn')
   const defaultParams = getParams('dyn')
   const dispatch = store.dispatch
   const update = (patch) => dispatch(actionBuilder.setDynParams({ ...dynParams, ...patch }))
   const reset = () => dispatch(actionBuilder.setDynParams(defaultParams))
 
+<<<<<<< HEAD
   const leagues = getAllLeagues(state) || []
   const yearsByLeague = getAllYearsByLeague(state) || {}
   const allMatchs = getAllMatchs(state) || []
@@ -67,11 +75,31 @@ function AgentInfoView({ store }) {
         <button type='button'
           className={`btn btn-sm ${tab === 'settings' ? 'btn-secondary' : 'btn-outline-secondary'}`}
           onClick={() => setTab('settings')}>
+=======
+  return (
+    <div style={{ maxWidth: 600, margin: '0 auto', padding: '16px 12px' }}>
+      <div className='btn-group mb-3' role='group'>
+        <button
+          type='button'
+          className={`btn btn-sm ${tab === 'about' ? 'btn-secondary' : 'btn-outline-secondary'}`}
+          onClick={() => setTab('about')}
+        >
+          Agenten
+        </button>
+        <button
+          type='button'
+          className={`btn btn-sm ${tab === 'settings' ? 'btn-secondary' : 'btn-outline-secondary'}`}
+          onClick={() => setTab('settings')}
+        >
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
           Einstellungen
         </button>
       </div>
 
+<<<<<<< HEAD
       {/* ── About ── */}
+=======
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
       {tab === 'about' && (
         <>
           <h6 className='mb-2'>Alle Agenten</h6>
@@ -88,6 +116,7 @@ function AgentInfoView({ store }) {
               ))}
             </tbody>
           </table>
+<<<<<<< HEAD
           <h6 className='mt-4 mb-2'>Dynamic Agent — Formel</h6>
           <pre style={{ background: '#f8f9fa', padding: 10, borderRadius: 4, fontSize: 12 }}>
             {`λ_eff   = (1 − α) × λ_longterm + α × λ_recent\n` +
@@ -174,6 +203,21 @@ function AgentInfoView({ store }) {
       )}
 
       {/* ── dyn settings ── */}
+=======
+
+          {defaultParams && (
+            <>
+              <h6 className='mt-4 mb-2'>Dynamic Agent — Formel</h6>
+              <pre style={{ background: '#f8f9fa', padding: 10, borderRadius: 4, fontSize: 12 }}>
+                {`λ_eff = (1 − α) × λ_longterm + α × λ_recent\n` +
+                  `λ_final = λ_eff × defense_factor (opponent)`}
+              </pre>
+            </>
+          )}
+        </>
+      )}
+
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
       {tab === 'settings' && (
         <>
           <h6 className='mb-3'>Dynamic Agent — Einstellungen</h6>
@@ -183,7 +227,12 @@ function AgentInfoView({ store }) {
               <span><strong>α (alpha)</strong> — Formgewichtung</span>
               <span className='badge bg-secondary'>{dynParams.alpha.toFixed(2)}</span>
             </label>
+<<<<<<< HEAD
             <input type='range' className='form-range'
+=======
+            <input
+              type='range' className='form-range'
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
               min={0.05} max={0.95} step={0.05}
               value={dynParams.alpha}
               onChange={e => update({ alpha: parseFloat(e.target.value) })}
@@ -198,7 +247,12 @@ function AgentInfoView({ store }) {
               <span><strong>N (recentN)</strong> — Letzte Spiele</span>
               <span className='badge bg-secondary'>{dynParams.recentN}</span>
             </label>
+<<<<<<< HEAD
             <input type='range' className='form-range'
+=======
+            <input
+              type='range' className='form-range'
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
               min={1} max={20} step={1}
               value={dynParams.recentN}
               onChange={e => update({ recentN: parseInt(e.target.value, 10) })}
@@ -209,7 +263,12 @@ function AgentInfoView({ store }) {
           </div>
 
           <div className='mb-4 form-check'>
+<<<<<<< HEAD
             <input className='form-check-input' type='checkbox' id='dynDefenseMain'
+=======
+            <input
+              className='form-check-input' type='checkbox' id='dynDefenseMain'
+>>>>>>> 49ebbb9445380e1ae3753f69796f98e360faab63
               checked={dynParams.useDefenseFactor}
               onChange={e => update({ useDefenseFactor: e.target.checked })}
             />
