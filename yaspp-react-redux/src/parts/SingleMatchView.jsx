@@ -42,7 +42,7 @@ function SingleMatchView(props) {
   const teamAwayId = match.teamAwayId;
   const teamAway = teams[teamAwayId]
   const modelKey = getKey(selectedModelId)
-  const stats = calcStats(seasonInfo, teamHomeId, teamAwayId, modelKey )
+  const stats = calcStats(seasonInfo, teamHomeId, teamAwayId, modelKey, previousMatchs)
   const previousMatchs = props.previousMatchs
 
   const dispatchPercentage = () => store.dispatch(actionBuilder.showPercentage(!state.ui.showPercentage))

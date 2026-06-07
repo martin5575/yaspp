@@ -2,17 +2,19 @@ export const TotalGoalsVsTotalGoals = "tg_vs_tg"
 export const TotalGoalsVsTotalGoalsWithDefenseFactor = "tgdf_vs_tgdf"
 export const HomeGoalsVsAwayGoals = "hg_vs_ag"
 export const HomeGoalsVsAwayGoalsWithDefenseFactor = "hgdf_vs_agdf"
+export const Dynamic = "dyn"
 export const TwoToOne = "2_1"
 export const OneToZero = "1_0"
 export const OneToOne = "1_1"
 export const TotalPointsVsTotalPoints = "tp_vs_tp"
 
-export const getKeys = () => {     
+export const getKeys = () => {
     return [
         TotalGoalsVsTotalGoals,
         TotalGoalsVsTotalGoalsWithDefenseFactor,
         HomeGoalsVsAwayGoals,
         HomeGoalsVsAwayGoalsWithDefenseFactor,
+        Dynamic,
         TotalPointsVsTotalPoints,
         TwoToOne,
         OneToZero,
@@ -30,7 +32,8 @@ const definitions = [
         key: TotalGoalsVsTotalGoalsWithDefenseFactor,
         short: "t-t*",
         description: "Zur Bestimmung der Torwahrscheinlichkeit der beiden Mannschaften werden jeweils alle Tore (heim & auswärts) genutzt. Zusätzlich wird die Verteidigungsstärke der gegnerischen Mannschaft berücksichtigt."
-    },    {
+    },
+    {
         key: HomeGoalsVsAwayGoals,
         short: "h-a",
         description: "Zur Bestimmung der Torwahrscheinlichkeit der Heimmannschaft werden nur die Heimtore genutzt und für die Auswärtsmannschaft die Auswärtstore."
@@ -39,6 +42,16 @@ const definitions = [
         key: HomeGoalsVsAwayGoalsWithDefenseFactor,
         short: "h-a*",
         description: "Zur Bestimmung der Torwahrscheinlichkeit der Heimmannschaft werden nur die Heimtore genutzt und für die Auswärtsmannschaft die Auswärtstore. Zusätzlich wird die Verteidigungsstärke der gegnerischen Mannschaft berücksichtigt."
+    },
+    {
+        key: Dynamic,
+        short: "dyn",
+        description: "Kombiniert den Saisondurchschnitt mit der aktuellen Form (gleitender Durchschnitt der letzten N Spiele). α gewichtet die Formstärke gegenüber dem Langzeitdurchschnitt. Zusätzlich wird die Defensivstärke des Gegners berücksichtigt.",
+        params: {
+            alpha: 0.35,
+            recentN: 6,
+            useDefenseFactor: true
+        }
     },
     {
         key: TwoToOne,
@@ -77,6 +90,13 @@ export const getShort = (key) => {
     const item = find(key)
     return item ? item.short : ""
 }
+
+export const getParams = (key) => {
+    const item = find(key)
+    return item ? item.params : undefined
+}
+
+export const getDefinitions = () => definitions
 
 export const getNextId = (currentId) => ++currentId % definitions.length
 
