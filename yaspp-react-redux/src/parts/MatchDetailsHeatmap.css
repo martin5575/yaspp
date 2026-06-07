@@ -16,3 +16,13 @@
 .hm-legend{display:flex;align-items:center;gap:8px;margin-top:10px}
 .hm-legend-bar{flex:1;height:8px;border-radius:999px;background:linear-gradient(90deg,hsl(210 80% 96%),hsl(210 80% 40%))}
 .hm-legend-labels{display:flex;justify-content:space-between;width:160px;font-size:12px;color:#666}
+
+@media (max-width: 420px) {
+    .heatmap-card { padding: 8px 6px; }
+    .hm-grid { gap: 2px; grid-template-columns: 28px repeat(7, 1fr); }
+    .hm-cell { min-height: 28px; }
+    .hm-pct { font-size: 9px; }
+    .hm-colhdr, .hm-rowhdr { font-size: 10px; }
+    .hm-title { font-size: 13px; }
+    .hm-legend-labels { font-size: 10px; }
+}

@@ -82,3 +82,13 @@
 
 .pm-top-res { font-weight: 600; }
 .pm-top-pct { color: #666; }
+
+@media (max-width: 420px) {
+    .pm-header, .pm-row { grid-template-columns: 44px 1fr 100px; gap: 6px; }
+    .pm-header { padding: 6px 8px; font-size: 11px; }
+    .pm-body { padding: 6px 8px 8px; gap: 4px; }
+    .pm-diff { font-size: 12px; }
+    .pm-bar { height: 14px; }
+    .pm-pct { font-size: 11px; right: 6px; }
+    .pm-top { font-size: 11px; }
+}

@@ -33,3 +33,22 @@ hr {
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
+
+/* ── Mobile layout fundamentals ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* iOS Safari: enable momentum scrolling inside every offcanvas panel.
+   Without this, the body scroll lock applied when an offcanvas opens
+   also silently prevents touch-scroll inside the panel itself. */
+.offcanvas-body {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+/* Respect iPhone notch / home-indicator safe areas */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
