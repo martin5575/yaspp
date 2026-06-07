@@ -32,6 +32,9 @@ jobs:
 
       - name: Build React app
         working-directory: yaspp-react-redux
+        env:
+          REACT_APP_COMMIT_SHA: ${{ github.sha }}
+          REACT_APP_BUILD_DATE: ${{ github.event.head_commit.timestamp }}
         run: npm run build
 
       - name: Assemble site
