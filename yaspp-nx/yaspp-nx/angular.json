@@ -1,9 +1,0 @@
-{
-  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-  "version": 2,
-  "projects": {
-    "open-liga-db": "libs/open-liga-db",
-    "yaspp-ng": "apps/yaspp-ng",
-    "yaspp-ng-e2e": "apps/yaspp-ng-e2e"
-  }
-}
