@@ -56,14 +56,6 @@ export const existLeagues = (state) => {
   return allLeagues && allLeagues.length > 0
 }
 
-export const existYears = (state, selectedLeague) => {
-  if (!state) throw new Error('state not defined')
-  if (!selectedLeague) throw new Error('selectedLeague not defined')
-
-  const yearsOfLeague = getAllYearsByLeague(state)[selectedLeague.toString()]
-  return yearsOfLeague && yearsOfLeague.length > 0
-}
-
 export const existTeams = (state, selectedLeague, selectedYear) => {
   if (!state) throw new Error('state not defined')
   if (!selectedLeague) throw new Error('selectedLeague not defined')

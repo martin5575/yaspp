@@ -5,10 +5,8 @@ import * as mapper from '../services/mapOpenLigaDB'
 import {
   existsMatchDay,
   existLeagues,
-  existYears,
   existTeams,
   existMatchDays,
-  getSelectedYears,
   getSelectedMatchDays,
   getSelectedMatchs,
   getLatestUpdate,
@@ -344,14 +342,8 @@ function fetchInitial(store) {
     let state = store.getState()
 
     const selectedLeague = getSelectedLeague(state)
-    if (!existYears(state, selectedLeague)) {
-      fetchYears(selectedLeague)(dispatch)
-      state = store.getState()
-    } else {
-      var year = getSelectedYears(state)[0]
-      dispatch(selectYear(selectedLeague, year.id))
-      state = store.getState()
-    }
+    fetchYears(selectedLeague)(dispatch)
+    state = store.getState()
 
     const selectedYear = getSelectedYear(state)
     if (!existTeams(state, selectedLeague, selectedYear)) {

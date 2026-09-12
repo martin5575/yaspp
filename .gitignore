@@ -3,7 +3,6 @@ node_modules/
 **/.venv/
 
 # Build artifacts
-/yaspp-react-redux/build/
 /yaspp-ng-dist/
 /yaspp-nx/
 
